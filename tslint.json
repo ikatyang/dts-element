@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint-config-ikatyang"],
+  "rules": {
+    "no-any": false,
+    "no-unused-any": false,
+    "prefer-function-over-method": false,
+    "variable-name": [true,
+      "ban-keywords",
+      "check-format",
+      "allow-snake-case",
+      "allow-leading-underscore"
+    ]
+  }
+}
