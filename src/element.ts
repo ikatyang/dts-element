@@ -1,17 +1,18 @@
-export abstract class Element<Parameters extends {}> {
+export abstract class Element<RequiredParameters extends {}, OptionalParameters extends {}> {
 
-  public parameters: Parameters;
+  public parameters: RequiredParameters & OptionalParameters;
 
-  constructor(parameters: Parameters) {
-    this.parameters = parameters;
+  constructor(parameters: RequiredParameters & Partial<OptionalParameters>) {
+    const defaults = this.get_default_parameters();
+    this.parameters = Object.assign({}, defaults, parameters);
   }
 
-  public get<Key extends keyof Parameters>(key: Key): Parameters[Key] {
+  public get<Key extends keyof this['parameters']>(key: Key): this['parameters'][Key] {
     return this.parameters[key];
   }
 
-  public set(values: Partial<Parameters>): this {
-    Object.keys(values).forEach((key: keyof Parameters) => {
+  public set(values: Partial<this['parameters']>): this {
+    Object.keys(values).forEach((key: keyof this['parameters']) => {
       const value = values[key];
       this.parameters[key] = value;
     });
@@ -27,6 +28,16 @@ export abstract class Element<Parameters extends {}> {
   public copy(element: this, is_deep_copy: boolean = false): this {
     this.parameters = this._clone_object(element.parameters, is_deep_copy);
     return this;
+  }
+
+  public abstract emit(): string;
+  protected abstract get_default_parameters(): OptionalParameters;
+
+  protected indent(str: string): string {
+    return str
+      .split('\n')
+      .map((line: string) => `  ${line}`)
+      .join('\n');
   }
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {

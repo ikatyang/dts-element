@@ -1,32 +1,31 @@
 import { Element } from './element';
 
-export type IDeclaration = IDeclarationRequiredParameters & IDeclarationOptionalParameters;
-
-export type IDeclarationParameters = IDeclarationRequiredParameters & Partial<IDeclarationOptionalParameters>;
-
 export interface IDeclarationRequiredParameters {
   name: string;
 }
 
 export interface IDeclarationOptionalParameters {
   jsdoc: string | null;
-  is_abstract: boolean;
-  is_static: boolean;
-  is_readonly: boolean;
-  access_modifier: 'public' | 'protected' | 'private' | null;
 }
 
-export abstract class Declaration extends Element<IDeclaration> {
+export abstract class Declaration<RequiredParameters extends {}, OptionalParameters extends {}> extends Element
+    <IDeclarationRequiredParameters & RequiredParameters, IDeclarationOptionalParameters & OptionalParameters> {
 
-  constructor(parameters: IDeclarationParameters) {
-    const defaults: IDeclarationOptionalParameters = {
+  protected _get_default_parameters(): IDeclarationOptionalParameters {
+    return {
       jsdoc: null,
-      is_abstract: false,
-      is_static: false,
-      is_readonly: false,
-      access_modifier: null,
     };
-    super({ ...defaults, ...parameters });
+  }
+
+  protected emit_jsdoc(): string {
+    if (this.parameters.jsdoc === null) {
+      return '';
+    }
+    const content = this.parameters.jsdoc
+      .split('\n')
+      .map((line: string) => ` * ${line}`)
+      .join('\n');
+    return `/**\n${content}\n */\n`;
   }
 
 }
