@@ -1,0 +1,10 @@
+{
+  "testEnvironment": "node",
+  "moduleFileExtensions": ["ts", "js"],
+  "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
+  "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+  "coverageReporters": [],
+  "testMatch": ["**/*.test.ts"],
+  "collectCoverageFrom": ["src/**/*.ts"],
+  "coveragePathIgnorePatterns": ["index.ts"]
+}

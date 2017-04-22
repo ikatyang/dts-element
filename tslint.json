@@ -2,7 +2,7 @@
   "extends": ["tslint-config-ikatyang"],
   "rules": {
     "no-any": false,
-    "no-unused-any": false,
+    "no-unsafe-any": false,
     "prefer-function-over-method": false,
     "variable-name": [true,
       "ban-keywords",

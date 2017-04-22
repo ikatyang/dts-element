@@ -6,7 +6,16 @@
   "repository": "https://github.com/ikatyang/dts-element",
   "author": "ikatyang",
   "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf ./lib",
+    "build": "tsc -p ./tsconfig.json",
+    "lint": "tslint src/**/* --type-check --project ./tsconfig.json",
+    "test": "jest --config ./jest.json",
+    "test-coverage": "yarn run test -- --coverage",
+    "posttest-coverage": "cat ./coverage/remapped/coverage.txt"
+  },
   "devDependencies": {
+    "@types/jest": "19.2.2",
     "jest": "19.0.2",
     "ts-jest": "19.0.10",
     "tslint": "5.1.0",
