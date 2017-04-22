@@ -2271,9 +2271,9 @@ tslib@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.6.0.tgz#cf36c93e02ae86a20fc131eae511162b869a6652"
 
-tslint-config-ikatyang@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/tslint-config-ikatyang/-/tslint-config-ikatyang-0.1.1.tgz#0cb6eef8b3075153fb0b1cc65dc509ee5e390675"
+tslint-config-ikatyang@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-ikatyang/-/tslint-config-ikatyang-0.2.0.tgz#f04bc2fdc5079de29870665e537fcfc78d206d53"
   dependencies:
     tslint-eslint-rules "^4.0.0"
 
