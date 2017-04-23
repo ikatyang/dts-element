@@ -1,5 +1,5 @@
-import { Element } from './element';
-import { line_map } from './helpers/line-map';
+import {Element} from './element';
+import {line_map} from './helpers/line-map';
 
 export interface IDeclarationRequiredParameters {
   name: string;
@@ -21,7 +21,7 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
   }
 
   public emit_jsdoc(): string {
-    const { jsdoc } = this.parameters;
+    const {jsdoc} = this.parameters;
     const content = line_map(jsdoc, (line: string) => ` * ${line}`);
     return (content.length === 0)
       ? content

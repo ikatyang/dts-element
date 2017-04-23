@@ -1,4 +1,4 @@
-import { Element } from '../element';
+import {Element} from '../element';
 
 // tslint:disable max-classes-per-file prefer-function-over-method
 
@@ -6,7 +6,7 @@ interface INormalRequiredParameters { required: string; }
 interface INormalOptionalParameters { optional: string; }
 class NormalElement extends Element<INormalRequiredParameters, INormalOptionalParameters> {
   public get default_parameters(): INormalOptionalParameters {
-    return { optional: 'default' };
+    return {optional: 'default'};
   }
   public emit(): string {
     return '';
@@ -24,8 +24,8 @@ class NestedElement extends Element<{}, INestedParameters> {
     return {
       prime: 'string',
       array: ['1', '2', '3'],
-      object: { key: 'value' },
-      element: new NormalElement({ required: 'string' }),
+      object: {key: 'value'},
+      element: new NormalElement({required: 'string'}),
     };
   }
   public emit(): string {
@@ -35,26 +35,26 @@ class NestedElement extends Element<{}, INestedParameters> {
 
 describe('#constructor', () => {
   it('should set #parameters with default parameters', () => {
-    const element = new NormalElement({ required: 'user-defined' });
-    expect(element.parameters).toEqual({ required: 'user-defined', optional: 'default' });
+    const element = new NormalElement({required: 'user-defined'});
+    expect(element.parameters).toEqual({required: 'user-defined', optional: 'default'});
   });
   it('should set #parameters without default parameters', () => {
-    const element = new NormalElement({ required: 'user-defined', optional: 'user-defined' });
-    expect(element.parameters).toEqual({ required: 'user-defined', optional: 'user-defined' });
+    const element = new NormalElement({required: 'user-defined', optional: 'user-defined'});
+    expect(element.parameters).toEqual({required: 'user-defined', optional: 'user-defined'});
   });
 });
 
 describe('#get()', () => {
   it('should return specified parameter', () => {
-    const element = new NormalElement({ required: 'user-defined' });
+    const element = new NormalElement({required: 'user-defined'});
     expect(element.get('required')).toBe('user-defined');
   });
 });
 
 describe('#set()', () => {
   it('should set specified parameter and return self for chaining', () => {
-    const element = new NormalElement({ required: 'user-defined' });
-    expect(element.set({ required: 'user-set' })).toBe(element);
+    const element = new NormalElement({required: 'user-defined'});
+    expect(element.set({required: 'user-set'})).toBe(element);
     expect(element.parameters.required).toBe('user-set');
   });
 });

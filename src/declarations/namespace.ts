@@ -1,5 +1,5 @@
-import { AnyDeclaration, Declaration, IDeclarationOptionalParameters } from '../declaration';
-import { indent } from '../helpers/indent';
+import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
+import {indent} from '../helpers/indent';
 
 // tslint:disable-next-line no-empty-interface
 export interface INamespaceRequiredParameters {}
@@ -12,7 +12,7 @@ export class NamespaceDeclaration extends Declaration<INamespaceRequiredParamete
 
   public emit(): string {
     const jsdoc = this.emit_jsdoc();
-    const { name, declarations } = this.parameters;
+    const {name, declarations} = this.parameters;
     const content = declarations
       .map((declaration: Declaration<any, any>) => declaration.emit())
       .join('\n');

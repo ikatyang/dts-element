@@ -1,4 +1,4 @@
-import { Element } from './element';
+import {Element} from './element';
 
 export type AnyType = Type<any, any>;
 
