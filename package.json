@@ -12,10 +12,12 @@
     "lint": "tslint --type-check --project ./tsconfig.lint.json",
     "test": "jest --config ./jest.json",
     "test-coverage": "yarn run test -- --coverage",
-    "posttest-coverage": "cat ./coverage/remapped/coverage.txt"
+    "posttest-coverage": "cat ./coverage/remapped/coverage.txt",
+    "coverage-ci": "codecov"
   },
   "devDependencies": {
     "@types/jest": "19.2.2",
+    "codecov": "2.1.0",
     "jest": "19.0.2",
     "ts-jest": "19.0.10",
     "tslint": "5.1.0",
