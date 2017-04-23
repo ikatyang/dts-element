@@ -1,11 +1,14 @@
 import { Declaration, IDeclarationOptionalParameters } from '../declaration';
 import { indent } from '../helpers/indent';
 
+// tslint:disable-next-line no-empty-interface
+export interface INamespaceRequiredParameters {}
+
 export interface INamespaceOptionalParameters {
   declarations: Declaration<any, any>[];
 }
 
-export class NamespaceDeclaration extends Declaration<{}, INamespaceOptionalParameters> {
+export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
 
   public emit(): string {
     const jsdoc = this.emit_jsdoc();
