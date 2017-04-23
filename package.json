@@ -11,8 +11,9 @@
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.json",
     "lint": "tslint --type-check --project ./tsconfig.lint.json",
-    "test": "jest --config ./jest.json",
-    "test-coverage": "yarn run test -- --coverage",
+    "jest": "jest --config ./jest.json",
+    "test": "yarn run jest -- --verbose",
+    "test-coverage": "yarn run jest -- --coverage",
     "posttest-coverage": "cat ./coverage/remapped/coverage.txt",
     "coverage-ci": "codecov"
   },
