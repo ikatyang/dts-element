@@ -33,13 +33,6 @@ export abstract class Element<RequiredParameters extends {}, OptionalParameters 
   public abstract emit(): string;
   protected abstract get_default_parameters(): OptionalParameters;
 
-  protected indent(str: string): string {
-    return str
-      .split('\n')
-      .map((line: string) => `  ${line}`)
-      .join('\n');
-  }
-
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')
       ? value
