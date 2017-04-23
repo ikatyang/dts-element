@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#emit_jsdoc() should return formatted jsdoc 1`] = `
+exports[`#emit_jsdoc() should return formatted jsdoc while jsdoc is non-empty  1`] = `
 "/**
  * line 1
  * line 2
