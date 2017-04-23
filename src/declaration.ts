@@ -11,7 +11,7 @@ export interface IDeclarationOptionalParameters {
 export abstract class Declaration<RequiredParameters extends {}, OptionalParameters extends {}> extends Element
     <IDeclarationRequiredParameters & RequiredParameters, IDeclarationOptionalParameters & OptionalParameters> {
 
-  protected _get_default_parameters(): IDeclarationOptionalParameters {
+  public get default_declaration_parameters(): IDeclarationOptionalParameters {
     return {
       jsdoc: null,
     };

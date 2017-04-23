@@ -1,11 +1,11 @@
 import { Element } from './element';
 
-// tslint:disable max-classes-per-file
+// tslint:disable max-classes-per-file prefer-function-over-method
 
 interface INormalRequiredParameters { required: string; }
 interface INormalOptionalParameters { optional: string; }
 class NormalElement extends Element<INormalRequiredParameters, INormalOptionalParameters> {
-  public get_default_parameters(): INormalOptionalParameters {
+  public get default_parameters(): INormalOptionalParameters {
     return { optional: 'default' };
   }
   public emit(): string {
@@ -20,7 +20,7 @@ interface INestedParameters {
   element: Element<any, any>;
 }
 class NestedElement extends Element<{}, INestedParameters> {
-  public get_default_parameters(): INestedParameters {
+  public get default_parameters(): INestedParameters {
     return {
       prime: 'string',
       array: ['1', '2', '3'],

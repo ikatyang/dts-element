@@ -15,8 +15,8 @@ export class Namespace extends Declaration<{}, INamespaceOptionalParameters> {
     return `${jsdoc}declare namespace {\n${indent(content)}}`;
   }
 
-  protected get_default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
-    return Object.assign({}, super._get_default_parameters(), {
+  public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
+    return Object.assign({}, super.default_declaration_parameters, {
       declarations: [],
     });
   }
