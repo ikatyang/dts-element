@@ -1,23 +1,8 @@
 import { Declaration } from './declaration';
 
-const input = `line 1
-line 2
-line 3`;
-
-const output = `/**
- * line 1
- * line 2
- * line 3
- */
-`;
-
 describe('#emit_jsdoc()', () => {
-  it('should return empty-string with jsdoc = null', () => {
-    const declaration = { parameters: { jsdoc: null } };
-    expect(Declaration.prototype.emit_jsdoc.call(declaration)).toBe('');
-  });
-  it('should return formatted jsdoc with jsdoc = string', () => {
-    const declaration = { parameters: { jsdoc: input } };
-    expect(Declaration.prototype.emit_jsdoc.call(declaration)).toBe(output);
+  it('should return formatted jsdoc', () => {
+    const declaration = { parameters: { jsdoc: 'line 1\nline 2\nline 3' } };
+    expect(Declaration.prototype.emit_jsdoc.call(declaration)).toMatchSnapshot();
   });
 });
