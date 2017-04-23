@@ -1,4 +1,4 @@
-import { Declaration } from './declaration';
+import { Declaration } from '../declaration';
 
 describe('#emit_jsdoc()', () => {
   it('should return empty-string while jsdoc is empty', () => {

@@ -1,4 +1,4 @@
-import { NamespaceDeclaration } from './namespace';
+import { NamespaceDeclaration } from '../namespace';
 
 describe('#emit()', () => {
   it('should return formatted namespace', () => {

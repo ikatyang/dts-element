@@ -1,4 +1,4 @@
-import { line_map } from './line-map';
+import { line_map } from '../line-map';
 
 const fn = (line: string): string => `- ${line} -`;
 

@@ -1,4 +1,4 @@
-import { BasicType } from './basic';
+import { BasicType } from '../basic';
 
 describe('#emit()', () => {
   it('should return its name', () => {
