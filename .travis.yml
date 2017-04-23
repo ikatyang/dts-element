@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - 'stable'
+  - '6'
+
+env:
+  - JOB=test
+
+script:
+  - if [ "$JOB" = "lint" ]; then yarn run lint; fi
+  - if [ "$JOB" = "test" ]; then yarn run test; fi
+  - if [ "$JOB" = "build" ]; then yarn run build; fi
+  - if [ "$JOB" = "test-coverage" ]; then yarn run test-coverage && yarn run coverage-ci; fi
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+matrix:
+  fast_finish: true
+  include:
+    - node_js: "stable"
+      env: JOB=lint
+    - node_js: "stable"
+      env: JOB=build
+    - node_js: "stable"
+      env: JOB=test-coverage
+
+os:
+  - linux
