@@ -1,4 +1,3 @@
-export const indent = (str: string): string => str
-  .split('\n')
-  .map((line: string) => `  ${line}`)
-  .join('\n');
+import { line_map } from './line-map';
+
+export const indent = (str: string): string => line_map(str, (line: string) => `  ${line}`);
