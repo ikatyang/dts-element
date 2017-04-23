@@ -5,7 +5,7 @@ export interface INamespaceOptionalParameters {
   declarations: Declaration<any, any>[];
 }
 
-export class Namespace extends Declaration<{}, INamespaceOptionalParameters> {
+export class NamespaceDeclaration extends Declaration<{}, INamespaceOptionalParameters> {
 
   public emit(): string {
     const jsdoc = this.emit_jsdoc();
