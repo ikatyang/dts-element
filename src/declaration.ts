@@ -6,7 +6,7 @@ export interface IDeclarationRequiredParameters {
 }
 
 export interface IDeclarationOptionalParameters {
-  jsdoc: string | null;
+  jsdoc: string;
 }
 
 export abstract class Declaration<RequiredParameters extends {}, OptionalParameters extends {}> extends Element
@@ -15,17 +15,16 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
   // istanbul ignore next
   public get default_declaration_parameters(): IDeclarationOptionalParameters {
     return {
-      jsdoc: null,
+      jsdoc: '',
     };
   }
 
   public emit_jsdoc(): string {
     const { jsdoc } = this.parameters;
-    if (jsdoc === null) {
-      return '';
-    }
     const content = line_map(jsdoc, (line: string) => ` * ${line}`);
-    return `/**\n${content}\n */\n`;
+    return (content.length === 0)
+      ? content
+      : `/**\n${content}\n */\n`;
   }
 
 }

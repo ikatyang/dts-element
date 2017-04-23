@@ -9,10 +9,11 @@ export class Namespace extends Declaration<{}, INamespaceOptionalParameters> {
 
   public emit(): string {
     const jsdoc = this.emit_jsdoc();
-    const content = this.parameters.declarations
+    const { name, declarations } = this.parameters;
+    const content = declarations
       .map((declaration: Declaration<any, any>) => declaration.emit())
       .join('\n');
-    return `${jsdoc}declare namespace {\n${indent(content)}}`;
+    return `${jsdoc}declare namespace ${name} {\n${indent(content)}}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
