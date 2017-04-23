@@ -1,3 +1,7 @@
 {
-  "extends": ["tslint-config-ikatyang"]
+  "extends": ["tslint-config-ikatyang"],
+  "rules": {
+    "prefer-function-over-method": true,
+    "no-unused-variable": false
+  }
 }

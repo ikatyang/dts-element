@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "es6",
     "strict": true,
-    "outDir": "lib"
+    "outDir": "lib",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "files": ["src/index.ts"]
 }

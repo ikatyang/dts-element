@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.json",
-    "lint": "tslint src/**/* --type-check --project ./tsconfig.json",
+    "lint": "tslint --type-check --project ./tsconfig.lint.json",
     "test": "jest --config ./jest.json",
     "test-coverage": "yarn run test -- --coverage",
     "posttest-coverage": "cat ./coverage/remapped/coverage.txt"
