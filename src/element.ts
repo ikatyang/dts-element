@@ -1,3 +1,5 @@
+export type AnyElement = Element<any, any>;
+
 export abstract class Element<RequiredParameters extends {}, OptionalParameters extends {}> {
 
   public parameters: RequiredParameters & OptionalParameters;

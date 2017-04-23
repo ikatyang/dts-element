@@ -9,6 +9,8 @@ export interface IDeclarationOptionalParameters {
   jsdoc: string;
 }
 
+export type AnyDeclaration = Declaration<any, any>;
+
 export abstract class Declaration<RequiredParameters extends {}, OptionalParameters extends {}> extends Element
     <IDeclarationRequiredParameters & RequiredParameters, IDeclarationOptionalParameters & OptionalParameters> {
 

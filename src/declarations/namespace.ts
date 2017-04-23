@@ -1,11 +1,11 @@
-import { Declaration, IDeclarationOptionalParameters } from '../declaration';
+import { AnyDeclaration, Declaration, IDeclarationOptionalParameters } from '../declaration';
 import { indent } from '../helpers/indent';
 
 // tslint:disable-next-line no-empty-interface
 export interface INamespaceRequiredParameters {}
 
 export interface INamespaceOptionalParameters {
-  declarations: Declaration<any, any>[];
+  declarations: AnyDeclaration[];
 }
 
 export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
