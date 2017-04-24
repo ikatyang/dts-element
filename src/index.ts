@@ -1,5 +1,6 @@
 export * from './declarations/namespace';
 export * from './types/basic';
+export * from './constants';
 export * from './declaration';
 export * from './document';
 export * from './element';
