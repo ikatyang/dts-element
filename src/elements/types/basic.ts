@@ -14,7 +14,7 @@ export class BasicType extends Type<IBasicRequiredParameters, IBasicOptionalPara
     return {};
   }
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     return this.parameters.name;
   }
 

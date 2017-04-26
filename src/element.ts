@@ -33,10 +33,10 @@ export abstract class Element<RequiredParameters extends {}, OptionalParameters 
   }
 
   public emit(): string {
-    return this._emit.call(this);
+    return this._emit(null);
   }
 
-  public abstract _emit(container: AnyElement): string;
+  public abstract _emit(container: AnyElement | null): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')

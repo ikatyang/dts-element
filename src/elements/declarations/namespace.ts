@@ -11,7 +11,7 @@ export interface INamespaceOptionalParameters {
 
 export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const {name, children} = this.parameters;
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))

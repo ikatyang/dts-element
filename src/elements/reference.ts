@@ -14,7 +14,7 @@ export class Reference extends Element<IReferenceRequiredParameters, IReferenceO
     return {};
   }
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const {kind, content} = this.parameters;
     return `/// <reference ${kind}="${content}" />`;
   }

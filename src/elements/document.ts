@@ -16,7 +16,7 @@ export class Document extends Element<IDocumentRequiredParameters, IDocumentOpti
     return {};
   }
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const {children} = this.parameters;
     const content = children.map((element: RootElement) => element._emit(this)).join('\n');
     return trim_every_line(content);

@@ -20,7 +20,7 @@ export class GenericType extends Type<IGenericRequiredParameters, IGenericOption
     };
   }
 
-  public _emit(container: AnyElement): string {
+  public _emit(container: AnyElement | null): string {
     return (container instanceof InterfaceDeclaration)
       ? this.emit_definition()
       : this.parameters.name;

@@ -13,7 +13,7 @@ export interface IVariableOptionalParameters {
 
 export class VariableDeclaration extends Declaration<IVariableRequiredParameters, IVariableOptionalParameters> {
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const {name, kind, type: a_type} = this.parameters;
     return `declare ${kind} ${name}: ${a_type._emit(this)};`;
   }

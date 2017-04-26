@@ -14,7 +14,7 @@ export interface IInterfaceOptionalParameters {
 
 export class InterfaceDeclaration extends Declaration<IInterfaceRequiredParameters, IInterfaceOptionalParameters> {
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
     const generic = genericify(generics, this);
     const content = children

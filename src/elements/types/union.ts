@@ -14,7 +14,7 @@ export class UnionType extends Type<IUnionRequiredParameters, IUnionOptionalPara
     return {};
   }
 
-  public _emit(_container: AnyElement): string {
+  public _emit(_container: AnyElement | null): string {
     const types = this.parameters.types.map((type: AnyType) => type._emit(this));
     return `(${types.join(' | ')})`;
   }
