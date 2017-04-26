@@ -40,7 +40,6 @@ class NestedElement extends Element<{}, INestedParameters> {
   }
 }
 
-
 describe('#constructor', () => {
   it('should set #parameters with default parameters', () => {
     const element = new NormalElement({required: user_defined});
