@@ -8,8 +8,9 @@ describe('#emit()', () => {
     const name = 'A';
     const kind = 'const';
     const type_name = 'B';
+    const optional = true;
     const type = new BasicType({name: type_name});
-    const variable = new VariableDeclaration({name, kind, type});
+    const variable = new VariableDeclaration({name, kind, type, optional});
     expect(variable.emit()).toMatchSnapshot();
   });
 });
