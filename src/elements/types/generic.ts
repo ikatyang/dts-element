@@ -1,4 +1,5 @@
 import {AnyElement} from '../../element';
+import {InterfaceDeclaration} from '../declarations/interface';
 import {AnyType, Type} from '../type';
 
 export interface IGenericRequiredParameters {
@@ -25,8 +26,20 @@ export class GenericType extends Type<IGenericRequiredParameters, IGenericOption
     };
   }
 
-  public _emit(_container: AnyElement): string {
-    return this.parameters.name;
+  public _emit(container: AnyElement): string {
+    return (container instanceof InterfaceDeclaration)
+      ? this.emit_definition()
+      : this.parameters.name;
+  }
+
+  private emit_definition(): string {
+    const a_extends = (this.parameters.extends === null)
+      ? ''
+      : ` extends ${this.parameters.extends._emit(this)}`;
+    const a_default = (this.parameters.default === null)
+      ? ''
+      : ` = ${this.parameters.default._emit(this)}`;
+    return `${this.parameters.name}${a_extends}${a_default}`;
   }
 
 }
