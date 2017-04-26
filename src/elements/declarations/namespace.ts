@@ -12,12 +12,11 @@ export interface INamespaceOptionalParameters {
 export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
 
   public _emit(_container: AnyElement): string {
-    const jsdoc = this.emit_jsdoc();
     const {name, declarations} = this.parameters;
     const content = declarations
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
-    return `${jsdoc}declare namespace ${name} {\n${indent(content)}}`;
+    return `${this.jsdoc}declare namespace ${name} {\n${indent(content)}}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
