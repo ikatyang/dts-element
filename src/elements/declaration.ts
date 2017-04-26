@@ -1,5 +1,5 @@
 import {Element} from '../element';
-import {jsdocify} from '../helpers/jsdocify';
+import {emit_jsdoc} from '../helpers/emit-jsdoc';
 
 export interface IDeclarationRequiredParameters {
   name: string;
@@ -22,7 +22,7 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
   }
 
   public get jsdoc(): string {
-    const jsdoc = jsdocify(this.parameters.jsdoc);
+    const jsdoc = emit_jsdoc(this.parameters.jsdoc);
     return (jsdoc.length === 0)
       ? jsdoc
       : `${jsdoc}\n`;

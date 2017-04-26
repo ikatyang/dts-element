@@ -1,5 +1,5 @@
 import {AnyElement} from '../../element';
-import {genericify} from '../../helpers/genericify';
+import {emit_generics} from '../../helpers/emit-generics';
 import {indent} from '../../helpers/indent';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {GenericType} from '../types/generic';
@@ -17,7 +17,7 @@ export class InterfaceDeclaration
 
   public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
-    const generic = genericify(generics, this);
+    const generic = emit_generics(generics, this);
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');

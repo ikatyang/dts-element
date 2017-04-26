@@ -1,10 +1,10 @@
 import {GenericType} from '../../elements/types/generic';
-import {genericify} from '../genericify';
+import {emit_generics} from '../emit-generics';
 
 const container = null as any;
 
 it('should return empty string while generics is empty', () => {
-  expect(genericify([], container)).toBe('');
+  expect(emit_generics([], container)).toBe('');
 });
 
 it('should return joined string from emitted generics', () => {
@@ -12,5 +12,5 @@ it('should return joined string from emitted generics', () => {
   const name_b = 'U';
   const generic_a = new GenericType({name: name_a});
   const generic_b = new GenericType({name: name_b});
-  expect(genericify([generic_a, generic_b], container)).toBe(`<[GenericType ${name_a}], [GenericType ${name_b}]>`);
+  expect(emit_generics([generic_a, generic_b], container)).toBe(`<[GenericType ${name_a}], [GenericType ${name_b}]>`);
 });
