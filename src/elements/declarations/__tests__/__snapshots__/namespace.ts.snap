@@ -2,6 +2,14 @@
 
 exports[`#emit() should return formatted namespace 1`] = `
 "[JSDoc]
-declare namespace Test {
+declare namespace A {
+  [JSDoc]
+  declare namespace B {
+  
+  }
+  [JSDoc]
+  declare namespace C {
+  
+  }
 }"
 `;

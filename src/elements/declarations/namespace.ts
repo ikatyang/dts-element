@@ -6,22 +6,22 @@ import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../de
 export interface INamespaceRequiredParameters {}
 
 export interface INamespaceOptionalParameters {
-  declarations: AnyDeclaration[];
+  children: AnyDeclaration[];
 }
 
 export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
 
   public _emit(_container: AnyElement): string {
-    const {name, declarations} = this.parameters;
-    const content = declarations
+    const {name, children} = this.parameters;
+    const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
-    return `${this.jsdoc}declare namespace ${name} {\n${indent(content)}}`;
+    return `${this.jsdoc}declare namespace ${name} {\n${indent(content)}\n}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
-      declarations: [],
+      children: [],
     });
   }
 
