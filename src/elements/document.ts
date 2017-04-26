@@ -1,6 +1,5 @@
 import {RootElement} from '../collections';
-import {Element} from '../element';
-import {AnyElement} from '../element';
+import {AnyElement, Element} from '../element';
 import {trim_every_line} from '../helpers/trim-every-line';
 
 export interface IDocumentRequiredParameters {

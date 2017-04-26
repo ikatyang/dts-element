@@ -3,8 +3,7 @@
     "target": "es6",
     "strict": true,
     "outDir": "lib",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "declaration": true
   },
   "files": ["src/index.ts"]
 }
