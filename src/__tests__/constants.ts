@@ -15,6 +15,10 @@ import {
   void_type,
 } from '../constants';
 
+test('any_type should emit "any"', () => {
+  expect(any_type.emit()).toBe('any');
+});
+
 test('boolean_type should emit "boolean"', () => {
   expect(boolean_type.emit()).toBe('boolean');
 });
