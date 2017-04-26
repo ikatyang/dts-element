@@ -1,5 +1,5 @@
-import {IntersectionType} from '../intersection';
 import {nullType, numberType} from '../../constants';
+import {IntersectionType} from '../intersection';
 
 describe('#emit()', () => {
   it('should return emitted types join with &', () => {

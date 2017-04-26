@@ -1,5 +1,5 @@
-import {UnionType} from '../union';
 import {nullType, numberType} from '../../constants';
+import {UnionType} from '../union';
 
 describe('#emit()', () => {
   it('should return emitted types join with |', () => {

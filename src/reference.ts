@@ -1,4 +1,4 @@
-import {Element, AnyElement} from './element';
+import {AnyElement, Element} from './element';
 
 export interface IReferenceRequiredParameters {
   kind: 'path' | 'types';

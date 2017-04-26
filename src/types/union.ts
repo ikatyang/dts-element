@@ -1,5 +1,5 @@
-import {Type, AnyType} from '../type';
 import {AnyElement} from '../element';
+import {AnyType, Type} from '../type';
 
 export interface IUnionRequiredParameters {
   types: AnyType[];

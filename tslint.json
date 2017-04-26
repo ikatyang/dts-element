@@ -3,6 +3,7 @@
   "rules": {
     "prefer-function-over-method": true,
     "no-unused-variable": false,
-    "object-curly-spacing": [true, "never"]
+    "object-curly-spacing": [true, "never"],
+    "ordered-imports": [true, {"import-sources-order": "lowercase-first", "named-imports-order": "lowercase-first"}]
   }
 }

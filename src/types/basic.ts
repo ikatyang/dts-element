@@ -1,5 +1,5 @@
-import {Type} from '../type';
 import {AnyElement} from '../element';
+import {Type} from '../type';
 
 export interface IBasicRequiredParameters {
   name: string;

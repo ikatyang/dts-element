@@ -1,5 +1,5 @@
-import {Document} from '../document';
 import {NamespaceDeclaration} from '../declarations/namespace';
+import {Document} from '../document';
 
 describe('#emit()', () => {
   it('should return formatted .d.ts content', () => {
