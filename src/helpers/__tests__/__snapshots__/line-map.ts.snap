@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return mapped string while input string is non-empty 1`] = `
-"- Line 1 -
-- Line 2 -
-- Line 3 -"
-`;

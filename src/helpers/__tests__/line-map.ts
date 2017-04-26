@@ -7,5 +7,5 @@ it('should return empty string while input string is empty', () => {
 });
 
 it('should return mapped string while input string is non-empty', () => {
-  expect(line_map('Line 1\nLine 2\nLine 3', fn)).toMatchSnapshot();
+  expect(line_map('line 1\nline 2\nline 3', fn)).toBe('- line 1 -\n- line 2 -\n- line 3 -');
 });
