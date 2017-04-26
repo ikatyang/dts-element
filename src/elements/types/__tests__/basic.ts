@@ -5,7 +5,6 @@ import {BasicType} from '../basic';
 describe('#emit()', () => {
   it('should return correctly', () => {
     const name = 'test';
-    const basic_type = new BasicType({name});
-    expect(basic_type.emit()).toBe(name);
+    expect(new BasicType({name}).emit()).toBe(name);
   });
 });

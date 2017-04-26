@@ -7,5 +7,6 @@ export * from './elements/document';
 export * from './elements/reference';
 export * from './elements/type';
 export * from './elements/types/basic';
+export * from './elements/types/generic';
 export * from './elements/types/intersection';
 export * from './elements/types/union';
