@@ -1,4 +1,13 @@
 {
+  "automock": true,
+  "clearMocks": true,
+  "unmockedModulePathPatterns": [
+    "<rootDir>/node_modules/",
+    "/helpers/",
+    "/element\\.ts$",
+    "/declaration\\.ts$",
+    "/type\\.ts$"
+  ],
   "testEnvironment": "node",
   "moduleFileExtensions": ["ts", "js"],
   "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },

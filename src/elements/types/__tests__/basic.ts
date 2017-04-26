@@ -1,3 +1,5 @@
+jest.unmock('../basic');
+
 import {BasicType} from '../basic';
 
 describe('#emit()', () => {

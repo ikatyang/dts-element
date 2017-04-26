@@ -1,3 +1,5 @@
+jest.unmock('../declaration');
+
 import {AnyDeclaration, Declaration} from '../declaration';
 
 const create_declaration = (parameters: any): AnyDeclaration =>

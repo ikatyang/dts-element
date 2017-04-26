@@ -1,3 +1,5 @@
+jest.unmock('../element');
+
 import {Element} from '../element';
 
 // tslint:disable max-classes-per-file prefer-function-over-method

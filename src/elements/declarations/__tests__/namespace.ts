@@ -1,3 +1,5 @@
+jest.unmock('../namespace');
+
 import {NamespaceDeclaration} from '../namespace';
 
 describe('#emit()', () => {

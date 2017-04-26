@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#emit() should return formatted .d.ts content 1`] = `
-"declare namespace A {
-}
-declare namespace B {
-}"
-`;
