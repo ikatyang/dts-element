@@ -1,4 +1,5 @@
 import {Type} from '../type';
+import {AnyElement} from '../element';
 
 export interface IBasicRequiredParameters {
   name: string;
@@ -13,7 +14,7 @@ export class BasicType extends Type<IBasicRequiredParameters, IBasicOptionalPara
     return {};
   }
 
-  public emit(): string {
+  public _emit(_container: AnyElement): string {
     return this.parameters.name;
   }
 

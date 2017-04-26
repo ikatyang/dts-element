@@ -1,4 +1,5 @@
 import {Type, AnyType} from '../type';
+import {AnyElement} from '../element';
 
 export interface IUnionRequiredParameters {
   types: AnyType[];
@@ -13,8 +14,8 @@ export class UnionType extends Type<IUnionRequiredParameters, IUnionOptionalPara
     return {};
   }
 
-  public emit(): string {
-    const types = this.parameters.types.map((type: AnyType) => type.emit());
+  public _emit(_container: AnyElement): string {
+    const types = this.parameters.types.map((type: AnyType) => type._emit(this));
     return `(${types.join(' | ')})`;
   }
 

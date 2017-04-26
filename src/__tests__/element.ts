@@ -8,7 +8,7 @@ class NormalElement extends Element<INormalRequiredParameters, INormalOptionalPa
   public get default_parameters(): INormalOptionalParameters {
     return {optional: 'default'};
   }
-  public emit(): string {
+  public _emit(): string {
     return '';
   }
 }
@@ -28,7 +28,7 @@ class NestedElement extends Element<{}, INestedParameters> {
       element: new NormalElement({required: 'string'}),
     };
   }
-  public emit(): string {
+  public _emit(): string {
     return '';
   }
 }

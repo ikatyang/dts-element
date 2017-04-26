@@ -1,4 +1,4 @@
-import {Element} from './element';
+import {Element, AnyElement} from './element';
 
 export interface IReferenceRequiredParameters {
   kind: 'path' | 'types';
@@ -14,7 +14,7 @@ export class Reference extends Element<IReferenceRequiredParameters, IReferenceO
     return {};
   }
 
-  public emit(): string {
+  public _emit(_container: AnyElement): string {
     const {kind, content} = this.parameters;
     return `/// <reference ${kind}="${content}" />`;
   }

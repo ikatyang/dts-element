@@ -9,8 +9,6 @@ export abstract class Element<RequiredParameters extends {}, OptionalParameters 
     this.parameters = Object.assign({}, this.default_parameters, parameters);
   }
 
-  public abstract emit(): string;
-
   public get<Key extends keyof this['parameters']>(key: Key): this['parameters'][Key] {
     return this.parameters[key];
   }
@@ -33,6 +31,12 @@ export abstract class Element<RequiredParameters extends {}, OptionalParameters 
     this.parameters = this._clone_object(element.parameters, is_deep_copy);
     return this;
   }
+
+  public emit(): string {
+    return this._emit.call(this);
+  }
+
+  public abstract _emit(container: AnyElement): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')
