@@ -7,5 +7,5 @@ export * from './elements/declaration';
 export * from './elements/document';
 export * from './element';
 export * from './elements/reference';
-export * from './sets';
+export * from './collections';
 export * from './elements/type';
