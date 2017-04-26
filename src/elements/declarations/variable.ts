@@ -1,14 +1,15 @@
+import {any_type} from '../../constants';
 import {AnyElement} from '../../element';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {AnyType} from '../type';
 
-export interface IVariableRequiredParameters {
+// tslint:disable-next-line no-empty-interface
+export interface IVariableRequiredParameters {}
+
+export interface IVariableOptionalParameters {
   kind: 'var' | 'let' | 'const';
   type: AnyType;
 }
-
-// tslint:disable-next-line no-empty-interface
-export interface IVariableOptionalParameters {}
 
 export class VariableDeclaration extends Declaration<IVariableRequiredParameters, IVariableOptionalParameters> {
 
@@ -18,7 +19,10 @@ export class VariableDeclaration extends Declaration<IVariableRequiredParameters
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & IVariableOptionalParameters {
-    return Object.assign({}, super.default_declaration_parameters);
+    return Object.assign({}, super.default_declaration_parameters, {
+      kind: 'var' as 'var',
+      type: any_type,
+    });
   }
 
 }
