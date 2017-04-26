@@ -13,12 +13,6 @@ export interface IGenericOptionalParameters {
 
 export class GenericType extends Type<IGenericRequiredParameters, IGenericOptionalParameters> {
 
-  public static stringify(generics: GenericType[], container: AnyElement): string {
-    return (generics.length === 0)
-      ? ''
-      : `<${generics.map((generic: GenericType) => generic._emit(container)).join(', ')}>`;
-  }
-
   public get default_parameters(): IGenericOptionalParameters {
     return {
       extends: null,
