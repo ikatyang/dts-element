@@ -1,5 +1,7 @@
 export * from './declarations/namespace';
 export * from './types/basic';
+export * from './types/intersection';
+export * from './types/union';
 export * from './constants';
 export * from './declaration';
 export * from './document';
