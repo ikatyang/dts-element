@@ -2,18 +2,18 @@ import {AnyElement} from '../../element';
 import {InterfaceDeclaration} from '../declarations/interface';
 import {AnyType, Type} from '../type';
 
-export interface IGenericRequiredParameters {
+export interface IGenericTypeRequiredParameters {
   name: string;
 }
 
-export interface IGenericOptionalParameters {
+export interface IGenericTypeOptionalParameters {
   extends: AnyType | null;
   default: AnyType | null;
 }
 
-export class GenericType extends Type<IGenericRequiredParameters, IGenericOptionalParameters> {
+export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTypeOptionalParameters> {
 
-  public get default_parameters(): IGenericOptionalParameters {
+  public get default_parameters(): IGenericTypeOptionalParameters {
     return {
       extends: null,
       default: null,

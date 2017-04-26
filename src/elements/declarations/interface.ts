@@ -5,14 +5,15 @@ import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../de
 import {GenericType} from '../types/generic';
 
 // tslint:disable-next-line no-empty-interface
-export interface IInterfaceRequiredParameters {}
+export interface IInterfaceDeclarationRequiredParameters {}
 
-export interface IInterfaceOptionalParameters {
+export interface IInterfaceDeclarationOptionalParameters {
   generics: GenericType[];
   children: AnyDeclaration[];
 }
 
-export class InterfaceDeclaration extends Declaration<IInterfaceRequiredParameters, IInterfaceOptionalParameters> {
+export class InterfaceDeclaration
+    extends Declaration<IInterfaceDeclarationRequiredParameters, IInterfaceDeclarationOptionalParameters> {
 
   public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
@@ -23,7 +24,7 @@ export class InterfaceDeclaration extends Declaration<IInterfaceRequiredParamete
     return `${this.jsdoc}interface ${name}${generic} {\n${indent(content)}\n}`;
   }
 
-  public get default_parameters(): IDeclarationOptionalParameters & IInterfaceOptionalParameters {
+  public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],
       children: [],

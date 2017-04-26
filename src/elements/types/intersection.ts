@@ -1,16 +1,16 @@
 import {AnyElement} from '../../element';
 import {AnyType, Type} from '../type';
 
-export interface IIntersectionRequiredParameters {
+export interface IIntersectionTypeRequiredParameters {
   types: AnyType[];
 }
 
 // tslint:disable-next-line no-empty-interface
-export interface IIntersectionOptionalParameters {}
+export interface IIntersectionTypeOptionalParameters {}
 
-export class IntersectionType extends Type<IIntersectionRequiredParameters, IIntersectionOptionalParameters> {
+export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, IIntersectionTypeOptionalParameters> {
 
-  public get default_parameters(): IIntersectionOptionalParameters {
+  public get default_parameters(): IIntersectionTypeOptionalParameters {
     return {};
   }
 

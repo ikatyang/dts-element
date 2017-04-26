@@ -1,16 +1,16 @@
 import {AnyElement} from '../../element';
 import {AnyType, Type} from '../type';
 
-export interface IUnionRequiredParameters {
+export interface IUnionTypeRequiredParameters {
   types: AnyType[];
 }
 
 // tslint:disable-next-line no-empty-interface
-export interface IUnionOptionalParameters {}
+export interface IUnionTypeOptionalParameters {}
 
-export class UnionType extends Type<IUnionRequiredParameters, IUnionOptionalParameters> {
+export class UnionType extends Type<IUnionTypeRequiredParameters, IUnionTypeOptionalParameters> {
 
-  public get default_parameters(): IUnionOptionalParameters {
+  public get default_parameters(): IUnionTypeOptionalParameters {
     return {};
   }
 

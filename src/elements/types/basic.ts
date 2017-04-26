@@ -1,16 +1,16 @@
 import {AnyElement} from '../../element';
 import {Type} from '../type';
 
-export interface IBasicRequiredParameters {
+export interface IBasicTypeRequiredParameters {
   name: string;
 }
 
 // tslint:disable-next-line no-empty-interface
-export interface IBasicOptionalParameters {}
+export interface IBasicTypeOptionalParameters {}
 
-export class BasicType extends Type<IBasicRequiredParameters, IBasicOptionalParameters> {
+export class BasicType extends Type<IBasicTypeRequiredParameters, IBasicTypeOptionalParameters> {
 
-  public get default_parameters(): IBasicOptionalParameters {
+  public get default_parameters(): IBasicTypeOptionalParameters {
     return {};
   }
 

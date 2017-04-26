@@ -4,13 +4,14 @@ import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../de
 import {Document} from '../document';
 
 // tslint:disable-next-line no-empty-interface
-export interface INamespaceRequiredParameters {}
+export interface INamespaceDeclarationRequiredParameters {}
 
-export interface INamespaceOptionalParameters {
+export interface INamespaceDeclarationOptionalParameters {
   children: AnyDeclaration[];
 }
 
-export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
+export class NamespaceDeclaration
+    extends Declaration<INamespaceDeclarationRequiredParameters, INamespaceDeclarationOptionalParameters> {
 
   public _emit(container: AnyElement | null): string {
     const {name, children} = this.parameters;
@@ -21,7 +22,7 @@ export class NamespaceDeclaration extends Declaration<INamespaceRequiredParamete
     return `${this.jsdoc}${declare}namespace ${name} {\n${indent(content)}\n}`;
   }
 
-  public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
+  public get default_parameters(): IDeclarationOptionalParameters & INamespaceDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       children: [],
     });
