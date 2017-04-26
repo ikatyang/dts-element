@@ -1,14 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#emit() should return correctly 1`] = `
+exports[`#_emit() Document should return correctly 1`] = `
 "[JSDoc]
 declare namespace A {
   [JSDoc]
-  declare namespace B {
+  namespace B {
   
   }
   [JSDoc]
-  declare namespace C {
+  namespace C {
+  
+  }
+}"
+`;
+
+exports[`#emit() should return correctly 1`] = `
+"[JSDoc]
+namespace A {
+  [JSDoc]
+  namespace B {
+  
+  }
+  [JSDoc]
+  namespace C {
   
   }
 }"

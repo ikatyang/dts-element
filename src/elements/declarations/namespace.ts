@@ -1,6 +1,7 @@
 import {AnyElement} from '../../element';
 import {indent} from '../../helpers/indent';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
+import {Document} from '../document';
 
 // tslint:disable-next-line no-empty-interface
 export interface INamespaceRequiredParameters {}
@@ -11,12 +12,13 @@ export interface INamespaceOptionalParameters {
 
 export class NamespaceDeclaration extends Declaration<INamespaceRequiredParameters, INamespaceOptionalParameters> {
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(container: AnyElement | null): string {
     const {name, children} = this.parameters;
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
-    return `${this.jsdoc}declare namespace ${name} {\n${indent(content)}\n}`;
+    const declare = (container instanceof Document) ? 'declare ' : '';
+    return `${this.jsdoc}${declare}namespace ${name} {\n${indent(content)}\n}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceOptionalParameters {
