@@ -5,9 +5,11 @@ import {UnionType} from '../union';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
+    const name_a = 'A';
+    const name_b = 'B';
     expect(new UnionType({types: [
-      new BasicType({name: 'A'}),
-      new BasicType({name: 'B'}),
-    ]}).emit()).toBe('([BasicType A] | [BasicType B])');
+      new BasicType({name: name_a}),
+      new BasicType({name: name_b}),
+    ]}).emit()).toBe(`([BasicType ${name_a}] | [BasicType ${name_b}])`);
   });
 });
