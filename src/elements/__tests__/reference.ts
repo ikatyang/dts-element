@@ -3,7 +3,7 @@ jest.unmock('../reference');
 import {Reference} from '../reference';
 
 describe('#emit()', () => {
-  it('should return formatted content', () => {
+  it('should return correctly', () => {
     const kind = 'path';
     const content = 'something';
     const reference = new Reference({kind, content});

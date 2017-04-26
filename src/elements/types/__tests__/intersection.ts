@@ -4,7 +4,7 @@ import {BasicType} from '../basic';
 import {IntersectionType} from '../intersection';
 
 describe('#emit()', () => {
-  it('should return emitted types join with &', () => {
+  it('should return correctly', () => {
     expect(new IntersectionType({types: [
       new BasicType({name: 'A'}),
       new BasicType({name: 'B'}),
