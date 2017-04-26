@@ -5,7 +5,8 @@
     "<rootDir>/node_modules/",
     "<rootDir>/src/helpers/",
     "<rootDir>/src/element\\.ts$",
-    "<rootDir>/src/elements/type\\.ts$"
+    "<rootDir>/src/elements/type\\.ts$",
+    "<rootDir>/src/elements/member\\.ts$"
   ],
   "testEnvironment": "node",
   "moduleFileExtensions": ["ts", "js"],
