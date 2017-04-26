@@ -6,12 +6,12 @@ const create_declaration = (parameters: any): AnyDeclaration =>
   Object.assign(Object.create(Declaration.prototype), {parameters});
 
 describe('#jsdoc', () => {
-  it('should return empty-string while jsdoc is empty', () => {
+  it('should return empty string while jsdoc is empty', () => {
     const declaration = create_declaration({jsdoc: ''});
     expect(declaration.jsdoc).toBe('');
   });
-  it('should return formatted jsdoc while jsdoc is non-empty ', () => {
+  it('should return string with trailing breakline while jsdoc is non-empty ', () => {
     const declaration = create_declaration({jsdoc: 'line 1\nline 2\nline 3'});
-    expect(declaration.jsdoc).toMatchSnapshot();
+    expect(declaration.jsdoc).toMatch(/\n$/);
   });
 });

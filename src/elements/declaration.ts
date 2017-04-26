@@ -1,5 +1,5 @@
-import {jsdocify} from '.././helpers/jsdocify';
 import {Element} from '../element';
+import {jsdocify} from '../helpers/jsdocify';
 
 export interface IDeclarationRequiredParameters {
   name: string;

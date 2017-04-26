@@ -3,10 +3,9 @@
   "clearMocks": true,
   "unmockedModulePathPatterns": [
     "<rootDir>/node_modules/",
-    "/helpers/",
-    "/element\\.ts$",
-    "/declaration\\.ts$",
-    "/type\\.ts$"
+    "<rootDir>/src/helpers/",
+    "<rootDir>/src/element\\.ts$",
+    "<rootDir>/src/elements/type\\.ts$"
   ],
   "testEnvironment": "node",
   "moduleFileExtensions": ["ts", "js"],
