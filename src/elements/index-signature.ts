@@ -23,9 +23,9 @@ export class IndexSignature extends Element<IIndexSignatureRequiredParameters, I
   }
 
   public _emit(_container: AnyElement | null): string {
-    const {name, kind, type, optional} = this.parameters;
-    const op = ('?').repeat(+optional);
-    return `[${name}: ${kind}]${op}: ${type._emit(this)};`;
+    const {name, kind, type} = this.parameters;
+    const optional = ('?').repeat(+this.parameters.optional);
+    return `[${name}: ${kind}]${optional}: ${type._emit(this)};`;
   }
 
 }
