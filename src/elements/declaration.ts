@@ -1,5 +1,5 @@
-import {Element} from './element';
-import {line_map} from './helpers/line-map';
+import {Element} from '../element';
+import {line_map} from '../helpers/line-map';
 
 export interface IDeclarationRequiredParameters {
   name: string;

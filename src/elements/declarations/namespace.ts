@@ -1,6 +1,6 @@
+import {AnyElement} from '../../element';
+import {indent} from '../../helpers/indent';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
-import {AnyElement} from '../element';
-import {indent} from '../helpers/indent';
 
 // tslint:disable-next-line no-empty-interface
 export interface INamespaceRequiredParameters {}

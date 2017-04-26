@@ -1,4 +1,4 @@
-import {AnyElement} from '../element';
+import {AnyElement} from '../../element';
 import {AnyType, Type} from '../type';
 
 export interface IUnionRequiredParameters {

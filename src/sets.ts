@@ -1,4 +1,4 @@
-import {NamespaceDeclaration} from './declarations/namespace';
-import {Reference} from './reference';
+import {NamespaceDeclaration} from './elements/declarations/namespace';
+import {Reference} from './elements/reference';
 
 export type RootElement = Reference | NamespaceDeclaration;

@@ -1,4 +1,4 @@
-import {BasicType} from './types/basic';
+import {BasicType} from './elements/types/basic';
 
 export const nullType = new BasicType({name: 'null'});
 export const undefinedType = new BasicType({name: 'undefined'});

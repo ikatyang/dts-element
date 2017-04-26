@@ -1,7 +1,7 @@
-import {Element} from './element';
-import {AnyElement} from './element';
-import {trim_every_line} from './helpers/trim-every-line';
-import {RootElement} from './sets';
+import {Element} from '../element';
+import {AnyElement} from '../element';
+import {trim_every_line} from '../helpers/trim-every-line';
+import {RootElement} from '../sets';
 
 export interface IDocumentRequiredParameters {
   elements: RootElement[];

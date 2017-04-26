@@ -1,4 +1,4 @@
-import {nullType, numberType} from '../../constants';
+import {nullType, numberType} from '../../../constants';
 import {IntersectionType} from '../intersection';
 
 describe('#emit()', () => {

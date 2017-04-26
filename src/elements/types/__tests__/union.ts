@@ -1,4 +1,4 @@
-import {nullType, numberType} from '../../constants';
+import {nullType, numberType} from '../../../constants';
 import {UnionType} from '../union';
 
 describe('#emit()', () => {
