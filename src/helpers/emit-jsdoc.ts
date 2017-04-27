@@ -1,4 +1,4 @@
-import {line_map} from './line-map';
+import {line_map} from '../utils/line-map';
 
 export const emit_jsdoc = (str: string): string => {
   const content = line_map(str, (line: string) => ` * ${line}`);
