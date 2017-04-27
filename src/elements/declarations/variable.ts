@@ -1,5 +1,6 @@
 import {any_type} from '../../constants';
 import {AnyElement} from '../../element';
+import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {AnyType} from '../type';
@@ -16,10 +17,11 @@ export interface IVariableDeclarationOptionalParameters {
 export class VariableDeclaration
     extends Declaration<IVariableDeclarationRequiredParameters, IVariableDeclarationOptionalParameters> {
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(container: AnyElement | null): string {
     const {name, kind, type: a_type} = this.parameters;
     const optional = emit_optional(this.parameters.optional);
-    return `declare ${kind} ${name}${optional}: ${a_type._emit(this)};`;
+    const declare = emit_declare(container);
+    return `${declare}${kind} ${name}${optional}: ${a_type._emit(this)};`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & IVariableDeclarationOptionalParameters {
