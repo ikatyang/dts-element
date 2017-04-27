@@ -20,7 +20,7 @@ export class InterfaceMember extends Member<IInterfaceMemberRequiredParameters, 
   public _emit(_container: AnyElement | null): string {
     const {owned} = this.parameters;
     const readonly = emit_readonly(this.parameters.readonly, owned);
-    return `${readonly}${owned._emit(this)}`;
+    return `${owned._emit_jsdoc()}${readonly}${owned._emit_raw(this)}`;
   }
 
 }

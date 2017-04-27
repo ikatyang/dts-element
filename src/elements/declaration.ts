@@ -22,8 +22,11 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
   }
 
   public _emit(container: AnyElement | null): string {
-    const jsdoc = emit_jsdoc(this.parameters.jsdoc);
-    return `${jsdoc}${this._emit_raw(container)}`;
+    return `${this._emit_jsdoc()}${this._emit_raw(container)}`;
+  }
+
+  public _emit_jsdoc(): string {
+    return emit_jsdoc(this.parameters.jsdoc);
   }
 
   public abstract _emit_raw(container: AnyElement | null): string;

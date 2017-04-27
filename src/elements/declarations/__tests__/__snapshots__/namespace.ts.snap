@@ -5,12 +5,12 @@ exports[`#emit() should return correctly 1`] = `
 [indent-every-line
   [emit-jsdoc][emit-declare]namespace B {
   [indent-every-line
-    [VariableDeclaration b]
+    [emit-jsdoc][VariableDeclaration b]
   ]
   }
   [emit-jsdoc][emit-declare]namespace C {
   [indent-every-line
-    [VariableDeclaration c]
+    [emit-jsdoc][VariableDeclaration c]
   ]
   }
 ]

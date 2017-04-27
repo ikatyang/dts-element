@@ -17,5 +17,5 @@ it('should return empty string while container is not InterfaceDeclaration', () 
 });
 
 it('should return extends with emitted type while extends is not null and container is InterfaceDeclaration', () => {
-  expect(emit_generic_extends(basic_type, interface_declaration)).toBe(` extends [BasicType ${name}]`);
+  expect(emit_generic_extends(basic_type, interface_declaration)).toMatchSnapshot();
 });

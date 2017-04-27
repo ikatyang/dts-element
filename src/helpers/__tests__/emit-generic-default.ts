@@ -17,5 +17,5 @@ it('should return empty string while container is not InterfaceDeclaration', () 
 });
 
 it('should return default with emitted type while default is not null and container is InterfaceDeclaration', () => {
-  expect(emit_generic_default(basic_type, interface_declaration)).toBe(` = [BasicType ${name}]`);
+  expect(emit_generic_default(basic_type, interface_declaration)).toMatchSnapshot();
 });

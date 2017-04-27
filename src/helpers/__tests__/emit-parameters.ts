@@ -9,5 +9,5 @@ it('should return correctly', () => {
   expect(emit_parameters([
     new Parameter({name: name_a}),
     new Parameter({name: name_b}),
-  ], null)).toBe(`[Parameter ${name_a}], [Parameter ${name_b}]`);
+  ], null)).toMatchSnapshot();
 });

@@ -1,9 +1,9 @@
-export class Parameter {
+import {Element} from '../../element';
 
-  public parameters: any;
+export class Parameter extends Element<any, any> {
 
-  constructor(parameters: any) {
-    this.parameters = parameters;
+  public get default_parameters(): any {
+    return {};
   }
 
   public _emit(): string {

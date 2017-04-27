@@ -3,8 +3,8 @@
 exports[`#emit() should return correctly 1`] = `
 "[trim-every-line
   [emit-elements
-    [NamespaceDeclaration A]
-    [NamespaceDeclaration B]
+    [emit-jsdoc][NamespaceDeclaration A]
+    [emit-jsdoc][NamespaceDeclaration B]
   ]
 ]"
 `;

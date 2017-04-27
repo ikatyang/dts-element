@@ -1,12 +1,12 @@
-export class NamespaceDeclaration {
+import {Declaration} from '../../declaration';
 
-  public parameters: any;
+export class NamespaceDeclaration extends Declaration<any, any> {
 
-  constructor(parameters: any) {
-    this.parameters = parameters;
+  public get default_parameters(): any {
+    return super.default_declaration_parameters;
   }
 
-  public _emit(): string {
+  public _emit_raw(): string {
     return `[NamespaceDeclaration ${this.parameters.name}]`;
   }
 

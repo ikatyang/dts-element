@@ -1,9 +1,9 @@
-export class BasicType {
+import {Type} from '../../type';
 
-  public parameters: any;
+export class BasicType extends Type<any, any> {
 
-  constructor(parameters: any) {
-    this.parameters = parameters;
+  public get default_parameters(): any {
+    return {};
   }
 
   public _emit(): string {
