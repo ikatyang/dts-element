@@ -7,5 +7,5 @@ it('should return empty string while input is empty string', () => {
 });
 
 it('should return formatted jsdoc while input is non-empty string', () => {
-  expect(emit_jsdoc('line 1\nline 2\nline 3')).toBe('/**\n * line 1\n * line 2\n * line 3\n */');
+  expect(emit_jsdoc('line 1\nline 2\nline 3')).toBe('/**\n * line 1\n * line 2\n * line 3\n */\n');
 });

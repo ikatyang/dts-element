@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#emit() should return correctly 1`] = `"[emit-declare][emit-function]func[emit-generics]([emit-parameters]): [BasicType any];"`;
+exports[`#emit() should return correctly 1`] = `"[emit-jsdoc][emit-declare][emit-function]func[emit-generics]([emit-parameters]): [BasicType any];"`;

@@ -23,11 +23,11 @@ export class InterfaceDeclaration
     });
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit_raw(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
     const content = emit_elements(children, this);
-    return `${this.jsdoc}interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
+    return `interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
   }
 
 }

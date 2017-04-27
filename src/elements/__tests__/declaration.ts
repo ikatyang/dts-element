@@ -1,19 +1,28 @@
 jest.unmock('../declaration');
 
-import {AnyDeclaration, Declaration} from '../declaration';
+import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 
-const create_declaration = (parameters: any): AnyDeclaration =>
-  Object.assign(Object.create(Declaration.prototype), {parameters});
+// tslint:disable-next-line no-empty-interface
+export interface ITestDeclarationRequiredParameters {}
 
-describe('#jsdoc', () => {
-  it('should return emit-jsdoc while jsdoc is empty', () => {
-    const empty_string = '';
-    const declaration = create_declaration({jsdoc: empty_string});
-    expect(declaration.jsdoc).toBe('[emit-jsdoc]');
-  });
-  it('should return emit-jsdoc with trailing breakline while jsdoc is non-empty ', () => {
-    const non_empty_string = 'non-empty';
-    const declaration = create_declaration({jsdoc: non_empty_string});
-    expect(declaration.jsdoc).toBe('[emit-jsdoc]\n');
+// tslint:disable-next-line no-empty-interface
+export interface ITestDeclarationOptionalParameters {}
+
+export class TestDeclaration
+    extends Declaration<ITestDeclarationRequiredParameters, ITestDeclarationOptionalParameters> {
+
+  public get default_parameters(): IDeclarationOptionalParameters & ITestDeclarationOptionalParameters {
+    return Object.assign({}, super.default_declaration_parameters);
+  }
+
+  public _emit_raw(): string {
+    return `[TestDeclaration ${this.parameters.name}]`;
+  }
+
+}
+
+describe('#emit()', () => {
+  it('should return correctly', () => {
+    expect(new TestDeclaration({name: 'A'}).emit()).toMatchSnapshot();
   });
 });

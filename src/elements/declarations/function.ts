@@ -29,7 +29,7 @@ export class FunctionDeclaration
     });
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit_raw(container: AnyElement | null): string {
     const {name} = this.parameters;
     const parameters = emit_parameters(this.parameters.parameters, this);
     const generics = emit_generics(this.parameters.generics, this);

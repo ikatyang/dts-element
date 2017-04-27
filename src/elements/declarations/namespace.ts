@@ -20,13 +20,13 @@ export class NamespaceDeclaration
     });
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit_raw(container: AnyElement | null): string {
     const {name, children} = this.parameters;
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
     const declare = emit_declare(container);
-    return `${this.jsdoc}${declare}namespace ${name} {\n${indent_every_line(content)}\n}`;
+    return `${declare}namespace ${name} {\n${indent_every_line(content)}\n}`;
   }
 
 }

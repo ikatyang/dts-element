@@ -1,17 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#emit() should return correctly 1`] = `
-"[JSDoc]
-[emit-declare]namespace A {
+"[emit-jsdoc][emit-declare]namespace A {
 [indent-every-line
-  [JSDoc]
-  [emit-declare]namespace B {
+  [emit-jsdoc][emit-declare]namespace B {
   [indent-every-line
     [VariableDeclaration b]
   ]
   }
-  [JSDoc]
-  [emit-declare]namespace C {
+  [emit-jsdoc][emit-declare]namespace C {
   [indent-every-line
     [VariableDeclaration c]
   ]

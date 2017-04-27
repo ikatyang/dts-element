@@ -25,7 +25,7 @@ export class VariableDeclaration
     });
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit_raw(container: AnyElement | null): string {
     const {name, kind, type: a_type} = this.parameters;
     const optional = emit_optional(this.parameters.optional);
     const declare = emit_declare(container);
