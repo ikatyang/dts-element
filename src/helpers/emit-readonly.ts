@@ -1,6 +1,5 @@
 // tslint:disable-next-line no-unused-variable
 import {MemberOwned} from '../collections';
-import {AnyElement} from '../element';
 import {VariableDeclaration} from '../elements/declarations/variable';
 // tslint:disable-next-line no-unused-variable
 import {IndexSignature} from '../elements/index-signature';
