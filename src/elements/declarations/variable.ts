@@ -17,19 +17,19 @@ export interface IVariableDeclarationOptionalParameters {
 export class VariableDeclaration
     extends Declaration<IVariableDeclarationRequiredParameters, IVariableDeclarationOptionalParameters> {
 
-  public _emit(container: AnyElement | null): string {
-    const {name, kind, type: a_type} = this.parameters;
-    const optional = emit_optional(this.parameters.optional);
-    const declare = emit_declare(container);
-    return `${declare}${kind} ${name}${optional}: ${a_type._emit(this)};`;
-  }
-
   public get default_parameters(): IDeclarationOptionalParameters & IVariableDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       kind: 'var' as 'var',
       type: any_type,
       optional: false,
     });
+  }
+
+  public _emit(container: AnyElement | null): string {
+    const {name, kind, type: a_type} = this.parameters;
+    const optional = emit_optional(this.parameters.optional);
+    const declare = emit_declare(container);
+    return `${declare}${kind} ${name}${optional}: ${a_type._emit(this)};`;
   }
 
 }

@@ -14,6 +14,12 @@ export interface INamespaceDeclarationOptionalParameters {
 export class NamespaceDeclaration
     extends Declaration<INamespaceDeclarationRequiredParameters, INamespaceDeclarationOptionalParameters> {
 
+  public get default_parameters(): IDeclarationOptionalParameters & INamespaceDeclarationOptionalParameters {
+    return Object.assign({}, super.default_declaration_parameters, {
+      children: [],
+    });
+  }
+
   public _emit(container: AnyElement | null): string {
     const {name, children} = this.parameters;
     const content = children
@@ -21,12 +27,6 @@ export class NamespaceDeclaration
       .join('\n');
     const declare = emit_declare(container);
     return `${this.jsdoc}${declare}namespace ${name} {\n${indent_every_line(content)}\n}`;
-  }
-
-  public get default_parameters(): IDeclarationOptionalParameters & INamespaceDeclarationOptionalParameters {
-    return Object.assign({}, super.default_declaration_parameters, {
-      children: [],
-    });
   }
 
 }

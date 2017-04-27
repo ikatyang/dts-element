@@ -15,6 +15,13 @@ export interface IInterfaceDeclarationOptionalParameters {
 export class InterfaceDeclaration
     extends Declaration<IInterfaceDeclarationRequiredParameters, IInterfaceDeclarationOptionalParameters> {
 
+  public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
+    return Object.assign({}, super.default_declaration_parameters, {
+      generics: [],
+      children: [],
+    });
+  }
+
   public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
@@ -23,13 +30,6 @@ export class InterfaceDeclaration
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
     return `${this.jsdoc}interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
-  }
-
-  public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
-    return Object.assign({}, super.default_declaration_parameters, {
-      generics: [],
-      children: [],
-    });
   }
 
 }
