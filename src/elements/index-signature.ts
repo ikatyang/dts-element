@@ -1,5 +1,6 @@
 import {any_type} from '../constants';
 import {AnyElement, Element} from '../element';
+import {emit_optional} from '../helpers/emit-optional';
 import {AnyType} from './type';
 
 export interface IIndexSignatureRequiredParameters {
@@ -24,7 +25,7 @@ export class IndexSignature extends Element<IIndexSignatureRequiredParameters, I
 
   public _emit(_container: AnyElement | null): string {
     const {name, kind, type} = this.parameters;
-    const optional = ('?').repeat(+this.parameters.optional);
+    const optional = emit_optional(this.parameters.optional);
     return `[${name}: ${kind}]${optional}: ${type._emit(this)};`;
   }
 
