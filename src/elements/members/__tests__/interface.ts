@@ -7,7 +7,6 @@ describe('#emit()', () => {
   it('should return correctly', () => {
     expect(new InterfaceMember({
       owned: new VariableDeclaration({name: 'x'}),
-      readonly: true,
     }).emit()).toMatchSnapshot();
   });
 });

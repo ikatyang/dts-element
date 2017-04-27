@@ -8,7 +8,6 @@ describe('#emit()', () => {
     expect(new Parameter({
       name: 'param',
       type: new BasicType({name: 'Param'}),
-      flag: 'rest',
     }).emit()).toMatchSnapshot();
   });
 });

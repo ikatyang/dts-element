@@ -6,10 +6,8 @@ import {BasicType} from '../types/basic';
 describe('#emit()', () => {
   it('should return correctly', () => {
     expect(new IndexSignature({
-      name: 'index',
-      kind: 'string',
-      type: new BasicType({name: 'A'}),
-      optional: true,
+      name: 'key',
+      type: new BasicType({name: 'X'}),
     }).emit()).toMatchSnapshot();
   });
 });
