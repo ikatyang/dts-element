@@ -1,4 +1,5 @@
 import {AnyElement} from '../../element';
+import {emit_declare} from '../../helpers/emit-declare';
 import {indent} from '../../helpers/indent';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Document} from '../document';
@@ -18,7 +19,7 @@ export class NamespaceDeclaration
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
-    const declare = (container instanceof Document) ? 'declare ' : '';
+    const declare = emit_declare(container);
     return `${this.jsdoc}${declare}namespace ${name} {\n${indent(content)}\n}`;
   }
 
