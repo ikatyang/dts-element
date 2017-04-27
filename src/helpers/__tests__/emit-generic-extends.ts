@@ -6,7 +6,7 @@ import {emit_generic_extends} from '../emit-generic-extends';
 
 const name = 'A';
 const basic_type = new BasicType({name});
-const interface_declaration = Object.create(InterfaceDeclaration.prototype);
+const interface_declaration: InterfaceDeclaration = Object.create(InterfaceDeclaration.prototype);
 
 it('should return empty string while extends is null', () => {
   expect(emit_generic_extends(null, interface_declaration)).toBe('');
