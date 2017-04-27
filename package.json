@@ -9,8 +9,8 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -rf ./lib",
-    "build": "tsc -p ./tsconfig.json",
-    "lint": "tslint --type-check --project ./tsconfig.lint.json",
+    "build": "tsc -p ./tsconfig.build.json",
+    "lint": "tslint --type-check --project ./tsconfig.json",
     "jest": "jest --config ./jest.json",
     "test": "yarn run jest -- --verbose",
     "test-coverage": "yarn run jest -- --coverage",
