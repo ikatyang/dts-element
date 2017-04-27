@@ -1,6 +1,6 @@
 import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
-import {indent} from '../../helpers/indent';
+import {indent_every_line} from '../../helpers/indent-every-line';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Document} from '../document';
 
@@ -20,7 +20,7 @@ export class NamespaceDeclaration
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
     const declare = emit_declare(container);
-    return `${this.jsdoc}${declare}namespace ${name} {\n${indent(content)}\n}`;
+    return `${this.jsdoc}${declare}namespace ${name} {\n${indent_every_line(content)}\n}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceDeclarationOptionalParameters {

@@ -1,6 +1,6 @@
 import {AnyElement} from '../../element';
 import {emit_generics} from '../../helpers/emit-generics';
-import {indent} from '../../helpers/indent';
+import {indent_every_line} from '../../helpers/indent-every-line';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {GenericType} from '../types/generic';
 
@@ -21,7 +21,7 @@ export class InterfaceDeclaration
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');
-    return `${this.jsdoc}interface ${name}${generic} {\n${indent(content)}\n}`;
+    return `${this.jsdoc}interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
   }
 
   public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
