@@ -1,7 +1,7 @@
 import {AnyElement} from '../../element';
+import {emit_elements} from '../../helpers/emit-elements';
 import {emit_generics} from '../../helpers/emit-generics';
 import {indent_every_line} from '../../helpers/indent-every-line';
-import {join_declarations} from '../../helpers/join-declarations';
 import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {GenericType} from '../types/generic';
 
@@ -26,7 +26,7 @@ export class InterfaceDeclaration
   public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
-    const content = join_declarations(children, this);
+    const content = emit_elements(children, this);
     return `${this.jsdoc}interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
   }
 
