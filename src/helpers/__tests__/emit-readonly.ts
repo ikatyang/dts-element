@@ -1,3 +1,5 @@
+jest.unmock('../emit-readonly');
+
 import {IndexSignature} from '../../elements/index-signature';
 import {emit_readonly} from '../emit-readonly';
 

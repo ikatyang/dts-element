@@ -1,3 +1,5 @@
+jest.unmock('../emit-generics');
+
 import {GenericType} from '../../elements/types/generic';
 import {emit_generics} from '../emit-generics';
 

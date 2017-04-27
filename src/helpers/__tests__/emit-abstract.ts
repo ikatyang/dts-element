@@ -1,3 +1,5 @@
+jest.unmock('../emit-abstract');
+
 import {VariableDeclaration} from '../../elements/declarations/variable';
 import {emit_abstract} from '../emit-abstract';
 

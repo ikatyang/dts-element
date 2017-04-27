@@ -1,3 +1,5 @@
+jest.unmock('../indent');
+
 import {indent} from '../indent';
 
 it('should return indented string', () => {

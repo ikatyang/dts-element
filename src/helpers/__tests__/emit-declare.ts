@@ -1,3 +1,5 @@
+jest.unmock('../emit-declare');
+
 import {Document} from '../../elements/document';
 import {emit_declare} from '../emit-declare';
 

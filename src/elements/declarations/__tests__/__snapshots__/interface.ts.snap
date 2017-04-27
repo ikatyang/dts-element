@@ -2,8 +2,10 @@
 
 exports[`#emit() should return correctly 1`] = `
 "[JSDoc]
-interface A<[GenericType T], [GenericType U]> {
+interface A[emit-generics] {
+[indent-every-line
   [VariableDeclaration x]
   [VariableDeclaration y]
+]
 }"
 `;

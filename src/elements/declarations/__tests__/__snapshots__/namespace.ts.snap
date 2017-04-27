@@ -2,14 +2,20 @@
 
 exports[`#emit() should return correctly 1`] = `
 "[JSDoc]
-declare namespace A {
+[emit-declare]namespace A {
+[indent-every-line
   [JSDoc]
-  namespace B {
-  
+  [emit-declare]namespace B {
+  [indent-every-line
+    [VariableDeclaration b]
+  ]
   }
   [JSDoc]
-  namespace C {
-  
+  [emit-declare]namespace C {
+  [indent-every-line
+    [VariableDeclaration c]
+  ]
   }
+]
 }"
 `;

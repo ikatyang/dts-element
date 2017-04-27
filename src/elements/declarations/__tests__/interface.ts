@@ -6,7 +6,7 @@ import {VariableDeclaration} from '../variable';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    const a_interface = new InterfaceDeclaration({
+    expect(new InterfaceDeclaration({
       name: 'A',
       generics: [
         new GenericType({name: 'T'}),
@@ -16,7 +16,6 @@ describe('#emit()', () => {
         new VariableDeclaration({name: 'x'}),
         new VariableDeclaration({name: 'y'}),
       ],
-    });
-    expect(a_interface.emit()).toMatchSnapshot();
+    }).emit()).toMatchSnapshot();
   });
 });

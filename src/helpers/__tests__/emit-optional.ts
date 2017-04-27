@@ -1,3 +1,5 @@
+jest.unmock('../emit-optional');
+
 import {emit_optional} from '../emit-optional';
 
 it('should return empty string while optional is disabled', () => {

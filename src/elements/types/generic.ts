@@ -27,6 +27,7 @@ export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTy
   }
 
   private emit_definition(): string {
+    // TODO: add helpers for extends and default
     const a_extends = (this.parameters.extends === null)
       ? ''
       : ` extends ${this.parameters.extends._emit(this)}`;

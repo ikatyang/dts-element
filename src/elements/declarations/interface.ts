@@ -18,6 +18,7 @@ export class InterfaceDeclaration
   public _emit(_container: AnyElement | null): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
+    // TODO: add helper for indent_joined_declarations
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))
       .join('\n');

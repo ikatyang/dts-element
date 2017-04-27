@@ -1,3 +1,5 @@
+jest.unmock('../trim-every-line');
+
 import {trim_every_line} from '../trim-every-line';
 
 it('should remove leading spaces and trailing spaces', () => {

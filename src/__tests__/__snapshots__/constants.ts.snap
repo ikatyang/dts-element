@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`any_type.emit() should return correctly 1`] = `"any"`;
+
+exports[`boolean_type.emit() should return correctly 1`] = `"boolean"`;
+
+exports[`never_type.emit() should return correctly 1`] = `"never"`;
+
+exports[`null_type.emit() should return correctly 1`] = `"null"`;
+
+exports[`number_type.emit() should return correctly 1`] = `"number"`;
+
+exports[`object_type.emit() should return correctly 1`] = `"object"`;
+
+exports[`string_type.emit() should return correctly 1`] = `"string"`;
+
+exports[`symbol_type.emit() should return correctly 1`] = `"symbol"`;
+
+exports[`this_type.emit() should return correctly 1`] = `"this"`;
+
+exports[`undefined_type.emit() should return correctly 1`] = `"undefined"`;
+
+exports[`void_type.emit() should return correctly 1`] = `"void"`;

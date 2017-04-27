@@ -1,3 +1,5 @@
+jest.unmock('../indent-every-line');
+
 import {indent_every_line} from '../indent-every-line';
 
 it('should return indented string', () => {

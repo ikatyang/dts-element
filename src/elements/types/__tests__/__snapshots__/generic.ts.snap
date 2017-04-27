@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#_emit() InterfaceDeclaration should return correctly with extends and default 1`] = `"T extends [BasicType A] = [BasicType B]"`;
+
+exports[`#_emit() InterfaceDeclaration should return correctly without extends and default 1`] = `"T"`;
+
+exports[`#emit() should return correctly 1`] = `"T"`;

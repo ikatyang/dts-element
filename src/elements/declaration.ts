@@ -23,7 +23,7 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
 
   public get jsdoc(): string {
     const jsdoc = emit_jsdoc(this.parameters.jsdoc);
-    return (jsdoc.length === 0)
+    return (this.parameters.jsdoc.length === 0)
       ? jsdoc
       : `${jsdoc}\n`;
   }

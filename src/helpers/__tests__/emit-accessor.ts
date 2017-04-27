@@ -1,3 +1,5 @@
+jest.unmock('../emit-accessor');
+
 import {VariableDeclaration} from '../../elements/declarations/variable';
 import {emit_accessor} from '../emit-accessor';
 
