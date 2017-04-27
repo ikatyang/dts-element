@@ -1,4 +1,6 @@
 import {AnyElement} from '../../element';
+import {emit_generic_default} from '../../helpers/emit-generic-default';
+import {emit_generic_extends} from '../../helpers/emit-generic-extends';
 import {InterfaceDeclaration} from '../declarations/interface';
 import {AnyType, Type} from '../type';
 
@@ -21,20 +23,10 @@ export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTy
   }
 
   public _emit(container: AnyElement | null): string {
-    return (container instanceof InterfaceDeclaration)
-      ? this.emit_definition()
-      : this.parameters.name;
-  }
-
-  private emit_definition(): string {
-    // TODO: add helpers for extends and default
-    const a_extends = (this.parameters.extends === null)
-      ? ''
-      : ` extends ${this.parameters.extends._emit(this)}`;
-    const a_default = (this.parameters.default === null)
-      ? ''
-      : ` = ${this.parameters.default._emit(this)}`;
-    return `${this.parameters.name}${a_extends}${a_default}`;
+    const {name} = this.parameters;
+    const generic_extends = emit_generic_extends(this.parameters.extends, container);
+    const generic_default = emit_generic_default(this.parameters.default, container);
+    return `${name}${generic_extends}${generic_default}`;
   }
 
 }
