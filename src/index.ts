@@ -7,6 +7,8 @@ export * from './elements/declarations/namespace';
 export * from './elements/declarations/variable';
 export * from './elements/document';
 export * from './elements/index-signature';
+export * from './elements/member';
+export * from './elements/members/interface';
 export * from './elements/reference';
 export * from './elements/type';
 export * from './elements/types/basic';
