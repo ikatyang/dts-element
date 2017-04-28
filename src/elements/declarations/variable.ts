@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Container, VariableKind} from '../../collections';
 import {any_type} from '../../constants';
 import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
@@ -10,7 +10,7 @@ import {AnyType} from '../type';
 export interface IVariableDeclarationRequiredParameters {}
 
 export interface IVariableDeclarationOptionalParameters {
-  kind: 'var' | 'let' | 'const';
+  kind: VariableKind;
   type: AnyType;
   optional: boolean;
 }
@@ -20,17 +20,17 @@ export class VariableDeclaration
 
   public get default_parameters(): IDeclarationOptionalParameters & IVariableDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
-      kind: 'var' as 'var',
+      kind: 'var' as VariableKind,
       type: any_type,
       optional: false,
     });
   }
 
   public _emit_raw(container: Container): string {
-    const {name, kind, type: a_type} = this.parameters;
+    const {name, kind, type} = this.parameters;
     const optional = emit_optional(this.parameters.optional);
     const declare = emit_declare(container);
-    return `${declare}${kind} ${name}${optional}: ${a_type._emit(this)};`;
+    return `${declare}${kind} ${name}${optional}: ${type._emit(this)};`;
   }
 
 }
