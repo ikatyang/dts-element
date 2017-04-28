@@ -1,7 +1,6 @@
 import {Container} from '../../collections';
-import {emit_elements} from '../../helpers/emit-elements';
 import {emit_generics} from '../../helpers/emit-generics';
-import {indent_every_line} from '../../helpers/indent-every-line';
+import {emit_object} from '../../helpers/emit-object';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {ObjectMember} from '../members/object';
 import {GenericType} from '../types/generic';
@@ -27,8 +26,7 @@ export class InterfaceDeclaration
   public _emit_raw(_container: Container): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
-    const content = emit_elements(children, this);
-    return `interface ${name}${generic} {\n${indent_every_line(content)}\n}`;
+    return `interface ${name}${generic} ${emit_object(children, this)}`;
   }
 
 }

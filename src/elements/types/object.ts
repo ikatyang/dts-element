@@ -1,6 +1,5 @@
 import {Container} from '../../collections';
-import {emit_elements} from '../../helpers/emit-elements';
-import {indent_every_line} from '../../helpers/indent-every-line';
+import {emit_object} from '../../helpers/emit-object';
 import {ObjectMember} from '../members/object';
 import {Type} from '../type';
 
@@ -21,8 +20,7 @@ export class ObjectType extends Type<IObjectTypeRequiredParameters, IObjectTypeO
 
   public _emit(_container: Container): string {
     const {children} = this.parameters;
-    const content = emit_elements(children, this);
-    return `{\n${indent_every_line(content)}\n}`;
+    return emit_object(children, this);
   }
 
 }
