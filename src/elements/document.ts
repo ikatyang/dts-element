@@ -1,5 +1,5 @@
 import {Container, RootElement} from '../collections';
-import {AnyElement, Element} from '../element';
+import {Element} from '../element';
 import {emit_elements} from '../helpers/emit-elements';
 import {trim_every_line} from '../helpers/trim-every-line';
 

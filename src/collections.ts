@@ -1,13 +1,13 @@
-import {AnyElement} from './element';
-import {AnyDeclaration} from './elements/declaration';
+import {Element} from './element';
+import {Declaration} from './elements/declaration';
 import {FunctionDeclaration} from './elements/declarations/function';
 import {VariableDeclaration} from './elements/declarations/variable';
 import {IndexSignature} from './elements/index-signature';
 import {Reference} from './elements/reference';
 
-export type Container = AnyElement | null;
+export type Container = Element | null;
 
-export type RootElement = Reference | AnyDeclaration;
+export type RootElement = Reference | Declaration;
 export type MemberOwned = IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export type Accessor = 'private' | 'protected' | 'public' | null;

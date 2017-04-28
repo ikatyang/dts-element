@@ -1,9 +1,9 @@
 import {Container} from '../../collections';
 
-import {AnyType, Type} from '../type';
+import {Type} from '../type';
 
 export interface IUnionTypeRequiredParameters {
-  types: AnyType[];
+  types: Type[];
 }
 
 // tslint:disable-next-line no-empty-interface
@@ -16,7 +16,7 @@ export class UnionType extends Type<IUnionTypeRequiredParameters, IUnionTypeOpti
   }
 
   public _emit(_container: Container): string {
-    const types = this.parameters.types.map((type: AnyType) => type._emit(this));
+    const types = this.parameters.types.map((type: Type) => type._emit(this));
     return `(${types.join(' | ')})`;
   }
 

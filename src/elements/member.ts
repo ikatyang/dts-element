@@ -1,8 +1,6 @@
 import {MemberOwned} from '../collections';
 import {Element} from '../element';
 
-export type AnyMember = Member<any, any>;
-
 export interface IMemberRequiredParameters {
   owned: MemberOwned;
 }
@@ -10,6 +8,6 @@ export interface IMemberRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IMemberOptionalParameters {}
 
-// tslint:disable-next-line no-unused-variable
-export abstract class Member<RequiredParameters extends {}, OptionalParameters extends {}> extends Element
+export abstract class Member
+    <RequiredParameters extends object = any, OptionalParameters extends object = any> extends Element
     <IMemberRequiredParameters & RequiredParameters, IMemberOptionalParameters & OptionalParameters> {}

@@ -1,9 +1,9 @@
 import {Container} from '../../collections';
 
-import {AnyType, Type} from '../type';
+import {Type} from '../type';
 
 export interface IArrayTypeRequiredParameters {
-  owned: AnyType;
+  owned: Type;
 }
 
 // tslint:disable-next-line no-empty-interface

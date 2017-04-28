@@ -1,17 +1,16 @@
 import {Container, VariableKind} from '../../collections';
 import {any_type} from '../../constants';
-import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
-import {AnyType} from '../type';
+import {Type} from '../type';
 
 // tslint:disable-next-line no-empty-interface
 export interface IVariableDeclarationRequiredParameters {}
 
 export interface IVariableDeclarationOptionalParameters {
   kind: VariableKind;
-  type: AnyType;
+  type: Type;
   optional: boolean;
 }
 

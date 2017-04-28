@@ -1,13 +1,12 @@
 import {Container} from '../../collections';
 import {any_type} from '../../constants';
-import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_function} from '../../helpers/emit-function';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_parameters} from '../../helpers/emit-parameters';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Parameter} from '../parameter';
-import {AnyType} from '../type';
+import {Type} from '../type';
 import {GenericType} from '../types/generic';
 
 // tslint:disable-next-line no-empty-interface
@@ -16,7 +15,7 @@ export interface IFunctionDeclarationRequiredParameters {}
 export interface IFunctionDeclarationOptionalParameters {
   parameters: Parameter[];
   generics: GenericType[];
-  return: AnyType;
+  return: Type;
 }
 
 export class FunctionDeclaration

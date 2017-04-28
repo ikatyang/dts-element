@@ -1,5 +1,4 @@
 import {Container} from '../../collections';
-import {AnyElement} from '../../element';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {Member} from '../member';
 

@@ -1,7 +1,5 @@
-// tslint:disable-next-line no-unused-variable
 import {MemberOwned} from '../collections';
 import {VariableDeclaration} from '../elements/declarations/variable';
-// tslint:disable-next-line no-unused-variable
 import {IndexSignature} from '../elements/index-signature';
 
 export const emit_readonly = (readonly: boolean, owned: MemberOwned): string =>

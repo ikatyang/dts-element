@@ -1,8 +1,6 @@
 import {Container} from './collections';
 
-export type AnyElement = Element<any, any>;
-
-export abstract class Element<RequiredParameters extends {}, OptionalParameters extends {}> {
+export abstract class Element<RequiredParameters extends object = any, OptionalParameters extends object = any> {
 
   public parameters: RequiredParameters & OptionalParameters;
   public abstract get default_parameters(): OptionalParameters;

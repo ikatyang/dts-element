@@ -1,16 +1,16 @@
 import {Container, ParameterFlag} from '../collections';
 import {any_type} from '../constants';
-import {AnyElement, Element} from '../element';
+import {Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
 import {emit_parameter_type} from '../helpers/emit-parameter-type';
-import {AnyType} from './type';
+import {Type} from './type';
 
 export interface IParameterRequiredParameters {
   name: string;
 }
 
 export interface IParameterOptionalParameters {
-  type: AnyType;
+  type: Type;
   flag: ParameterFlag;
 }
 

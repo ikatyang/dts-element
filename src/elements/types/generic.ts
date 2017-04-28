@@ -1,17 +1,16 @@
 import {Container} from '../../collections';
-import {AnyElement} from '../../element';
 import {emit_generic_default} from '../../helpers/emit-generic-default';
 import {emit_generic_extends} from '../../helpers/emit-generic-extends';
 import {InterfaceDeclaration} from '../declarations/interface';
-import {AnyType, Type} from '../type';
+import {Type} from '../type';
 
 export interface IGenericTypeRequiredParameters {
   name: string;
 }
 
 export interface IGenericTypeOptionalParameters {
-  extends: AnyType | null;
-  default: AnyType | null;
+  extends: Type | null;
+  default: Type | null;
 }
 
 export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTypeOptionalParameters> {

@@ -1,9 +1,8 @@
 import {Container} from '../../collections';
-import {AnyElement} from '../../element';
 import {emit_elements} from '../../helpers/emit-elements';
 import {emit_generics} from '../../helpers/emit-generics';
 import {indent_every_line} from '../../helpers/indent-every-line';
-import {AnyDeclaration, Declaration, IDeclarationOptionalParameters} from '../declaration';
+import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {InterfaceMember} from '../members/interface';
 import {GenericType} from '../types/generic';
 

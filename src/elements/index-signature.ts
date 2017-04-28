@@ -1,9 +1,9 @@
 import {Container, IndexSignatureKind} from '../collections';
 import {any_type} from '../constants';
-import {AnyElement, Element} from '../element';
+import {Element} from '../element';
 import {emit_jsdoc} from '../helpers/emit-jsdoc';
 import {emit_optional} from '../helpers/emit-optional';
-import {AnyType} from './type';
+import {Type} from './type';
 
 export interface IIndexSignatureRequiredParameters {
   name: string;
@@ -12,7 +12,7 @@ export interface IIndexSignatureRequiredParameters {
 export interface IIndexSignatureOptionalParameters {
   jsdoc: string;
   kind: IndexSignatureKind;
-  type: AnyType;
+  type: Type;
   optional: boolean;
 }
 

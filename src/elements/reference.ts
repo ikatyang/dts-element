@@ -1,5 +1,5 @@
 import {Container} from '../collections';
-import {AnyElement, Element} from '../element';
+import {Element} from '../element';
 
 export interface IReferenceRequiredParameters {
   kind: 'path' | 'types';
