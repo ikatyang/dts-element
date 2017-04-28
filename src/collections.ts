@@ -13,3 +13,4 @@ export type MemberOwned = IndexSignature | VariableDeclaration | FunctionDeclara
 export type Accessor = 'private' | 'protected' | 'public' | null;
 export type ParameterFlag = null | 'optional' | 'rest';
 export type VariableKind = 'var' | 'let' | 'const';
+export type IndexSignatureKind = 'number' | 'string';
