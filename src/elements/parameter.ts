@@ -1,3 +1,4 @@
+import {ParameterFlag} from '../collections';
 import {any_type} from '../constants';
 import {AnyElement, Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
@@ -10,7 +11,7 @@ export interface IParameterRequiredParameters {
 
 export interface IParameterOptionalParameters {
   type: AnyType;
-  flag: null | 'optional' | 'rest';
+  flag: ParameterFlag;
 }
 
 export class Parameter extends Element<IParameterRequiredParameters, IParameterOptionalParameters> {

@@ -6,3 +6,6 @@ import {Reference} from './elements/reference';
 
 export type RootElement = Reference | AnyDeclaration;
 export type MemberOwned = IndexSignature | VariableDeclaration | FunctionDeclaration;
+
+export type Accessor = 'private' | 'protected' | 'public' | null;
+export type ParameterFlag = null | 'optional' | 'rest';
