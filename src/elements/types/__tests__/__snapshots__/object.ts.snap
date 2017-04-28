@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#emit() should return correctly 1`] = `
+"{
+[indent-every-line
+  [emit-elements
+    [ObjectMember [emit-jsdoc][VariableDeclaration x]]
+    [ObjectMember [emit-jsdoc][VariableDeclaration y]]
+  ]
+]
+}"
+`;
