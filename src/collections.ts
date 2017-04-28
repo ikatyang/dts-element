@@ -4,6 +4,7 @@ import {FunctionDeclaration} from './elements/declarations/function';
 import {VariableDeclaration} from './elements/declarations/variable';
 import {IndexSignature} from './elements/index-signature';
 import {Reference} from './elements/reference';
+import {Type} from './elements/type';
 
 export type Container = Element | null;
 
@@ -15,3 +16,5 @@ export type ParameterFlag = null | 'optional' | 'rest';
 export type VariableKind = 'var' | 'let' | 'const';
 export type IndexSignatureKind = 'number' | 'string';
 export type LiteralValue = boolean | number | string;
+export type GenericExtends = Type | null;
+export type GenericDefault = Type | null;
