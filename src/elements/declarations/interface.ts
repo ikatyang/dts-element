@@ -3,7 +3,7 @@ import {emit_elements} from '../../helpers/emit-elements';
 import {emit_generics} from '../../helpers/emit-generics';
 import {indent_every_line} from '../../helpers/indent-every-line';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
-import {InterfaceMember} from '../members/interface';
+import {ObjectMember} from '../members/object';
 import {GenericType} from '../types/generic';
 
 // tslint:disable-next-line no-empty-interface
@@ -11,7 +11,7 @@ export interface IInterfaceDeclarationRequiredParameters {}
 
 export interface IInterfaceDeclarationOptionalParameters {
   generics: GenericType[];
-  children: InterfaceMember[];
+  children: ObjectMember[];
 }
 
 export class InterfaceDeclaration

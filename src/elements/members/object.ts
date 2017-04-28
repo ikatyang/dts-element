@@ -3,15 +3,15 @@ import {emit_readonly} from '../../helpers/emit-readonly';
 import {Member} from '../member';
 
 // tslint:disable-next-line no-empty-interface
-export interface IInterfaceMemberRequiredParameters {}
+export interface IObjectMemberRequiredParameters {}
 
-export interface IInterfaceMemberOptionalParameters {
+export interface IObjectMemberOptionalParameters {
   readonly: boolean;
 }
 
-export class InterfaceMember extends Member<IInterfaceMemberRequiredParameters, IInterfaceMemberOptionalParameters> {
+export class ObjectMember extends Member<IObjectMemberRequiredParameters, IObjectMemberOptionalParameters> {
 
-  public get default_parameters(): IInterfaceMemberOptionalParameters {
+  public get default_parameters(): IObjectMemberOptionalParameters {
     return {
       readonly: false,
     };

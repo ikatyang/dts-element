@@ -1,11 +1,11 @@
-jest.unmock('../interface');
+jest.unmock('../object');
 
 import {VariableDeclaration} from '../../declarations/variable';
-import {InterfaceMember} from '../interface';
+import {ObjectMember} from '../object';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new InterfaceMember({
+    expect(new ObjectMember({
       owned: new VariableDeclaration({name: 'x'}),
     }).emit()).toMatchSnapshot();
   });

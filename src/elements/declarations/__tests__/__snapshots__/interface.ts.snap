@@ -4,8 +4,8 @@ exports[`#emit() should return correctly 1`] = `
 "[emit-jsdoc]interface A[emit-generics] {
 [indent-every-line
   [emit-elements
-    [InterfaceMember [emit-jsdoc][VariableDeclaration x]]
-    [InterfaceMember [emit-jsdoc][VariableDeclaration y]]
+    [ObjectMember [emit-jsdoc][VariableDeclaration x]]
+    [ObjectMember [emit-jsdoc][VariableDeclaration y]]
   ]
 ]
 }"
