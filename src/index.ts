@@ -13,6 +13,7 @@ export * from './elements/members/interface';
 export * from './elements/parameter';
 export * from './elements/reference';
 export * from './elements/type';
+export * from './elements/types/array';
 export * from './elements/types/basic';
 export * from './elements/types/generic';
 export * from './elements/types/intersection';

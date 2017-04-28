@@ -1,6 +1,7 @@
 import {any_type} from '../constants';
 import {AnyElement, Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
+import {emit_parameter_type} from '../helpers/emit-parameter-type';
 import {AnyType} from './type';
 
 export interface IParameterRequiredParameters {
@@ -21,10 +22,9 @@ export class Parameter extends Element<IParameterRequiredParameters, IParameterO
     };
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(container: AnyElement | null): string {
     const {name, type, flag} = this.parameters;
-    const main = emit_parameter_main(name, flag);
-    return `${main}: ${type._emit(this)}`;
+    return `${emit_parameter_main(name, flag)}: ${emit_parameter_type(type, flag, container)}`;
   }
 
 }
