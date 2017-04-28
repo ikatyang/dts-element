@@ -1,4 +1,5 @@
-import {AnyElement} from '../../element';
+import {Container} from '../../collections';
+
 import {AnyType, Type} from '../type';
 
 export interface IIntersectionTypeRequiredParameters {
@@ -14,7 +15,7 @@ export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, 
     return {};
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     const types = this.parameters.types.map((type: AnyType) => type._emit(this));
     return `(${types.join(' & ')})`;
   }

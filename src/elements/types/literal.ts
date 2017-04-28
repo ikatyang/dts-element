@@ -1,4 +1,5 @@
-import {AnyElement} from '../../element';
+import {Container} from '../../collections';
+
 import {Type} from '../type';
 
 export interface ILiteralTypeRequiredParameters {
@@ -14,7 +15,7 @@ export class LiteralType extends Type<ILiteralTypeRequiredParameters, ILiteralTy
     return {};
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     return JSON.stringify(this.parameters.value);
   }
 

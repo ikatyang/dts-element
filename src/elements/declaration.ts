@@ -1,4 +1,5 @@
-import {AnyElement, Element} from '../element';
+import {Container} from '../collections';
+import {Element} from '../element';
 import {emit_jsdoc} from '../helpers/emit-jsdoc';
 
 export interface IDeclarationRequiredParameters {
@@ -21,7 +22,7 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
     };
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit(container: Container): string {
     return `${this._emit_jsdoc()}${this._emit_raw(container)}`;
   }
 
@@ -29,6 +30,6 @@ export abstract class Declaration<RequiredParameters extends {}, OptionalParamet
     return emit_jsdoc(this.parameters.jsdoc);
   }
 
-  public abstract _emit_raw(container: AnyElement | null): string;
+  public abstract _emit_raw(container: Container): string;
 
 }

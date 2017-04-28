@@ -1,3 +1,5 @@
+import {Container} from './collections';
+
 export type AnyElement = Element<any, any>;
 
 export abstract class Element<RequiredParameters extends {}, OptionalParameters extends {}> {
@@ -36,7 +38,7 @@ export abstract class Element<RequiredParameters extends {}, OptionalParameters 
     return this._emit(null);
   }
 
-  public abstract _emit(container: AnyElement | null): string;
+  public abstract _emit(container: Container): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')

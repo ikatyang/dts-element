@@ -1,4 +1,5 @@
-import {AnyElement} from '../../element';
+import {Container} from '../../collections';
+
 import {AnyType, Type} from '../type';
 
 export interface IArrayTypeRequiredParameters {
@@ -14,7 +15,7 @@ export class ArrayType extends Type<IArrayTypeRequiredParameters, IArrayTypeOpti
     return {};
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit(container: Container): string {
     return `${this.parameters.owned._emit(container)}[]`;
   }
 

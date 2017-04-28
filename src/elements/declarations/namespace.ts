@@ -1,3 +1,4 @@
+import {Container} from '../../collections';
 import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
 import {indent_every_line} from '../../helpers/indent-every-line';
@@ -20,7 +21,7 @@ export class NamespaceDeclaration
     });
   }
 
-  public _emit_raw(container: AnyElement | null): string {
+  public _emit_raw(container: Container): string {
     const {name, children} = this.parameters;
     const content = children
       .map((declaration: AnyDeclaration) => declaration._emit(this))

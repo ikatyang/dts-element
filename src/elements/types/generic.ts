@@ -1,3 +1,4 @@
+import {Container} from '../../collections';
 import {AnyElement} from '../../element';
 import {emit_generic_default} from '../../helpers/emit-generic-default';
 import {emit_generic_extends} from '../../helpers/emit-generic-extends';
@@ -22,7 +23,7 @@ export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTy
     };
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit(container: Container): string {
     const {name} = this.parameters;
     const generic_extends = emit_generic_extends(this.parameters.extends, container);
     const generic_default = emit_generic_default(this.parameters.default, container);

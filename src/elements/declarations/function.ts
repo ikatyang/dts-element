@@ -1,3 +1,4 @@
+import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {AnyElement} from '../../element';
 import {emit_declare} from '../../helpers/emit-declare';
@@ -29,7 +30,7 @@ export class FunctionDeclaration
     });
   }
 
-  public _emit_raw(container: AnyElement | null): string {
+  public _emit_raw(container: Container): string {
     const {name} = this.parameters;
     const parameters = emit_parameters(this.parameters.parameters, this);
     const generics = emit_generics(this.parameters.generics, this);

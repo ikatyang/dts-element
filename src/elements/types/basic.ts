@@ -1,4 +1,5 @@
-import {AnyElement} from '../../element';
+import {Container} from '../../collections';
+
 import {Type} from '../type';
 
 export interface IBasicTypeRequiredParameters {
@@ -14,7 +15,7 @@ export class BasicType extends Type<IBasicTypeRequiredParameters, IBasicTypeOpti
     return {};
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     return this.parameters.name;
   }
 

@@ -1,4 +1,4 @@
-import {RootElement} from '../collections';
+import {Container, RootElement} from '../collections';
 import {AnyElement, Element} from '../element';
 import {emit_elements} from '../helpers/emit-elements';
 import {trim_every_line} from '../helpers/trim-every-line';
@@ -16,7 +16,7 @@ export class Document extends Element<IDocumentRequiredParameters, IDocumentOpti
     return {};
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     const {children} = this.parameters;
     const content = emit_elements(children, this);
     return trim_every_line(content);

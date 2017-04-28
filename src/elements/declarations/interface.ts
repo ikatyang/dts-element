@@ -1,3 +1,4 @@
+import {Container} from '../../collections';
 import {AnyElement} from '../../element';
 import {emit_elements} from '../../helpers/emit-elements';
 import {emit_generics} from '../../helpers/emit-generics';
@@ -24,7 +25,7 @@ export class InterfaceDeclaration
     });
   }
 
-  public _emit_raw(_container: AnyElement | null): string {
+  public _emit_raw(_container: Container): string {
     const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
     const content = emit_elements(children, this);

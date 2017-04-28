@@ -1,3 +1,4 @@
+import {Container} from '../../collections';
 import {AnyElement} from '../../element';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {Member} from '../member';
@@ -17,7 +18,7 @@ export class InterfaceMember extends Member<IInterfaceMemberRequiredParameters, 
     };
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     const {owned} = this.parameters;
     const readonly = emit_readonly(this.parameters.readonly, owned);
     return `${owned._emit_jsdoc()}${readonly}${owned._emit_raw(this)}`;

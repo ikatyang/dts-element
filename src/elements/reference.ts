@@ -1,3 +1,4 @@
+import {Container} from '../collections';
 import {AnyElement, Element} from '../element';
 
 export interface IReferenceRequiredParameters {
@@ -14,7 +15,7 @@ export class Reference extends Element<IReferenceRequiredParameters, IReferenceO
     return {};
   }
 
-  public _emit(_container: AnyElement | null): string {
+  public _emit(_container: Container): string {
     const {kind, content} = this.parameters;
     return `/// <reference ${kind}="${content}" />`;
   }

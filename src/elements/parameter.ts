@@ -1,4 +1,4 @@
-import {ParameterFlag} from '../collections';
+import {Container, ParameterFlag} from '../collections';
 import {any_type} from '../constants';
 import {AnyElement, Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
@@ -23,7 +23,7 @@ export class Parameter extends Element<IParameterRequiredParameters, IParameterO
     };
   }
 
-  public _emit(container: AnyElement | null): string {
+  public _emit(container: Container): string {
     const {name, type, flag} = this.parameters;
     return `${emit_parameter_main(name, flag)}: ${emit_parameter_type(type, flag, container)}`;
   }
