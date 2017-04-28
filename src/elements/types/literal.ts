@@ -1,9 +1,8 @@
-import {Container} from '../../collections';
-
+import {Container, LiteralValue} from '../../collections';
 import {Type} from '../type';
 
 export interface ILiteralTypeRequiredParameters {
-  value: boolean | number | string;
+  value: LiteralValue;
 }
 
 // tslint:disable-next-line no-empty-interface
