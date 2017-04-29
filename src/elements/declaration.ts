@@ -14,7 +14,6 @@ export abstract class Declaration
     <RequiredParameters extends object = any, OptionalParameters extends object = any> extends Element
     <IDeclarationRequiredParameters & RequiredParameters, IDeclarationOptionalParameters & OptionalParameters> {
 
-  // istanbul ignore next
   public get default_declaration_parameters(): IDeclarationOptionalParameters {
     return {
       jsdoc: '',
