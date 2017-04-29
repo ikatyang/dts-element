@@ -1,5 +1,4 @@
 import {Container} from '../../collections';
-
 import {Type} from '../type';
 
 export interface IArrayTypeRequiredParameters {
