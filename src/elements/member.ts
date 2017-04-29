@@ -1,9 +1,10 @@
 import {Element} from '../element';
+import {Constructor} from './constructor';
 import {FunctionDeclaration} from './declarations/function';
 import {VariableDeclaration} from './declarations/variable';
 import {IndexSignature} from './index-signature';
 
-export type MemberOwned = IndexSignature | VariableDeclaration | FunctionDeclaration;
+export type MemberOwned = Constructor | IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export interface IMemberRequiredParameters {
   owned: MemberOwned;

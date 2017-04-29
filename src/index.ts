@@ -1,6 +1,7 @@
 export * from './collections';
 export * from './constants';
 export * from './element';
+export * from './elements/constructor';
 export * from './elements/declaration';
 export * from './elements/declarations/class';
 export * from './elements/declarations/function';
