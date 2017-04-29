@@ -1,4 +1,4 @@
-import {Container, GenericDefault} from '../../collections';
+import {Container} from '../../collections';
 import {emit_extends} from '../../helpers/emit-extends';
 import {emit_generic_default} from '../../helpers/emit-generic-default';
 import {InterfaceDeclaration} from '../declarations/interface';
@@ -10,7 +10,7 @@ export interface IGenericTypeRequiredParameters {
 
 export interface IGenericTypeOptionalParameters {
   extends: Type | null;
-  default: GenericDefault;
+  default: Type | null;
 }
 
 export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTypeOptionalParameters> {

@@ -1,10 +1,12 @@
-import {Container, RootElement} from '../collections';
+import {Container} from '../collections';
 import {Element} from '../element';
 import {emit_elements} from '../helpers/emit-elements';
 import {trim_every_line} from '../helpers/trim-every-line';
+import {Declaration} from './declaration';
+import {Reference} from './reference';
 
 export interface IDocumentRequiredParameters {
-  children: RootElement[];
+  children: (Reference | Declaration)[];
 }
 
 // tslint:disable-next-line no-empty-interface

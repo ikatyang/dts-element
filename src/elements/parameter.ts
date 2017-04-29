@@ -1,9 +1,11 @@
-import {Container, ParameterFlag} from '../collections';
+import {Container} from '../collections';
 import {any_type} from '../constants';
 import {Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
 import {emit_parameter_type} from '../helpers/emit-parameter-type';
 import {Type} from './type';
+
+export type ParameterFlag = null | 'optional' | 'rest';
 
 export interface IParameterRequiredParameters {
   name: string;

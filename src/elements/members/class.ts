@@ -1,15 +1,17 @@
-import {Accessor, Container} from '../../collections';
+import {Container} from '../../collections';
 import {emit_abstract} from '../../helpers/emit-abstract';
 import {emit_accessor} from '../../helpers/emit-accessor';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {emit_static} from '../../helpers/emit-static';
 import {Member} from '../member';
 
+export type ClassAccessor = 'private' | 'protected' | 'public' | null;
+
 // tslint:disable-next-line no-empty-interface
 export interface IClassMemberRequiredParameters {}
 
 export interface IClassMemberOptionalParameters {
-  accessor: Accessor;
+  accessor: ClassAccessor;
   abstract: boolean;
   readonly: boolean;
   static: boolean;

@@ -1,4 +1,4 @@
-import {Container, IndexSignatureKind} from '../collections';
+import {Container} from '../collections';
 import {any_type} from '../constants';
 import {Element} from '../element';
 import {emit_jsdoc} from '../helpers/emit-jsdoc';
@@ -11,7 +11,7 @@ export interface IIndexSignatureRequiredParameters {
 
 export interface IIndexSignatureOptionalParameters {
   jsdoc: string;
-  kind: IndexSignatureKind;
+  kind: 'number' | 'string';
   type: Type;
   optional: boolean;
 }

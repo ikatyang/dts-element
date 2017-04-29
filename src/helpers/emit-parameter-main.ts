@@ -1,4 +1,4 @@
-import {ParameterFlag} from '../collections';
+import {ParameterFlag} from '../elements/parameter';
 import {emit_optional} from './emit-optional';
 import {emit_rest} from './emit-rest';
 

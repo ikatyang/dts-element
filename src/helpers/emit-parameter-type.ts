@@ -1,4 +1,5 @@
-import {Container, ParameterFlag} from '../collections';
+import {Container} from '../collections';
+import {ParameterFlag} from '../elements/parameter';
 import {Type} from '../elements/type';
 import {ArrayType} from '../elements/types/array';
 

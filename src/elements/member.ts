@@ -1,5 +1,9 @@
-import {MemberOwned} from '../collections';
 import {Element} from '../element';
+import {FunctionDeclaration} from './declarations/function';
+import {VariableDeclaration} from './declarations/variable';
+import {IndexSignature} from './index-signature';
+
+export type MemberOwned = IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export interface IMemberRequiredParameters {
   owned: MemberOwned;

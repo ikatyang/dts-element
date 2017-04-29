@@ -1,10 +1,12 @@
-import {Container, VariableKind} from '../../collections';
+import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Type} from '../type';
+
+export type VariableKind = 'var' | 'let' | 'const';
 
 // tslint:disable-next-line no-empty-interface
 export interface IVariableDeclarationRequiredParameters {}
