@@ -26,5 +26,6 @@ export * from './elements/types/keyof';
 export * from './elements/types/literal';
 export * from './elements/types/object';
 export * from './elements/types/tuple';
+export * from './elements/types/typed';
 export * from './elements/types/typeof';
 export * from './elements/types/union';
