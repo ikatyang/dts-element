@@ -15,7 +15,7 @@ export class KeyofType extends Type<IKeyofTypeRequiredParameters, IKeyofTypeOpti
   }
 
   public _emit(container: Container): string {
-    return `keyof ${this.parameters.owned._emit(container)}`;
+    return `(keyof ${this.parameters.owned._emit(container)})`;
   }
 
 }

@@ -16,7 +16,7 @@ export class TypeofType extends Type<ITypeofTypeRequiredParameters, ITypeofTypeO
   }
 
   public _emit(_container: Container): string {
-    return `typeof ${this.parameters.owned.parameters.name}`;
+    return `(typeof ${this.parameters.owned.parameters.name})`;
   }
 
 }

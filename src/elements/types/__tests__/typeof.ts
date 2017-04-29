@@ -8,6 +8,6 @@ describe('#emit()', () => {
     const name = 'test';
     expect(new TypeofType({
       owned: new VariableDeclaration({name}),
-    }).emit()).toBe(`typeof ${name}`);
+    }).emit()).toBe(`(typeof ${name})`);
   });
 });
