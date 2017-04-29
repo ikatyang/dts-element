@@ -9,6 +9,7 @@ export * from './elements/declarations/variable';
 export * from './elements/document';
 export * from './elements/index-signature';
 export * from './elements/member';
+export * from './elements/members/class';
 export * from './elements/members/object';
 export * from './elements/parameter';
 export * from './elements/reference';
