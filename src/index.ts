@@ -6,6 +6,7 @@ export * from './elements/declarations/class';
 export * from './elements/declarations/function';
 export * from './elements/declarations/interface';
 export * from './elements/declarations/namespace';
+export * from './elements/declarations/type';
 export * from './elements/declarations/variable';
 export * from './elements/document';
 export * from './elements/index-signature';
