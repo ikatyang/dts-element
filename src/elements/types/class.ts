@@ -1,5 +1,5 @@
 import {Container} from '../../collections';
-import {emit_class_name} from '../../helpers/emit-class-name';
+import {emit_declaration_type_name} from '../../helpers/emit-declaration-type-name';
 import {emit_generics} from '../../helpers/emit-generics';
 import {ClassDeclaration} from '../declarations/class';
 import {Type} from '../type';
@@ -21,7 +21,7 @@ export class ClassType extends Type<IClassTypeRequiredParameters, IClassTypeOpti
   }
 
   public _emit(_container: Container): string {
-    const name = emit_class_name(this.parameters.owned);
+    const name = emit_declaration_type_name(this.parameters.owned);
     return `${name}${emit_generics(this.parameters.generics, this)}`;
   }
 
