@@ -5,8 +5,9 @@ import {emit_elements} from '../../helpers/emit-elements';
 import {indent_every_line} from '../../helpers/indent-every-line';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 
-// tslint:disable-next-line no-empty-interface
-export interface INamespaceDeclarationRequiredParameters {}
+export interface INamespaceDeclarationRequiredParameters {
+  name: string;
+}
 
 export interface INamespaceDeclarationOptionalParameters {
   children: Declaration[];

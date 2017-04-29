@@ -6,8 +6,9 @@ import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {ObjectMember} from '../members/object';
 import {GenericType} from '../types/generic';
 
-// tslint:disable-next-line no-empty-interface
-export interface IInterfaceDeclarationRequiredParameters {}
+export interface IInterfaceDeclarationRequiredParameters {
+  name: string;
+}
 
 export interface IInterfaceDeclarationOptionalParameters {
   generics: GenericType[];
