@@ -1,6 +1,5 @@
 import {Container} from '../../collections';
 import {emit_abstract} from '../../helpers/emit-abstract';
-import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_extends} from '../../helpers/emit-extends';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_object} from '../../helpers/emit-object';
@@ -33,8 +32,7 @@ export class ClassDeclaration
   }
 
   public _emit_raw(container: Container): string {
-    const {children, generics} = this.parameters;
-    const name = emit_declaration_name(this.parameters.name, container);
+    const {name, children, generics} = this.parameters;
     const generic = emit_generics(generics, this);
     const abstract = emit_abstract(this.parameters.abstract, this);
     const an_extends = emit_extends(this.parameters.extends, this);

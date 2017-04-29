@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#emit() should return correctly 1`] = `
-"[emit-jsdoc][emit-declare]namespace [emit_declaration_name \\"A\\"] {
+"[emit-jsdoc][emit-declare]namespace A {
 [indent-every-line
   [emit-elements
-    [emit-jsdoc][emit-declare]namespace [emit_declaration_name \\"B\\"] {
+    [emit-jsdoc][emit-declare]namespace B {
     [indent-every-line
       [emit-elements
         [emit-jsdoc][VariableDeclaration b]
       ]
     ]
     }
-    [emit-jsdoc][emit-declare]namespace [emit_declaration_name \\"C\\"] {
+    [emit-jsdoc][emit-declare]namespace C {
     [indent-every-line
       [emit-elements
         [emit-jsdoc][VariableDeclaration c]
