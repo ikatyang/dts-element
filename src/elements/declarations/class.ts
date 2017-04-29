@@ -9,8 +9,9 @@ import {ClassMember} from '../members/class';
 import {ClassType} from '../types/class';
 import {GenericType} from '../types/generic';
 
-// tslint:disable-next-line no-empty-interface
-export interface IClassDeclarationRequiredParameters {}
+export interface IClassDeclarationRequiredParameters {
+  name: string;
+}
 
 export interface IClassDeclarationOptionalParameters {
   generics: GenericType[];

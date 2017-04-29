@@ -1,10 +1,11 @@
 import {Container} from '../../collections';
+import {emit_class_name} from '../../helpers/emit-class-name';
 import {emit_generics} from '../../helpers/emit-generics';
+import {ClassDeclaration} from '../declarations/class';
 import {Type} from '../type';
 
-// TODO: support for ClassDeclaration
 export interface IClassTypeRequiredParameters {
-  class: string;
+  class: string | ClassDeclaration;
 }
 
 export interface IClassTypeOptionalParameters {
@@ -20,7 +21,7 @@ export class ClassType extends Type<IClassTypeRequiredParameters, IClassTypeOpti
   }
 
   public _emit(_container: Container): string {
-    const name = this.parameters.class;
+    const name = emit_class_name(this.parameters.class);
     return `${name}${emit_generics(this.parameters.generics, this)}`;
   }
 
