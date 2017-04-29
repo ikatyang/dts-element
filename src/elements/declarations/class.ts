@@ -14,7 +14,7 @@ export interface IClassDeclarationRequiredParameters {
 
 export interface IClassDeclarationOptionalParameters {
   generics: GenericType[];
-  children: ClassMember[];
+  members: ClassMember[];
   extends: ClassType | null;
   abstract: boolean;
 }
@@ -25,18 +25,18 @@ export class ClassDeclaration
   public get default_parameters(): IDeclarationOptionalParameters & IClassDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],
-      children: [],
+      members: [],
       extends: null,
       abstract: false,
     });
   }
 
   public _emit_raw(container: Container): string {
-    const {name, children, generics} = this.parameters;
+    const {name, members, generics} = this.parameters;
     const generic = emit_generics(generics, this);
     const abstract = emit_abstract(this.parameters.abstract, this);
     const an_extends = emit_extends(this.parameters.extends, this);
-    return `${abstract}class ${name}${generic}${an_extends} ${emit_members(children, this)}`;
+    return `${abstract}class ${name}${generic}${an_extends} ${emit_members(members, this)}`;
   }
 
 }

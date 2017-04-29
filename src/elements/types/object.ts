@@ -4,7 +4,7 @@ import {ObjectMember} from '../members/object';
 import {Type} from '../type';
 
 export interface IObjectTypeRequiredParameters {
-  children: ObjectMember[];
+  members: ObjectMember[];
 }
 
 // tslint:disable-next-line no-empty-interface
@@ -17,8 +17,8 @@ export class ObjectType extends Type<IObjectTypeRequiredParameters, IObjectTypeO
   }
 
   public _emit(_container: Container): string {
-    const {children} = this.parameters;
-    return emit_members(children, this);
+    const {members} = this.parameters;
+    return emit_members(members, this);
   }
 
 }

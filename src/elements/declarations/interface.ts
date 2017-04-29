@@ -11,7 +11,7 @@ export interface IInterfaceDeclarationRequiredParameters {
 
 export interface IInterfaceDeclarationOptionalParameters {
   generics: GenericType[];
-  children: ObjectMember[];
+  members: ObjectMember[];
 }
 
 export class InterfaceDeclaration
@@ -20,14 +20,14 @@ export class InterfaceDeclaration
   public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],
-      children: [],
+      members: [],
     });
   }
 
   public _emit_raw(container: Container): string {
-    const {name, children, generics} = this.parameters;
+    const {name, members, generics} = this.parameters;
     const generic = emit_generics(generics, this);
-    return `interface ${name}${generic} ${emit_members(children, this)}`;
+    return `interface ${name}${generic} ${emit_members(members, this)}`;
   }
 
 }

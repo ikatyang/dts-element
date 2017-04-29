@@ -6,7 +6,7 @@ import {ObjectType} from '../object';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new ObjectType({children: [
+    expect(new ObjectType({members: [
       new ObjectMember({owned: new VariableDeclaration({name: 'x'})}),
       new ObjectMember({owned: new VariableDeclaration({name: 'y'})}),
     ]}).emit()).toMatchSnapshot();
