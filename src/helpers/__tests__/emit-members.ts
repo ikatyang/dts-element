@@ -1,15 +1,15 @@
-jest.unmock('../emit-object');
+jest.unmock('../emit-members');
 
 import {VariableDeclaration} from '../../elements/declarations/variable';
 import {ObjectMember} from '../../elements/members/object';
-import {emit_object} from '../emit-object';
+import {emit_members} from '../emit-members';
 
 it('should return empty object while there are no children', () => {
-  expect(emit_object([], null)).toBe('{}');
+  expect(emit_members([], null)).toBe('{}');
 });
 
 it('should return indented members while there are children', () => {
-  expect(emit_object([
+  expect(emit_members([
     new ObjectMember({owned: new VariableDeclaration({name: 'x'})}),
     new ObjectMember({owned: new VariableDeclaration({name: 'y'})}),
   ], null)).toMatchSnapshot();

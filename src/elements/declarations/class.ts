@@ -2,7 +2,7 @@ import {Container} from '../../collections';
 import {emit_abstract} from '../../helpers/emit-abstract';
 import {emit_extends} from '../../helpers/emit-extends';
 import {emit_generics} from '../../helpers/emit-generics';
-import {emit_object} from '../../helpers/emit-object';
+import {emit_members} from '../../helpers/emit-members';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {ClassMember} from '../members/class';
 import {ClassType} from '../types/class';
@@ -36,7 +36,7 @@ export class ClassDeclaration
     const generic = emit_generics(generics, this);
     const abstract = emit_abstract(this.parameters.abstract, this);
     const an_extends = emit_extends(this.parameters.extends, this);
-    return `${abstract}class ${name}${generic}${an_extends} ${emit_object(children, this)}`;
+    return `${abstract}class ${name}${generic}${an_extends} ${emit_members(children, this)}`;
   }
 
 }
