@@ -5,7 +5,7 @@ import {ClassDeclaration} from '../declarations/class';
 import {Type} from '../type';
 
 export interface IClassTypeRequiredParameters {
-  class: string | ClassDeclaration;
+  owned: string | ClassDeclaration;
 }
 
 export interface IClassTypeOptionalParameters {
@@ -21,7 +21,7 @@ export class ClassType extends Type<IClassTypeRequiredParameters, IClassTypeOpti
   }
 
   public _emit(_container: Container): string {
-    const name = emit_class_name(this.parameters.class);
+    const name = emit_class_name(this.parameters.owned);
     return `${name}${emit_generics(this.parameters.generics, this)}`;
   }
 

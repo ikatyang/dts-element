@@ -7,7 +7,7 @@ export class ClassType extends Type<any, any> {
   }
 
   public _emit(): string {
-    return `[ClassType ${this.parameters.class}]`;
+    return `[ClassType ${this.parameters.owned}]`;
   }
 
 }

@@ -4,6 +4,6 @@ import {ClassType} from '../class';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new ClassType({class: 'Test'}).emit()).toMatchSnapshot();
+    expect(new ClassType({owned: 'Test'}).emit()).toMatchSnapshot();
   });
 });
