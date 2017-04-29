@@ -1,5 +1,6 @@
 import {Container} from '../../collections';
 import {any_type} from '../../constants';
+import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_function} from '../../helpers/emit-function';
 import {emit_generics} from '../../helpers/emit-generics';
@@ -30,7 +31,7 @@ export class FunctionDeclaration
   }
 
   public _emit_raw(container: Container): string {
-    const {name} = this.parameters;
+    const name = emit_declaration_name(this.parameters.name, container);
     const parameters = emit_parameters(this.parameters.parameters, this);
     const generics = emit_generics(this.parameters.generics, this);
     const return_type = this.parameters.return._emit(this);

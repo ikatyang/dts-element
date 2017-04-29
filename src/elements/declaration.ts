@@ -3,7 +3,7 @@ import {Element} from '../element';
 import {emit_jsdoc} from '../helpers/emit-jsdoc';
 
 export interface IDeclarationRequiredParameters {
-  name: string;
+  name: string | null;
 }
 
 export interface IDeclarationOptionalParameters {

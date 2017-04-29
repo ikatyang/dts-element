@@ -1,5 +1,6 @@
 import {Container, VariableKind} from '../../collections';
 import {any_type} from '../../constants';
+import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
@@ -26,7 +27,8 @@ export class VariableDeclaration
   }
 
   public _emit_raw(container: Container): string {
-    const {name, kind, type} = this.parameters;
+    const {kind, type} = this.parameters;
+    const name = emit_declaration_name(this.parameters.name, container);
     const optional = emit_optional(this.parameters.optional);
     const declare = emit_declare(container);
     return `${declare}${kind} ${name}${optional}: ${type._emit(this)};`;
