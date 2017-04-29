@@ -17,6 +17,7 @@ export * from './elements/types/array';
 export * from './elements/types/basic';
 export * from './elements/types/generic';
 export * from './elements/types/intersection';
+export * from './elements/types/keyof';
 export * from './elements/types/literal';
 export * from './elements/types/object';
 export * from './elements/types/union';
