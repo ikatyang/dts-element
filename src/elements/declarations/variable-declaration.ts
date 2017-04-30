@@ -8,8 +8,9 @@ import {Type} from '../type';
 
 export type VariableKind = 'var' | 'let' | 'const';
 
-// tslint:disable-next-line no-empty-interface
-export interface IVariableDeclarationRequiredParameters {}
+export interface IVariableDeclarationRequiredParameters {
+  name: string;
+}
 
 export interface IVariableDeclarationOptionalParameters {
   kind: VariableKind;
