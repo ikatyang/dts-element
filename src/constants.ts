@@ -1,4 +1,4 @@
-import {BasicType} from './elements/types/basic';
+import {BasicType} from './elements/types/basic-type';
 
 export const any_type = new BasicType({name: 'any'});
 export const never_type = new BasicType({name: 'never'});

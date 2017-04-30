@@ -1,5 +1,5 @@
-import {FunctionDeclaration} from '../elements/declarations/function';
-import {VariableDeclaration} from '../elements/declarations/variable';
+import {FunctionDeclaration} from '../elements/declarations/function-declaration';
+import {VariableDeclaration} from '../elements/declarations/variable-declaration';
 import {MemberOwned} from '../elements/member';
 
 export const emit_static = (is_static: boolean, owned: MemberOwned): string =>

@@ -1,7 +1,7 @@
 jest.unmock('../emit-generic-default');
 
-import {InterfaceDeclaration} from '../../elements/declarations/interface';
-import {BasicType} from '../../elements/types/basic';
+import {InterfaceDeclaration} from '../../elements/declarations/interface-declaration';
+import {BasicType} from '../../elements/types/basic-type';
 import {emit_generic_default} from '../emit-generic-default';
 
 const name = 'A';

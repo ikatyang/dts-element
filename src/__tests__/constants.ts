@@ -1,5 +1,5 @@
 jest.unmock('../constants');
-jest.unmock('../elements/types/basic');
+jest.unmock('../elements/types/basic-type');
 
 import {
   any_type,

@@ -1,6 +1,6 @@
-import {ClassDeclaration} from '../elements/declarations/class';
-import {InterfaceDeclaration} from '../elements/declarations/interface';
-import {TypeDeclaration} from '../elements/declarations/type';
+import {ClassDeclaration} from '../elements/declarations/class-declaration';
+import {InterfaceDeclaration} from '../elements/declarations/interface-declaration';
+import {TypeDeclaration} from '../elements/declarations/type-declaration';
 
 export const emit_declaration_type_name =
   (a_class: string | ClassDeclaration | InterfaceDeclaration | TypeDeclaration): string =>

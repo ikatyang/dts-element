@@ -1,5 +1,5 @@
 import {Container} from '../collections';
-import {ClassMember} from '../elements/members/class';
+import {ClassMember} from '../elements/members/class-member';
 import {Type} from '../elements/type';
 
 export const emit_constructor_return = (return_type: Type, container: Container): string =>

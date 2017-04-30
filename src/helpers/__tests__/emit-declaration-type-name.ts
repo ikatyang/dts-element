@@ -1,6 +1,6 @@
 jest.unmock('../emit-declaration-type-name.ts');
 
-import {ClassDeclaration} from '../../elements/declarations/class';
+import {ClassDeclaration} from '../../elements/declarations/class-declaration';
 import {emit_declaration_type_name} from '../emit-declaration-type-name';
 
 const name = 'Test';

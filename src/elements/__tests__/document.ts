@@ -1,6 +1,6 @@
 jest.unmock('../document');
 
-import {NamespaceDeclaration} from '../declarations/namespace';
+import {NamespaceDeclaration} from '../declarations/namespace-declaration';
 import {Document} from '../document';
 
 describe('#emit()', () => {

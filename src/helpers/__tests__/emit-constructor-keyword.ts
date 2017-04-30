@@ -1,6 +1,6 @@
 jest.unmock('../emit-constructor-keyword');
 
-import {ClassMember} from '../../elements/members/class';
+import {ClassMember} from '../../elements/members/class-member';
 import {emit_constructor_keyword} from '../emit-constructor-keyword';
 
 const class_member: ClassMember = Object.create(ClassMember.prototype);

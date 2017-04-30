@@ -1,6 +1,6 @@
 jest.unmock('../emit-generics');
 
-import {GenericType} from '../../elements/types/generic';
+import {GenericType} from '../../elements/types/generic-type';
 import {emit_generics} from '../emit-generics';
 
 it('should return empty string while generics is empty', () => {

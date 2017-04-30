@@ -1,7 +1,7 @@
 jest.unmock('../emit-extends');
 
-import {InterfaceDeclaration} from '../../elements/declarations/interface';
-import {BasicType} from '../../elements/types/basic';
+import {InterfaceDeclaration} from '../../elements/declarations/interface-declaration';
+import {BasicType} from '../../elements/types/basic-type';
 import {emit_extends} from '../emit-extends';
 
 const name = 'A';

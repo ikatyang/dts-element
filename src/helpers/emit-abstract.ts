@@ -1,6 +1,6 @@
-import {ClassDeclaration} from '../elements/declarations/class';
-import {FunctionDeclaration} from '../elements/declarations/function';
-import {VariableDeclaration} from '../elements/declarations/variable';
+import {ClassDeclaration} from '../elements/declarations/class-declaration';
+import {FunctionDeclaration} from '../elements/declarations/function-declaration';
+import {VariableDeclaration} from '../elements/declarations/variable-declaration';
 import {MemberOwned} from '../elements/member';
 
 // tslint:disable-next-line no-unused-variable

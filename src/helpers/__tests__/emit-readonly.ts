@@ -1,6 +1,6 @@
 jest.unmock('../emit-readonly');
 
-import {FunctionDeclaration} from '../../elements/declarations/function';
+import {FunctionDeclaration} from '../../elements/declarations/function-declaration';
 import {IndexSignature} from '../../elements/index-signature';
 import {emit_readonly} from '../emit-readonly';
 

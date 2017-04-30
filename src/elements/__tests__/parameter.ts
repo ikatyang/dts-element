@@ -1,7 +1,7 @@
 jest.unmock('../parameter');
 
 import {Parameter} from '../parameter';
-import {BasicType} from '../types/basic';
+import {BasicType} from '../types/basic-type';
 
 describe('#emit()', () => {
   it('should return correctly', () => {

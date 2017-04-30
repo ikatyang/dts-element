@@ -1,7 +1,7 @@
 jest.unmock('../emit-members');
 
-import {VariableDeclaration} from '../../elements/declarations/variable';
-import {ObjectMember} from '../../elements/members/object';
+import {VariableDeclaration} from '../../elements/declarations/variable-declaration';
+import {ObjectMember} from '../../elements/members/object-member';
 import {emit_members} from '../emit-members';
 
 it('should return empty object while there are no children', () => {

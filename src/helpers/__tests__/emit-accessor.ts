@@ -1,6 +1,6 @@
 jest.unmock('../emit-accessor');
 
-import {VariableDeclaration} from '../../elements/declarations/variable';
+import {VariableDeclaration} from '../../elements/declarations/variable-declaration';
 import {IndexSignature} from '../../elements/index-signature';
 import {emit_accessor} from '../emit-accessor';
 
