@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface IKeyofTypeRequiredParameters {
@@ -14,8 +14,8 @@ export class KeyofType extends Type<IKeyofTypeRequiredParameters, IKeyofTypeOpti
     return {};
   }
 
-  public _emit(container: Container): string {
-    return `(keyof ${this.parameters.owned._emit(container)})`;
+  public _emit(stack: Stack): string {
+    return `(keyof ${this.parameters.owned.emit(stack)})`;
   }
 
 }

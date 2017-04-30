@@ -1,6 +1,6 @@
-import {Container} from '../../collections';
 import {emit_declaration_type_name} from '../../helpers/emit-declaration-type-name';
 import {emit_generics} from '../../helpers/emit-generics';
+import {Stack} from '../../stack';
 import {TypeDeclaration} from '../declarations/type-declaration';
 import {Type} from '../type';
 
@@ -20,9 +20,9 @@ export class TypedType extends Type<ITypedTypeRequiredParameters, ITypedTypeOpti
     };
   }
 
-  public _emit(_container: Container): string {
+  public _emit(stack: Stack): string {
     const name = emit_declaration_type_name(this.parameters.owned);
-    return `${name}${emit_generics(this.parameters.generics, this)}`;
+    return `${name}${emit_generics(this.parameters.generics, stack)}`;
   }
 
 }

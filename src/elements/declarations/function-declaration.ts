@@ -1,10 +1,10 @@
-import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_function} from '../../helpers/emit-function';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_parameters} from '../../helpers/emit-parameters';
+import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Parameter} from '../parameter';
 import {Type} from '../type';
@@ -30,13 +30,13 @@ export class FunctionDeclaration
     });
   }
 
-  public _emit_raw(container: Container): string {
-    const name = emit_declaration_name(this.parameters.name, container);
-    const parameters = emit_parameters(this.parameters.parameters, this);
-    const generics = emit_generics(this.parameters.generics, this);
-    const return_type = this.parameters.return._emit(this);
-    const declare = emit_declare(container);
-    const func = emit_function(container);
+  public _emit_raw(stack: Stack): string {
+    const name = emit_declaration_name(this.parameters.name, stack);
+    const parameters = emit_parameters(this.parameters.parameters, stack);
+    const generics = emit_generics(this.parameters.generics, stack);
+    const return_type = this.parameters.return.emit(stack);
+    const declare = emit_declare(stack);
+    const func = emit_function(stack);
     return `${declare}${func}${name}${generics}(${parameters}): ${return_type};`;
   }
 

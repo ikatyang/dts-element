@@ -1,6 +1,6 @@
-import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_generics} from '../../helpers/emit-generics';
+import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Type} from '../type';
 import {GenericType} from '../types/generic-type';
@@ -24,10 +24,10 @@ export class TypeDeclaration
     });
   }
 
-  public _emit_raw(_container: Container): string {
+  public _emit_raw(stack: Stack): string {
     const {name, generics} = this.parameters;
-    const generic = emit_generics(generics, this);
-    const target = this.parameters.target._emit(this);
+    const generic = emit_generics(generics, stack);
+    const target = this.parameters.target.emit(stack);
     return `type ${name}${generic} = ${target};`;
   }
 

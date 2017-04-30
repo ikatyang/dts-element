@@ -1,5 +1,5 @@
-import {Container} from '../../collections';
 import {emit_elements} from '../../helpers/emit-elements';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface ITupleTypeRequiredParameters {
@@ -15,8 +15,8 @@ export class TupleType extends Type<ITupleTypeRequiredParameters, ITupleTypeOpti
     return {};
   }
 
-  public _emit(container: Container): string {
-    return `[${emit_elements(this.parameters.owneds, container, ', ')}]`;
+  public _emit(stack: Stack): string {
+    return `[${emit_elements(this.parameters.owneds, stack, ', ')}]`;
   }
 
 }

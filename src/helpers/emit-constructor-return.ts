@@ -1,8 +1,8 @@
-import {Container} from '../collections';
 import {ClassMember} from '../elements/members/class-member';
 import {Type} from '../elements/type';
+import {Stack} from '../stack';
 
-export const emit_constructor_return = (return_type: Type, container: Container): string =>
-  (container instanceof ClassMember)
+export const emit_constructor_return = (return_type: Type, stack: Stack): string =>
+  (stack.last_instances_of([ClassMember]))
     ? ''
-    : `: ${return_type._emit(container)}`;
+    : `: ${return_type.emit(stack)}`;

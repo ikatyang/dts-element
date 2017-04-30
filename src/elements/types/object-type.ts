@@ -1,5 +1,5 @@
-import {Container} from '../../collections';
 import {emit_members} from '../../helpers/emit-members';
+import {Stack} from '../../stack';
 import {ObjectMember} from '../members/object-member';
 import {Type} from '../type';
 
@@ -16,9 +16,9 @@ export class ObjectType extends Type<IObjectTypeRequiredParameters, IObjectTypeO
     return {};
   }
 
-  public _emit(_container: Container): string {
+  public _emit(stack: Stack): string {
     const {members} = this.parameters;
-    return emit_members(members, this);
+    return emit_members(members, stack);
   }
 
 }

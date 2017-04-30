@@ -1,5 +1,5 @@
-import {Container} from '../collections';
 import {Element} from '../element';
+import {Stack} from '../stack';
 
 export interface IReferenceRequiredParameters {
   kind: 'path' | 'types';
@@ -15,7 +15,7 @@ export class Reference extends Element<IReferenceRequiredParameters, IReferenceO
     return {};
   }
 
-  public _emit(_container: Container): string {
+  public _emit(_stack: Stack): string {
     const {kind, content} = this.parameters;
     return `/// <reference ${kind}="${content}" />`;
   }

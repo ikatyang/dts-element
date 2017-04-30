@@ -1,7 +1,7 @@
-import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_parameters} from '../../helpers/emit-parameters';
+import {Stack} from '../../stack';
 import {Parameter} from '../parameter';
 import {Type} from '../type';
 import {GenericType} from './generic-type';
@@ -24,10 +24,10 @@ export class FunctionType extends Type<IFunctionTypeRequiredParameters, IFunctio
     };
   }
 
-  public _emit(_container: Container): string {
-    const generics = emit_generics(this.parameters.generics, this);
-    const parameters = emit_parameters(this.parameters.parameters, this);
-    const return_type = this.parameters.return._emit(this);
+  public _emit(stack: Stack): string {
+    const generics = emit_generics(this.parameters.generics, stack);
+    const parameters = emit_parameters(this.parameters.parameters, stack);
+    const return_type = this.parameters.return.emit(stack);
     return `${generics}(${parameters}) => ${return_type}`;
   }
 

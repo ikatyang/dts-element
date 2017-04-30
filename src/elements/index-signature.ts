@@ -1,8 +1,8 @@
-import {Container} from '../collections';
 import {any_type} from '../constants';
 import {Element} from '../element';
 import {emit_jsdoc} from '../helpers/emit-jsdoc';
 import {emit_optional} from '../helpers/emit-optional';
+import {Stack} from '../stack';
 import {Type} from './type';
 
 export interface IIndexSignatureRequiredParameters {
@@ -27,18 +27,18 @@ export class IndexSignature extends Element<IIndexSignatureRequiredParameters, I
     };
   }
 
-  public _emit(container: Container): string {
-    return `${this._emit_jsdoc()}${this._emit_raw(container)}`;
+  public _emit(stack: Stack): string {
+    return `${this._emit_jsdoc()}${this._emit_raw(stack)}`;
   }
 
   public _emit_jsdoc(): string {
     return emit_jsdoc(this.parameters.jsdoc);
   }
 
-  public _emit_raw(_container: Container): string {
+  public _emit_raw(stack: Stack): string {
     const {name, kind, type} = this.parameters;
     const optional = emit_optional(this.parameters.optional);
-    return `[${name}: ${kind}]${optional}: ${type._emit(this)};`;
+    return `[${name}: ${kind}]${optional}: ${type.emit(stack)};`;
   }
 
 }

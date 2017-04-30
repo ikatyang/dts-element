@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface ILiteralTypeRequiredParameters {
@@ -14,7 +14,7 @@ export class LiteralType extends Type<ILiteralTypeRequiredParameters, ILiteralTy
     return {};
   }
 
-  public _emit(_container: Container): string {
+  public _emit(_stack: Stack): string {
     return JSON.stringify(this.parameters.value);
   }
 

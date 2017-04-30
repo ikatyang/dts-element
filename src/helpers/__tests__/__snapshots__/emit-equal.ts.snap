@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return default with emitted type while default is not null and container is InterfaceDeclaration 1`] = `" = [BasicType A]"`;
+exports[`should return default with emitted type while default is not null and stack is InterfaceDeclaration 1`] = `" = [BasicType A]"`;

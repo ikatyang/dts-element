@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface IBasicTypeRequiredParameters {
@@ -14,7 +14,7 @@ export class BasicType extends Type<IBasicTypeRequiredParameters, IBasicTypeOpti
     return {};
   }
 
-  public _emit(_container: Container): string {
+  public _emit(_stack: Stack): string {
     return this.parameters.name;
   }
 

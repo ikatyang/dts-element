@@ -1,6 +1,6 @@
-import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_elements} from '../../helpers/emit-elements';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface ISubTypeRequiredParameters {
@@ -19,10 +19,10 @@ export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalPa
     };
   }
 
-  public _emit(_container: Container): string {
+  public _emit(stack: Stack): string {
     const {path} = this.parameters;
-    const target = this.parameters.target._emit(this);
-    return `(${target})[${emit_elements(path, this, '][')}]`;
+    const target = this.parameters.target.emit(stack);
+    return `(${target})[${emit_elements(path, stack, '][')}]`;
   }
 
 }

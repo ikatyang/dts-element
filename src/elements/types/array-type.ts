@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface IArrayTypeRequiredParameters {
@@ -14,8 +14,8 @@ export class ArrayType extends Type<IArrayTypeRequiredParameters, IArrayTypeOpti
     return {};
   }
 
-  public _emit(container: Container): string {
-    return `${this.parameters.owned._emit(container)}[]`;
+  public _emit(stack: Stack): string {
+    return `${this.parameters.owned.emit(stack)}[]`;
   }
 
 }

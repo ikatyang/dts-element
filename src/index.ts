@@ -1,4 +1,3 @@
-export * from './collections';
 export * from './constants';
 export * from './element';
 export * from './elements/constructor';

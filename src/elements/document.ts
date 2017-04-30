@@ -1,7 +1,7 @@
-import {Container} from '../collections';
 import {Element} from '../element';
 import {emit_elements} from '../helpers/emit-elements';
 import {trim_every_line} from '../helpers/trim-every-line';
+import {Stack} from '../stack';
 import {Declaration} from './declaration';
 import {Reference} from './reference';
 
@@ -18,9 +18,9 @@ export class Document extends Element<IDocumentRequiredParameters, IDocumentOpti
     return {};
   }
 
-  public _emit(_container: Container): string {
+  public _emit(stack: Stack): string {
     const {children} = this.parameters;
-    const content = emit_elements(children, this);
+    const content = emit_elements(children, stack);
     return trim_every_line(content);
   }
 

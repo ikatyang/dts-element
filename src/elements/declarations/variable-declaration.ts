@@ -1,8 +1,8 @@
-import {Container} from '../../collections';
 import {any_type} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
+import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Type} from '../type';
 
@@ -29,12 +29,12 @@ export class VariableDeclaration
     });
   }
 
-  public _emit_raw(container: Container): string {
+  public _emit_raw(stack: Stack): string {
     const {kind, type} = this.parameters;
-    const name = emit_declaration_name(this.parameters.name, container);
+    const name = emit_declaration_name(this.parameters.name, stack);
     const optional = emit_optional(this.parameters.optional);
-    const declare = emit_declare(container);
-    return `${declare}${kind} ${name}${optional}: ${type._emit(this)};`;
+    const declare = emit_declare(stack);
+    return `${declare}${kind} ${name}${optional}: ${type.emit(stack)};`;
   }
 
 }

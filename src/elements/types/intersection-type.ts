@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface IIntersectionTypeRequiredParameters {
@@ -14,8 +14,8 @@ export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, 
     return {};
   }
 
-  public _emit(_container: Container): string {
-    const types = this.parameters.types.map((type: Type) => type._emit(this));
+  public _emit(stack: Stack): string {
+    const types = this.parameters.types.map((type: Type) => type.emit(stack));
     return `(${types.join(' & ')})`;
   }
 

@@ -1,4 +1,4 @@
-import {Container} from '../../collections';
+import {Stack} from '../../stack';
 import {Declaration} from '../declaration';
 import {Type} from '../type';
 
@@ -15,8 +15,9 @@ export class TypeofType extends Type<ITypeofTypeRequiredParameters, ITypeofTypeO
     return {};
   }
 
-  public _emit(_container: Container): string {
-    return `(typeof ${this.parameters.owned.parameters.name})`;
+  public _emit(_stack: Stack): string {
+    const {owned} = this.parameters;
+    return `(typeof ${owned.parameters.name})`;
   }
 
 }

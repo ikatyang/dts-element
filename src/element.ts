@@ -1,4 +1,4 @@
-import {Container} from './collections';
+import {Stack} from './stack';
 
 export interface IElementConstructor {
   new(parameters: object): Element;
@@ -36,11 +36,11 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return this;
   }
 
-  public emit(): string {
-    return this._emit(null);
+  public emit(stack: Stack = new Stack()): string {
+    return this._emit(stack.push(this));
   }
 
-  public abstract _emit(container: Container): string;
+  public abstract _emit(stack: Stack): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')
