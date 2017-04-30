@@ -34,7 +34,7 @@ export class ClassMember extends Member<IClassMemberRequiredParameters, IClassMe
     const readonly = emit_readonly(this.parameters.readonly, owned);
     const abstract = emit_abstract(this.parameters.abstract, owned);
     const a_static = emit_static(this.parameters.static, owned);
-    return `${owned._emit_jsdoc()}${accessor}${a_static}${abstract}${readonly}${owned._emit_raw(stack.push(this))}`;
+    return `${owned._emit_jsdoc()}${accessor}${a_static}${abstract}${readonly}${owned._emit_raw(stack.push(owned))}`;
   }
 
 }

@@ -20,7 +20,7 @@ export class ObjectMember extends Member<IObjectMemberRequiredParameters, IObjec
   public _emit(stack: Stack): string {
     const {owned} = this.parameters;
     const readonly = emit_readonly(this.parameters.readonly, owned);
-    return `${owned._emit_jsdoc()}${readonly}${owned._emit_raw(stack.push(this))}`;
+    return `${owned._emit_jsdoc()}${readonly}${owned._emit_raw(stack.push(owned))}`;
   }
 
 }
