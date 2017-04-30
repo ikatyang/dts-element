@@ -1,5 +1,9 @@
 import {Container} from './collections';
 
+export interface IElementConstructor {
+  new(parameters: object): Element;
+}
+
 export abstract class Element<RequiredParameters extends object = any, OptionalParameters extends object = any> {
 
   public parameters: RequiredParameters & OptionalParameters;
