@@ -1,8 +1,9 @@
 import {any_type} from '../constants';
 import {Element} from '../element';
-import {emit_jsdoc} from '../helpers/emit-jsdoc';
 import {emit_optional} from '../helpers/emit-optional';
 import {Stack} from '../stack';
+import {mixin_class} from '../utils/mixin-class';
+import {JSDocProtocol} from './declaration';
 import {Type} from './type';
 
 export interface IIndexSignatureRequiredParameters {
@@ -16,7 +17,8 @@ export interface IIndexSignatureOptionalParameters {
   optional: boolean;
 }
 
-export class IndexSignature extends Element<IIndexSignatureRequiredParameters, IIndexSignatureOptionalParameters> {
+export class IndexSignature
+    extends Element<IIndexSignatureRequiredParameters, IIndexSignatureOptionalParameters> implements JSDocProtocol {
 
   public get default_parameters(): IIndexSignatureOptionalParameters {
     return {
@@ -27,13 +29,11 @@ export class IndexSignature extends Element<IIndexSignatureRequiredParameters, I
     };
   }
 
-  public _emit(stack: Stack): string {
-    return `${this._emit_jsdoc()}${this._emit_raw(stack)}`;
-  }
+  public _emit_jsdoc: () => string;
 
-  public _emit_jsdoc(): string {
-    return emit_jsdoc(this.parameters.jsdoc);
-  }
+  // istanbul ignore next
+  // tslint:disable-next-line prefer-function-over-method
+  public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }
 
   public _emit_raw(stack: Stack): string {
     const {name, kind, type} = this.parameters;
@@ -42,3 +42,5 @@ export class IndexSignature extends Element<IIndexSignatureRequiredParameters, I
   }
 
 }
+
+mixin_class(IndexSignature, [JSDocProtocol]);

@@ -2,9 +2,10 @@ import {any_type} from '../constants';
 import {Element} from '../element';
 import {emit_constructor_keyword} from '../helpers/emit-constructor-keyword';
 import {emit_constructor_return} from '../helpers/emit-constructor-return';
-import {emit_jsdoc} from '../helpers/emit-jsdoc';
 import {emit_parameters} from '../helpers/emit-parameters';
 import {Stack} from '../stack';
+import {mixin_class} from '../utils/mixin-class';
+import {JSDocProtocol} from './declaration';
 import {Parameter} from './parameter';
 import {Type} from './type';
 
@@ -17,7 +18,8 @@ export interface IConstructorOptionalParameters {
   return: Type;
 }
 
-export class Constructor extends Element<IConstructorRequiredParameters, IConstructorOptionalParameters> {
+export class Constructor
+    extends Element<IConstructorRequiredParameters, IConstructorOptionalParameters> implements JSDocProtocol {
 
   public get default_parameters(): IConstructorOptionalParameters {
     return {
@@ -26,13 +28,11 @@ export class Constructor extends Element<IConstructorRequiredParameters, IConstr
     };
   }
 
-  public _emit(stack: Stack): string {
-    return `${this._emit_jsdoc()}${this._emit_raw(stack)}`;
-  }
+  public _emit_jsdoc: () => string;
 
-  public _emit_jsdoc(): string {
-    return emit_jsdoc(this.parameters.jsdoc);
-  }
+  // istanbul ignore next
+  // tslint:disable-next-line prefer-function-over-method
+  public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }
 
   public _emit_raw(stack: Stack): string {
     const keyword = emit_constructor_keyword(stack);
@@ -42,3 +42,5 @@ export class Constructor extends Element<IConstructorRequiredParameters, IConstr
   }
 
 }
+
+mixin_class(Constructor, [JSDocProtocol]);
