@@ -36,11 +36,11 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return this;
   }
 
-  public emit(stack: Stack = new Stack()): string {
-    return this._emit(stack.push(this));
+  public emit(stack: Stack = new Stack(), ...args: any[]): string {
+    return this._emit(stack.push(this), ...args);
   }
 
-  public abstract _emit(stack: Stack): string;
+  public abstract _emit(stack: Stack, ...args: any[]): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
     return (typeof value !== 'object')

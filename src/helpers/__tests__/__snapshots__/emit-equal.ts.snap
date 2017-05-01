@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return default with emitted type while default is not null and stack is GenericDefinition 1`] = `" = [BasicType A]"`;
+exports[`should return emitted type while value is Type and stack is GenericDefinition 1`] = `" = [BasicType A]"`;
