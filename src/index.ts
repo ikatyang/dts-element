@@ -10,6 +10,8 @@ export * from './elements/declarations/namespace-declaration';
 export * from './elements/declarations/type-declaration';
 export * from './elements/declarations/variable-declaration';
 export * from './elements/document';
+export * from './elements/import-export';
+export * from './elements/import-exports/export-default';
 export * from './elements/index-signature';
 export * from './elements/member';
 export * from './elements/members/class-member';
