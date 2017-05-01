@@ -1,4 +1,5 @@
 import {emit_abstract} from '../../helpers/emit-abstract';
+import {emit_export} from '../../helpers/emit-export';
 import {emit_extends} from '../../helpers/emit-extends';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_members} from '../../helpers/emit-members';
@@ -17,6 +18,7 @@ export interface IClassDeclarationOptionalParameters {
   members: ClassMember[];
   extends: ClassType | null;
   abstract: boolean;
+  export: boolean;
 }
 
 export class ClassDeclaration
@@ -28,6 +30,7 @@ export class ClassDeclaration
       members: [],
       extends: null,
       abstract: false,
+      export: false,
     });
   }
 
@@ -36,7 +39,8 @@ export class ClassDeclaration
     const generic = emit_generics(generics, stack);
     const abstract = emit_abstract(this.parameters.abstract, this);
     const an_extends = emit_extends(this.parameters.extends, stack);
-    return `${abstract}class ${name}${generic}${an_extends} ${emit_members(members, stack)}`;
+    const an_export = emit_export(this.parameters.export, stack);
+    return `${an_export}${abstract}class ${name}${generic}${an_extends} ${emit_members(members, stack)}`;
   }
 
 }

@@ -1,4 +1,5 @@
 import {any_type} from '../../constants';
+import {emit_export} from '../../helpers/emit-export';
 import {emit_generics} from '../../helpers/emit-generics';
 import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
@@ -12,6 +13,7 @@ export interface ITypeDeclarationRequiredParameters {
 export interface ITypeDeclarationOptionalParameters {
   generics: GenericType[];
   target: Type;
+  export: boolean;
 }
 
 export class TypeDeclaration
@@ -21,6 +23,7 @@ export class TypeDeclaration
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],
       target: any_type,
+      export: false,
     });
   }
 
@@ -28,7 +31,8 @@ export class TypeDeclaration
     const {name, generics} = this.parameters;
     const generic = emit_generics(generics, stack);
     const target = this.parameters.target.emit(stack);
-    return `type ${name}${generic} = ${target};`;
+    const an_export = emit_export(this.parameters.export, stack);
+    return `${an_export}type ${name}${generic} = ${target};`;
   }
 
 }

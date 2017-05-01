@@ -1,6 +1,7 @@
 import {any_type} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
+import {emit_export} from '../../helpers/emit-export';
 import {emit_function} from '../../helpers/emit-function';
 import {emit_generics} from '../../helpers/emit-generics';
 import {emit_parameters} from '../../helpers/emit-parameters';
@@ -17,6 +18,7 @@ export interface IFunctionDeclarationOptionalParameters {
   parameters: Parameter[];
   generics: GenericType[];
   return: Type;
+  export: boolean;
 }
 
 export class FunctionDeclaration
@@ -27,6 +29,7 @@ export class FunctionDeclaration
       parameters: [],
       generics: [],
       return: any_type,
+      export: false,
     });
   }
 
@@ -37,7 +40,8 @@ export class FunctionDeclaration
     const return_type = this.parameters.return.emit(stack);
     const declare = emit_declare(stack);
     const func = emit_function(stack);
-    return `${declare}${func}${name}${generics}(${parameters}): ${return_type};`;
+    const an_export = emit_export(this.parameters.export, stack);
+    return `${an_export}${declare}${func}${name}${generics}(${parameters}): ${return_type};`;
   }
 
 }
