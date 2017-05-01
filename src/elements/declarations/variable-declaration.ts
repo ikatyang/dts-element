@@ -2,6 +2,7 @@ import {any_type} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_optional} from '../../helpers/emit-optional';
+import {emit_variable_kind} from '../../helpers/emit-variable-kind';
 import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Type} from '../type';
@@ -30,11 +31,12 @@ export class VariableDeclaration
   }
 
   public _emit_raw(stack: Stack): string {
-    const {kind, type} = this.parameters;
+    const {type} = this.parameters;
     const name = emit_declaration_name(this.parameters.name, stack);
     const optional = emit_optional(this.parameters.optional);
     const declare = emit_declare(stack);
-    return `${declare}${kind} ${name}${optional}: ${type.emit(stack)};`;
+    const kind = emit_variable_kind(this.parameters.kind, stack);
+    return `${declare}${kind}${name}${optional}: ${type.emit(stack)};`;
   }
 
 }
