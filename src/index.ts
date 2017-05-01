@@ -3,6 +3,7 @@ export * from './element';
 export * from './elements/constructor';
 export * from './elements/declaration';
 export * from './elements/declarations/class-declaration';
+export * from './elements/declarations/enum-declaration';
 export * from './elements/declarations/function-declaration';
 export * from './elements/declarations/interface-declaration';
 export * from './elements/declarations/namespace-declaration';
