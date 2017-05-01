@@ -1,6 +1,5 @@
 import {emit_declare} from '../../helpers/emit-declare';
-import {emit_elements} from '../../helpers/emit-elements';
-import {indent_every_line} from '../../helpers/indent-every-line';
+import {emit_members} from '../../helpers/emit-members';
 import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 
@@ -23,9 +22,8 @@ export class NamespaceDeclaration
 
   public _emit_raw(stack: Stack): string {
     const {name} = this.parameters;
-    const content = emit_elements(this.parameters.children, stack);
     const declare = emit_declare(stack);
-    return `${declare}namespace ${name} {\n${indent_every_line(content)}\n}`;
+    return `${declare}namespace ${name} ${emit_members(this.parameters.children, stack)}`;
   }
 
 }
