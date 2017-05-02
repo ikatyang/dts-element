@@ -1,4 +1,4 @@
-import {emit_named_as} from '../../helpers/emit-named-as';
+import {emit_as_name} from '../../helpers/emit-as-name';
 import {Stack} from '../../stack';
 import {Declaration} from '../declaration';
 import {Member} from '../member';
@@ -22,7 +22,7 @@ export class ExportMember
 
   public _emit(_stack: Stack): string {
     const {owned} = this.parameters;
-    return `${owned.parameters.name}${emit_named_as(this.parameters.name)}`;
+    return `${owned.parameters.name}${emit_as_name(this.parameters.name)}`;
   }
 
 }
