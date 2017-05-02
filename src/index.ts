@@ -10,6 +10,7 @@ export * from './elements/declarations/module-declaration';
 export * from './elements/declarations/namespace-declaration';
 export * from './elements/declarations/type-declaration';
 export * from './elements/declarations/variable-declaration';
+export * from './elements/declare-global';
 export * from './elements/document';
 export * from './elements/import-export';
 export * from './elements/import-exports/export-all';
