@@ -15,6 +15,7 @@ export * from './elements/import-exports/export-default';
 export * from './elements/import-exports/export-named';
 export * from './elements/import-exports/import-default';
 export * from './elements/import-exports/import-named';
+export * from './elements/import-exports/import-named-all';
 export * from './elements/index-signature';
 export * from './elements/member';
 export * from './elements/members/class-member';
