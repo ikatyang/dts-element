@@ -17,7 +17,7 @@
   "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
   "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
   "coverageReporters": [],
-  "testMatch": ["**/__tests__/**/*.ts"],
+  "testMatch": ["<rootDir>/src/**/__tests__/**/*.ts", "<rootDir>/tests/**/*.ts"],
   "collectCoverageFrom": ["src/**/*.ts"],
   "coveragePathIgnorePatterns": ["index.ts"]
 }
