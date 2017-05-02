@@ -1,6 +1,6 @@
 import {Element} from '../element';
 import {emit_elements} from '../helpers/emit-elements';
-import {trim_every_line} from '../helpers/trim-every-line';
+import {trim_right_every_line} from '../helpers/trim-right-every-line';
 import {Stack} from '../stack';
 import {Declaration} from './declaration';
 import {DeclareGlobal} from './declare-global';
@@ -23,7 +23,7 @@ export class Document extends Element<IDocumentRequiredParameters, IDocumentOpti
   public _emit(stack: Stack): string {
     const {children} = this.parameters;
     const content = emit_elements(children, stack);
-    return trim_every_line(content);
+    return trim_right_every_line(content);
   }
 
 }
