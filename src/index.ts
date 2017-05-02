@@ -11,6 +11,7 @@ export * from './elements/declarations/type-declaration';
 export * from './elements/declarations/variable-declaration';
 export * from './elements/document';
 export * from './elements/import-export';
+export * from './elements/import-exports/export-all';
 export * from './elements/import-exports/export-default';
 export * from './elements/import-exports/export-named';
 export * from './elements/import-exports/import-all';
