@@ -3,12 +3,13 @@ import {emit_accessor} from '../../helpers/emit-accessor';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {emit_static} from '../../helpers/emit-static';
 import {Stack} from '../../stack';
-import {Member} from '../member';
+import {Member, MemberOwned} from '../member';
 
 export type ClassAccessor = 'private' | 'protected' | 'public' | null;
 
-// tslint:disable-next-line no-empty-interface
-export interface IClassMemberRequiredParameters {}
+export interface IClassMemberRequiredParameters {
+  owned: MemberOwned;
+}
 
 export interface IClassMemberOptionalParameters {
   accessor: ClassAccessor;

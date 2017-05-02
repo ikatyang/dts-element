@@ -7,7 +7,7 @@ import {IndexSignature} from './index-signature';
 export type MemberOwned = Constructor | IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export interface IMemberRequiredParameters {
-  owned: MemberOwned;
+  owned: Element;
 }
 
 // tslint:disable-next-line no-empty-interface

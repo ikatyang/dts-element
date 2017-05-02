@@ -1,9 +1,10 @@
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {Stack} from '../../stack';
-import {Member} from '../member';
+import {Member, MemberOwned} from '../member';
 
-// tslint:disable-next-line no-empty-interface
-export interface IObjectMemberRequiredParameters {}
+export interface IObjectMemberRequiredParameters {
+  owned: MemberOwned;
+}
 
 export interface IObjectMemberOptionalParameters {
   readonly: boolean;
