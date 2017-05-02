@@ -6,6 +6,7 @@ export * from './elements/declarations/class-declaration';
 export * from './elements/declarations/enum-declaration';
 export * from './elements/declarations/function-declaration';
 export * from './elements/declarations/interface-declaration';
+export * from './elements/declarations/module-declaration';
 export * from './elements/declarations/namespace-declaration';
 export * from './elements/declarations/type-declaration';
 export * from './elements/declarations/variable-declaration';
