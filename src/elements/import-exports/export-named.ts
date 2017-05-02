@@ -18,7 +18,7 @@ export class ExportNamed extends ImportExport<IExportNamedRequiredParameters, IE
 
   public _emit(stack: Stack): string {
     const {members} = this.parameters;
-    return `export { ${emit_elements(members, stack, ', ')} };`;
+    return `export {${emit_elements(members, stack, ', ')}};`;
   }
 
 }

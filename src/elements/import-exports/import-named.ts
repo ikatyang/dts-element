@@ -19,7 +19,7 @@ export class ImportNamed extends ImportExport<IImportNamedRequiredParameters, II
 
   public _emit(stack: Stack): string {
     const {members, from} = this.parameters;
-    return `import { ${emit_elements(members, stack, ', ')} } from ${JSON.stringify(from)};`;
+    return `import {${emit_elements(members, stack, ', ')}} from ${JSON.stringify(from)};`;
   }
 
 }
