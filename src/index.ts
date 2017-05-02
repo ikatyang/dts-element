@@ -19,6 +19,7 @@ export * from './elements/member';
 export * from './elements/members/class-member';
 export * from './elements/members/enum-member';
 export * from './elements/members/export-member';
+export * from './elements/members/import-member';
 export * from './elements/members/object-member';
 export * from './elements/parameter';
 export * from './elements/reference';
