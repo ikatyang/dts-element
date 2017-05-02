@@ -9,6 +9,7 @@ import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Parameter} from '../parameter';
 import {Type} from '../type';
+import {TypeAssertion} from '../type-assertion';
 import {GenericType} from '../types/generic-type';
 
 // tslint:disable-next-line no-empty-interface
@@ -17,7 +18,7 @@ export interface IFunctionDeclarationRequiredParameters {}
 export interface IFunctionDeclarationOptionalParameters {
   parameters: Parameter[];
   generics: GenericType[];
-  return: Type;
+  return: Type | TypeAssertion;
   export: boolean;
 }
 

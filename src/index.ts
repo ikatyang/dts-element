@@ -30,6 +30,7 @@ export * from './elements/members/object-member';
 export * from './elements/parameter';
 export * from './elements/reference';
 export * from './elements/type';
+export * from './elements/type-assertion';
 export * from './elements/types/array-type';
 export * from './elements/types/basic-type';
 export * from './elements/types/class-type';
