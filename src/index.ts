@@ -12,6 +12,7 @@ export * from './elements/declarations/variable-declaration';
 export * from './elements/document';
 export * from './elements/import-export';
 export * from './elements/import-exports/export-all';
+export * from './elements/import-exports/export-as-namespace';
 export * from './elements/import-exports/export-default';
 export * from './elements/import-exports/export-equal';
 export * from './elements/import-exports/export-named';
