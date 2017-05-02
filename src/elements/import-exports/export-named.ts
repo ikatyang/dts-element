@@ -1,10 +1,10 @@
 import {emit_elements} from '../../helpers/emit-elements';
 import {Stack} from '../../stack';
 import {ImportExport} from '../import-export';
-import {ImportExportMember} from '../members/import-export-member';
+import {ExportMember} from '../members/export-member';
 
 export interface IExportNamedRequiredParameters {
-  members: ImportExportMember[];
+  members: ExportMember[];
 }
 
 // tslint:disable-next-line no-empty-interface

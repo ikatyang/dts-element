@@ -1,11 +1,11 @@
-jest.unmock('../import-export-member');
+jest.unmock('../export-member');
 
 import {VariableDeclaration} from '../../declarations/variable-declaration';
-import {ImportExportMember} from '../import-export-member';
+import {ExportMember} from '../export-member';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new ImportExportMember({
+    expect(new ExportMember({
       owned: new VariableDeclaration({name: 'x'}),
     }).emit()).toMatchSnapshot();
   });
