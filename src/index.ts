@@ -16,6 +16,7 @@ export * from './elements/index-signature';
 export * from './elements/member';
 export * from './elements/members/class-member';
 export * from './elements/members/enum-member';
+export * from './elements/members/import-export-member';
 export * from './elements/members/object-member';
 export * from './elements/parameter';
 export * from './elements/reference';
