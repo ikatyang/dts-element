@@ -1,5 +1,3 @@
-import {any_type} from '../../constants';
-import {emit_elements} from '../../helpers/emit-elements';
 import {Stack} from '../../stack';
 import {Declaration} from '../declaration';
 import {NamespaceDeclaration} from '../declarations/namespace-declaration';
