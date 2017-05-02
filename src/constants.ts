@@ -14,3 +14,9 @@ export const symbol_type = new BasicType({name: 'symbol'});
 export const object_type = new BasicType({name: 'object'});
 
 export const this_type = new BasicType({name: 'this'});
+
+export enum ParameterFlag {
+  NONE,
+  REST,
+  OPTIONAL,
+}

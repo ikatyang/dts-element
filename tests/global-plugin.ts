@@ -40,7 +40,7 @@ const namespace_MyLibrary = new dts.NamespaceDeclaration({
 
 const parameter_opts = new dts.Parameter({
   name: 'opts',
-  flag: 'optional',
+  flag: dts.ParameterFlag.OPTIONAL,
   type: new dts.SubType({
     namespaces: [namespace_MyLibrary],
     target: new dts.InterfaceType({owned: interface_BinaryFormatOptions}),

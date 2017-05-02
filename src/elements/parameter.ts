@@ -1,11 +1,9 @@
-import {any_type} from '../constants';
+import {any_type, ParameterFlag} from '../constants';
 import {Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
 import {emit_parameter_type} from '../helpers/emit-parameter-type';
 import {Stack} from '../stack';
 import {Type} from './type';
-
-export type ParameterFlag = null | 'optional' | 'rest';
 
 export interface IParameterRequiredParameters {
   name: string;
@@ -21,7 +19,7 @@ export class Parameter extends Element<IParameterRequiredParameters, IParameterO
   public get default_parameters(): IParameterOptionalParameters {
     return {
       type: any_type,
-      flag: null,
+      flag: ParameterFlag.NONE,
     };
   }
 
