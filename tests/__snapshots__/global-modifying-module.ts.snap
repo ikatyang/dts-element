@@ -19,6 +19,6 @@ export interface StringFormatOptions {
 /**
  * For example, declaring a method on the module (in addition to its global side effects)
  */
-export function doSomething(): void;
+export declare function doSomething(): void;
 export {};"
 `;
