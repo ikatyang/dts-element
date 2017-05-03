@@ -9,10 +9,12 @@ const parameter_assertion_a = new dts.Parameter({
 
 const function_assertion = new dts.FunctionDeclaration({
   name: 'assertion',
-  parameters: [parameter_assertion_a],
-  return: new dts.TypeAssertion({
-    parameter: parameter_assertion_a,
-    type: dts.string_type,
+  type: new dts.FunctionType({
+    parameters: [parameter_assertion_a],
+    return: new dts.TypeAssertion({
+      parameter: parameter_assertion_a,
+      type: dts.string_type,
+    }),
   }),
 });
 
@@ -29,12 +31,14 @@ const object_type_generics = new dts.ObjectType({
         generic_type_U: dts.GenericType,
       ): dts.FunctionDeclaration => new dts.FunctionDeclaration({
         name: 'a',
-        generics: [
-          generic_type_T,
-          generic_type_U,
-        ],
-        return: new dts.UnionType({
-          types: [generic_type_T, generic_type_U],
+        type: new dts.FunctionType({
+          generics: [
+            generic_type_T,
+            generic_type_U,
+          ],
+          return: new dts.UnionType({
+            types: [generic_type_T, generic_type_U],
+          }),
         }),
       }))(
         new dts.GenericType({name: 'T'}),
@@ -140,9 +144,11 @@ const class_Element = new dts.ClassDeclaration({
     new dts.ClassMember({
       owned: new dts.FunctionDeclaration({
         name: 'test',
-        return: new dts.SubType({
-          target: dts.this_type,
-          path: [new dts.LiteralType({value: 'parameters'})],
+        type: new dts.FunctionType({
+          return: new dts.SubType({
+            target: dts.this_type,
+            path: [new dts.LiteralType({value: 'parameters'})],
+          }),
         }),
       }),
     }),

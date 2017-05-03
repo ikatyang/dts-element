@@ -50,16 +50,18 @@ const class_MyClass = new dts.ClassDeclaration({
     new dts.ClassMember({
       owned: new dts.FunctionDeclaration({
         name: 'myMethod',
-        parameters: [
-          new dts.Parameter({
-            name: 'opts',
-            type: new dts.SubType({
-              namespaces: [namespace_MyClass],
-              target: new dts.InterfaceType({owned: interface_MyClassMethodOptions}),
+        type: new dts.FunctionType({
+          parameters: [
+            new dts.Parameter({
+              name: 'opts',
+              type: new dts.SubType({
+                namespaces: [namespace_MyClass],
+                target: new dts.InterfaceType({owned: interface_MyClassMethodOptions}),
+              }),
             }),
-          }),
-        ],
-        return: dts.number_type,
+          ],
+          return: dts.number_type,
+        }),
       }),
     }),
   ],

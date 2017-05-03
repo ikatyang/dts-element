@@ -49,20 +49,24 @@ const parameter_opts = new dts.Parameter({
 
 const function_toBinaryString_1 = new dts.FunctionDeclaration({
   name: 'toBinaryString',
-  parameters: [parameter_opts],
-  return: dts.string_type,
+  type: new dts.FunctionType({
+    parameters: [parameter_opts],
+    return: dts.string_type,
+  }),
 });
 
 const function_toBinaryString_2 = new dts.FunctionDeclaration({
   name: 'toBinaryString',
-  parameters: [
-    new dts.Parameter({name: 'callback', type: new dts.SubType({
-      namespaces: [namespace_MyLibrary],
-      target: new dts.TypedType({owned: type_BinaryFormatCallback}),
-    })}),
-    parameter_opts,
-  ],
-  return: dts.string_type,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({name: 'callback', type: new dts.SubType({
+        namespaces: [namespace_MyLibrary],
+        target: new dts.TypedType({owned: type_BinaryFormatCallback}),
+      })}),
+      parameter_opts,
+    ],
+    return: dts.string_type,
+  }),
 });
 
 const interface_Number = new dts.InterfaceDeclaration({

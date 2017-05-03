@@ -10,15 +10,14 @@ import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 import {Parameter} from '../parameter';
 import {Type} from '../type';
 import {TypeAssertion} from '../type-assertion';
+import {FunctionType} from '../types/function-type';
 import {GenericType} from '../types/generic-type';
 
 // tslint:disable-next-line no-empty-interface
 export interface IFunctionDeclarationRequiredParameters {}
 
 export interface IFunctionDeclarationOptionalParameters {
-  parameters: Parameter[];
-  generics: GenericType[];
-  return: Type | TypeAssertion;
+  type: FunctionType;
   export: boolean;
 }
 
@@ -29,18 +28,17 @@ export class FunctionDeclaration
 
   public get default_parameters(): IDeclarationOptionalParameters & IFunctionDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
-      parameters: [],
-      generics: [],
-      return: any_type,
+      type: new FunctionType({return: any_type}),
       export: false,
     });
   }
 
   public _emit_raw(stack: Stack): string {
+    const {type} = this.parameters;
     const name = emit_declaration_name(this.parameters.name, stack);
-    const parameters = emit_parameters(this.parameters.parameters, stack);
-    const generics = emit_generics(this.parameters.generics, stack, true);
-    const return_type = this.parameters.return.emit(stack);
+    const parameters = emit_parameters(type.parameters.parameters, stack);
+    const generics = emit_generics(type.parameters.generics, stack, true);
+    const return_type = type.parameters.return.emit(stack);
     const declare = emit_declare(stack);
     const func = emit_function(stack);
     const an_export = emit_export(this.parameters.export, stack);

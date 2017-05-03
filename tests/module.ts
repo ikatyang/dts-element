@@ -10,19 +10,23 @@ const function_myMethod = new dts.FunctionDeclaration({
   name: 'myMethod',
   export: true,
   jsdoc: 'If this module has methods, declare them as functions like so.',
-  parameters: [
-    new dts.Parameter({name: 'a', type: dts.string_type}),
-  ],
-  return: dts.string_type,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({name: 'a', type: dts.string_type}),
+    ],
+    return: dts.string_type,
+  }),
 });
 
 const function_myOtherMethod = new dts.FunctionDeclaration({
   name: 'myOtherMethod',
   export: true,
-  parameters: [
-    new dts.Parameter({name: 'a', type: dts.number_type}),
-  ],
-  return: dts.number_type,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({name: 'a', type: dts.number_type}),
+    ],
+    return: dts.number_type,
+  }),
 });
 
 const interface_someType = new dts.InterfaceDeclaration({
@@ -70,9 +74,11 @@ const namespace_subProp = new dts.NamespaceDeclaration({
   children: [
     new dts.FunctionDeclaration({
       name: 'foo',
-      return: dts.void_type,
       // tslint:disable-next-line max-line-length
       jsdoc: 'For example, given this definition, someone could write:\n  import { subProp } from \'yourModule\';\n  subProp.foo();\nor\n  import * as yourMod from \'yourModule\'\n  yourMod.subProp.foo();',
+      type: new dts.FunctionType({
+        return: dts.void_type,
+      }),
     }),
   ],
 });

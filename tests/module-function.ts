@@ -53,32 +53,36 @@ const namespace_MyFunction = new dts.NamespaceDeclaration({
 const function_MyFunction_1 = new dts.FunctionDeclaration({
   name: 'MyFunction',
   jsdoc: 'This example shows how to have multiple overloads for your function',
-  parameters: [
-    new dts.Parameter({
-      name: 'name',
-      type: dts.string_type,
-    }),
-  ],
-  return: new dts.SubType({
-    namespaces: [namespace_MyFunction],
-    target: new dts.InterfaceType({
-      owned: interface_NamedReturnType,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({
+        name: 'name',
+        type: dts.string_type,
+      }),
+    ],
+    return: new dts.SubType({
+      namespaces: [namespace_MyFunction],
+      target: new dts.InterfaceType({
+        owned: interface_NamedReturnType,
+      }),
     }),
   }),
 });
 
 const function_MyFunction_2 = new dts.FunctionDeclaration({
   name: 'MyFunction',
-  parameters: [
-    new dts.Parameter({
-      name: 'length',
-      type: dts.number_type,
-    }),
-  ],
-  return: new dts.SubType({
-    namespaces: [namespace_MyFunction],
-    target: new dts.InterfaceType({
-      owned: interface_LengthReturnType,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({
+        name: 'length',
+        type: dts.number_type,
+      }),
+    ],
+    return: new dts.SubType({
+      namespaces: [namespace_MyFunction],
+      target: new dts.InterfaceType({
+        owned: interface_LengthReturnType,
+      }),
     }),
   }),
 });

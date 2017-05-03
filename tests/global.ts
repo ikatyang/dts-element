@@ -8,18 +8,22 @@ const function_myLib_a = new dts.FunctionDeclaration({
   name: 'myLib',
   // tslint:disable-next-line max-line-length
   jsdoc: 'If this library is callable (e.g. can be invoked as myLib(3)),\ninclude those call signatures here.\nOtherwise, delete this section.',
-  parameters: [
-    new dts.Parameter({name: 'a', type: dts.string_type}),
-  ],
-  return: dts.string_type,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({name: 'a', type: dts.string_type}),
+    ],
+    return: dts.string_type,
+  }),
 });
 
 const function_myLib_b = new dts.FunctionDeclaration({
   name: 'myLib',
-  parameters: [
-    new dts.Parameter({name: 'a', type: dts.number_type}),
-  ],
-  return: dts.number_type,
+  type: new dts.FunctionType({
+    parameters: [
+      new dts.Parameter({name: 'a', type: dts.number_type}),
+    ],
+    return: dts.number_type,
+  }),
 });
 
 const interface_myLib = new dts.InterfaceDeclaration({
@@ -72,7 +76,9 @@ const class_Cat = new dts.ClassDeclaration({
     new dts.ClassMember({
       owned: new dts.FunctionDeclaration({
         name: 'purr',
-        return: dts.void_type,
+        type: new dts.FunctionType({
+          return: dts.void_type,
+        }),
         jsdoc: 'We can invoke \'c.purr()\' from a \'Cat\' instance',
       }),
     }),
@@ -134,17 +140,20 @@ const namespace_myLib = new dts.NamespaceDeclaration({
     new dts.FunctionDeclaration({
       name: 'checkCat',
       jsdoc: 'We can invoke \'myLib.checkCat(c)\' or \'myLib.checkCat(c, v);\'',
-      parameters: [
-        new dts.Parameter({
-          name: 'c',
-          type: new dts.ClassType({owned: class_Cat}),
-        }),
-        new dts.Parameter({
-          name: 's',
-          flag: dts.ParameterFlags.OPTIONAL,
-          type: new dts.TypedType({owned: type_VetID}),
-        }),
-      ],
+      type: new dts.FunctionType({
+        parameters: [
+          new dts.Parameter({
+            name: 'c',
+            type: new dts.ClassType({owned: class_Cat}),
+          }),
+          new dts.Parameter({
+            name: 's',
+            flag: dts.ParameterFlags.OPTIONAL,
+            type: new dts.TypedType({owned: type_VetID}),
+          }),
+        ],
+        return: dts.any_type,
+      }),
     }),
   ],
 });

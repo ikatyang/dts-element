@@ -19,21 +19,23 @@ const module_someModule = new dts.ModuleDeclaration({
       export: true,
       // tslint:disable-next-line max-line-length
       jsdoc: 'Inside, add new function, classes, or variables. You can use\nunexported types from the original module if needed.',
-      parameters: [
-        new dts.Parameter({
-          name: 'x',
-          type: new dts.SubType({
-            namespaces: [namespace_m],
-            target: new dts.InterfaceType({
-              owned: new dts.InterfaceDeclaration({name: 'foo'}),
+      type: new dts.FunctionType({
+        parameters: [
+          new dts.Parameter({
+            name: 'x',
+            type: new dts.SubType({
+              namespaces: [namespace_m],
+              target: new dts.InterfaceType({
+                owned: new dts.InterfaceDeclaration({name: 'foo'}),
+              }),
             }),
           }),
-        }),
-      ],
-      return: new dts.SubType({
-        namespaces: [namespace_other],
-        target: new dts.InterfaceType({
-          owned: new dts.InterfaceDeclaration({name: 'bar'}),
+        ],
+        return: new dts.SubType({
+          namespaces: [namespace_other],
+          target: new dts.InterfaceType({
+            owned: new dts.InterfaceDeclaration({name: 'bar'}),
+          }),
         }),
       }),
     }),

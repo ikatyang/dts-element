@@ -20,11 +20,13 @@ const interface_String = new dts.InterfaceDeclaration({
     new dts.ObjectMember({
       owned: new dts.FunctionDeclaration({
         name: 'fancyFormat',
-        parameters: [new dts.Parameter({
-          name: 'opts',
-          type: new dts.InterfaceType({owned: interface_StringFormatOptions}),
-        })],
-        return: dts.string_type,
+        type: new dts.FunctionType({
+          parameters: [new dts.Parameter({
+            name: 'opts',
+            type: new dts.InterfaceType({owned: interface_StringFormatOptions}),
+          })],
+          return: dts.string_type,
+        }),
       }),
     }),
   ],
@@ -35,7 +37,9 @@ const declare_global = new dts.DeclareGlobal({children: [interface_String]});
 
 const function_doSomething = new dts.FunctionDeclaration({
   name: 'doSomething',
-  return: dts.void_type,
+  type: new dts.FunctionType({
+    return: dts.void_type,
+  }),
   export: true,
   jsdoc: 'For example, declaring a method on the module (in addition to its global side effects)',
 });
