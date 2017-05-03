@@ -5,38 +5,35 @@ import {NamespaceDeclaration} from '../declarations/namespace-declaration';
 import {Type} from '../type';
 
 export interface ISubTypeRequiredParameters {
-  target: Type;
+  path: (NamespaceDeclaration | Type | Declaration)[];
 }
 
-export interface ISubTypeOptionalParameters {
-  namespaces: NamespaceDeclaration[];
-  path: (Declaration | Type)[];
-}
+// tslint:disable-next-line no-empty-interface
+export interface ISubTypeOptionalParameters {}
 
 export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalParameters> {
 
   private _instance_of_sub_type: true;
 
   public get default_parameters(): ISubTypeOptionalParameters {
-    return {
-      namespaces: [],
-      path: [],
-    };
+    return {};
   }
 
   public _emit(stack: Stack): string {
-    const {target} = this.parameters;
-    const target_content = emit_brackets(target.emit(stack), target);
-    const namespaces = this.parameters.namespaces
-      .map((namespace: NamespaceDeclaration) => namespace.parameters.name);
-    const path = this.parameters.path
-      .map((element: Declaration | Type): string => `[${
-        (element instanceof Declaration)
-          ? JSON.stringify(element.parameters.name)
-          : element.emit(stack)
-      }]`)
+    let has_main_type = false;
+    return this.parameters.path
+      .map((element: NamespaceDeclaration | Declaration | Type): string =>
+        (element instanceof NamespaceDeclaration)
+          ? `${element.parameters.name}.`
+          : (element instanceof Type) && !has_main_type
+            // tslint:disable-next-line strict-boolean-expressions
+            ? (has_main_type = true) && emit_brackets(element.emit(stack), element)
+            : `[${
+              (element instanceof Declaration)
+                ? JSON.stringify(element.parameters.name)
+                : element.emit(stack)
+              }]`)
       .join('');
-    return `${[...namespaces, target_content].join('.')}${path}`;
   }
 
 }

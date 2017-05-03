@@ -18,9 +18,13 @@ const interface_type = new InterfaceType({owned: interface_declaration});
 describe('#emit()', () => {
   it('should return correctly', () => {
     expect(new SubType({
-      namespaces: [namespace_declaration_a, namespace_declaration_b],
-      target: interface_type,
-      path: [variable_declaration, any_type],
+      path: [
+        namespace_declaration_a,
+        namespace_declaration_b,
+        interface_type,
+        variable_declaration,
+        any_type,
+      ],
     }).emit()).toMatchSnapshot();
   });
 });

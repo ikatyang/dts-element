@@ -24,18 +24,22 @@ const module_someModule = new dts.ModuleDeclaration({
           new dts.Parameter({
             name: 'x',
             type: new dts.SubType({
-              namespaces: [namespace_m],
-              target: new dts.InterfaceType({
-                owned: new dts.InterfaceDeclaration({name: 'foo'}),
-              }),
+              path: [
+                namespace_m,
+                new dts.InterfaceType({
+                  owned: new dts.InterfaceDeclaration({name: 'foo'}),
+                }),
+              ],
             }),
           }),
         ],
         return: new dts.SubType({
-          namespaces: [namespace_other],
-          target: new dts.InterfaceType({
-            owned: new dts.InterfaceDeclaration({name: 'bar'}),
-          }),
+          path: [
+            namespace_other,
+            new dts.InterfaceType({
+              owned: new dts.InterfaceDeclaration({name: 'bar'}),
+            }),
+          ],
         }),
       }),
     }),

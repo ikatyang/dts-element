@@ -42,8 +42,10 @@ const parameter_opts = new dts.Parameter({
   name: 'opts',
   kind: dts.ParameterKind.OPTIONAL,
   type: new dts.SubType({
-    namespaces: [namespace_MyLibrary],
-    target: new dts.InterfaceType({owned: interface_BinaryFormatOptions}),
+    path: [
+      namespace_MyLibrary,
+      new dts.InterfaceType({owned: interface_BinaryFormatOptions}),
+    ],
   }),
 });
 
@@ -60,8 +62,10 @@ const function_toBinaryString_2 = new dts.FunctionDeclaration({
   type: new dts.FunctionType({
     parameters: [
       new dts.Parameter({name: 'callback', type: new dts.SubType({
-        namespaces: [namespace_MyLibrary],
-        target: new dts.TypedType({owned: type_BinaryFormatCallback}),
+        path: [
+          namespace_MyLibrary,
+          new dts.TypedType({owned: type_BinaryFormatCallback}),
+        ],
       })}),
       parameter_opts,
     ],

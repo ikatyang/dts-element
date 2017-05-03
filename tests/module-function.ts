@@ -61,10 +61,12 @@ const function_MyFunction_1 = new dts.FunctionDeclaration({
       }),
     ],
     return: new dts.SubType({
-      namespaces: [namespace_MyFunction],
-      target: new dts.InterfaceType({
-        owned: interface_NamedReturnType,
-      }),
+      path: [
+        namespace_MyFunction,
+        new dts.InterfaceType({
+          owned: interface_NamedReturnType,
+        }),
+      ],
     }),
   }),
 });
@@ -79,10 +81,12 @@ const function_MyFunction_2 = new dts.FunctionDeclaration({
       }),
     ],
     return: new dts.SubType({
-      namespaces: [namespace_MyFunction],
-      target: new dts.InterfaceType({
-        owned: interface_LengthReturnType,
-      }),
+      path: [
+        namespace_MyFunction,
+        new dts.InterfaceType({
+          owned: interface_LengthReturnType,
+        }),
+      ],
     }),
   }),
 });

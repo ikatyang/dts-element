@@ -55,8 +55,10 @@ const class_MyClass = new dts.ClassDeclaration({
             new dts.Parameter({
               name: 'opts',
               type: new dts.SubType({
-                namespaces: [namespace_MyClass],
-                target: new dts.InterfaceType({owned: interface_MyClassMethodOptions}),
+                path: [
+                  namespace_MyClass,
+                  new dts.InterfaceType({owned: interface_MyClassMethodOptions}),
+                ],
               }),
             }),
           ],

@@ -146,8 +146,7 @@ const class_Element = new dts.ClassDeclaration({
         name: 'test',
         type: new dts.FunctionType({
           return: new dts.SubType({
-            target: dts.this_type,
-            path: [new dts.LiteralType({value: 'parameters'})],
+            path: [dts.this_type, new dts.LiteralType({value: 'parameters'})],
           }),
         }),
       }),
