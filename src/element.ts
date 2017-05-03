@@ -9,6 +9,8 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
   public parameters: RequiredParameters & OptionalParameters;
   public abstract get default_parameters(): OptionalParameters;
 
+  private _instanceof_element: true;
+
   constructor(parameters: RequiredParameters & Partial<OptionalParameters>) {
     this.parameters = Object.assign({}, this.default_parameters, parameters);
   }

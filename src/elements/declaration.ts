@@ -41,6 +41,9 @@ export abstract class Declaration
   }
 
   public _emit_jsdoc: () => string;
+
+  private _instance_of_declaration: true;
+
   public abstract _emit_raw(stack: Stack): string;
 
   // istanbul ignore next
