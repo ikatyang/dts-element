@@ -9,7 +9,7 @@ export = MyClass;
 class MyClass {
   constructor(someParam?: string);
   someProperty: string[];
-  myMethod(opts: (MyClass.MyClassMethodOptions)): number;
+  myMethod(opts: MyClass.MyClassMethodOptions): number;
 }
 /**
  * If you want to expose types from your module as well, you can

@@ -5,9 +5,8 @@ import {TypeofType} from '../typeof-type';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    const name = 'test';
     expect(new TypeofType({
-      owned: new VariableDeclaration({name}),
-    }).emit()).toBe(`(typeof ${name})`);
+      owned: new VariableDeclaration({name: 'test'}),
+    }).emit()).toMatchSnapshot();
   });
 });

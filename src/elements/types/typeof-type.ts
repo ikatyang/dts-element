@@ -17,7 +17,7 @@ export class TypeofType extends Type<ITypeofTypeRequiredParameters, ITypeofTypeO
 
   public _emit(_stack: Stack): string {
     const {owned} = this.parameters;
-    return `(typeof ${owned.parameters.name})`;
+    return `typeof ${owned.parameters.name}`;
   }
 
 }

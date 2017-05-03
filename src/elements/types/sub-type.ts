@@ -1,3 +1,4 @@
+import {emit_brackets} from '../../helpers/emit-brackets';
 import {Stack} from '../../stack';
 import {Declaration} from '../declaration';
 import {NamespaceDeclaration} from '../declarations/namespace-declaration';
@@ -22,7 +23,8 @@ export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalPa
   }
 
   public _emit(stack: Stack): string {
-    const target = this.parameters.target.emit(stack);
+    const {target} = this.parameters;
+    const target_content = emit_brackets(target.emit(stack), target);
     const namespaces = this.parameters.namespaces
       .map((namespace: NamespaceDeclaration) => namespace.parameters.name);
     const path = this.parameters.path
@@ -32,7 +34,7 @@ export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalPa
           : element.emit(stack)
       }]`)
       .join('');
-    return `(${[...namespaces, target].join('.')})${path}`;
+    return `${[...namespaces, target_content].join('.')}${path}`;
   }
 
 }

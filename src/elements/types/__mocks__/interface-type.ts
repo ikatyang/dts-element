@@ -7,7 +7,7 @@ export class InterfaceType extends Type<any, any> {
   }
 
   public _emit(): string {
-    return `[InterfaceType ${this.parameters.name}]`;
+    return `[InterfaceType ${this.parameters.owned.emit()}]`;
   }
 
 }

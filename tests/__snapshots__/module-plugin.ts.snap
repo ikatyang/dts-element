@@ -11,7 +11,7 @@ declare module \\"someModule\\" {
    * Inside, add new function, classes, or variables. You can use
    * unexported types from the original module if needed.
    */
-  export function theNewMethod(x: (m.foo)): (other.bar);
+  export function theNewMethod(x: m.foo): other.bar;
   /**
    * You can also add new properties to existing interfaces from
    * the original module by writing interface augmentations

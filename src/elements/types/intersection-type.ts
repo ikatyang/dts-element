@@ -1,3 +1,4 @@
+import {emit_brackets} from '../../helpers/emit-brackets';
 import {Stack} from '../../stack';
 import {Type} from '../type';
 
@@ -15,8 +16,8 @@ export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, 
   }
 
   public _emit(stack: Stack): string {
-    const types = this.parameters.types.map((type: Type) => type.emit(stack));
-    return `(${types.join(' & ')})`;
+    const types = this.parameters.types.map((type: Type) => emit_brackets(type.emit(stack), type));
+    return `${types.join(' & ')}`;
   }
 
 }

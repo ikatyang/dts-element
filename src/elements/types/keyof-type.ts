@@ -1,3 +1,4 @@
+import {emit_brackets} from '../../helpers/emit-brackets';
 import {Stack} from '../../stack';
 import {Type} from '../type';
 
@@ -15,7 +16,8 @@ export class KeyofType extends Type<IKeyofTypeRequiredParameters, IKeyofTypeOpti
   }
 
   public _emit(stack: Stack): string {
-    return `(keyof ${this.parameters.owned.emit(stack)})`;
+    const {owned} = this.parameters;
+    return `keyof ${emit_brackets(owned.emit(stack), owned)}`;
   }
 
 }

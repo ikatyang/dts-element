@@ -63,7 +63,7 @@ declare namespace myLib {
    * We can write 'const v: myLib.VetID = 42;'
    * or 'const v: myLib.VetID = \\"bob\\";'
    */
-  type VetID = (string | number);
+  type VetID = string | number;
   /**
    * We can invoke 'myLib.checkCat(c)' or 'myLib.checkCat(c, v);'
    */
