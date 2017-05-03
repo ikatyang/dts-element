@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `
+"/// <reference path=\\"path/to/some.d.ts\\" />
+import \\"path/to/another\\";
+import imported from \\"path/to/something\\";
+import {some_1 as imported_named_1, some_2 as imported_named_2} from \\"path/to/abc\\";
+declare function assertion(a: any): a is string;
+export class Element {
+  parameters: any;
+  test(): this[\\"parameters\\"];
+}
+type t1 = {
+  a<T, U>(): T | U;
+  [index: string]: any;
+};
+declare enum Flags {
+  A = 0,
+  B = -2,
+  C = -1
+}
+export * from \\"path/to/other\\";
+export {imported_named_1 as out_1, imported_named_2 as out_2};
+export default t1;
+export type t2 = string & (keyof {
+  a<T, U>(): T | U;
+  [index: string]: any;
+}) & (typeof imported) & \\"literal\\" & [string, null];"
+`;
