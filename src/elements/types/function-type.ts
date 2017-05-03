@@ -25,7 +25,7 @@ export class FunctionType extends Type<IFunctionTypeRequiredParameters, IFunctio
   }
 
   public _emit(stack: Stack): string {
-    const generics = emit_generics(this.parameters.generics, stack);
+    const generics = emit_generics(this.parameters.generics, stack, true);
     const parameters = emit_parameters(this.parameters.parameters, stack);
     const return_type = this.parameters.return.emit(stack);
     return `${generics}(${parameters}) => ${return_type}`;

@@ -36,7 +36,7 @@ export class ClassDeclaration
 
   public _emit_raw(stack: Stack): string {
     const {name, members, generics} = this.parameters;
-    const generic = emit_generics(generics, stack);
+    const generic = emit_generics(generics, stack, true);
     const abstract = emit_abstract(this.parameters.abstract, this);
     const an_extends = emit_extends(this.parameters.extends, stack);
     const an_export = emit_export(this.parameters.export, stack);

@@ -1,5 +1,4 @@
 import {emit_export} from '../../helpers/emit-export';
-import {emit_generics} from '../../helpers/emit-generics';
 import {emit_members} from '../../helpers/emit-members';
 import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';

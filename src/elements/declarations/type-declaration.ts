@@ -29,7 +29,7 @@ export class TypeDeclaration
 
   public _emit_raw(stack: Stack): string {
     const {name, generics} = this.parameters;
-    const generic = emit_generics(generics, stack);
+    const generic = emit_generics(generics, stack, true);
     const target = this.parameters.target.emit(stack);
     const an_export = emit_export(this.parameters.export, stack);
     return `${an_export}type ${name}${generic} = ${target};`;

@@ -37,7 +37,7 @@ export class FunctionDeclaration
   public _emit_raw(stack: Stack): string {
     const name = emit_declaration_name(this.parameters.name, stack);
     const parameters = emit_parameters(this.parameters.parameters, stack);
-    const generics = emit_generics(this.parameters.generics, stack);
+    const generics = emit_generics(this.parameters.generics, stack, true);
     const return_type = this.parameters.return.emit(stack);
     const declare = emit_declare(stack);
     const func = emit_function(stack);
