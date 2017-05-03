@@ -20,3 +20,13 @@ export enum ParameterFlags {
   REST,
   OPTIONAL,
 }
+
+export enum ReferenceKinds {
+  PATH,
+  TYPES,
+}
+
+export const REFERENCE_KIND_MAP = {
+  [ReferenceKinds.PATH]: 'path',
+  [ReferenceKinds.TYPES]: 'types',
+};

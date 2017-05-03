@@ -19,7 +19,7 @@ const function_assertion = new dts.FunctionDeclaration({
 });
 
 const reference_somepath = new dts.Reference({
-  kind: 'path',
+  kind: dts.ReferenceKinds.PATH,
   content: 'path/to/some.d.ts',
 });
 
