@@ -1,11 +1,10 @@
+import {ClassAccessor} from '../../constants';
 import {emit_abstract} from '../../helpers/emit-abstract';
 import {emit_accessor} from '../../helpers/emit-accessor';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {emit_static} from '../../helpers/emit-static';
 import {Stack} from '../../stack';
 import {Member, MemberOwned} from '../member';
-
-export type ClassAccessor = 'private' | 'protected' | 'public' | null;
 
 export interface IClassMemberRequiredParameters {
   owned: MemberOwned;
@@ -24,7 +23,7 @@ export class ClassMember extends Member<IClassMemberRequiredParameters, IClassMe
 
   public get default_parameters(): IClassMemberOptionalParameters {
     return {
-      accessor: null,
+      accessor: ClassAccessor.NONE,
       abstract: false,
       readonly: false,
       static: false,

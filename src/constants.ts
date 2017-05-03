@@ -42,3 +42,16 @@ export const VARIABLE_KIND_MAP = {
   [VariableKinds.LET]: 'let',
   [VariableKinds.CONST]: 'const',
 };
+
+export enum ClassAccessor {
+  NONE,
+  PUBLIC,
+  PROTECTED,
+  PRIVATE,
+}
+
+export const CLASS_ACCESSOR_MAP = {
+  [ClassAccessor.PUBLIC]: 'public',
+  [ClassAccessor.PROTECTED]: 'protected',
+  [ClassAccessor.PRIVATE]: 'private',
+};
