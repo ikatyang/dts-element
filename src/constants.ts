@@ -30,3 +30,15 @@ export const REFERENCE_KIND_MAP = {
   [ReferenceKinds.PATH]: 'path',
   [ReferenceKinds.TYPES]: 'types',
 };
+
+export enum VariableKinds {
+  VAR,
+  LET,
+  CONST,
+}
+
+export const VARIABLE_KIND_MAP = {
+  [VariableKinds.VAR]: 'var',
+  [VariableKinds.LET]: 'let',
+  [VariableKinds.CONST]: 'const',
+};
