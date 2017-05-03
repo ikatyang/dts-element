@@ -1,9 +1,9 @@
 import {Stack} from '../../stack';
-import {Declaration} from '../declaration';
+import {NamespaceDeclaration} from '../declarations/namespace-declaration';
 import {ImportExport} from '../import-export';
 
 export interface IImportNamedAllRequiredParameters {
-  value: Declaration;
+  value: NamespaceDeclaration;
   from: string;
 }
 
