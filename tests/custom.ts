@@ -154,6 +154,14 @@ const class_Element = new dts.ClassDeclaration({
   ],
 });
 
+const export_from = new dts.ExportFrom({
+  from: 'path/to/xyz',
+  members: [
+    new dts.ExportFromMember({owned: 'v1'}),
+    new dts.ExportFromMember({owned: 'v2', name: 'v3'}),
+  ],
+});
+
 const document = new dts.Document({children: [
   reference_somepath,
   import_all,
@@ -167,6 +175,7 @@ const document = new dts.Document({children: [
   export_named,
   export_default,
   type_declaration_t2,
+  export_from,
 ]});
 
 it('should return correctly', () => {

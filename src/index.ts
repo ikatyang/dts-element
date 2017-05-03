@@ -17,6 +17,7 @@ export * from './elements/import-exports/export-all';
 export * from './elements/import-exports/export-as-namespace';
 export * from './elements/import-exports/export-default';
 export * from './elements/import-exports/export-equal';
+export * from './elements/import-exports/export-from';
 export * from './elements/import-exports/export-named';
 export * from './elements/import-exports/import-all';
 export * from './elements/import-exports/import-default';
