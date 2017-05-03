@@ -7,7 +7,7 @@ export const emit_enum_members = (members: EnumMember[], stack: Stack): string =
   return (members.length === 0)
     ? '{}'
     : `{\n${indent_every_line(members.map((member: EnumMember): string =>
-      member._emit(stack, (value: number | null): number => {
+      member.emit(stack, (value: number | null): number => {
         counter = (value !== null)
           ? value
           : counter;
