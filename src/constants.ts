@@ -15,32 +15,32 @@ export const object_type = new BasicType({name: 'object'});
 
 export const this_type = new BasicType({name: 'this'});
 
-export enum ParameterKinds {
+export enum ParameterKind {
   NONE,
   REST,
   OPTIONAL,
 }
 
-export enum ReferenceKinds {
+export enum ReferenceKind {
   PATH,
   TYPES,
 }
 
 export const REFERENCE_KIND_MAP = {
-  [ReferenceKinds.PATH]: 'path',
-  [ReferenceKinds.TYPES]: 'types',
+  [ReferenceKind.PATH]: 'path',
+  [ReferenceKind.TYPES]: 'types',
 };
 
-export enum VariableKinds {
+export enum VariableKind {
   VAR,
   LET,
   CONST,
 }
 
 export const VARIABLE_KIND_MAP = {
-  [VariableKinds.VAR]: 'var',
-  [VariableKinds.LET]: 'let',
-  [VariableKinds.CONST]: 'const',
+  [VariableKind.VAR]: 'var',
+  [VariableKind.LET]: 'let',
+  [VariableKind.CONST]: 'const',
 };
 
 export enum ClassAccessor {

@@ -100,13 +100,13 @@ const namespace_myLib = new dts.NamespaceDeclaration({
   children: [
     new dts.VariableDeclaration({
       name: 'timeout',
-      kind: dts.VariableKinds.LET,
+      kind: dts.VariableKind.LET,
       type: dts.number_type,
       jsdoc: 'We can write \'myLib.timeout = 50;\'',
     }),
     new dts.VariableDeclaration({
       name: 'version',
-      kind: dts.VariableKinds.CONST,
+      kind: dts.VariableKind.CONST,
       type: dts.string_type,
       jsdoc: 'We can access \'myLib.version\', but not change it',
     }),
@@ -148,7 +148,7 @@ const namespace_myLib = new dts.NamespaceDeclaration({
           }),
           new dts.Parameter({
             name: 's',
-            kind: dts.ParameterKinds.OPTIONAL,
+            kind: dts.ParameterKind.OPTIONAL,
             type: new dts.TypedType({owned: type_VetID}),
           }),
         ],

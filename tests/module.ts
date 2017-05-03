@@ -60,7 +60,7 @@ const interface_someType = new dts.InterfaceDeclaration({
 
 const variable_myField = new dts.VariableDeclaration({
   name: 'myField',
-  kind: dts.VariableKinds.CONST,
+  kind: dts.VariableKind.CONST,
   export: true,
   type: dts.number_type,
   jsdoc: 'You can declare properties of the module using const, let, or var',

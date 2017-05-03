@@ -1,4 +1,4 @@
-import {ReferenceKinds, REFERENCE_KIND_MAP} from '../constants';
+import {ReferenceKind, REFERENCE_KIND_MAP} from '../constants';
 import {Element} from '../element';
 import {Stack} from '../stack';
 
@@ -7,7 +7,7 @@ export interface IReferenceRequiredParameters {
 }
 
 export interface IReferenceOptionalParameters {
-  kind: ReferenceKinds;
+  kind: ReferenceKind;
 }
 
 export class Reference extends Element<IReferenceRequiredParameters, IReferenceOptionalParameters> {
@@ -16,7 +16,7 @@ export class Reference extends Element<IReferenceRequiredParameters, IReferenceO
 
   public get default_parameters(): IReferenceOptionalParameters {
     return {
-      kind: ReferenceKinds.PATH,
+      kind: ReferenceKind.PATH,
     };
   }
 

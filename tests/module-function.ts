@@ -37,14 +37,14 @@ const namespace_MyFunction = new dts.NamespaceDeclaration({
     interface_NamedReturnType,
     new dts.VariableDeclaration({
       name: 'defaultName',
-      kind: dts.VariableKinds.CONST,
+      kind: dts.VariableKind.CONST,
       type: dts.string_type,
       // tslint:disable-next-line max-line-length
       jsdoc: 'If the module also has properties, declare them here. For example,\nthis declaration says that this code is legal:\nimport f = require(\'myFuncLibrary\');\nconsole.log(f.defaultName);',
     }),
     new dts.VariableDeclaration({
       name: 'defaultLength',
-      kind: dts.VariableKinds.LET,
+      kind: dts.VariableKind.LET,
       type: dts.number_type,
     }),
   ],

@@ -1,4 +1,4 @@
-import {any_type, VariableKinds} from '../../constants';
+import {any_type, VariableKind} from '../../constants';
 import {emit_declaration_name} from '../../helpers/emit-declaration-name';
 import {emit_declare} from '../../helpers/emit-declare';
 import {emit_export} from '../../helpers/emit-export';
@@ -13,7 +13,7 @@ export interface IVariableDeclarationRequiredParameters {
 }
 
 export interface IVariableDeclarationOptionalParameters {
-  kind: VariableKinds;
+  kind: VariableKind;
   type: Type;
   optional: boolean;
   export: boolean;
@@ -26,7 +26,7 @@ export class VariableDeclaration
 
   public get default_parameters(): IDeclarationOptionalParameters & IVariableDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
-      kind: VariableKinds.VAR,
+      kind: VariableKind.VAR,
       type: any_type,
       optional: false,
       export: false,
