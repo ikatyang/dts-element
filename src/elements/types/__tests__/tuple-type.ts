@@ -5,7 +5,7 @@ import {TupleType} from '../tuple-type';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new TupleType({owneds: [
+    expect(new TupleType({types: [
       new BasicType({name: 'A'}),
       new BasicType({name: 'B'}),
     ]}).emit()).toMatchSnapshot();

@@ -121,7 +121,7 @@ const intersection_type = new dts.IntersectionType({
     new dts.KeyofType({owned: object_type_generics}),
     new dts.TypeofType({owned: variable_declaration_imported}),
     new dts.LiteralType({value: 'literal'}),
-    new dts.TupleType({owneds: [
+    new dts.TupleType({types: [
       dts.string_type,
       dts.null_type,
     ]}),

@@ -3,7 +3,7 @@ import {Stack} from '../../stack';
 import {Type} from '../type';
 
 export interface ITupleTypeRequiredParameters {
-  owneds: Type[];
+  types: Type[];
 }
 
 // tslint:disable-next-line no-empty-interface
@@ -18,7 +18,7 @@ export class TupleType extends Type<ITupleTypeRequiredParameters, ITupleTypeOpti
   }
 
   public _emit(stack: Stack): string {
-    return `[${emit_elements(this.parameters.owneds, stack, ', ')}]`;
+    return `[${emit_elements(this.parameters.types, stack, ', ')}]`;
   }
 
 }
