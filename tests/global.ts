@@ -148,7 +148,7 @@ const namespace_myLib = new dts.NamespaceDeclaration({
           }),
           new dts.Parameter({
             name: 's',
-            flag: dts.ParameterFlags.OPTIONAL,
+            kind: dts.ParameterKinds.OPTIONAL,
             type: new dts.TypedType({owned: type_VetID}),
           }),
         ],

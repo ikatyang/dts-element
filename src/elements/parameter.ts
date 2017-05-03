@@ -1,4 +1,4 @@
-import {any_type, ParameterFlags} from '../constants';
+import {any_type, ParameterKinds} from '../constants';
 import {Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
 import {emit_parameter_type} from '../helpers/emit-parameter-type';
@@ -11,7 +11,7 @@ export interface IParameterRequiredParameters {
 
 export interface IParameterOptionalParameters {
   type: Type;
-  flag: ParameterFlags;
+  kind: ParameterKinds;
 }
 
 export class Parameter extends Element<IParameterRequiredParameters, IParameterOptionalParameters> {
@@ -21,13 +21,13 @@ export class Parameter extends Element<IParameterRequiredParameters, IParameterO
   public get default_parameters(): IParameterOptionalParameters {
     return {
       type: any_type,
-      flag: ParameterFlags.NONE,
+      kind: ParameterKinds.NONE,
     };
   }
 
   public _emit(stack: Stack): string {
-    const {name, type, flag} = this.parameters;
-    return `${emit_parameter_main(name, flag)}: ${emit_parameter_type(type, flag, stack)}`;
+    const {name, type, kind} = this.parameters;
+    return `${emit_parameter_main(name, kind)}: ${emit_parameter_type(type, kind, stack)}`;
   }
 
 }

@@ -1,6 +1,6 @@
-import {ParameterFlags} from '../constants';
+import {ParameterKinds} from '../constants';
 import {emit_optional} from './emit-optional';
 import {emit_rest} from './emit-rest';
 
-export const emit_parameter_main = (name: string, flag: ParameterFlags): string =>
-  `${emit_rest(flag === ParameterFlags.REST)}${name}${emit_optional(flag === ParameterFlags.OPTIONAL)}`;
+export const emit_parameter_main = (name: string, kind: ParameterKinds): string =>
+  `${emit_rest(kind === ParameterKinds.REST)}${name}${emit_optional(kind === ParameterKinds.OPTIONAL)}`;

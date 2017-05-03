@@ -15,7 +15,7 @@ export const object_type = new BasicType({name: 'object'});
 
 export const this_type = new BasicType({name: 'this'});
 
-export enum ParameterFlags {
+export enum ParameterKinds {
   NONE,
   REST,
   OPTIONAL,

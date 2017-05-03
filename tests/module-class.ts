@@ -37,7 +37,7 @@ const class_MyClass = new dts.ClassDeclaration({
     new dts.ClassMember({
       owned: new dts.Constructor({
         parameters: [
-          new dts.Parameter({name: 'someParam', type: dts.string_type, flag: dts.ParameterFlags.OPTIONAL}),
+          new dts.Parameter({name: 'someParam', type: dts.string_type, kind: dts.ParameterKinds.OPTIONAL}),
         ],
       }),
     }),
