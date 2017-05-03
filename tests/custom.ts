@@ -56,7 +56,7 @@ const object_type_generics = new dts.ObjectType({
 
 const type_declaration_t1 = new dts.TypeDeclaration({
   name: 't1',
-  target: object_type_generics,
+  type: object_type_generics,
 });
 
 const enum_Flags = new dts.EnumDeclaration({
@@ -131,7 +131,7 @@ const intersection_type = new dts.IntersectionType({
 const type_declaration_t2 = new dts.TypeDeclaration({
   name: 't2',
   export: true,
-  target: intersection_type,
+  type: intersection_type,
 });
 
 const class_Element = new dts.ClassDeclaration({

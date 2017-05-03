@@ -12,7 +12,7 @@ export interface ITypeDeclarationRequiredParameters {
 
 export interface ITypeDeclarationOptionalParameters {
   generics: GenericType[];
-  target: Type;
+  type: Type;
   export: boolean;
 }
 
@@ -24,7 +24,7 @@ export class TypeDeclaration
   public get default_parameters(): IDeclarationOptionalParameters & ITypeDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],
-      target: any_type,
+      type: any_type,
       export: false,
     });
   }
@@ -32,7 +32,7 @@ export class TypeDeclaration
   public _emit_raw(stack: Stack): string {
     const {name, generics} = this.parameters;
     const generic = emit_generics(generics, stack, true);
-    const target = this.parameters.target.emit(stack);
+    const target = this.parameters.type.emit(stack);
     const an_export = emit_export(this.parameters.export, stack);
     return `${an_export}type ${name}${generic} = ${target};`;
   }

@@ -6,7 +6,7 @@ import * as dts from '../src/index';
 
 const type_BinaryFormatCallback = new dts.TypeDeclaration({
   name: 'BinaryFormatCallback',
-  target: new dts.FunctionType({
+  type: new dts.FunctionType({
     parameters: [new dts.Parameter({name: 'n', type: dts.number_type})],
     return: dts.string_type,
   }),

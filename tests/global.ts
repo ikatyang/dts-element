@@ -88,7 +88,7 @@ const class_Cat = new dts.ClassDeclaration({
 const type_VetID = new dts.TypeDeclaration({
   name: 'VetID',
   jsdoc: 'We can write \'const v: myLib.VetID = 42;\'\nor \'const v: myLib.VetID = "bob";\'',
-  target: new dts.UnionType({
+  type: new dts.UnionType({
     types: [dts.string_type, dts.number_type],
   }),
 });
