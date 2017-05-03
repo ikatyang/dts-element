@@ -4,19 +4,21 @@ import {ImportExport} from '../import-export';
 import {ImportMember} from '../members/import-member';
 
 export interface IImportNamedRequiredParameters {
-  members: ImportMember[];
   from: string;
 }
 
-// tslint:disable-next-line no-empty-interface
-export interface IImportNamedOptionalParameters {}
+export interface IImportNamedOptionalParameters {
+  members: ImportMember[];
+}
 
 export class ImportNamed extends ImportExport<IImportNamedRequiredParameters, IImportNamedOptionalParameters> {
 
   private _instance_of_import_named: true;
 
   public get default_parameters(): IImportNamedOptionalParameters {
-    return {};
+    return {
+      members: [],
+    };
   }
 
   public _emit(stack: Stack): string {
