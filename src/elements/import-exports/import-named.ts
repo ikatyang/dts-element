@@ -13,6 +13,8 @@ export interface IImportNamedOptionalParameters {}
 
 export class ImportNamed extends ImportExport<IImportNamedRequiredParameters, IImportNamedOptionalParameters> {
 
+  private _instance_of_import_named: true;
+
   public get default_parameters(): IImportNamedOptionalParameters {
     return {};
   }

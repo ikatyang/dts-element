@@ -14,6 +14,8 @@ export interface ITypedTypeOptionalParameters {
 
 export class TypedType extends Type<ITypedTypeRequiredParameters, ITypedTypeOptionalParameters> {
 
+  private _instance_of_typed_type: true;
+
   public get default_parameters(): ITypedTypeOptionalParameters {
     return {
       generics: [],

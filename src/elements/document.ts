@@ -16,6 +16,8 @@ export interface IDocumentOptionalParameters {}
 
 export class Document extends Element<IDocumentRequiredParameters, IDocumentOptionalParameters> {
 
+  private _instance_of_document: true;
+
   public get default_parameters(): IDocumentOptionalParameters {
     return {};
   }

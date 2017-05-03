@@ -10,6 +10,8 @@ export interface IBasicTypeOptionalParameters {}
 
 export class BasicType extends Type<IBasicTypeRequiredParameters, IBasicTypeOptionalParameters> {
 
+  private _instance_of_basic_type: true;
+
   public get default_parameters(): IBasicTypeOptionalParameters {
     return {};
   }

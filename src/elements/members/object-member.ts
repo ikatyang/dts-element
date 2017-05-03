@@ -12,6 +12,8 @@ export interface IObjectMemberOptionalParameters {
 
 export class ObjectMember extends Member<IObjectMemberRequiredParameters, IObjectMemberOptionalParameters> {
 
+  private _instance_of_object_member: true;
+
   public get default_parameters(): IObjectMemberOptionalParameters {
     return {
       readonly: false,

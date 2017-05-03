@@ -11,6 +11,8 @@ export interface IExportDefaultOptionalParameters {}
 
 export class ExportDefault extends ImportExport<IExportDefaultRequiredParameters, IExportDefaultOptionalParameters> {
 
+  private _instance_of_export_default: true;
+
   public get default_parameters(): IExportDefaultOptionalParameters {
     return {};
   }

@@ -15,6 +15,8 @@ export interface ISubTypeOptionalParameters {
 
 export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalParameters> {
 
+  private _instance_of_sub_type: true;
+
   public get default_parameters(): ISubTypeOptionalParameters {
     return {
       namespaces: [],

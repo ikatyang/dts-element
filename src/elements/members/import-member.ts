@@ -14,6 +14,8 @@ export interface IImportMemberOptionalParameters {
 export class ImportMember
     extends Member<IImportMemberRequiredParameters, IImportMemberOptionalParameters> {
 
+  private _instance_of_import_member: true;
+
   public get default_parameters(): IImportMemberOptionalParameters {
     return {
       name: null,

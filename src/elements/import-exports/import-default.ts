@@ -12,6 +12,8 @@ export interface IImportDefaultOptionalParameters {}
 
 export class ImportDefault extends ImportExport<IImportDefaultRequiredParameters, IImportDefaultOptionalParameters> {
 
+  private _instance_of_import_default: true;
+
   public get default_parameters(): IImportDefaultOptionalParameters {
     return {};
   }

@@ -15,6 +15,8 @@ export interface IGenericTypeOptionalParameters {
 
 export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTypeOptionalParameters> {
 
+  private _instance_of_generic_type: true;
+
   public get default_parameters(): IGenericTypeOptionalParameters {
     return {
       extends: null,

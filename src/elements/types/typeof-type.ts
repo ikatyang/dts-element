@@ -11,6 +11,8 @@ export interface ITypeofTypeOptionalParameters {}
 
 export class TypeofType extends Type<ITypeofTypeRequiredParameters, ITypeofTypeOptionalParameters> {
 
+  private _instance_of_typeof_type: true;
+
   public get default_parameters(): ITypeofTypeOptionalParameters {
     return {};
   }

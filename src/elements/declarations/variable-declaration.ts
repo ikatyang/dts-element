@@ -24,6 +24,8 @@ export interface IVariableDeclarationOptionalParameters {
 export class VariableDeclaration
     extends Declaration<IVariableDeclarationRequiredParameters, IVariableDeclarationOptionalParameters> {
 
+  private _instance_of_variable_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IVariableDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       kind: 'var' as VariableKind,

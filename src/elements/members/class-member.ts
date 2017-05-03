@@ -20,6 +20,8 @@ export interface IClassMemberOptionalParameters {
 
 export class ClassMember extends Member<IClassMemberRequiredParameters, IClassMemberOptionalParameters> {
 
+  private _instance_of_class_member: true;
+
   public get default_parameters(): IClassMemberOptionalParameters {
     return {
       accessor: null,

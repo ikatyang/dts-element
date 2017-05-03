@@ -11,6 +11,8 @@ export interface IIntersectionTypeOptionalParameters {}
 
 export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, IIntersectionTypeOptionalParameters> {
 
+  private _instance_of_intersection_type: true;
+
   public get default_parameters(): IIntersectionTypeOptionalParameters {
     return {};
   }

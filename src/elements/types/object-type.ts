@@ -12,6 +12,8 @@ export interface IObjectTypeOptionalParameters {}
 
 export class ObjectType extends Type<IObjectTypeRequiredParameters, IObjectTypeOptionalParameters> {
 
+  private _instance_of_object_type: true;
+
   public get default_parameters(): IObjectTypeOptionalParameters {
     return {};
   }

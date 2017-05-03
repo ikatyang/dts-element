@@ -11,6 +11,8 @@ export interface IExportAsNamespaceOptionalParameters {}
 export class ExportAsNamespace
     extends ImportExport<IExportAsNamespaceRequiredParameters, IExportAsNamespaceOptionalParameters> {
 
+  private _instance_of_export_as_namespace: true;
+
   public get default_parameters(): IExportAsNamespaceOptionalParameters {
     return {};
   }

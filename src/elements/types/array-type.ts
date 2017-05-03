@@ -11,6 +11,8 @@ export interface IArrayTypeOptionalParameters {}
 
 export class ArrayType extends Type<IArrayTypeRequiredParameters, IArrayTypeOptionalParameters> {
 
+  private _instance_of_array_type: true;
+
   public get default_parameters(): IArrayTypeOptionalParameters {
     return {};
   }

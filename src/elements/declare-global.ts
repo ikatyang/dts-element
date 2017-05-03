@@ -12,6 +12,8 @@ export interface IDeclareGlobalOptionalParameters {}
 
 export class DeclareGlobal extends Element<IDeclareGlobalRequiredParameters, IDeclareGlobalOptionalParameters> {
 
+  private _instance_of_declare_global: true;
+
   public get default_parameters(): IDeclareGlobalOptionalParameters {
     return {};
   }

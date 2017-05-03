@@ -11,6 +11,8 @@ export interface ITupleTypeOptionalParameters {}
 
 export class TupleType extends Type<ITupleTypeRequiredParameters, ITupleTypeOptionalParameters> {
 
+  private _instance_of_tuple_type: true;
+
   public get default_parameters(): ITupleTypeOptionalParameters {
     return {};
   }

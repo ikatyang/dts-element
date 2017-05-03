@@ -11,6 +11,8 @@ export interface IKeyofTypeOptionalParameters {}
 
 export class KeyofType extends Type<IKeyofTypeRequiredParameters, IKeyofTypeOptionalParameters> {
 
+  private _instance_of_keyof_type: true;
+
   public get default_parameters(): IKeyofTypeOptionalParameters {
     return {};
   }

@@ -14,6 +14,8 @@ export interface IClassTypeOptionalParameters {
 
 export class ClassType extends Type<IClassTypeRequiredParameters, IClassTypeOptionalParameters> {
 
+  private _instance_of_class_type: true;
+
   public get default_parameters(): IClassTypeOptionalParameters {
     return {
       generics: [],

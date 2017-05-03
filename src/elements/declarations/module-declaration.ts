@@ -16,6 +16,8 @@ export interface IModuleDeclarationOptionalParameters {
 export class ModuleDeclaration
     extends Declaration<IModuleDeclarationRequiredParameters, IModuleDeclarationOptionalParameters> {
 
+  private _instance_of_module_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IModuleDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       children: [],

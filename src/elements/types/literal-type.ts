@@ -11,6 +11,8 @@ export interface ILiteralTypeOptionalParameters {}
 
 export class LiteralType extends Type<ILiteralTypeRequiredParameters, ILiteralTypeOptionalParameters> {
 
+  private _instance_of_literal_type: true;
+
   public get default_parameters(): ILiteralTypeOptionalParameters {
     return {};
   }

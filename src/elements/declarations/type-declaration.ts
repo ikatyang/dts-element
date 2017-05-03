@@ -19,6 +19,8 @@ export interface ITypeDeclarationOptionalParameters {
 export class TypeDeclaration
     extends Declaration<ITypeDeclarationRequiredParameters, ITypeDeclarationOptionalParameters> {
 
+  private _instance_of_type_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & ITypeDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],

@@ -12,6 +12,8 @@ export interface IExportNamedOptionalParameters {}
 
 export class ExportNamed extends ImportExport<IExportNamedRequiredParameters, IExportNamedOptionalParameters> {
 
+  private _instance_of_export_named: true;
+
   public get default_parameters(): IExportNamedOptionalParameters {
     return {};
   }

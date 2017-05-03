@@ -15,6 +15,8 @@ export interface ITypeAssertionOptionalParameters {
 export class TypeAssertion
     extends Element<ITypeAssertionRequiredParameters, ITypeAssertionOptionalParameters> {
 
+  private _instance_of_type_assertion: true;
+
   public get default_parameters(): ITypeAssertionOptionalParameters {
     return {
       type: any_type,

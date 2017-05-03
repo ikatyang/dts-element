@@ -16,6 +16,8 @@ export interface IParameterOptionalParameters {
 
 export class Parameter extends Element<IParameterRequiredParameters, IParameterOptionalParameters> {
 
+  private _instance_of_parameter: true;
+
   public get default_parameters(): IParameterOptionalParameters {
     return {
       type: any_type,

@@ -10,6 +10,8 @@ export interface IImportAllOptionalParameters {}
 
 export class ImportAll extends ImportExport<IImportAllRequiredParameters, IImportAllOptionalParameters> {
 
+  private _instance_of_import_all: true;
+
   public get default_parameters(): IImportAllOptionalParameters {
     return {};
   }

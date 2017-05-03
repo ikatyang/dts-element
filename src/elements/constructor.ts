@@ -30,6 +30,8 @@ export class Constructor
 
   public _emit_jsdoc: () => string;
 
+  private _instance_of_constructor: true;
+
   // istanbul ignore next
   // tslint:disable-next-line prefer-function-over-method
   public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }

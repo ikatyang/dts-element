@@ -16,6 +16,8 @@ export interface INamespaceDeclarationOptionalParameters {
 export class NamespaceDeclaration
     extends Declaration<INamespaceDeclarationRequiredParameters, INamespaceDeclarationOptionalParameters> {
 
+  private _instance_of_namespace_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & INamespaceDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       children: [],

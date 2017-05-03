@@ -14,6 +14,8 @@ export interface IExportMemberOptionalParameters {
 export class ExportMember
     extends Member<IExportMemberRequiredParameters, IExportMemberOptionalParameters> {
 
+  private _instance_of_export_member: true;
+
   public get default_parameters(): IExportMemberOptionalParameters {
     return {
       name: null,

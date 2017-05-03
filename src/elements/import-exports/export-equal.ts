@@ -11,6 +11,8 @@ export interface IExportEqualOptionalParameters {}
 
 export class ExportEqual extends ImportExport<IExportEqualRequiredParameters, IExportEqualOptionalParameters> {
 
+  private _instance_of_export_equal: true;
+
   public get default_parameters(): IExportEqualOptionalParameters {
     return {};
   }

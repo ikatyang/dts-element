@@ -11,6 +11,8 @@ export interface IReferenceOptionalParameters {}
 
 export class Reference extends Element<IReferenceRequiredParameters, IReferenceOptionalParameters> {
 
+  private _instance_of_reference: true;
+
   public get default_parameters(): IReferenceOptionalParameters {
     return {};
   }

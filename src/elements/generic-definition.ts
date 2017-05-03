@@ -12,6 +12,8 @@ export interface IGenericDefinitionOptionalParameters {}
 export class GenericDefinition
     extends Element<IGenericDefinitionRequiredParameters, IGenericDefinitionOptionalParameters> {
 
+  private _instance_of_generic_declaration: true;
+
   public get default_parameters(): IGenericDefinitionOptionalParameters {
     return {};
   }

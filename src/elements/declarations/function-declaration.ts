@@ -25,6 +25,8 @@ export interface IFunctionDeclarationOptionalParameters {
 export class FunctionDeclaration
     extends Declaration<IFunctionDeclarationRequiredParameters, IFunctionDeclarationOptionalParameters> {
 
+  private _instance_of_function_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IFunctionDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       parameters: [],

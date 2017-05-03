@@ -12,6 +12,8 @@ export interface IImportNamedAllOptionalParameters {}
 
 export class ImportNamedAll extends ImportExport<IImportNamedAllRequiredParameters, IImportNamedAllOptionalParameters> {
 
+  private _instance_of_import_named_all: true;
+
   public get default_parameters(): IImportNamedAllOptionalParameters {
     return {};
   }

@@ -14,6 +14,8 @@ export interface IEnumMemberOptionalParameters {
 
 export class EnumMember extends Member<IEnumMemberRequiredParameters, IEnumMemberOptionalParameters> {
 
+  private _instance_of_enum_member: true;
+
   public get default_parameters(): IEnumMemberOptionalParameters {
     return {
       value: null,

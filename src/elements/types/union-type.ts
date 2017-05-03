@@ -11,6 +11,8 @@ export interface IUnionTypeOptionalParameters {}
 
 export class UnionType extends Type<IUnionTypeRequiredParameters, IUnionTypeOptionalParameters> {
 
+  private _instance_of_union_type: true;
+
   public get default_parameters(): IUnionTypeOptionalParameters {
     return {};
   }

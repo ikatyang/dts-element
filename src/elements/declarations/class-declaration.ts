@@ -24,6 +24,8 @@ export interface IClassDeclarationOptionalParameters {
 export class ClassDeclaration
     extends Declaration<IClassDeclarationRequiredParameters, IClassDeclarationOptionalParameters> {
 
+  private _instance_of_class_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IClassDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],

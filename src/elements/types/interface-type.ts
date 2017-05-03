@@ -14,6 +14,8 @@ export interface IInterfaceTypeOptionalParameters {
 
 export class InterfaceType extends Type<IInterfaceTypeRequiredParameters, IInterfaceTypeOptionalParameters> {
 
+  private _instance_of_interface_type: true;
+
   public get default_parameters(): IInterfaceTypeOptionalParameters {
     return {
       generics: [],

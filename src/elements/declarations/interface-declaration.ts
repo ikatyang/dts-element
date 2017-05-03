@@ -19,6 +19,8 @@ export interface IInterfaceDeclarationOptionalParameters {
 export class InterfaceDeclaration
     extends Declaration<IInterfaceDeclarationRequiredParameters, IInterfaceDeclarationOptionalParameters> {
 
+  private _instance_of_interface_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IInterfaceDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       generics: [],

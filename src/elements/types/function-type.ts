@@ -17,6 +17,8 @@ export interface IFunctionTypeOptionalParameters {
 
 export class FunctionType extends Type<IFunctionTypeRequiredParameters, IFunctionTypeOptionalParameters> {
 
+  private _instance_of_function_type: true;
+
   public get default_parameters(): IFunctionTypeOptionalParameters {
     return {
       generics: [],

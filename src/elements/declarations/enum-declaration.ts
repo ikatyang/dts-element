@@ -17,6 +17,8 @@ export interface IEnumDeclarationOptionalParameters {
 export class EnumDeclaration
     extends Declaration<IEnumDeclarationRequiredParameters, IEnumDeclarationOptionalParameters> {
 
+  private _instance_of_enum_declaration: true;
+
   public get default_parameters(): IDeclarationOptionalParameters & IEnumDeclarationOptionalParameters {
     return Object.assign({}, super.default_declaration_parameters, {
       members: [],
