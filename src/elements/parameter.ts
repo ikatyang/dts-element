@@ -1,4 +1,4 @@
-import {any_type, ParameterFlag} from '../constants';
+import {any_type, ParameterFlags} from '../constants';
 import {Element} from '../element';
 import {emit_parameter_main} from '../helpers/emit-parameter-main';
 import {emit_parameter_type} from '../helpers/emit-parameter-type';
@@ -11,7 +11,7 @@ export interface IParameterRequiredParameters {
 
 export interface IParameterOptionalParameters {
   type: Type;
-  flag: ParameterFlag;
+  flag: ParameterFlags;
 }
 
 export class Parameter extends Element<IParameterRequiredParameters, IParameterOptionalParameters> {
@@ -19,7 +19,7 @@ export class Parameter extends Element<IParameterRequiredParameters, IParameterO
   public get default_parameters(): IParameterOptionalParameters {
     return {
       type: any_type,
-      flag: ParameterFlag.NONE,
+      flag: ParameterFlags.NONE,
     };
   }
 
