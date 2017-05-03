@@ -1,13 +1,7 @@
 import {Element} from '../element';
-import {Constructor} from './constructor';
-import {FunctionDeclaration} from './declarations/function-declaration';
-import {VariableDeclaration} from './declarations/variable-declaration';
-import {IndexSignature} from './index-signature';
-
-export type MemberOwned = Constructor | IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export interface IMemberRequiredParameters {
-  owned: Element;
+  owned: any;
 }
 
 // tslint:disable-next-line no-empty-interface

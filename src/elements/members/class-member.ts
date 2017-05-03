@@ -4,10 +4,11 @@ import {emit_accessor} from '../../helpers/emit-accessor';
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {emit_static} from '../../helpers/emit-static';
 import {Stack} from '../../stack';
-import {Member, MemberOwned} from '../member';
+import {Member} from '../member';
+import {ObjectMemberOwned} from './object-member';
 
 export interface IClassMemberRequiredParameters {
-  owned: MemberOwned;
+  owned: ObjectMemberOwned;
 }
 
 export interface IClassMemberOptionalParameters {

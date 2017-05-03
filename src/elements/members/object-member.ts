@@ -1,14 +1,20 @@
 import {emit_readonly} from '../../helpers/emit-readonly';
 import {Stack} from '../../stack';
-import {Member, MemberOwned} from '../member';
+import {Constructor} from '../constructor';
+import {FunctionDeclaration} from '../declarations/function-declaration';
+import {VariableDeclaration} from '../declarations/variable-declaration';
+import {IndexSignature} from '../index-signature';
+import {Member} from '../member';
 
 export interface IObjectMemberRequiredParameters {
-  owned: MemberOwned;
+  owned: ObjectMemberOwned;
 }
 
 export interface IObjectMemberOptionalParameters {
   readonly: boolean;
 }
+
+export type ObjectMemberOwned = Constructor | IndexSignature | VariableDeclaration | FunctionDeclaration;
 
 export class ObjectMember extends Member<IObjectMemberRequiredParameters, IObjectMemberOptionalParameters> {
 
