@@ -11,6 +11,11 @@ export interface IImportNamedOptionalParameters {
   members: ImportMember[];
 }
 
+/**
+ * ```ts
+ * import { some_declaration } from "path/to/some";
+ * ```
+ */
 export class ImportNamed extends ImportExport<IImportNamedRequiredParameters, IImportNamedOptionalParameters> {
 
   private _instance_of_import_named: true;

@@ -9,6 +9,12 @@ export interface IKeyofTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IKeyofTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = keyof some_type;
+ * //       ^^^^^^^^^^^^^^^
+ * ```
+ */
 export class KeyofType extends Type<IKeyofTypeRequiredParameters, IKeyofTypeOptionalParameters> {
 
   private _instance_of_keyof_type: true;

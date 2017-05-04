@@ -9,6 +9,12 @@ export interface IIntersectionTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IIntersectionTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = some_type_1 & some_type_2;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class IntersectionType extends Type<IIntersectionTypeRequiredParameters, IIntersectionTypeOptionalParameters> {
 
   private _instance_of_intersection_type: true;

@@ -9,6 +9,9 @@ export interface IGenericDefinitionRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IGenericDefinitionOptionalParameters {}
 
+/**
+ * A wrapper for GenericType to determine it as a declaration or a variable
+ */
 export class GenericDefinition
     extends Element<IGenericDefinitionRequiredParameters, IGenericDefinitionOptionalParameters> {
 

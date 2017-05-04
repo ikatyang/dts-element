@@ -13,6 +13,13 @@ export interface INamespaceDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * declare namespace {
+ *   // some declarations
+ * }
+ * ```
+ */
 export class NamespaceDeclaration
     extends Declaration<INamespaceDeclarationRequiredParameters, INamespaceDeclarationOptionalParameters> {
 

@@ -11,6 +11,9 @@ export interface IExportFromMemberOptionalParameters {
   name: string | null;
 }
 
+/**
+ * A wrapper for ExportFrom member
+ */
 export class ExportFromMember
     extends Member<IExportFromMemberRequiredParameters, IExportFromMemberOptionalParameters> {
 

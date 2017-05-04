@@ -21,6 +21,14 @@ export interface IFunctionDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * declare function some_function_name(...some_args: any[]): any; // <--
+ * class X {
+ *   some_method_name(...some_args: any[]): any; // <--
+ * }
+ * ```
+ */
 export class FunctionDeclaration
     extends Declaration<IFunctionDeclarationRequiredParameters, IFunctionDeclarationOptionalParameters> {
 

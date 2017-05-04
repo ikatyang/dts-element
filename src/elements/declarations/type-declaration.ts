@@ -16,6 +16,11 @@ export interface ITypeDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * type some_type_name = any;
+ * ```
+ */
 export class TypeDeclaration
     extends Declaration<ITypeDeclarationRequiredParameters, ITypeDeclarationOptionalParameters> {
 

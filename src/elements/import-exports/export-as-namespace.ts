@@ -8,6 +8,11 @@ export interface IExportAsNamespaceRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IExportAsNamespaceOptionalParameters {}
 
+/**
+ * ```ts
+ * export as namespace some_namespace_name;
+ * ```
+ */
 export class ExportAsNamespace
     extends ImportExport<IExportAsNamespaceRequiredParameters, IExportAsNamespaceOptionalParameters> {
 

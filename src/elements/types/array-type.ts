@@ -9,6 +9,12 @@ export interface IArrayTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IArrayTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = some_type[];
+ * //       ^^^^^^^^^^^
+ * ```
+ */
 export class ArrayType extends Type<IArrayTypeRequiredParameters, IArrayTypeOptionalParameters> {
 
   private _instance_of_array_type: true;

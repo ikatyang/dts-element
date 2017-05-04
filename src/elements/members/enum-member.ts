@@ -12,6 +12,9 @@ export interface IEnumMemberOptionalParameters {
   value: number | null;
 }
 
+/**
+ * A wrapper for EnumDeclaration member
+ */
 export class EnumMember extends Member<IEnumMemberRequiredParameters, IEnumMemberOptionalParameters> {
 
   private _instance_of_enum_member: true;

@@ -10,6 +10,11 @@ export interface IExportNamedRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IExportNamedOptionalParameters {}
 
+/**
+ * ```ts
+ * export { some_declaration };
+ * ```
+ */
 export class ExportNamed extends ImportExport<IExportNamedRequiredParameters, IExportNamedOptionalParameters> {
 
   private _instance_of_export_named: true;

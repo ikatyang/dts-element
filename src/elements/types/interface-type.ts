@@ -12,6 +12,12 @@ export interface IInterfaceTypeOptionalParameters {
   generics: Type[];
 }
 
+/**
+ * ```ts
+ * type X = some_interface_declaration<some_generic>;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class InterfaceType extends Type<IInterfaceTypeRequiredParameters, IInterfaceTypeOptionalParameters> {
 
   private _instance_of_interface_type: true;

@@ -11,6 +11,9 @@ export interface IImportMemberOptionalParameters {
   name: string | null;
 }
 
+/**
+ * A wrapper for ImportNamed member
+ */
 export class ImportMember
     extends Member<IImportMemberRequiredParameters, IImportMemberOptionalParameters> {
 

@@ -10,6 +10,11 @@ export interface IImportNamedAllRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IImportNamedAllOptionalParameters {}
 
+/**
+ * ```ts
+ * import * as some_namespace_declaration from "path/to/some";
+ * ```
+ */
 export class ImportNamedAll extends ImportExport<IImportNamedAllRequiredParameters, IImportNamedAllOptionalParameters> {
 
   private _instance_of_import_named_all: true;

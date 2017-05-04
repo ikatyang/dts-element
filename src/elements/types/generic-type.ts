@@ -13,6 +13,12 @@ export interface IGenericTypeOptionalParameters {
   default: Type | null;
 }
 
+/**
+ * ```ts
+ * type X<T extends string> = T;
+ * //     ^^^^^^^^^^^^^^^^    ^
+ * ```
+ */
 export class GenericType extends Type<IGenericTypeRequiredParameters, IGenericTypeOptionalParameters> {
 
   private _instance_of_generic_type: true;

@@ -9,6 +9,12 @@ export interface ITupleTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface ITupleTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = [some_type_1, some_type_2];
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class TupleType extends Type<ITupleTypeRequiredParameters, ITupleTypeOptionalParameters> {
 
   private _instance_of_tuple_type: true;

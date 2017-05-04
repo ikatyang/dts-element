@@ -18,6 +18,9 @@ export interface IClassMemberOptionalParameters {
   static: boolean;
 }
 
+/**
+ * A wrapper for ClassDeclaration member
+ */
 export class ClassMember extends Member<IClassMemberRequiredParameters, IClassMemberOptionalParameters> {
 
   private _instance_of_class_member: true;

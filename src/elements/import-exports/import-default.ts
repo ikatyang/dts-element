@@ -10,6 +10,11 @@ export interface IImportDefaultRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IImportDefaultOptionalParameters {}
 
+/**
+ * ```ts
+ * import some_declaration from "path/to/some";
+ * ```
+ */
 export class ImportDefault extends ImportExport<IImportDefaultRequiredParameters, IImportDefaultOptionalParameters> {
 
   private _instance_of_import_default: true;

@@ -9,6 +9,11 @@ export interface IExportDefaultRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IExportDefaultOptionalParameters {}
 
+/**
+ * ```ts
+ * export default some_delcaration;
+ * ```
+ */
 export class ExportDefault extends ImportExport<IExportDefaultRequiredParameters, IExportDefaultOptionalParameters> {
 
   private _instance_of_export_default: true;

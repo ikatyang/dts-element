@@ -12,6 +12,12 @@ export interface ITypeAssertionOptionalParameters {
   type: Type;
 }
 
+/**
+ * ```ts
+ * function assertion(value: any): value is string;
+ * //                              ^^^^^^^^^^^^^^^
+ * ```
+ */
 export class TypeAssertion
     extends Element<ITypeAssertionRequiredParameters, ITypeAssertionOptionalParameters> {
 

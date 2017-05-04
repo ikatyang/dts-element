@@ -9,6 +9,12 @@ export interface ILiteralTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface ILiteralTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = "123";
+ * //       ^^^^^
+ * ```
+ */
 export class LiteralType extends Type<ILiteralTypeRequiredParameters, ILiteralTypeOptionalParameters> {
 
   private _instance_of_literal_type: true;

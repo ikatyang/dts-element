@@ -19,6 +19,14 @@ export interface IVariableDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * declare const some_variable_name: any; // <--
+ * class X {
+ *   some_property_name: any; // <--
+ * }
+ * ```
+ */
 export class VariableDeclaration
     extends Declaration<IVariableDeclarationRequiredParameters, IVariableDeclarationOptionalParameters> {
 

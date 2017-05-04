@@ -10,6 +10,12 @@ export interface IObjectTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IObjectTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = { some_name: some_type };
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class ObjectType extends Type<IObjectTypeRequiredParameters, IObjectTypeOptionalParameters> {
 
   private _instance_of_object_type: true;

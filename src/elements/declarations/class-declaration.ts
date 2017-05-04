@@ -21,6 +21,13 @@ export interface IClassDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * class some_class_name {
+ *   // some properties, etc.
+ * }
+ * ```
+ */
 export class ClassDeclaration
     extends Declaration<IClassDeclarationRequiredParameters, IClassDeclarationOptionalParameters> {
 

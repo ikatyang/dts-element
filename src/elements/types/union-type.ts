@@ -9,6 +9,12 @@ export interface IUnionTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IUnionTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = some_type_1 | some_type_2;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class UnionType extends Type<IUnionTypeRequiredParameters, IUnionTypeOptionalParameters> {
 
   private _instance_of_union_type: true;

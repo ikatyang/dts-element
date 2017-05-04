@@ -18,6 +18,21 @@ export interface IConstructorOptionalParameters {
   return: Type;
 }
 
+/**
+ * in class
+ * ```ts
+ * class A {
+ *   constructor(); // <--
+ * }
+ * ```
+ * otherwise
+ *
+ * ```ts
+ * type B<T> = {
+ *   new(): T; // <--
+ * }
+ * ```
+ */
 export class Constructor
     extends Element<IConstructorRequiredParameters, IConstructorOptionalParameters> implements JSDocProtocol {
 

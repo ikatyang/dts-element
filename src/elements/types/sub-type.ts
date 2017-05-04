@@ -11,6 +11,12 @@ export interface ISubTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface ISubTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = some_namespace.some_type_1[some_type_2];
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalParameters> {
 
   private _instance_of_sub_type: true;

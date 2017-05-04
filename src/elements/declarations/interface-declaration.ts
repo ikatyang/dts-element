@@ -16,6 +16,13 @@ export interface IInterfaceDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * interface some_interface_name {
+ *   // some object members
+ * }
+ * ```
+ */
 export class InterfaceDeclaration
     extends Declaration<IInterfaceDeclarationRequiredParameters, IInterfaceDeclarationOptionalParameters> {
 

@@ -7,6 +7,9 @@ export interface IMemberRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IMemberOptionalParameters {}
 
+/**
+ * Element that can be placed in `{}`
+ */
 export abstract class Member
     <RequiredParameters extends object = any, OptionalParameters extends object = any> extends Element
     <IMemberRequiredParameters & RequiredParameters, IMemberOptionalParameters & OptionalParameters> {

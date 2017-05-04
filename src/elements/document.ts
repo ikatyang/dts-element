@@ -14,6 +14,9 @@ export interface IDocumentRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IDocumentOptionalParameters {}
 
+/**
+ * Root element
+ */
 export class Document extends Element<IDocumentRequiredParameters, IDocumentOptionalParameters> {
 
   private _instance_of_document: true;

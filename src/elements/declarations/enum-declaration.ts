@@ -14,6 +14,13 @@ export interface IEnumDeclarationOptionalParameters {
   export: boolean;
 }
 
+/**
+ * ```ts
+ * enum some_enum_name {
+ *   // some enum members
+ * }
+ * ```
+ */
 export class EnumDeclaration
     extends Declaration<IEnumDeclarationRequiredParameters, IEnumDeclarationOptionalParameters> {
 

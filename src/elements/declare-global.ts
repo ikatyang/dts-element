@@ -10,6 +10,13 @@ export interface IDeclareGlobalRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IDeclareGlobalOptionalParameters {}
 
+/**
+ * ```ts
+ * declare global {
+ *   // some delcarations
+ * }
+ * ```
+ */
 export class DeclareGlobal extends Element<IDeclareGlobalRequiredParameters, IDeclareGlobalOptionalParameters> {
 
   private _instance_of_declare_global: true;

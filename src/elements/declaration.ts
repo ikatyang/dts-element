@@ -5,6 +5,9 @@ import {mixin_class} from '../utils/mixin-class';
 
 // tslint:disable max-classes-per-file
 
+/**
+ * Protocol for jsdoc-able element
+ */
 export abstract class JSDocProtocol {
 
   public parameters: { jsdoc: string };
@@ -29,6 +32,9 @@ export interface IDeclarationOptionalParameters {
   jsdoc: string;
 }
 
+/**
+ * Standalone declaration
+ */
 export abstract class Declaration
     <RequiredParameters extends object = any, OptionalParameters extends object = any> extends Element
     <IDeclarationRequiredParameters & RequiredParameters, IDeclarationOptionalParameters & OptionalParameters>

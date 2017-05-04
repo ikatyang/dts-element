@@ -9,6 +9,12 @@ export interface ITypeofTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface ITypeofTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = typeof some_declaration;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class TypeofType extends Type<ITypeofTypeRequiredParameters, ITypeofTypeOptionalParameters> {
 
   private _instance_of_typeof_type: true;

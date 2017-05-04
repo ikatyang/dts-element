@@ -14,6 +14,12 @@ export interface IParameterOptionalParameters {
   kind: ParameterKind;
 }
 
+/**
+ * ```ts
+ * declare function (parameter1: string): any;
+ * //                ^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class Parameter extends Element<IParameterRequiredParameters, IParameterOptionalParameters> {
 
   private _instance_of_parameter: true;

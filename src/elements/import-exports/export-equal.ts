@@ -9,6 +9,11 @@ export interface IExportEqualRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IExportEqualOptionalParameters {}
 
+/**
+ * ```ts
+ * export = some_declaration;
+ * ```
+ */
 export class ExportEqual extends ImportExport<IExportEqualRequiredParameters, IExportEqualOptionalParameters> {
 
   private _instance_of_export_equal: true;

@@ -17,6 +17,13 @@ export interface IIndexSignatureOptionalParameters {
   optional: boolean;
 }
 
+/**
+ * ```ts
+ * {
+ *   [index: number]: any; // <--
+ * }
+ * ```
+ */
 export class IndexSignature
     extends Element<IIndexSignatureRequiredParameters, IIndexSignatureOptionalParameters> implements JSDocProtocol {
 

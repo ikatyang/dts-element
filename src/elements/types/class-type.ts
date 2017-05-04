@@ -12,6 +12,12 @@ export interface IClassTypeOptionalParameters {
   generics: Type[];
 }
 
+/**
+ * ```ts
+ * type X = some_class_declaration<some_generic>;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class ClassType extends Type<IClassTypeRequiredParameters, IClassTypeOptionalParameters> {
 
   private _instance_of_class_type: true;

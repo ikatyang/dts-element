@@ -8,6 +8,11 @@ export interface IImportAllRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IImportAllOptionalParameters {}
 
+/**
+ * ```ts
+ * import "path/to/some";
+ * ```
+ */
 export class ImportAll extends ImportExport<IImportAllRequiredParameters, IImportAllOptionalParameters> {
 
   private _instance_of_import_all: true;

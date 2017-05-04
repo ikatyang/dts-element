@@ -15,6 +15,12 @@ export interface IFunctionTypeOptionalParameters {
   parameters: Parameter[];
 }
 
+/**
+ * ```ts
+ * type X = (...args: any[]): any;
+ * //       ^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class FunctionType extends Type<IFunctionTypeRequiredParameters, IFunctionTypeOptionalParameters> {
 
   private _instance_of_function_type: true;

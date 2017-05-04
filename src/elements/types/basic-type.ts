@@ -8,6 +8,12 @@ export interface IBasicTypeRequiredParameters {
 // tslint:disable-next-line no-empty-interface
 export interface IBasicTypeOptionalParameters {}
 
+/**
+ * ```ts
+ * type X = some_basic_type_name;
+ * //       ^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class BasicType extends Type<IBasicTypeRequiredParameters, IBasicTypeOptionalParameters> {
 
   private _instance_of_basic_type: true;

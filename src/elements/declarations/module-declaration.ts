@@ -13,6 +13,13 @@ export interface IModuleDeclarationOptionalParameters {
   children: Declaration[];
 }
 
+/**
+ * ```ts
+ * declare module "some-module-name" {
+ *   // some declarations
+ * }
+ * ```
+ */
 export class ModuleDeclaration
     extends Declaration<IModuleDeclarationRequiredParameters, IModuleDeclarationOptionalParameters> {
 

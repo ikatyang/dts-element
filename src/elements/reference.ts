@@ -10,6 +10,11 @@ export interface IReferenceOptionalParameters {
   kind: ReferenceKind;
 }
 
+/**
+ * ```ts
+ * /// <reference path="path/to/some.d.ts" />
+ * ```
+ */
 export class Reference extends Element<IReferenceRequiredParameters, IReferenceOptionalParameters> {
 
   private _instance_of_reference: true;

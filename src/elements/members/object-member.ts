@@ -16,6 +16,9 @@ export interface IObjectMemberOptionalParameters {
 
 export type ObjectMemberOwned = Constructor | IndexSignature | VariableDeclaration | FunctionDeclaration;
 
+/**
+ * A wrapper for InterfaceDeclaration/TypeDeclaration member
+ */
 export class ObjectMember extends Member<IObjectMemberRequiredParameters, IObjectMemberOptionalParameters> {
 
   private _instance_of_object_member: true;

@@ -12,6 +12,12 @@ export interface ITypedTypeOptionalParameters {
   generics: Type[];
 }
 
+/**
+ * ```ts
+ * type X = some_type_declaration<some_generic>;
+ * //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export class TypedType extends Type<ITypedTypeRequiredParameters, ITypedTypeOptionalParameters> {
 
   private _instance_of_typed_type: true;

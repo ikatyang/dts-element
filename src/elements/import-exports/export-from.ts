@@ -12,6 +12,11 @@ export interface IExportFromOptionalParameters {
   members: ExportFromMember[];
 }
 
+/**
+ * ```ts
+ * export { some_name } from "path/to/some";
+ * ```
+ */
 export class ExportFrom extends ImportExport<IExportFromRequiredParameters, IExportFromOptionalParameters> {
 
   private _instance_of_export_from: true;
