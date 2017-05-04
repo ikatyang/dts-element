@@ -1,9 +1,5 @@
-import {Element, IElementConstructor} from './element';
-
-// tslint:disable-next-line typedef
-const instance_of = (constructors: IElementConstructor[]) =>
-  (element: Element, index: number): boolean =>
-    element instanceof constructors[index];
+import {Element} from './element';
+import {instance_of, IConstructor} from './utils/instance_of';
 
 export class Stack {
 
@@ -17,7 +13,7 @@ export class Stack {
     return new Stack([...this.raw_stack, element]);
   }
 
-  public instances_of(constructors: IElementConstructor[]): boolean {
+  public instances_of(constructors: IConstructor<Element>[]): boolean {
     return (this.raw_stack.length < constructors.length)
       ? false
       : this.raw_stack
@@ -25,7 +21,7 @@ export class Stack {
         .every(instance_of(constructors));
   }
 
-  public last_instances_of(constructors: IElementConstructor[]): boolean {
+  public last_instances_of(constructors: IConstructor<Element>[]): boolean {
     return (this.raw_stack.length < constructors.length)
       ? false
       : this.raw_stack
