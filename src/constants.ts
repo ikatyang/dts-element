@@ -26,6 +26,12 @@ export enum ReferenceKind {
   TYPES,
 }
 
+/**
+ * Map ReferenceKind to string
+ *
+ * TODO: will be removed in TS 2.4 (string-enum)
+ * @private
+ */
 export const REFERENCE_KIND_MAP = {
   [ReferenceKind.PATH]: 'path',
   [ReferenceKind.TYPES]: 'types',
@@ -37,6 +43,12 @@ export enum VariableKind {
   CONST,
 }
 
+/**
+ * Map VariableKind to string
+ *
+ * TODO: will be removed in TS 2.4 (string-enum)
+ * @private
+ */
 export const VARIABLE_KIND_MAP = {
   [VariableKind.VAR]: 'var',
   [VariableKind.LET]: 'let',
@@ -50,6 +62,12 @@ export enum ClassAccessor {
   PRIVATE,
 }
 
+/**
+ * Map ClassAccessor to string
+ *
+ * TODO: will be removed in TS 2.4 (string-enum)
+ * @private
+ */
 export const CLASS_ACCESSOR_MAP = {
   [ClassAccessor.PUBLIC]: 'public',
   [ClassAccessor.PROTECTED]: 'protected',
