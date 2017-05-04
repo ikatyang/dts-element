@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/ikatyang/dts-element",
+  "homepage": "https://ikatyang.github.io/dts-element/",
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
@@ -15,7 +16,10 @@
     "test": "yarn run jest -- --verbose",
     "test-coverage": "yarn run jest -- --coverage",
     "posttest-coverage": "cat ./coverage/remapped/coverage.txt",
-    "coverage-ci": "codecov"
+    "coverage-ci": "codecov",
+    "pretypedoc": "rm -rf ./node_modules/typedoc/node_modules/typescript && rm -rf ./docs",
+    "typedoc": "typedoc --name \"dts-element v$npm_package_version\" --out ./docs --mode file --exclude '**/{__mocks__,__tests__,tests,helpers,utils}/**/*' --excludeExternals --excludePrivate --gitRevision \"v$npm_package_version\"",
+    "postpublish": "yarn run typedoc"
   },
   "devDependencies": {
     "@types/jest": "19.2.2",
@@ -24,6 +28,7 @@
     "ts-jest": "19.0.10",
     "tslint": "5.1.0",
     "tslint-config-ikatyang": "0.2.0",
+    "typedoc": "0.6.0",
     "typescript": "2.3.2"
   }
 }
