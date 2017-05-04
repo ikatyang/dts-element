@@ -6,7 +6,8 @@ import {VariableDeclaration} from '../variable-declaration';
 
 describe('#emit()', () => {
   it('should return correctly', () => {
-    expect(new VariableDeclaration({name: 'a',
+    expect(new VariableDeclaration({
+      name: 'a',
       kind: VariableKind.CONST,
       type: new BasicType({name: 'B'}),
     }).emit()).toMatchSnapshot();

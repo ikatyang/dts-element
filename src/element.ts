@@ -55,11 +55,15 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
   }
 
   private _clone_object<T extends {}>(object: T, is_deep_clone: boolean): T {
-    return Object.keys(object).reduce((cloned_object: T, key: keyof T) => {
-      const value = object[key];
-      cloned_object[key] = this._clone_sub_value(value, is_deep_clone);
-      return cloned_object;
-    }, {} as T);
+    return Object.keys(object).reduce(
+      (cloned_object: T, key: keyof T) => {
+        const value = object[key];
+        cloned_object[key] = this._clone_sub_value(value, is_deep_clone);
+        return cloned_object;
+      },
+      // tslint:disable-next-line no-object-literal-type-assertion
+      {} as T,
+    );
   }
 
   private _clone_sub_value<T>(sub_value: T, is_deep_clone: boolean): T {

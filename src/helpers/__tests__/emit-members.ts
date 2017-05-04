@@ -10,8 +10,11 @@ it('should return empty object while there are no children', () => {
 });
 
 it('should return indented members while there are children', () => {
-  expect(emit_members([
-    new ObjectMember({owned: new VariableDeclaration({name: 'x'})}),
-    new ObjectMember({owned: new VariableDeclaration({name: 'y'})}),
-  ], new Stack())).toMatchSnapshot();
+  expect(emit_members(
+    [
+      new ObjectMember({owned: new VariableDeclaration({name: 'x'})}),
+      new ObjectMember({owned: new VariableDeclaration({name: 'y'})}),
+    ],
+    new Stack(),
+  )).toMatchSnapshot();
 });
