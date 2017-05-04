@@ -4,6 +4,7 @@ import {emit_declare} from '../../helpers/emit-declare';
 import {emit_export} from '../../helpers/emit-export';
 import {emit_function} from '../../helpers/emit-function';
 import {emit_generics} from '../../helpers/emit-generics';
+import {emit_optional} from '../../helpers/emit-optional';
 import {emit_parameters} from '../../helpers/emit-parameters';
 import {Stack} from '../../stack';
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
@@ -19,6 +20,7 @@ export interface IFunctionDeclarationRequiredParameters {}
 export interface IFunctionDeclarationOptionalParameters {
   type: FunctionType;
   export: boolean;
+  optional: boolean;
 }
 
 /**
@@ -38,6 +40,7 @@ export class FunctionDeclaration
     return Object.assign({}, super.default_declaration_parameters, {
       type: new FunctionType({return: any_type}),
       export: false,
+      optional: false,
     });
   }
 
@@ -50,7 +53,8 @@ export class FunctionDeclaration
     const declare = emit_declare(stack);
     const func = emit_function(stack);
     const an_export = emit_export(this.parameters.export, stack);
-    return `${an_export}${declare}${func}${name}${generics}(${parameters}): ${return_type};`;
+    const optional = emit_optional(this.parameters.optional);
+    return `${an_export}${declare}${func}${name}${optional}${generics}(${parameters}): ${return_type};`;
   }
 
 }
