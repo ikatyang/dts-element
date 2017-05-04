@@ -1,8 +1,3 @@
 {
-  "extends": ["tslint-config-ikatyang"],
-  "rules": {
-    "prefer-function-over-method": true,
-    "object-curly-spacing": [true, "never"],
-    "ordered-imports": [true, {"import-sources-order": "lowercase-first", "named-imports-order": "lowercase-first"}]
-  }
+  "extends": ["tslint-config-ikatyang"]
 }

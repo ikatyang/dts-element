@@ -26,8 +26,8 @@
     "codecov": "2.1.0",
     "jest": "19.0.2",
     "ts-jest": "19.0.10",
-    "tslint": "5.1.0",
-    "tslint-config-ikatyang": "0.2.0",
+    "tslint": "5.2.0",
+    "tslint-config-ikatyang": "0.3.0",
     "typedoc": "0.6.0",
     "typescript": "2.3.2"
   }
