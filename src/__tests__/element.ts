@@ -24,7 +24,7 @@ class NormalElement extends Element<INormalRequiredParameters, INormalOptionalPa
 interface INestedParameters {
   prime: string;
   array: string[];
-  object: { key: string };
+  object: { [key: string]: string };
   element: Element<any, any>;
 }
 class NestedElement extends Element<{}, INestedParameters> {
@@ -116,5 +116,40 @@ describe('#copy()', () => {
     expect(element.parameters.array).not.toBe(target_element.parameters.array);
     expect(element.parameters.object).not.toBe(target_element.parameters.object);
     expect(element.parameters.element).not.toBe(target_element.parameters.element);
+  });
+});
+
+class SubNormalElement extends NormalElement {}
+
+describe('#equal()', () => {
+  const required = 'required';
+  const normal_element_1 = new NormalElement({required});
+  const normal_element_2 = new NormalElement({required});
+  const sub_normal_element = new SubNormalElement({required});
+  const nested_element_1 = new NestedElement({});
+  const nested_element_2 = new NestedElement({});
+  const nested_element_3 = new NestedElement({
+    array: ['1', '2', '3', '4'],
+  });
+  const nested_element_4 = new NestedElement({
+    object: {key1: 'value1', key2: 'value2'},
+  });
+  it('should compare directly while is_deep_equal = false', () => {
+    expect(normal_element_1.equal(normal_element_1)).toBe(true);
+    expect(normal_element_1.equal(normal_element_2)).toBe(false);
+    expect(normal_element_1.equal(sub_normal_element)).toBe(false);
+    expect(nested_element_1.equal(nested_element_1)).toBe(true);
+    expect(nested_element_1.equal(nested_element_2)).toBe(false);
+    expect(nested_element_1.equal(nested_element_3)).toBe(false);
+    expect(nested_element_1.equal(nested_element_4)).toBe(false);
+  });
+  it('should compare its constructor and parameters while is_deep_equal = true', () => {
+    expect(normal_element_1.equal(normal_element_1, true)).toBe(true);
+    expect(normal_element_1.equal(normal_element_2, true)).toBe(true);
+    expect(normal_element_1.equal(sub_normal_element, true)).toBe(false);
+    expect(nested_element_1.equal(nested_element_1, true)).toBe(true);
+    expect(nested_element_1.equal(nested_element_2, true)).toBe(true);
+    expect(nested_element_1.equal(nested_element_3, true)).toBe(false);
+    expect(nested_element_1.equal(nested_element_4, true)).toBe(false);
   });
 });

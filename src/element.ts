@@ -34,6 +34,10 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return this;
   }
 
+  public equal(element: this, is_deep_equal: boolean = false): boolean {
+    return this._equal(this, element, is_deep_equal);
+  }
+
   public emit(stack: Stack = new Stack(), ...args: any[]): string {
     return this._emit(stack.push(this), ...args);
   }
@@ -70,6 +74,32 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return !is_deep_clone
       ? sub_value
       : this._clone(sub_value, is_deep_clone);
+  }
+
+  private _equal(a: any, b: any, is_deep_equal: boolean): boolean {
+    return !is_deep_equal || (typeof a !== 'object' || typeof b !== 'object')
+      ? (a === b)
+      : (a.constructor !== b.constructor)
+        ? false
+        : (a instanceof Element)
+          ? this._equal_object(a.parameters, b.parameters, is_deep_equal)
+          : (a instanceof Array)
+            ? this._equal_array(a, b, is_deep_equal)
+            : this._equal_object(a, b, is_deep_equal);
+  }
+
+  private _equal_array(a: any[], b: any[], is_deep_equal: boolean): boolean {
+    return (a.length !== b.length)
+      ? false
+      : a.every((value: any, index: number) => this._equal(value, b[index], is_deep_equal));
+  }
+
+  private _equal_object(a: {[key: string]: any}, b: {[key: string]: any}, is_deep_equal: boolean): boolean {
+    const keys_a = Object.keys(a);
+    const keys_b = Object.keys(b);
+    return (keys_a.length !== new Set([...keys_a, ...keys_b]).size)
+      ? false
+      : keys_a.every((key: string) => this._equal(a[key], b[key], is_deep_equal));
   }
 
 }

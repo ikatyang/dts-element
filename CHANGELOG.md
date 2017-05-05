@@ -12,6 +12,10 @@ All changes to this project will be documented in this file.
 
 ## Unreleased
 
+#### 🚀 New Feature
+- `Element`
+  - add `#equal()` for comparing
+
 #### 📝 Documentation
 - Fix npm badge url
 
