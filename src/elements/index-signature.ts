@@ -41,7 +41,7 @@ export class IndexSignature
   private _instance_of_index_signature: true;
 
   // istanbul ignore next
-  // tslint:disable-next-line prefer-function-over-method
+  // tslint:disable-next-line:prefer-function-over-method
   public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }
 
   public _emit_raw(stack: Stack): string {

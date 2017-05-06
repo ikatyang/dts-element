@@ -6,7 +6,7 @@ export interface ILiteralTypeRequiredParameters {
   value: boolean | number | string | Declaration;
 }
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface ILiteralTypeOptionalParameters {}
 
 /**

@@ -8,7 +8,7 @@ export interface ISubTypeRequiredParameters {
   path: (NamespaceDeclaration | Type | Declaration)[];
 }
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface ISubTypeOptionalParameters {}
 
 /**
@@ -32,7 +32,7 @@ export class SubType extends Type<ISubTypeRequiredParameters, ISubTypeOptionalPa
         (element instanceof NamespaceDeclaration)
           ? `${element.parameters.name}.`
           : (element instanceof Type) && !has_main_type
-            // tslint:disable-next-line strict-boolean-expressions
+            // tslint:disable-next-line:strict-boolean-expressions
             ? (has_main_type = true) && emit_brackets(element.emit(stack), element)
             : `[${
               (element instanceof Declaration)

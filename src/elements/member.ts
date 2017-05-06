@@ -4,7 +4,7 @@ export interface IMemberRequiredParameters {
   owned: any;
 }
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface IMemberOptionalParameters {}
 
 /**

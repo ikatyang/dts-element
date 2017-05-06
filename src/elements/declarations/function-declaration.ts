@@ -14,7 +14,7 @@ import {TypeAssertion} from '../type-assertion';
 import {FunctionType} from '../types/function-type';
 import {GenericType} from '../types/generic-type';
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface IFunctionDeclarationRequiredParameters {}
 
 export interface IFunctionDeclarationOptionalParameters {

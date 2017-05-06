@@ -7,7 +7,7 @@ export interface IExportFromRequiredParameters {
   from: string;
 }
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface IExportFromOptionalParameters {
   members: ExportFromMember[];
 }

@@ -6,7 +6,7 @@ export interface ITypeofTypeRequiredParameters {
   owned: Declaration;
 }
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface ITypeofTypeOptionalParameters {}
 
 /**

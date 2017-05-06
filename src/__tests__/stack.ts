@@ -8,13 +8,13 @@ const create_element_class = (): IConstructor<Element> => class TestElement exte
   public get default_parameters(): any {
     return {};
   }
-  // tslint:disable-next-line prefer-function-over-method
+  // tslint:disable-next-line:prefer-function-over-method
   public _emit(): string {
     return '';
   }
 };
 
-// tslint:disable variable-name
+// tslint:disable:variable-name
 const TestElementA = create_element_class();
 const TestElementB = create_element_class();
 const TestElementC = create_element_class();

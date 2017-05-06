@@ -69,7 +69,7 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
         cloned_object[key] = this._clone_sub_value(value, is_deep_clone);
         return cloned_object;
       },
-      // tslint:disable-next-line no-object-literal-type-assertion
+      // tslint:disable-next-line:no-object-literal-type-assertion
       {} as T,
     );
   }

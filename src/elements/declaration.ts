@@ -3,7 +3,7 @@ import {emit_jsdoc} from '../helpers/emit-jsdoc';
 import {Stack} from '../stack';
 import {mixin_class} from '../utils/mixin-class';
 
-// tslint:disable max-classes-per-file
+// tslint:disable:max-classes-per-file
 
 /**
  * Protocol for jsdoc-able element
@@ -53,7 +53,7 @@ export abstract class Declaration
   public abstract _emit_raw(stack: Stack): string;
 
   // istanbul ignore next
-  // tslint:disable-next-line prefer-function-over-method
+  // tslint:disable-next-line:prefer-function-over-method
   public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }
 
 }

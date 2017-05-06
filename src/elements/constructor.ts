@@ -48,7 +48,7 @@ export class Constructor
   private _instance_of_constructor: true;
 
   // istanbul ignore next
-  // tslint:disable-next-line prefer-function-over-method
+  // tslint:disable-next-line:prefer-function-over-method
   public _emit(_stack: Stack): string { return '[PLACEHOLDER]'; }
 
   public _emit_raw(stack: Stack): string {

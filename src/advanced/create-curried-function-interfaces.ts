@@ -56,7 +56,7 @@ export const create_curried_fruntion_interfaces = ({
     const curry_level = index + 1;
     an_interface.parameters.generics.push(...generics.slice(0, curry_level), generic_return);
 
-    // tslint:disable-next-line only-arrow-functions
+    // tslint:disable-next-line:only-arrow-functions
     (function recursive(last_parameters: Parameter[], rest_parameters: Parameter[]): void {
       if (last_parameters.length > 0 && last_parameters[last_parameters.length - 1].parameters.type !== placeholder) {
         an_interface.parameters.members.push(new ObjectMember({

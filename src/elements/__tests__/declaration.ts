@@ -2,10 +2,10 @@ jest.unmock('../declaration');
 
 import {Declaration, IDeclarationOptionalParameters} from '../declaration';
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface ITestDeclarationRequiredParameters {}
 
-// tslint:disable-next-line no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 export interface ITestDeclarationOptionalParameters {}
 
 export class TestDeclaration

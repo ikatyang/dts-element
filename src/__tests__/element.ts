@@ -2,14 +2,14 @@ jest.unmock('../element');
 
 import {Element} from '../element';
 
-// tslint:disable max-classes-per-file prefer-function-over-method
+// tslint:disable:max-classes-per-file prefer-function-over-method
 
 const default_value = 'default';
 
 const user_set = 'user-set';
 const user_defined = 'user-defined';
 
-// tslint:disable-next-line no-unused-variable
+// tslint:disable-next-line:no-unused-variable
 interface INormalRequiredParameters { required: string; }
 interface INormalOptionalParameters { optional: string; }
 class NormalElement extends Element<INormalRequiredParameters, INormalOptionalParameters> {

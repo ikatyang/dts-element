@@ -2,7 +2,7 @@ jest.unmock('../instance_of');
 
 import {instance_of} from '../instance_of';
 
-// tslint:disable max-classes-per-file
+// tslint:disable:max-classes-per-file
 
 class A {}
 class B {}

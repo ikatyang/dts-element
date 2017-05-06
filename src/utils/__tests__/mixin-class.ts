@@ -1,6 +1,6 @@
 import {mixin_class} from '../mixin-class';
 
-// tslint:disable max-classes-per-file prefer-function-over-method
+// tslint:disable:max-classes-per-file prefer-function-over-method
 
 const result = 'something';
 
