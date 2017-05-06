@@ -10,11 +10,11 @@ import {FunctionType} from '../elements/types/function-type';
 import {GenericType} from '../elements/types/generic-type';
 import {InterfaceType} from '../elements/types/interface-type';
 
-export interface ICreateCurriedInterfacesRequiredParameters {
+export interface ICreateCurriedFunctionInterfacesRequiredParameters {
   max_curry_level: number;
 }
 
-export interface ICreateCurriedInterfacesOptionalParameters {
+export interface ICreateCurriedFunctionInterfacesOptionalParameters {
   options: Partial<IInterfaceDeclarationOptionalParameters>;
   placeholder: Type | null;
   generic_name_for_return_type: string;
@@ -24,10 +24,10 @@ export interface ICreateCurriedInterfacesOptionalParameters {
   generate_interface_name(curry_level: number): string;
 }
 
-export type ICreateCurriedInterfacesParameters =
-  ICreateCurriedInterfacesRequiredParameters & Partial<ICreateCurriedInterfacesOptionalParameters>;
+export type ICreateCurriedFunctionInterfacesParameters =
+  ICreateCurriedFunctionInterfacesRequiredParameters & Partial<ICreateCurriedFunctionInterfacesOptionalParameters>;
 
-export const create_curried_fruntion_interfaces = ({
+export const create_curried_function_interfaces = ({
       max_curry_level,
       options = {},
       placeholder = null,
@@ -36,7 +36,7 @@ export const create_curried_fruntion_interfaces = ({
       generate_parameter_name = (index: number): string => `v${index + 1}`,
       generate_placeholder_name = (index: number): string => `_${index + 1}`,
       generate_interface_name = (curry_level: number): string => `CurriedFunction${curry_level}`,
-    }: ICreateCurriedInterfacesParameters): InterfaceDeclaration[] => {
+    }: ICreateCurriedFunctionInterfacesParameters): InterfaceDeclaration[] => {
   const generic_return = new GenericType({name: generic_name_for_return_type});
   const interfaces = new Array(max_curry_level).fill(0)
     .map((_value: any, index: number) =>
