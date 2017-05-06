@@ -1,3 +1,4 @@
+export * from './advanced/create-curried-function-interfaces';
 export * from './constants';
 export * from './element';
 export * from './elements/constructor';
