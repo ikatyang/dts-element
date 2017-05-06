@@ -166,9 +166,9 @@ describe('#has()', () => {
     }),
   });
   it('should just check its own parameters while is_deep_has = false', () => {
-    expect(normal_element.has(normal_element, false)).toBe(false);
-    expect(nested_element.has(normal_element, false)).toBe(true);
-    expect(nested_nested_element.has(normal_element, false)).toBe(false);
+    expect(normal_element.has(normal_element)).toBe(false);
+    expect(nested_element.has(normal_element)).toBe(true);
+    expect(nested_nested_element.has(normal_element)).toBe(false);
   });
   it('should check all its parameters and sub-parameters while is_deep_has = true', () => {
     expect(normal_element.has(normal_element, true)).toBe(false);
