@@ -38,6 +38,10 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return this._equal(this, element, is_deep_equal);
   }
 
+  public has(element: Element, is_deep_has: boolean = false, is_deep_equal: boolean = false): boolean {
+    return this._has(this.parameters, element, is_deep_has, is_deep_equal);
+  }
+
   public emit(stack: Stack = new Stack(), ...args: any[]): string {
     return this._emit(stack.push(this), ...args);
   }
@@ -100,6 +104,32 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
     return (keys_a.length !== new Set([...keys_a, ...keys_b]).size)
       ? false
       : keys_a.every((key: string) => this._equal(a[key], b[key], is_deep_equal));
+  }
+
+  private _has(container: any, target: Element, is_deep_has: boolean, is_deep_equal: boolean): boolean {
+    return (typeof container !== 'object')
+      ? false
+      : (container instanceof Element)
+        ? container.equal(target, is_deep_equal)
+          ? true
+          : !is_deep_has
+            ? false
+            : this._has_object(container.parameters, target, is_deep_has, is_deep_equal)
+        : (container instanceof Array)
+          ? this._has_array(container, target, is_deep_has, is_deep_equal)
+          : this._has_object(container, target, is_deep_has, is_deep_equal);
+  }
+
+  private _has_array(container: any[], target: Element, is_deep_has: boolean, is_deep_equal: boolean): boolean {
+    return container.some((value: any) => this._has(value, target, is_deep_has, is_deep_equal));
+  }
+
+  private _has_object(
+      container: {[key: string]: any},
+      target: Element,
+      is_deep_has: boolean,
+      is_deep_equal: boolean): boolean {
+    return Object.keys(container).some((key: string) => this._has(container[key], target, is_deep_has, is_deep_equal));
   }
 
 }

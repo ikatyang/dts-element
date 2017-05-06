@@ -15,6 +15,7 @@ All changes to this project will be documented in this file.
 #### 🚀 New Feature
 - `Element`
   - add `#equal()` for comparing
+  - add `#has()` for checking existence of specific element in its parameters
 
 #### 📝 Documentation
 - Fix npm badge url
