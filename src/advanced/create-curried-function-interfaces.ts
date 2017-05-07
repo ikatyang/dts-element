@@ -38,18 +38,18 @@ export const create_curried_function_interfaces = ({
       generate_interface_name = (curry_level: number): string => `CurriedFunction${curry_level}`,
     }: ICreateCurriedFunctionInterfacesParameters): InterfaceDeclaration[] => {
   const generic_return = new GenericType({name: generic_name_for_return_type});
-  const interfaces = new Array(max_curry_level).fill(0)
+  const interfaces = [...new Array(max_curry_level)]
     .map((_value: any, index: number) =>
       new InterfaceDeclaration({...options, name: generate_interface_name(index + 1)}));
-  const generics = new Array(max_curry_level).fill(0)
+  const generics = [...new Array(max_curry_level)]
     .map((_value: any, index: number) =>
       new GenericType({name: generate_generic_name(index)}));
-  const parameters = new Array(max_curry_level).fill(0)
+  const parameters = [...new Array(max_curry_level)]
     .map((_value: any, index: number) =>
       new Parameter({name: generate_parameter_name(index), type: generics[index]}));
   const placeholder_parameters = (placeholder === null)
     ? null
-    : new Array(max_curry_level).fill(0)
+    : [...new Array(max_curry_level)]
       .map((_value: any, index: number) =>
         new Parameter({name: generate_placeholder_name(index), type: placeholder}));
   interfaces.forEach((an_interface: InterfaceDeclaration, index: number) => {
