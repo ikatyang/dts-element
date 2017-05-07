@@ -1,4 +1,5 @@
 import {Stack} from './stack';
+import {is_primitive} from './utils/is-primitive';
 
 export abstract class Element<RequiredParameters extends object = any, OptionalParameters extends object = any> {
 
@@ -49,7 +50,7 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
   public abstract _emit(stack: Stack, ...args: any[]): string;
 
   private _clone<T>(value: T, is_deep_clone: boolean): T {
-    return (typeof value !== 'object')
+    return is_primitive(value)
       ? value
       : (value instanceof Element)
         ? value.clone(is_deep_clone)
@@ -81,7 +82,7 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
   }
 
   private _equal(a: any, b: any, is_deep_equal: boolean): boolean {
-    return !is_deep_equal || (typeof a !== 'object' || typeof b !== 'object')
+    return !is_deep_equal || (is_primitive(a) || is_primitive(b))
       ? (a === b)
       : (a.constructor !== b.constructor)
         ? false
@@ -107,7 +108,7 @@ export abstract class Element<RequiredParameters extends object = any, OptionalP
   }
 
   private _has(container: any, target: Element, is_deep_has: boolean, is_deep_equal: boolean): boolean {
-    return (typeof container !== 'object')
+    return is_primitive(container)
       ? false
       : (container instanceof Element)
         ? container.equal(target, is_deep_equal)
