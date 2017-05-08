@@ -6,6 +6,7 @@ import {Type} from '../elements/type';
 import {TypeAssertion} from '../elements/type-assertion';
 import {FunctionType} from '../elements/types/function-type';
 import {GenericType} from '../elements/types/generic-type';
+import {LiteralType} from '../elements/types/literal-type';
 import {ObjectType} from '../elements/types/object-type';
 import {TypedType} from '../elements/types/typed-type';
 import {left_pad} from '../utils/left-pad';
@@ -17,6 +18,9 @@ export interface ICreateCurriedFunctionTypesRequiredParameters {
 
 export interface ICreateCurriedFunctionTypesOptionalParameters {
   placeholder: Type | null;
+  selectable: boolean;
+  select_generic_name: string;
+  generate_select_type(type: FunctionType): Type;
   generate_type_name(index: number): string;
   generate_placeholder_name(parameter_name: string): string;
 }
@@ -47,6 +51,15 @@ export const create_curried_function_types = ({
       name,
       type,
       placeholder = null,
+      selectable = false,
+      select_generic_name = 'X',
+      generate_select_type = (current_type: FunctionType): Type =>
+        new LiteralType({value: current_type.parameters.parameters
+          .map((parameter: Parameter): string =>
+            (parameter.parameters.type === placeholder)
+              ? '0'
+              : '1')
+          .join('')}),
       generate_type_name = (index: number): string =>
         (`${name}_${left_pad(index.toString(2), type.parameters.parameters.length, '0')}`),
       generate_placeholder_name = (parameter_name: string): string => `_${parameter_name}`,
@@ -167,6 +180,22 @@ export const create_curried_function_types = ({
         const function_type_2: FunctionType = member2.parameters.owned.parameters.type;
         return function_type_2.parameters.parameters.length - function_type_1.parameters.parameters.length;
       });
+
+      if (selectable && object_type.parameters.members.length > 1) {
+        const selectable_members = object_type.parameters.members.map((member: ObjectMember): ObjectMember => {
+          const owned_type = member.parameters.owned.parameters.type;
+          return new ObjectMember({
+            owned: new FunctionDeclaration({
+              name: null,
+              type: new FunctionType({
+                generics: [new GenericType({name: select_generic_name, extends: generate_select_type(owned_type)})],
+                return: owned_type,
+              }),
+            }),
+          });
+        });
+        object_type.parameters.members.splice(-1, 0, ...selectable_members);
+      }
     }
   });
 

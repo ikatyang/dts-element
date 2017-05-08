@@ -10,6 +10,12 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 🚀 New Feature
+- advanced
+  - enhance `create_curried_function_types()`: add options to generate selectable types
+
 ## v1.1.0 (2017-05-08)
 
 #### 🚀 New Feature

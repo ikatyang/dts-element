@@ -64,6 +64,13 @@ it('should return correctly with placeholder', () => {
   expect(document.emit()).toMatchSnapshot();
 });
 
+it('should return correctly with placeholder and selectable', () => {
+  const placeholder = new BasicType({name: 'PH'});
+  const types = create_curried_function_types({name, type: function_type, placeholder, selectable: true});
+  const document = new Document({children: types});
+  expect(document.emit()).toMatchSnapshot();
+});
+
 it('should throw error while using TypeAssertion', () => {
   const placeholder = new BasicType({name: 'PH'});
   // tslint:disable-next-line:typedef
