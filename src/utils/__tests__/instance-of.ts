@@ -1,6 +1,6 @@
-jest.unmock('../instance_of');
+jest.unmock('../instance-of');
 
-import {instance_of} from '../instance_of';
+import {instance_of} from '../instance-of';
 
 // tslint:disable:max-classes-per-file
 

@@ -1,5 +1,5 @@
 import {Element} from './element';
-import {instance_of, IConstructor} from './utils/instance_of';
+import {instance_of, IConstructor} from './utils/instance-of';
 
 export class Stack {
 

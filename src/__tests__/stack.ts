@@ -2,7 +2,7 @@ jest.unmock('../stack');
 
 import {Element} from '../element';
 import {Stack} from '../stack';
-import {IConstructor} from '../utils/instance_of';
+import {IConstructor} from '../utils/instance-of';
 
 const create_element_class = (): IConstructor<Element> => class TestElement extends Element {
   public get default_parameters(): any {
