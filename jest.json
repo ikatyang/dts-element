@@ -19,5 +19,13 @@
   "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
   "testMatch": ["**/{tests,__tests__}/**/*.ts"],
   "collectCoverageFrom": ["src/**/*.ts"],
-  "coveragePathIgnorePatterns": ["index.ts"]
+  "coveragePathIgnorePatterns": ["index.ts"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  }
 }
