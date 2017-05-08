@@ -64,9 +64,9 @@ it('should return correctly with placeholder', () => {
   expect(document.emit()).toMatchSnapshot();
 });
 
-it('should return correctly with placeholder and return assertion', () => {
+it('should throw error while using TypeAssertion', () => {
   const placeholder = new BasicType({name: 'PH'});
-  const types = create_curried_function_types({name, type: function_type_assertion, placeholder});
-  const document = new Document({children: types});
-  expect(document.emit()).toMatchSnapshot();
+  // tslint:disable-next-line:typedef
+  const create_types = () => create_curried_function_types({name, type: function_type_assertion, placeholder});
+  expect(create_types).toThrowError();
 });

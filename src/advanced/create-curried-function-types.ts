@@ -1,4 +1,3 @@
-import {boolean_type} from '../constants';
 import {FunctionDeclaration} from '../elements/declarations/function-declaration';
 import {TypeDeclaration} from '../elements/declarations/type-declaration';
 import {ObjectMember} from '../elements/members/object-member';
@@ -45,7 +44,10 @@ export const create_curried_function_types = ({
       type: placeholder,
     }));
 
-  const is_return_assertion = (type.parameters.return instanceof TypeAssertion);
+  const return_type = type.parameters.return;
+  if (return_type instanceof TypeAssertion) {
+    throw new Error('AssertionType is not supported in create_curried_function_types');
+  }
 
   curried_type_declarations.forEach((type_declaration: TypeDeclaration, index: number) => {
 
@@ -78,9 +80,7 @@ export const create_curried_function_types = ({
     const is_return_type_declaration = (index === curried_type_declarations.length - 1);
 
     if (is_return_type_declaration) {
-      type_declaration.parameters.type = is_return_assertion
-        ? boolean_type
-        : type.parameters.return as Type;
+      type_declaration.parameters.type = return_type;
     } else {
       const object_type = new ObjectType({members: []});
       type_declaration.parameters.type = object_type;
@@ -106,12 +106,10 @@ export const create_curried_function_types = ({
               type: new FunctionType({
                 generics: current_used_generics,
                 parameters: current_parameters,
-                return: is_return_assertion && (rest_mask === (2 ** parameters.length) - 1)
-                  ? type.parameters.return
-                  : new TypedType({
-                    owned: curried_type_declarations[rest_mask],
-                    generics: curried_type_declarations[rest_mask].parameters.generics,
-                  }),
+                return: new TypedType({
+                  owned: curried_type_declarations[rest_mask],
+                  generics: curried_type_declarations[rest_mask].parameters.generics,
+                }),
               }),
             }),
           }));

@@ -38,22 +38,6 @@ type adjust_110<T, U> = {
 type adjust_111<T, U> = (T | U)[];"
 `;
 
-exports[`should return correctly with placeholder and return assertion 1`] = `
-"type adjust = adjust_00;
-type adjust_00 = {
-  <T>(value: any, instance: T): value is T;
-  <T>(_value: PH, instance: T): adjust_01<T>;
-  (value: any): adjust_10;
-};
-type adjust_01<T> = {
-  (value: any): value is T;
-};
-type adjust_10 = {
-  <T>(instance: T): value is T;
-};
-type adjust_11<T> = boolean;"
-`;
-
 exports[`should return correctly without placeholder 1`] = `
 "type adjust = adjust_000;
 type adjust_000 = {
