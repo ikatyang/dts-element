@@ -14,10 +14,10 @@
   ],
   "testEnvironment": "node",
   "moduleFileExtensions": ["ts", "js"],
+  "mapCoverage": true,
+  "coverageReporters": ["lcov", "text-summary"],
   "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
-  "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
-  "coverageReporters": [],
-  "testMatch": ["<rootDir>/src/**/__tests__/**/*.ts", "<rootDir>/tests/**/*.ts"],
+  "testMatch": ["**/{tests,__tests__}/**/*.ts"],
   "collectCoverageFrom": ["src/**/*.ts"],
   "coveragePathIgnorePatterns": ["index.ts"]
 }
