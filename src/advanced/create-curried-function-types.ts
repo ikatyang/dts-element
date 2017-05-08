@@ -26,6 +26,23 @@ export type ICreateCurriedFunctionTypesParameters =
 
 // tslint:disable:no-magic-numbers no-bitwise
 
+/**
+ * ```ts
+ * type map = map_00;
+ * type map_00 = {
+ *   <T, U>(fn: (v: T) => U, array: T[]): map_11<T, U>;
+ *   <T>(_fn: PH, array: T[]): map_01<T>;
+ *   <T, U>(fn: (v: T) => U): map_10<T, U>;
+ * };
+ * type map_01<T> = {
+ *   <U>(fn: (v: T) => U): map_11<T, U>;
+ * };
+ * type map_10<T, U> = {
+ *   (array: T[]): map_11<T, U>;
+ * };
+ * type map_11<T, U> = U[];
+ * ```
+ */
 export const create_curried_function_types = ({
       name,
       type,

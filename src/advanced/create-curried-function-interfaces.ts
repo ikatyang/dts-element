@@ -27,6 +27,19 @@ export interface ICreateCurriedFunctionInterfacesOptionalParameters {
 export type ICreateCurriedFunctionInterfacesParameters =
   ICreateCurriedFunctionInterfacesRequiredParameters & Partial<ICreateCurriedFunctionInterfacesOptionalParameters>;
 
+/**
+ * ```ts
+ * interface CurriedFunction1<T1, R> {
+ *   (v1: T1): R;
+ * }
+ * interface CurriedFunction2<T1, T2, R> {
+ *   (v1: T1, v2: T2): R;
+ *   (_1: PH, v2: T2): CurriedFunction1<T1, R>;
+ *   (v1: T1): CurriedFunction1<T2, R>;
+ * }
+ * // ...
+ * ```
+ */
 export const create_curried_function_interfaces = ({
       max_curry_level,
       options = {},
