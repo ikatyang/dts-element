@@ -10,6 +10,12 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## v1.2.1 (2017-05-09)
+
+#### 🐛 Bug Fix
+- package
+  - fix missing `lib` folders
+
 ## v1.2.0 (2017-05-09)
 
 #### 🚀 New Feature
