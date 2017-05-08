@@ -20,10 +20,6 @@ All changes to this project will be documented in this file.
   - add `create_curried_function_interfaces()` for functional-programming types
   - add `create_curried_function_types()` for functional-programming types with deep generics
 
-#### 🐛 Bug Fix
-- `Element`
-  - fix error for comparing with null in `#equal()` and `#has()`
-
 #### 📝 Documentation
 - Fix npm badge url
 
