@@ -11,8 +11,14 @@ All changes to this project will be documented in this file.
 > - 💅 [Polish]
 
 ## Unreleased
+
+#### 🚀 New Feature
 - advanced
-  - add `create_various_curried_function_types()`: for functional-programming types with deep generics and multi version
+  - add `create_various_curried_function_types()`: for functional-programming types with deep generics and various version
+
+#### 🐛 Bug Fix
+- advanced
+  - fix `create_curried_function_types/interfaces()`: fix the overloads' ordering for better correctness.
 
 ## v1.2.1 (2017-05-09)
 
