@@ -106,10 +106,19 @@ export const create_curried_function_interfaces = ({
       }
     })([], parameters.slice(0, index + 1));
 
+    const parameters_index_of = (sort_parameters: Parameter[]): number =>
+      sort_parameters.findIndex((parameter: Parameter) => (placeholder === null)
+        ? false
+        : parameter.has(placeholder, true));
+
     an_interface.parameters.members.sort((member1: ObjectMember, member2: ObjectMember) => {
       const function_type_1: FunctionType = member1.parameters.owned.parameters.type;
       const function_type_2: FunctionType = member2.parameters.owned.parameters.type;
-      return function_type_2.parameters.parameters.length - function_type_1.parameters.parameters.length;
+      const parameters_1 = function_type_1.parameters.parameters;
+      const parameters_2 = function_type_2.parameters.parameters;
+      return (parameters_1.length !== parameters_2.length)
+        ? parameters_2.length - parameters_1.length
+        : parameters_index_of(parameters_2) - parameters_index_of(parameters_1);
     });
   });
 

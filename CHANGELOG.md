@@ -10,6 +10,10 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+- advanced
+  - add `create_various_curried_function_types()`: for functional-programming types with deep generics and multi version
+
 ## v1.2.1 (2017-05-09)
 
 #### 🐛 Bug Fix

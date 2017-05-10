@@ -3,30 +3,30 @@
 exports[`should return correctly with placeholder 1`] = `
 "type adjust = adjust_000;
 type adjust_000 = {
-  <T, U>(fn: (v: T) => U, index: number, array: T[]): adjust_111<T, U>;
   <T, U>(fn: (v: T) => U, _index: PH, array: T[]): adjust_101<T, U>;
   <T>(_fn: PH, index: number, array: T[]): adjust_011<T>;
   <T>(_fn: PH, _index: PH, array: T[]): adjust_001<T>;
-  <T, U>(fn: (v: T) => U, index: number): adjust_110<T, U>;
+  <T, U>(fn: (v: T) => U, index: number, array: T[]): adjust_111<T, U>;
   (_fn: PH, index: number): adjust_010;
+  <T, U>(fn: (v: T) => U, index: number): adjust_110<T, U>;
   <T, U>(fn: (v: T) => U): adjust_100<T, U>;
 };
 type adjust_001<T> = {
-  <U>(fn: (v: T) => U, index: number): adjust_111<T, U>;
   (_fn: PH, index: number): adjust_011<T>;
+  <U>(fn: (v: T) => U, index: number): adjust_111<T, U>;
   <U>(fn: (v: T) => U): adjust_101<T, U>;
 };
 type adjust_010 = {
-  <T, U>(fn: (v: T) => U, array: T[]): adjust_111<T, U>;
   <T>(_fn: PH, array: T[]): adjust_011<T>;
+  <T, U>(fn: (v: T) => U, array: T[]): adjust_111<T, U>;
   <T, U>(fn: (v: T) => U): adjust_110<T, U>;
 };
 type adjust_011<T> = {
   <U>(fn: (v: T) => U): adjust_111<T, U>;
 };
 type adjust_100<T, U> = {
-  (index: number, array: T[]): adjust_111<T, U>;
   (_index: PH, array: T[]): adjust_101<T, U>;
+  (index: number, array: T[]): adjust_111<T, U>;
   (index: number): adjust_110<T, U>;
 };
 type adjust_101<T, U> = {
@@ -41,32 +41,32 @@ type adjust_111<T, U> = (T | U)[];"
 exports[`should return correctly with placeholder and selectable 1`] = `
 "type adjust = adjust_000;
 type adjust_000 = {
-  <T, U>(fn: (v: T) => U, index: number, array: T[]): adjust_111<T, U>;
   <T, U>(fn: (v: T) => U, _index: PH, array: T[]): adjust_101<T, U>;
   <T>(_fn: PH, index: number, array: T[]): adjust_011<T>;
   <T>(_fn: PH, _index: PH, array: T[]): adjust_001<T>;
-  <T, U>(fn: (v: T) => U, index: number): adjust_110<T, U>;
+  <T, U>(fn: (v: T) => U, index: number, array: T[]): adjust_111<T, U>;
   (_fn: PH, index: number): adjust_010;
-  <X extends \\"111\\">(): <T, U>(fn: (v: T) => U, index: number, array: T[]) => adjust_111<T, U>;
+  <T, U>(fn: (v: T) => U, index: number): adjust_110<T, U>;
+  <X extends \\"1\\">(): <T, U>(fn: (v: T) => U) => adjust_100<T, U>;
   <X extends \\"101\\">(): <T, U>(fn: (v: T) => U, _index: PH, array: T[]) => adjust_101<T, U>;
   <X extends \\"011\\">(): <T>(_fn: PH, index: number, array: T[]) => adjust_011<T>;
   <X extends \\"001\\">(): <T>(_fn: PH, _index: PH, array: T[]) => adjust_001<T>;
   <X extends \\"11\\">(): <T, U>(fn: (v: T) => U, index: number) => adjust_110<T, U>;
   <X extends \\"01\\">(): (_fn: PH, index: number) => adjust_010;
-  <X extends \\"1\\">(): <T, U>(fn: (v: T) => U) => adjust_100<T, U>;
+  <X extends \\"111\\">(): <T, U>(fn: (v: T) => U, index: number, array: T[]) => adjust_111<T, U>;
   <T, U>(fn: (v: T) => U): adjust_100<T, U>;
 };
 type adjust_001<T> = {
-  <U>(fn: (v: T) => U, index: number): adjust_111<T, U>;
   (_fn: PH, index: number): adjust_011<T>;
+  <U>(fn: (v: T) => U, index: number): adjust_111<T, U>;
   <X extends \\"11\\">(): <U>(fn: (v: T) => U, index: number) => adjust_111<T, U>;
   <X extends \\"01\\">(): (_fn: PH, index: number) => adjust_011<T>;
   <X extends \\"1\\">(): <U>(fn: (v: T) => U) => adjust_101<T, U>;
   <U>(fn: (v: T) => U): adjust_101<T, U>;
 };
 type adjust_010 = {
-  <T, U>(fn: (v: T) => U, array: T[]): adjust_111<T, U>;
   <T>(_fn: PH, array: T[]): adjust_011<T>;
+  <T, U>(fn: (v: T) => U, array: T[]): adjust_111<T, U>;
   <X extends \\"11\\">(): <T, U>(fn: (v: T) => U, array: T[]) => adjust_111<T, U>;
   <X extends \\"01\\">(): <T>(_fn: PH, array: T[]) => adjust_011<T>;
   <X extends \\"1\\">(): <T, U>(fn: (v: T) => U) => adjust_110<T, U>;
@@ -76,8 +76,8 @@ type adjust_011<T> = {
   <U>(fn: (v: T) => U): adjust_111<T, U>;
 };
 type adjust_100<T, U> = {
-  (index: number, array: T[]): adjust_111<T, U>;
   (_index: PH, array: T[]): adjust_101<T, U>;
+  (index: number, array: T[]): adjust_111<T, U>;
   <X extends \\"11\\">(): (index: number, array: T[]) => adjust_111<T, U>;
   <X extends \\"01\\">(): (_index: PH, array: T[]) => adjust_101<T, U>;
   <X extends \\"1\\">(): (index: number) => adjust_110<T, U>;

@@ -11,6 +11,7 @@ import {TypedType} from '../elements/types/typed-type';
 import {get_default_placeholder_name_generator} from './utils/get-default-placeholder-name-generator';
 import {get_default_select_type_generator} from './utils/get-default-select-type-generator';
 import {get_default_type_name_generator} from './utils/get-default-type-name-generator';
+import {sort_object_members} from './utils/sort-object-members';
 
 export interface ICreateCurriedFunctionTypesRequiredParameters {
   name: string;
@@ -21,6 +22,7 @@ export interface ICreateCurriedFunctionTypesOptionalParameters {
   placeholder: Type | null;
   selectable: boolean;
   select_generic_name: string;
+  is_various: boolean;
   generate_select_type(type: FunctionType): Type;
   generate_type_name(index: number): string;
   generate_placeholder_name(parameter_name: string): string;
@@ -53,6 +55,7 @@ export const create_curried_function_types = ({
       type,
       placeholder = null,
       selectable = false,
+      is_various = false,
       select_generic_name = 'X',
       generate_select_type = get_default_select_type_generator(placeholder),
       generate_type_name = get_default_type_name_generator(name, type),
@@ -193,12 +196,20 @@ export const create_curried_function_types = ({
     }
   });
 
-  curried_type_declarations.unshift(new TypeDeclaration({
-    name,
-    type: new TypedType({
-      owned: curried_type_declarations[0],
-    }),
-  }));
+  if (!is_various) {
+    curried_type_declarations.forEach((type_declaration: TypeDeclaration): void => {
+      const target_type = type_declaration.parameters.type;
+      if (target_type instanceof ObjectType) {
+        sort_object_members(target_type.parameters.members, placeholder);
+      }
+    });
+    curried_type_declarations.unshift(new TypeDeclaration({
+      name,
+      type: new TypedType({
+        owned: curried_type_declarations[0],
+      }),
+    }));
+  }
 
   return curried_type_declarations;
 };
