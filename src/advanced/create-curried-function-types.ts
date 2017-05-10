@@ -6,10 +6,11 @@ import {Type} from '../elements/type';
 import {TypeAssertion} from '../elements/type-assertion';
 import {FunctionType} from '../elements/types/function-type';
 import {GenericType} from '../elements/types/generic-type';
-import {LiteralType} from '../elements/types/literal-type';
 import {ObjectType} from '../elements/types/object-type';
 import {TypedType} from '../elements/types/typed-type';
-import {left_pad} from '../utils/left-pad';
+import {get_default_placeholder_name_generator} from './utils/get-default-placeholder-name-generator';
+import {get_default_select_type_generator} from './utils/get-default-select-type-generator';
+import {get_default_type_name_generator} from './utils/get-default-type-name-generator';
 
 export interface ICreateCurriedFunctionTypesRequiredParameters {
   name: string;
@@ -53,16 +54,9 @@ export const create_curried_function_types = ({
       placeholder = null,
       selectable = false,
       select_generic_name = 'X',
-      generate_select_type = (current_type: FunctionType): Type =>
-        new LiteralType({value: current_type.parameters.parameters
-          .map((parameter: Parameter): string =>
-            (parameter.parameters.type === placeholder)
-              ? '0'
-              : '1')
-          .join('')}),
-      generate_type_name = (index: number): string =>
-        (`${name}_${left_pad(index.toString(2), type.parameters.parameters.length, '0')}`),
-      generate_placeholder_name = (parameter_name: string): string => `_${parameter_name}`,
+      generate_select_type = get_default_select_type_generator(placeholder),
+      generate_type_name = get_default_type_name_generator(name, type),
+      generate_placeholder_name = get_default_placeholder_name_generator(),
     }: ICreateCurriedFunctionTypesParameters): TypeDeclaration[] => {
   const curried_type_declarations = [...new Array(2 ** type.parameters.parameters.length)]
     .map((_value: any, index: number) => new TypeDeclaration({name: generate_type_name(index)}));
@@ -76,7 +70,7 @@ export const create_curried_function_types = ({
 
   const return_type = type.parameters.return;
   if (return_type instanceof TypeAssertion) {
-    throw new Error('AssertionType is not supported in create_curried_function_types');
+    throw new Error('TypeAssertion is not supported in create_curried_function_types');
   }
 
   curried_type_declarations.forEach((type_declaration: TypeDeclaration, index: number) => {
