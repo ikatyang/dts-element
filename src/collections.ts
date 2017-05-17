@@ -5,4 +5,5 @@ import {IElement} from './element';
 export type IType = IElement<
   | ElementKind.GenericType
   | ElementKind.NativeType
+  | ElementKind.ArrayType
 >;
