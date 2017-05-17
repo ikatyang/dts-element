@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return joined generic-definitions while generic is GenericType and is_definition = true 1`] = `"<[emit-elements [[GenericDefinition T], [GenericDefinition U]]]>"`;
-
-exports[`should return joined generic-types while generic is not GenericType or is_definition = false 1`] = `"<[emit-elements [[GenericType T], [GenericType U]]]>"`;

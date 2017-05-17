@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return emitted type while flag is not rest 1`] = `"[ArrayType [BasicType any]]"`;
-
-exports[`should return emitted type wrapped with ArrayType while flag is rest 1`] = `"[BasicType any]"`;

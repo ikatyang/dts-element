@@ -1,17 +1,7 @@
 {
   "automock": true,
   "clearMocks": true,
-  "unmockedModulePathPatterns": [
-    "<rootDir>/node_modules/",
-    "<rootDir>/src/constants\\.ts",
-    "<rootDir>/src/element\\.ts$",
-    "<rootDir>/src/elements/declaration\\.ts$",
-    "<rootDir>/src/elements/import-export\\.ts$",
-    "<rootDir>/src/elements/member\\.ts$",
-    "<rootDir>/src/elements/type\\.ts$",
-    "<rootDir>/src/stack\\.ts",
-    "<rootDir>/src/utils/"
-  ],
+  "unmockedModulePathPatterns": ["<rootDir>/node_modules/"],
   "testEnvironment": "node",
   "moduleFileExtensions": ["ts", "js"],
   "mapCoverage": true,

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return emitted type while value is Type and last stack is GenericType-GenericDefinition 1`] = `" = [BasicType A]"`;

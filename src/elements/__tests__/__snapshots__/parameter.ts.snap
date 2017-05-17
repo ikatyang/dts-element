@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#emit() should return correctly 1`] = `"[emit-parameter-main param]: [emit-parameter-type [BasicType Param]]"`;

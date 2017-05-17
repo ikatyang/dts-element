@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#emit() should return correctly 1`] = `"[emit-jsdoc][emit-accessor][emit-static][emit-abstract][emit-readonly][VariableDeclaration x]"`;

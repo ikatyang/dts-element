@@ -1,6 +1,6 @@
 {
   "name": "dts-element",
-  "version": "1.3.0",
+  "version": "2.0.0-dev",
   "description": "A DOM library for generation TypeScript declaration (.d.ts) files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,6 +9,7 @@
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
+    "prepublish": "yarn run build",
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check --project ./tsconfig.json",
@@ -22,14 +23,16 @@
     "typedoc": "typedoc --name \"dts-element v$npm_package_version\" --out ./docs --mode file --exclude '**/{__mocks__,__tests__,tests,helpers,utils}/**/*' --excludeExternals --excludePrivate --gitRevision \"v$npm_package_version\"",
     "postpublish": "yarn run typedoc"
   },
+  "dependencies": {
+    "typescript": "^2.3.2"
+  },
   "devDependencies": {
-    "@types/jest": "19.2.2",
-    "codecov": "2.1.0",
-    "jest": "20.0.0",
-    "ts-jest": "20.0.0",
+    "@types/jest": "19.2.3",
+    "codecov": "2.2.0",
+    "jest": "20.0.1",
+    "ts-jest": "20.0.3",
     "tslint": "5.2.0",
-    "tslint-config-ikatyang": "0.3.0",
-    "typedoc": "0.6.0",
-    "typescript": "2.3.2"
+    "tslint-config-ikatyang": "0.4.0",
+    "typedoc": "0.7.0"
   }
 }
