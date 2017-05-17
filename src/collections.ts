@@ -17,6 +17,7 @@ export type IType =
   | types.IKeyofType
   | types.ILiteralType
   | types.INativeType
+  | types.IObjectType
   | types.ITypeofType
   | types.ITupleType
   | types.IUnionType
