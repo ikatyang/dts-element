@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import {ElementKind} from './constants';
+import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
 import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
 import {IElement} from './element';
@@ -22,6 +23,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_parameter_declaration(element as IParameterDeclaration , path);
     case ElementKind.FunctionType:
       return transform_function_type(element as IFunctionType , path);
+    case ElementKind.FunctionDeclaration:
+      return transform_function_declaration(element as IFunctionDeclaration , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
