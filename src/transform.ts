@@ -6,6 +6,7 @@ import {transform_parameter_declaration, IParameterDeclaration} from './declarat
 import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
 import {IElement} from './element';
 import {transform_object_member, IObjectMember} from './members/object-member';
+import {transform_index_signature, IIndexSignature} from './others/index-signature';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_constructor_type, IConstructorType} from './types/constructor-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
@@ -52,6 +53,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_object_member(element as IObjectMember , path);
     case ElementKind.ConstructorType:
       return transform_constructor_type(element as IConstructorType , path);
+    case ElementKind.IndexSignature:
+      return transform_index_signature(element as IIndexSignature , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

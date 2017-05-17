@@ -18,6 +18,7 @@ export enum ElementKind {
   VariableDeclaration,
   ObjectMember,
   ConstructorType,
+  IndexSignature,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
