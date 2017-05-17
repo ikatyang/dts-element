@@ -8,6 +8,7 @@ import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
 import {transform_intersection_type, IIntersectionType} from './types/intersection-type';
+import {transform_keyof_type, IKeyofType} from './types/keyof-type';
 import {transform_literal_type, ILiteralType} from './types/literal-type';
 import {transform_native_type, INativeType} from './types/native-type';
 import {transform_union_type, IUnionType} from './types/union-type';
@@ -34,6 +35,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_union_type(element as IUnionType , path);
     case ElementKind.LiteralType:
       return transform_literal_type(element as ILiteralType , path);
+    case ElementKind.KeyofType:
+      return transform_keyof_type(element as IKeyofType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
