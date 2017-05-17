@@ -1,4 +1,5 @@
 export * from './array-type';
+export * from './basic-type';
 export * from './constructor-type';
 export * from './function-type';
 export * from './generic-type';

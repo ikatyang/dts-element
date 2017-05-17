@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `"Something"`;
+
+exports[`should return correctly with name, generics 1`] = `"Something<any, string>"`;

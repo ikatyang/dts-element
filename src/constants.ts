@@ -20,6 +20,7 @@ export enum ElementKind {
   ConstructorType,
   IndexSignature,
   ObjectType,
+  BasicType,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
