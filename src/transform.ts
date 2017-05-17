@@ -14,6 +14,7 @@ import {transform_basic_type, IBasicType} from './types/basic-type';
 import {transform_constructor_type, IConstructorType} from './types/constructor-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
+import {transform_interface_type, IInterfaceType} from './types/interface-type';
 import {transform_intersection_type, IIntersectionType} from './types/intersection-type';
 import {transform_keyof_type, IKeyofType} from './types/keyof-type';
 import {transform_literal_type, ILiteralType} from './types/literal-type';
@@ -71,6 +72,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_typed_type(element as ITypedType , path);
     case ElementKind.InterfaceDeclaration:
       return transform_interface_declaration(element as IInterfaceDeclaration , path);
+    case ElementKind.InterfaceType:
+      return transform_interface_type(element as IInterfaceType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

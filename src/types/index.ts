@@ -3,6 +3,7 @@ export * from './basic-type';
 export * from './constructor-type';
 export * from './function-type';
 export * from './generic-type';
+export * from './interface-type';
 export * from './intersection-type';
 export * from './keyof-type';
 export * from './literal-type';
