@@ -22,8 +22,6 @@ matrix:
     - node_js: "stable"
       env: JOB=lint
     - node_js: "stable"
-      env: JOB=build
-    - node_js: "stable"
       env: JOB=test-coverage
 
 os:
