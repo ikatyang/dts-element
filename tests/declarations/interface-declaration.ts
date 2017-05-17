@@ -52,6 +52,24 @@ it('should return correctly with name, type', () => {
   )).toMatchSnapshot();
 });
 
+it('should return correctly with name, extends', () => {
+  expect(dts.emit(
+    dts.create_interface_declaration({
+      name: 'I',
+      extends: [
+        dts.create_interface_type({
+          name: 'Y',
+        }),
+        dts.create_interface_type({
+          name: dts.create_interface_declaration({
+            name: 'Z',
+          }),
+        }),
+      ],
+    }),
+  )).toMatchSnapshot();
+});
+
 it('should return correctly with name, export, generics, type', () => {
   expect(dts.emit(
     dts.create_interface_declaration({
@@ -60,6 +78,14 @@ it('should return correctly with name, export, generics, type', () => {
       generics: [
         dts.create_generic_declaration({name: 'T'}),
         dts.create_generic_declaration({name: 'U'}),
+      ],
+      extends: [
+        dts.create_interface_type({
+          name: 'X',
+          generics: [
+            dts.boolean_type,
+          ],
+        }),
       ],
       type: dts.create_object_type({
         members: [

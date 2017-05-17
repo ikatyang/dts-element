@@ -1,6 +1,8 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
+import {transform} from '../transform';
+import {IInterfaceType} from '../types/interface-type';
 import {create_object_type, transform_object_type, IObjectType} from '../types/object-type';
 import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
 
@@ -9,6 +11,7 @@ export interface IInterfaceDeclarationOptions {
   export?: boolean;
   generics?: IGenericDeclaration[];
   type?: IObjectType;
+  extends?: IInterfaceType[];
 }
 
 export interface IInterfaceDeclaration
@@ -19,7 +22,7 @@ export const create_interface_declaration = (options: IInterfaceDeclarationOptio
   ...options,
 });
 
-// tslint:disable:ter-indent
+// tslint:disable:ter-indent max-line-length
 
 export const transform_interface_declaration = (element: IInterfaceDeclaration, path: IElement<any>[]) =>
   ts.createInterfaceDeclaration(
@@ -31,6 +34,17 @@ export const transform_interface_declaration = (element: IInterfaceDeclaration, 
     /* typeParameters  */ element.generics && element.generics.map(
                             generic => transform_generic_declaration(generic, [...path, element]),
                           ),
-    /* heritageClauses */ undefined,
+    /* heritageClauses */ element.extends && [ts.createHeritageClause(
+                            /* token */ ts.SyntaxKind.ExtendsKeyword,
+                            /* types */ element.extends.map(interface_type => ts.createExpressionWithTypeArguments(
+                                          /* typeArguments */ (interface_type.generics || []).map(
+                                                                generic => transform(generic, [...path, element]) as ts.TypeNode,
+                                                              ),
+                                          /* expression    */ ts.createIdentifier(
+                                                                (typeof interface_type.name === 'string')
+                                                                  ? interface_type.name
+                                                                  : interface_type.name.name),
+                                        )),
+                          )],
     /* members         */ transform_object_type(element.type || create_object_type(), [...path, element]).members,
   );
