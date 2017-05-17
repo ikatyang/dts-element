@@ -21,6 +21,8 @@ export const create_parameter_declaration = (options: IParameterDeclarationOptio
   ...options,
 });
 
+// tslint:disable:ter-indent
+
 export const transform_parameter_declaration = (element: IParameterDeclaration, path: IElement<any>[]) =>
   ts.createParameter(
     /* decorators      */ undefined,
@@ -33,7 +35,6 @@ export const transform_parameter_declaration = (element: IParameterDeclaration, 
                           ? ts.createToken(ts.SyntaxKind.QuestionToken)
                           : undefined,
     /* type            */ transform(
-                            // tslint:disable-next-line:ter-indent
                             (element.rest === true)
                               ? create_array_type({type: element.type || any_type})
                               : element.type || any_type,
