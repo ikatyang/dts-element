@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `"var a: any;"`;
+
+exports[`should return correctly with name, export 1`] = `"export var a: any;"`;
+
+exports[`should return correctly with name, export, type, const 1`] = `"export const a: null;"`;
+
+exports[`should return correctly with name, let 1`] = `"let a: any;"`;
+
+exports[`should return correctly with name, type 1`] = `"var a: string;"`;

@@ -5,6 +5,7 @@ export type IDeclaration =
   | declarations.IFunctionDeclaration
   | declarations.IGenericDeclaration
   | declarations.IParameterDeclaration
+  | declarations.IVariableDeclaration
 ;
 
 export type IType =
