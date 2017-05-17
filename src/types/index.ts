@@ -5,4 +5,5 @@ export * from './intersection-type';
 export * from './keyof-type';
 export * from './literal-type';
 export * from './native-type';
+export * from './typeof-type';
 export * from './union-type';

@@ -13,6 +13,7 @@ export enum ElementKind {
   UnionType,
   LiteralType,
   KeyofType,
+  TypeofType,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with value (declaration) 1`] = `"typeof b"`;
+
+exports[`should return correctly with value (string) 1`] = `"typeof a"`;

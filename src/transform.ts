@@ -11,6 +11,7 @@ import {transform_intersection_type, IIntersectionType} from './types/intersecti
 import {transform_keyof_type, IKeyofType} from './types/keyof-type';
 import {transform_literal_type, ILiteralType} from './types/literal-type';
 import {transform_native_type, INativeType} from './types/native-type';
+import {transform_typeof_type, ITypeofType} from './types/typeof-type';
 import {transform_union_type, IUnionType} from './types/union-type';
 
 export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
@@ -37,6 +38,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_literal_type(element as ILiteralType , path);
     case ElementKind.KeyofType:
       return transform_keyof_type(element as IKeyofType , path);
+    case ElementKind.TypeofType:
+      return transform_typeof_type(element as ITypeofType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
