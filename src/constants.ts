@@ -6,7 +6,7 @@ export enum ElementKind {
   GenericType,
   NativeType,
   ArrayType,
-  Parameter,
+  ParameterDeclaration,
   FunctionType,
 }
 

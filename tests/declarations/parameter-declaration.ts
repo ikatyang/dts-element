@@ -1,8 +1,8 @@
-import {create_parameter, print, string_type} from '../index';
+import {create_parameter_declaration, print, string_type} from '../index';
 
 it('should return correctly with name', () => {
   expect(print(
-    create_parameter({
+    create_parameter_declaration({
       name: 'a',
     }),
   )).toMatchSnapshot();
@@ -10,7 +10,7 @@ it('should return correctly with name', () => {
 
 it('should return correctly with name, rest', () => {
   expect(print(
-    create_parameter({
+    create_parameter_declaration({
       name: 'a',
       rest: true,
     }),
@@ -19,7 +19,7 @@ it('should return correctly with name, rest', () => {
 
 it('should return correctly with name, type, optional', () => {
   expect(print(
-    create_parameter({
+    create_parameter_declaration({
       name: 'a',
       type: string_type,
       optional: true,

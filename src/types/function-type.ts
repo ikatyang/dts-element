@@ -2,14 +2,14 @@ import * as ts from 'typescript';
 import {IType} from '../collections';
 import {any_type, ElementKind} from '../constants';
 import {transform_generic_declaration, IGenericDeclaration} from '../declarations/generic-declaration';
+import {transform_parameter_declaration, IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement} from '../element';
-import {transform_parameter, IParameter} from '../elements/parameter';
 import {transform} from '../transform';
 
 export interface IFunctionTypeOptions {
   return?: IType;
   generics?: IGenericDeclaration[];
-  parameters?: IParameter[];
+  parameters?: IParameterDeclaration[];
 }
 
 export interface IFunctionType
@@ -27,7 +27,7 @@ export const transform_function_type = (element: IFunctionType, path: IElement<a
                             generic => transform_generic_declaration(generic, [...path, element]),
                           ),
     /* parameters      */ (element.parameters || []).map(
-                            parameter => transform_parameter(parameter, [...path, element]),
+                            parameter => transform_parameter_declaration(parameter, [...path, element]),
                           ),
     /* type            */ transform(element.return || any_type, [...path, element]) as ts.TypeNode,
   );

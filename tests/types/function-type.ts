@@ -1,7 +1,7 @@
 import {
   create_function_type,
   create_generic_declaration,
-  create_parameter ,
+  create_parameter_declaration ,
   print, string_type,
 } from '../index';
 
@@ -26,8 +26,8 @@ it('should return correctly with parameters', () => {
   expect(print(
     create_function_type({
       parameters: [
-        create_parameter({name: 'a'}),
-        create_parameter({name: 'b'}),
+        create_parameter_declaration({name: 'a'}),
+        create_parameter_declaration({name: 'b'}),
       ],
     }),
   )).toMatchSnapshot();
@@ -49,8 +49,8 @@ it('should return correctly with generics, parameters, return', () => {
         create_generic_declaration({name: 'U'}),
       ],
       parameters: [
-        create_parameter({name: 'a'}),
-        create_parameter({name: 'b'}),
+        create_parameter_declaration({name: 'a'}),
+        create_parameter_declaration({name: 'b'}),
       ],
       return: string_type,
     }),

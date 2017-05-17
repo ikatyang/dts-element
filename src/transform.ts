@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
 import {ElementKind} from './constants';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
+import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
 import {IElement} from './element';
-import {transform_parameter, IParameter} from './elements/parameter';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
@@ -18,8 +18,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_native_type(element as INativeType , path);
     case ElementKind.ArrayType:
       return transform_array_type(element as IArrayType , path);
-    case ElementKind.Parameter:
-      return transform_parameter(element as IParameter , path);
+    case ElementKind.ParameterDeclaration:
+      return transform_parameter_declaration(element as IParameterDeclaration , path);
     case ElementKind.FunctionType:
       return transform_function_type(element as IFunctionType , path);
     default:

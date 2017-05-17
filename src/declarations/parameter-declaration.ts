@@ -6,22 +6,22 @@ import {create_element, IElement} from '../element';
 import {transform} from '../transform';
 import {create_array_type} from '../types/array-type';
 
-export interface IParameterOptions {
+export interface IParameterDeclarationOptions {
   name: string;
   type?: IType;
   rest?: boolean;
   optional?: boolean;
 }
 
-export interface IParameter
-  extends IElement<ElementKind.Parameter>, IParameterOptions {}
+export interface IParameterDeclaration
+  extends IElement<ElementKind.ParameterDeclaration>, IParameterDeclarationOptions {}
 
-export const create_parameter = (options: IParameterOptions): IParameter => ({
-  ...create_element(ElementKind.Parameter),
+export const create_parameter_declaration = (options: IParameterDeclarationOptions): IParameterDeclaration => ({
+  ...create_element(ElementKind.ParameterDeclaration),
   ...options,
 });
 
-export const transform_parameter = (element: IParameter, path: IElement<any>[]) =>
+export const transform_parameter_declaration = (element: IParameterDeclaration, path: IElement<any>[]) =>
   ts.createParameter(
     /* decorators      */ undefined,
     /* modifiers       */ undefined,
