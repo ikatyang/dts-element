@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name (GenericDeclaration) 1`] = `"T"`;
+
+exports[`should return correctly with name (string) 1`] = `"T"`;
