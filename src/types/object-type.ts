@@ -6,18 +6,18 @@ import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 
 export interface IObjectTypeOptions {
-  members: (IObjectMember | IIndexSignature)[];
+  members?: (IObjectMember | IIndexSignature)[];
 }
 
 export interface IObjectType
   extends IElement<ElementKind.ObjectType>, IObjectTypeOptions {}
 
-export const create_object_type = (options: IObjectTypeOptions): IObjectType => ({
+export const create_object_type = (options: IObjectTypeOptions = {}): IObjectType => ({
   ...create_element(ElementKind.ObjectType),
   ...options,
 });
 
 export const transform_object_type = (element: IObjectType, path: IElement<any>[]) =>
   ts.createTypeLiteralNode(
-    /* members  */ element.members.map(member => transform(member, [...path, element]) as ts.TypeElement),
+    /* members  */ (element.members || []).map(member => transform(member, [...path, element]) as ts.TypeElement),
   );

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `
+"interface I {
+}"
+`;
+
+exports[`should return correctly with name, export 1`] = `
+"export interface I {
+}"
+`;
+
+exports[`should return correctly with name, export, generics, type 1`] = `
+"export interface I<T, U> {
+    fn(): any;
+    [key: string]: any;
+}"
+`;
+
+exports[`should return correctly with name, generics 1`] = `
+"interface I<T, U> {
+}"
+`;
+
+exports[`should return correctly with name, type 1`] = `
+"interface I {
+    fn(): any;
+    [key: string]: any;
+}"
+`;
