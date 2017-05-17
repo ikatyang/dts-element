@@ -5,6 +5,7 @@ import {transform_generic_declaration, IGenericDeclaration} from './declarations
 import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
 import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
 import {IElement} from './element';
+import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
@@ -46,6 +47,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_tuple_type(element as ITupleType , path);
     case ElementKind.VariableDeclaration:
       return transform_variable_declaration(element as IVariableDeclaration , path);
+    case ElementKind.ObjectMember:
+      return transform_object_member(element as IObjectMember , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
