@@ -19,6 +19,7 @@ import {transform_literal_type, ILiteralType} from './types/literal-type';
 import {transform_native_type, INativeType} from './types/native-type';
 import {transform_object_type, IObjectType} from './types/object-type';
 import {transform_tuple_type, ITupleType} from './types/tuple-type';
+import {transform_typed_type, ITypedType} from './types/typed-type';
 import {transform_typeof_type, ITypeofType} from './types/typeof-type';
 import {transform_union_type, IUnionType} from './types/union-type';
 
@@ -65,6 +66,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_basic_type(element as IBasicType , path);
     case ElementKind.TypeDeclaration:
       return transform_type_declaration(element as ITypeDeclaration , path);
+    case ElementKind.TypedType:
+      return transform_typed_type(element as ITypedType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

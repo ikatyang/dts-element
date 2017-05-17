@@ -22,6 +22,7 @@ export enum ElementKind {
   ObjectType,
   BasicType,
   TypeDeclaration,
+  TypedType,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});

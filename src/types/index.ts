@@ -9,5 +9,6 @@ export * from './literal-type';
 export * from './native-type';
 export * from './object-type';
 export * from './tuple-type';
+export * from './typed-type';
 export * from './typeof-type';
 export * from './union-type';
