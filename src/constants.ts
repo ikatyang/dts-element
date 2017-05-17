@@ -6,6 +6,7 @@ export enum ElementKind {
   GenericType,
   NativeType,
   ArrayType,
+  Parameter,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
