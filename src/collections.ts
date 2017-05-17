@@ -10,6 +10,7 @@ export type IDeclaration =
 
 export type IType =
   | types.IArrayType
+  | types.IConstructorType
   | types.IFunctionType
   | types.IGenericType
   | types.IIntersectionType

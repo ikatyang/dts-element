@@ -17,6 +17,7 @@ export enum ElementKind {
   TupleType,
   VariableDeclaration,
   ObjectMember,
+  ConstructorType,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
