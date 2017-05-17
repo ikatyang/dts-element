@@ -1,58 +1,53 @@
-import {
-  create_function_type,
-  create_generic_declaration,
-  create_parameter_declaration ,
-  print, string_type,
-} from '../index';
+import * as dts from '../index';
 
 it('should return correctly', () => {
-  expect(print(
-    create_function_type(),
+  expect(dts.print(
+    dts.create_function_type(),
   )).toMatchSnapshot();
 });
 
 it('should return correctly with generics', () => {
-  expect(print(
-    create_function_type({
+  expect(dts.print(
+    dts.create_function_type({
       generics: [
-        create_generic_declaration({name: 'T'}),
-        create_generic_declaration({name: 'U'}),
+        dts.create_generic_declaration({name: 'T'}),
+        dts.create_generic_declaration({name: 'U'}),
       ],
     }),
   )).toMatchSnapshot();
 });
 
 it('should return correctly with parameters', () => {
-  expect(print(
-    create_function_type({
+  expect(dts.print(
+    dts.create_function_type({
       parameters: [
-        create_parameter_declaration({name: 'a'}),
-        create_parameter_declaration({name: 'b'}),
+        dts.create_parameter_declaration({name: 'a'}),
+        dts.create_parameter_declaration({name: 'b'}),
       ],
     }),
   )).toMatchSnapshot();
 });
 
 it('should return correctly with return', () => {
-  expect(print(
-    create_function_type({
-      return: string_type,
+  expect(dts.print(
+    dts.create_function_type({
+      return: dts.string_type,
     }),
   )).toMatchSnapshot();
 });
 
 it('should return correctly with generics, parameters, return', () => {
-  expect(print(
-    create_function_type({
+  expect(dts.print(
+    dts.create_function_type({
       generics: [
-        create_generic_declaration({name: 'T'}),
-        create_generic_declaration({name: 'U'}),
+        dts.create_generic_declaration({name: 'T'}),
+        dts.create_generic_declaration({name: 'U'}),
       ],
       parameters: [
-        create_parameter_declaration({name: 'a'}),
-        create_parameter_declaration({name: 'b'}),
+        dts.create_parameter_declaration({name: 'a'}),
+        dts.create_parameter_declaration({name: 'b'}),
       ],
-      return: string_type,
+      return: dts.string_type,
     }),
   )).toMatchSnapshot();
 });
