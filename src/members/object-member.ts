@@ -4,10 +4,11 @@ import {IFunctionDeclaration} from '../declarations/function-declaration';
 import {IVariableDeclaration} from '../declarations/variable-declaration';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
+import {transform_constructor_type, IConstructorType} from '../types/constructor-type';
 import {create_function_type, transform_function_type} from '../types/function-type';
 
 export interface IObjectMemberOptions {
-  owned: IVariableDeclaration | IFunctionDeclaration;
+  owned: IVariableDeclaration | IFunctionDeclaration | IConstructorType;
   optional?: boolean;
   readonly?: boolean;
 }
@@ -51,6 +52,13 @@ export const transform_object_member = (element: IObjectMember, path: IElement<a
           /* name            */ element.owned.name,
           /* questionToken   */ questionToken,
         );
+    case ElementKind.ConstructorType:
+      const constructor_type = transform_constructor_type(element.owned, [...path, element]);
+      return ts.createConstructSignature(
+        /* typeParameters  */ constructor_type.typeParameters,
+        /* parameters      */ constructor_type.parameters,
+        /* type            */ constructor_type.type,
+      );
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

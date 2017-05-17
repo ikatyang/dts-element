@@ -53,6 +53,14 @@ it('should return correctly with owned (FunctionDeclaration), optional', () => {
   )).toMatchSnapshot();
 });
 
+it('should return correctly with owned (ConstructorType)', () => {
+  expect(dts.emit(
+    dts.create_object_member({
+      owned: dts.create_constructor_type(),
+    }),
+  )).toMatchSnapshot();
+});
+
 it('should throw error with unexpected kind', () => {
   expect(() => dts.emit(
     dts.create_object_member({
