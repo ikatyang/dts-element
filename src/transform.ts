@@ -11,6 +11,7 @@ import {transform_intersection_type, IIntersectionType} from './types/intersecti
 import {transform_keyof_type, IKeyofType} from './types/keyof-type';
 import {transform_literal_type, ILiteralType} from './types/literal-type';
 import {transform_native_type, INativeType} from './types/native-type';
+import {transform_tuple_type, ITupleType} from './types/tuple-type';
 import {transform_typeof_type, ITypeofType} from './types/typeof-type';
 import {transform_union_type, IUnionType} from './types/union-type';
 
@@ -40,6 +41,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_keyof_type(element as IKeyofType , path);
     case ElementKind.TypeofType:
       return transform_typeof_type(element as ITypeofType , path);
+    case ElementKind.TupleType:
+      return transform_tuple_type(element as ITupleType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
