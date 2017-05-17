@@ -3,6 +3,7 @@ import {ElementKind} from './constants';
 import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
 import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
+import {transform_type_declaration, ITypeDeclaration} from './declarations/type-declaration';
 import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
 import {IElement} from './element';
 import {transform_object_member, IObjectMember} from './members/object-member';
@@ -21,6 +22,7 @@ import {transform_tuple_type, ITupleType} from './types/tuple-type';
 import {transform_typeof_type, ITypeofType} from './types/typeof-type';
 import {transform_union_type, IUnionType} from './types/union-type';
 
+// tslint:disable-next-line:cyclomatic-complexity
 export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
   switch (element.kind) {
     case ElementKind.GenericDeclaration:
@@ -61,6 +63,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_object_type(element as IObjectType , path);
     case ElementKind.BasicType:
       return transform_basic_type(element as IBasicType , path);
+    case ElementKind.TypeDeclaration:
+      return transform_type_declaration(element as ITypeDeclaration , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
