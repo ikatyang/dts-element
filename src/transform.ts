@@ -7,6 +7,7 @@ import {IElement} from './element';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
+import {transform_intersection_type, IIntersectionType} from './types/intersection-type';
 import {transform_native_type, INativeType} from './types/native-type';
 
 export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
@@ -25,6 +26,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_function_type(element as IFunctionType , path);
     case ElementKind.FunctionDeclaration:
       return transform_function_declaration(element as IFunctionDeclaration , path);
+    case ElementKind.IntersectionType:
+      return transform_intersection_type(element as IIntersectionType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

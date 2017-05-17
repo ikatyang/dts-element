@@ -9,6 +9,7 @@ export enum ElementKind {
   ParameterDeclaration,
   FunctionType,
   FunctionDeclaration,
+  IntersectionType,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
