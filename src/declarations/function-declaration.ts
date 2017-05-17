@@ -1,8 +1,6 @@
 import * as ts from 'typescript';
-import {IType} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
-import {transform} from '../transform';
 import {create_function_type, transform_function_type, IFunctionType} from '../types/function-type';
 
 export interface IFunctionDeclarationOptions {

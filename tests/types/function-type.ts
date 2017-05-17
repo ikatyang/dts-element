@@ -1,13 +1,13 @@
 import * as dts from '../index';
 
 it('should return correctly', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_type(),
   )).toMatchSnapshot();
 });
 
 it('should return correctly with generics', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_type({
       generics: [
         dts.create_generic_declaration({name: 'T'}),
@@ -18,7 +18,7 @@ it('should return correctly with generics', () => {
 });
 
 it('should return correctly with parameters', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_type({
       parameters: [
         dts.create_parameter_declaration({name: 'a'}),
@@ -29,7 +29,7 @@ it('should return correctly with parameters', () => {
 });
 
 it('should return correctly with return', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_type({
       return: dts.string_type,
     }),
@@ -37,7 +37,7 @@ it('should return correctly with return', () => {
 });
 
 it('should return correctly with generics, parameters, return', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_type({
       generics: [
         dts.create_generic_declaration({name: 'T'}),

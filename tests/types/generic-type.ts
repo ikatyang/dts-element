@@ -1,7 +1,7 @@
 import * as dts from '../index';
 
 it('should return correctly with name (string)', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_generic_type({
       name: 'T',
     }),
@@ -9,7 +9,7 @@ it('should return correctly with name (string)', () => {
 });
 
 it('should return correctly with name (GenericDeclaration)', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_generic_type({
       name: dts.create_generic_declaration({name: 'T'}),
     }),

@@ -2,7 +2,7 @@ import * as ts from 'typescript';
 import {IElement} from './element';
 import {transform} from './transform';
 
-export const print = (element: IElement<any>, options?: ts.PrinterOptions) => {
+export const emit = (element: IElement<any>, options?: ts.PrinterOptions) => {
   const ts_node = transform(element);
   const source_file = ts.createSourceFile('', '', ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
   const printer = ts.createPrinter(options);

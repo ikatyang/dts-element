@@ -1,7 +1,7 @@
 import * as dts from '../index';
 
 it('should return correctly with undefined name', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_declaration({
       name: undefined,
     }),
@@ -9,7 +9,7 @@ it('should return correctly with undefined name', () => {
 });
 
 it('should return correctly with name', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_declaration({
       name: 'fn',
     }),
@@ -17,7 +17,7 @@ it('should return correctly with name', () => {
 });
 
 it('should return correctly with name, export', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_declaration({
       name: 'fn',
       export: true,
@@ -26,7 +26,7 @@ it('should return correctly with name, export', () => {
 });
 
 it('should return correctly with name, type', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_function_declaration({
       name: 'fn',
       type: dts.create_function_type({

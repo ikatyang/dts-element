@@ -1,7 +1,7 @@
 import * as dts from '../index';
 
 it('should return correctly with name', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_parameter_declaration({
       name: 'a',
     }),
@@ -9,7 +9,7 @@ it('should return correctly with name', () => {
 });
 
 it('should return correctly with name, rest', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_parameter_declaration({
       name: 'a',
       rest: true,
@@ -18,7 +18,7 @@ it('should return correctly with name, rest', () => {
 });
 
 it('should return correctly with name, type, optional', () => {
-  expect(dts.print(
+  expect(dts.emit(
     dts.create_parameter_declaration({
       name: 'a',
       type: dts.string_type,
