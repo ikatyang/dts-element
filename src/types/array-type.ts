@@ -18,5 +18,5 @@ export const create_array_type = (options: IArrayTypeOptions): IArrayType => ({
 
 export const transform_array_type = (element: IArrayType, path: IElement<any>[]) =>
   ts.createArrayTypeNode(
-    transform(element.type, [...path, element]) as ts.TypeNode,
+    /* elementType */ transform(element.type, [...path, element]) as ts.TypeNode,
   );

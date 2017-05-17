@@ -17,8 +17,8 @@ export const create_generic_type = (options: IGenericTypeOptions): IGenericType 
 
 export const transform_generic_type = (element: IGenericType, _path: IElement<any>[]) =>
   ts.createTypeReferenceNode(
-    (typeof element.name === 'string')
-      ? element.name
-      : element.name.name,
-    undefined,
+    /* typeName      */ (typeof element.name === 'string')
+                          ? element.name
+                          : element.name.name,
+    /* typeArguments */ undefined,
   );
