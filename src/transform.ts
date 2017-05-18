@@ -14,6 +14,7 @@ import {IElement} from './element';
 import {transform_class_member, IClassMember} from './members/class-member';
 import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
+import {transform_type_predicate, ITypePredicate} from './others/type-predicate';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_basic_type, IBasicType} from './types/basic-type';
 import {transform_class_type, IClassType} from './types/class-type';
@@ -95,6 +96,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_enum_declaration(element as IEnumDeclaration , path);
     case ElementKind.EnumType:
       return transform_enum_type(element as IEnumType, path);
+    case ElementKind.TypePredicate:
+      return transform_type_predicate(element as ITypePredicate, path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
