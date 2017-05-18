@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with multi-line-text 1`] = `
+"//test 1
+//test 2"
+`;
+
+exports[`should return correctly with multi-line-text, leading_space 1`] = `
+"// test 1
+// test 2"
+`;
+
+exports[`should return correctly with single-line-text 1`] = `"//test"`;
+
+exports[`should return correctly with single-line-text, leading_space 1`] = `"// test"`;
