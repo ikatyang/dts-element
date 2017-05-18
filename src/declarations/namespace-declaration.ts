@@ -3,9 +3,6 @@ import {IRootElement} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
-import {IInterfaceType} from '../types/interface-type';
-import {create_object_type, transform_object_type, IObjectType} from '../types/object-type';
-import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
 
 export interface INamespaceDeclarationOptions {
   name: string;

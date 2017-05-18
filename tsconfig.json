@@ -3,9 +3,7 @@
     "target": "es6",
     "strict": true,
     "declaration": true,
-    "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "lib"
+    "module": "commonjs"
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"]
 }
