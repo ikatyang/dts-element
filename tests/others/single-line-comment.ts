@@ -8,11 +8,11 @@ it('should return correctly with single-line-text', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with single-line-text, leading_space', () => {
+it('should return correctly with single-line-text, leading_space = false', () => {
   expect(dts.emit(
     dts.create_single_line_comment({
       text: 'test',
-      leading_space: true,
+      leading_space: false,
     }),
   )).toMatchSnapshot();
 });
@@ -25,11 +25,11 @@ it('should return correctly with multi-line-text', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with multi-line-text, leading_space', () => {
+it('should return correctly with multi-line-text, leading_space = false', () => {
   expect(dts.emit(
     dts.create_single_line_comment({
       text: 'test 1\ntest 2',
-      leading_space: true,
+      leading_space: false,
     }),
   )).toMatchSnapshot();
 });

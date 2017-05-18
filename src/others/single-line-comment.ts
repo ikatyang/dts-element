@@ -17,9 +17,9 @@ export const create_single_line_comment = (options: ISingleLineCommentOptions): 
 
 export const transform_single_line_comment = (element: ISingleLineComment, path: IElement<any>[]) => {
   const node = ts.createOmittedExpression();
-  const prefix = (element.leading_space === true)
-    ? ' '
-    : '';
+  const prefix = (element.leading_space === false)
+    ? ''
+    : ' ';
   element.text.split('\n').forEach((line_text, index, lines) => {
     ts.addSyntheticTrailingComment(
       /* node                */ node,
