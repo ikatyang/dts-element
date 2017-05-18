@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import {ElementKind} from './constants';
-import {transform_class_declaration, IClassDeclaration} from './declarations';
+import {transform_class_declaration, IClassDeclaration} from './declarations/class-declaration';
 import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
 import {transform_interface_declaration, IInterfaceDeclaration} from './declarations/interface-declaration';
@@ -13,6 +13,7 @@ import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
 import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_basic_type, IBasicType} from './types/basic-type';
+import {transform_class_type, IClassType} from './types/class-type';
 import {transform_constructor_type, IConstructorType} from './types/constructor-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
@@ -80,6 +81,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_class_member(element as IClassMember , path);
     case ElementKind.ClassDeclaration:
       return transform_class_declaration(element as IClassDeclaration , path);
+    case ElementKind.ClassType:
+      return transform_class_type(element as IClassType , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
