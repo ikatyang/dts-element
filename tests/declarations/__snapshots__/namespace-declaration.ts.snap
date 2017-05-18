@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with children 1`] = `
+"namespace N {
+    var a: any;
+    function b(): any;
+}"
+`;
+
+exports[`should return correctly with name 1`] = `"namespace N { }"`;
+
+exports[`should return correctly with name, export 1`] = `"export namespace N { }"`;
+
+exports[`should return correctly with name, export, children 1`] = `
+"export namespace N {
+    var a: any;
+    function b(): any;
+}"
+`;

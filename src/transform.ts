@@ -4,6 +4,7 @@ import {transform_class_declaration, IClassDeclaration} from './declarations/cla
 import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
 import {transform_interface_declaration, IInterfaceDeclaration} from './declarations/interface-declaration';
+import {transform_namespace_declaration, INamespaceDeclaration} from './declarations/namespace-declaration';
 import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
 import {transform_type_declaration, ITypeDeclaration} from './declarations/type-declaration';
 import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
@@ -83,6 +84,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_class_declaration(element as IClassDeclaration , path);
     case ElementKind.ClassType:
       return transform_class_type(element as IClassType , path);
+    case ElementKind.NamespaceDeclaration:
+      return transform_namespace_declaration(element as INamespaceDeclaration , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
