@@ -21,7 +21,12 @@ export const transform_single_line_comment = (element: ISingleLineComment, path:
     ts.addSyntheticTrailingComment(
       /* node                */ node,
       /* kind                */ ts.SyntaxKind.SingleLineCommentTrivia,
-      /* text                */ `${element.prefix || ''}${line_text}`,
+      /* text                */ (
+                                  (element.prefix === undefined)
+                                    ? ''
+                                    : element.prefix
+                                )
+                                + line_text,
       /* hasTrailingNewLine  */ (index !== lines.length - 1),
     );
   });
