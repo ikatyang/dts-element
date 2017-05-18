@@ -1,7 +1,7 @@
 import * as declarations from './declarations/index';
 import * as types from './types/index';
 
-export type IRootElement =
+export type IRootMember =
   | declarations.IClassDeclaration
   | declarations.IEnumDeclaration
   | declarations.IFunctionDeclaration

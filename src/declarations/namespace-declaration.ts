@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import {IRootElement} from '../collections';
+import {IRootMember} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
@@ -7,7 +7,7 @@ import {transform} from '../transform';
 export interface INamespaceDeclarationOptions {
   name: string;
   export?: boolean;
-  children?: IRootElement[];
+  members?: IRootMember[];
 }
 
 export interface INamespaceDeclaration
@@ -25,7 +25,7 @@ export const transform_namespace_declaration = (element: INamespaceDeclaration, 
                         ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
                         : undefined,
     /* name        */ ts.createIdentifier(element.name),
-    /* body        */ ts.createModuleBlock((element.children || []).map(root_element =>
+    /* body        */ ts.createModuleBlock((element.members || []).map(root_element =>
                         transform(root_element, [...path, element]) as ts.Statement,
                       )),
     /* flags       */ ts.NodeFlags.Namespace,

@@ -21,7 +21,7 @@ it('should return correctly with name, children', () => {
   expect(dts.emit(
     dts.create_namespace_declaration({
       name: 'N',
-      children: [
+      members: [
         dts.create_variable_declaration({
           name: 'a',
         }),
@@ -38,7 +38,7 @@ it('should return correctly with name, export, children', () => {
     dts.create_namespace_declaration({
       name: 'N',
       export: true,
-      children: [
+      members: [
         dts.create_variable_declaration({
           name: 'a',
         }),

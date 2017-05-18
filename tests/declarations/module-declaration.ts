@@ -12,7 +12,7 @@ it('should return correctly with name, children', () => {
   expect(dts.emit(
     dts.create_module_declaration({
       name: 'M',
-      children: [
+      members: [
         dts.create_variable_declaration({
           name: 'a',
         }),
