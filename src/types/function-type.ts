@@ -4,10 +4,11 @@ import {any_type, ElementKind} from '../constants';
 import {transform_generic_declaration, IGenericDeclaration} from '../declarations/generic-declaration';
 import {transform_parameter_declaration, IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement} from '../element';
+import {ITypePredicate} from '../others/type-predicate';
 import {transform} from '../transform';
 
 export interface IFunctionTypeOptions {
-  return?: IType;
+  return?: IType | ITypePredicate;
   generics?: IGenericDeclaration[];
   parameters?: IParameterDeclaration[];
 }
@@ -21,6 +22,7 @@ export const create_function_type = (options: IFunctionTypeOptions = {}): IFunct
 });
 
 // tslint:disable:ter-indent
+
 export const transform_function_type = (element: IFunctionType, path: IElement<any>[]) =>
   ts.createFunctionTypeNode(
     /* typeParameters  */ element.generics && element.generics.map(

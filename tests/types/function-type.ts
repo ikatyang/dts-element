@@ -36,6 +36,23 @@ it('should return correctly with return', () => {
   )).toMatchSnapshot();
 });
 
+it('should return correctly with parameters, return (TypePredicate)', () => {
+  const parameter = dts.create_parameter_declaration({
+    name: 'a',
+  });
+  expect(dts.emit(
+    dts.create_function_type({
+      parameters: [
+        parameter,
+      ],
+      return: dts.create_type_predicate({
+        parameter,
+        type: dts.string_type,
+      }),
+    }),
+  )).toMatchSnapshot();
+});
+
 it('should return correctly with generics, parameters, return', () => {
   expect(dts.emit(
     dts.create_function_type({

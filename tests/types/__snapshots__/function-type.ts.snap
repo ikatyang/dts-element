@@ -8,4 +8,6 @@ exports[`should return correctly with generics, parameters, return 1`] = `"<T, U
 
 exports[`should return correctly with parameters 1`] = `"(a: any, b: any) => any"`;
 
+exports[`should return correctly with parameters, return (TypePredicate) 1`] = `"(a: any) => a is string"`;
+
 exports[`should return correctly with return 1`] = `"() => string"`;
