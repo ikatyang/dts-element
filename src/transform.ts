@@ -14,6 +14,7 @@ import {IElement} from './element';
 import {transform_class_member, IClassMember} from './members/class-member';
 import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
+import {transform_multi_line_comment, IMultiLineComment} from './others/multi-line-comment';
 import {transform_single_line_comment, ISingleLineComment} from './others/single-line-comment';
 import {transform_top_level_element, ITopLevelElement} from './others/top-level-element';
 import {transform_triple_slash_reference, ITripleSlashReference} from './others/triple-slash-reference';
@@ -107,6 +108,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_top_level_element(element as ITopLevelElement, path);
     case ElementKind.SingleLineComment:
       return transform_single_line_comment(element as ISingleLineComment, path);
+    case ElementKind.MultiLineComment:
+      return transform_multi_line_comment(element as IMultiLineComment, path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
