@@ -25,6 +25,7 @@ export enum ElementKind {
   TypedType,
   InterfaceDeclaration,
   InterfaceType,
+  ClassMember,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});

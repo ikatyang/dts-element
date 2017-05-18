@@ -7,6 +7,7 @@ import {transform_parameter_declaration, IParameterDeclaration} from './declarat
 import {transform_type_declaration, ITypeDeclaration} from './declarations/type-declaration';
 import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
 import {IElement} from './element';
+import {transform_class_member, IClassMember} from './members/class-member';
 import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
 import {transform_array_type, IArrayType} from './types/array-type';
@@ -74,6 +75,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_interface_declaration(element as IInterfaceDeclaration , path);
     case ElementKind.InterfaceType:
       return transform_interface_type(element as IInterfaceType , path);
+    case ElementKind.ClassMember:
+      return transform_class_member(element as IClassMember , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
