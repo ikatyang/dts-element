@@ -5,6 +5,7 @@ import {IClassMember} from '../members';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 import {IClassType} from '../types/class-type';
+import {IGeneralType} from '../types/general-type';
 import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
 
 export interface IClassDeclarationOptions {
@@ -13,7 +14,7 @@ export interface IClassDeclarationOptions {
   generics?: IGenericDeclaration[];
   members?: (IClassMember | IIndexSignature)[];
   abstract?: boolean;
-  extends?: IClassType;
+  extends?: IClassType | IGeneralType;
 }
 
 export interface IClassDeclaration

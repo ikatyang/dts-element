@@ -4,6 +4,7 @@ import {ElementKind} from '../constants';
 import {ITypeDeclaration} from '../declarations/type-declaration';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
+import {transform_general_type} from './general-type';
 
 export interface ITypedTypeOptions {
   name: string | ITypeDeclaration;
@@ -21,11 +22,4 @@ export const create_typed_type = (options: ITypedTypeOptions): ITypedType => ({
 // tslint:disable:ter-indent
 
 export const transform_typed_type = (element: ITypedType, path: IElement<any>[]) =>
-  ts.createTypeReferenceNode(
-    /* typeName      */ (typeof element.name === 'string')
-                          ? element.name
-                          : element.name.name,
-    /* typeArguments */ element.generics && element.generics.map(
-                          generic => transform(generic, [...path, element]) as ts.TypeNode,
-                        ),
-  );
+  transform_general_type(element as any, path);

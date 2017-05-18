@@ -2,6 +2,7 @@ import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
+import {IGeneralType} from '../types/general-type';
 import {IInterfaceType} from '../types/interface-type';
 import {create_object_type, transform_object_type, IObjectType} from '../types/object-type';
 import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
@@ -11,7 +12,7 @@ export interface IInterfaceDeclarationOptions {
   export?: boolean;
   generics?: IGenericDeclaration[];
   type?: IObjectType;
-  extends?: IInterfaceType[];
+  extends?: (IInterfaceType | IGeneralType)[];
 }
 
 export interface IInterfaceDeclaration

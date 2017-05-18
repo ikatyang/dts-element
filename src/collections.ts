@@ -12,11 +12,11 @@ import {IMultiLineComment} from './others/multi-line-comment';
 import {ISingleLineComment} from './others/single-line-comment';
 import {ITripleSlashReference} from './others/triple-slash-reference';
 import {IArrayType} from './types/array-type';
-import {IBasicType} from './types/basic-type';
 import {IClassType} from './types/class-type';
 import {IConstructorType} from './types/constructor-type';
 import {IEnumType} from './types/enum-type';
 import {IFunctionType} from './types/function-type';
+import {IGeneralType} from './types/general-type';
 import {IGenericType} from './types/generic-type';
 import {IInterfaceType} from './types/interface-type';
 import {IIntersectionType} from './types/intersection-type';
@@ -62,11 +62,11 @@ export type IDeclaration =
 
 export type IType =
   | IArrayType
-  | IBasicType
   | IClassType
   | IConstructorType
   | IEnumType
   | IFunctionType
+  | IGeneralType
   | IGenericType
   | IInterfaceType
   | IIntersectionType

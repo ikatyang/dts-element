@@ -2,6 +2,7 @@ import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {IGenericDeclaration} from '../declarations/generic-declaration';
 import {create_element, IElement} from '../element';
+import {transform_general_type} from './general-type';
 
 export interface IGenericTypeOptions {
   name: string | IGenericDeclaration;
@@ -15,10 +16,5 @@ export const create_generic_type = (options: IGenericTypeOptions): IGenericType 
   ...options,
 });
 
-export const transform_generic_type = (element: IGenericType, _path: IElement<any>[]) =>
-  ts.createTypeReferenceNode(
-    /* typeName      */ (typeof element.name === 'string')
-                          ? element.name
-                          : element.name.name,
-    /* typeArguments */ undefined,
-  );
+export const transform_generic_type = (element: IGenericType, path: IElement<any>[]) =>
+  transform_general_type(element as any, path);

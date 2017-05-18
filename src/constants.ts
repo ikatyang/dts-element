@@ -20,7 +20,7 @@ export enum ElementKind {
   ConstructorType,
   IndexSignature,
   ObjectType,
-  BasicType,
+  GeneralType,
   TypeDeclaration,
   TypedType,
   InterfaceDeclaration,
