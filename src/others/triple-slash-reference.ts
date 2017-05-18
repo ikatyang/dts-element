@@ -1,30 +1,26 @@
+import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 
-export interface ITripleSlashReferencePathOptions {
-  path: string;
+export interface ITripleSlashReferenceOptions {
+  path?: string;
+  types?: string;
 }
 
-export interface ITripleSlashReferenceTypesOptions {
-  types: string;
-}
-
-export type ITripleSlashReferenceOptions = ITripleSlashReferencePathOptions | ITripleSlashReferenceTypesOptions;
-
-export interface ITripleSlashReferencePath
-  extends IElement<ElementKind.TripleSlashReference>, ITripleSlashReferencePathOptions {}
-
-export interface ITripleSlashReferenceTypes
-  extends IElement<ElementKind.TripleSlashReference>, ITripleSlashReferenceTypesOptions {}
-
-export type ITripleSlashReference = ITripleSlashReferencePath | ITripleSlashReferenceTypes;
+export interface ITripleSlashReference
+  extends IElement<ElementKind.TripleSlashReference>, ITripleSlashReferenceOptions {}
 
 export const create_triple_slash_reference = (options: ITripleSlashReferenceOptions): ITripleSlashReference => ({
   ...create_element(ElementKind.TripleSlashReference),
   ...options,
 });
 
-export const emit_triple_slash_reference = (triple_slash_reference: ITripleSlashReference) =>
-  Reflect.has(triple_slash_reference, 'path')
-    ? `/// <reference path="${(triple_slash_reference as ITripleSlashReferencePath).path}" />`
-    : `/// <reference types="${(triple_slash_reference as ITripleSlashReferenceTypes).types}" />`;
+export const transform_triple_slash_reference = (element: ITripleSlashReference, path: IElement<any>[]) =>
+  ts.addSyntheticTrailingComment(
+    /* node                */ ts.createOmittedExpression(),
+    /* kind                */ ts.SyntaxKind.SingleLineCommentTrivia,
+    /* text                */ (element.path !== undefined)
+                                ? `/ <reference path="${element.path}" />`
+                                : `/ <reference types="${element.types}" />`,
+    /* hasTrailingNewLine  */ false,
+  );
