@@ -8,6 +8,8 @@ import {INamespaceDeclaration} from './declarations/namespace-declaration';
 import {IParameterDeclaration} from './declarations/parameter-declaration';
 import {ITypeDeclaration} from './declarations/type-declaration';
 import {IVariableDeclaration} from './declarations/variable-declaration';
+import {IMultiLineComment} from './others/multi-line-comment';
+import {ISingleLineComment} from './others/single-line-comment';
 import {ITripleSlashReference} from './others/triple-slash-reference';
 import {IArrayType} from './types/array-type';
 import {IBasicType} from './types/basic-type';
@@ -31,6 +33,8 @@ export type ITopLevelMember =
   | IModuleMember
   | IModuleDeclaration
   | ITripleSlashReference
+  | ISingleLineComment
+  | IMultiLineComment
 ;
 
 export type IModuleMember =
@@ -41,6 +45,8 @@ export type IModuleMember =
   | INamespaceDeclaration
   | ITypeDeclaration
   | IVariableDeclaration
+  | ISingleLineComment
+  | IMultiLineComment
 ;
 
 export type IDeclaration =
