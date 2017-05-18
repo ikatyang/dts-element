@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
-import {IIndexSignature} from '../../tests';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {IClassMember} from '../members';
+import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
 

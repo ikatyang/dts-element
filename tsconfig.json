@@ -4,6 +4,7 @@
     "strict": true,
     "declaration": true,
     "module": "commonjs",
+    "rootDir": "src",
     "outDir": "lib"
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"]
