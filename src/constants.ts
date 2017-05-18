@@ -33,6 +33,7 @@ export enum ElementKind {
   EnumDeclaration,
   EnumType,
   TypePredicate,
+  TripleSlashReference,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
