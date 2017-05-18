@@ -16,5 +16,5 @@ export const create_generic_type = (options: IGenericTypeOptions): IGenericType 
   ...options,
 });
 
-export const transform_generic_type = (element: IGenericType, path: IElement<any>[]) =>
-  transform_general_type(element as any, path);
+export const transform_generic_type: (element: IGenericType, path: IElement<any>[]) => ts.TypeReferenceNode
+  = transform_general_type as any;

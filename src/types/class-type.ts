@@ -3,8 +3,7 @@ import {IType} from '../collections';
 import {ElementKind} from '../constants';
 import {IClassDeclaration} from '../declarations/class-declaration';
 import {create_element, IElement} from '../element';
-import {transform} from '../transform';
-import {transform_general_type, IGeneralType} from './general-type';
+import {transform_general_type} from './general-type';
 
 export interface IClassTypeOptions {
   name: string | IClassDeclaration;
@@ -19,7 +18,5 @@ export const create_class_type = (options: IClassTypeOptions): IClassType => ({
   ...options,
 });
 
-// tslint:disable:ter-indent
-
-export const transform_class_type = (element: IClassType, path: IElement<any>[]) =>
-  transform_general_type(element as any, path);
+export const transform_class_type: (element: IClassType, path: IElement<any>[]) => ts.TypeReferenceNode
+  = transform_general_type as any;
