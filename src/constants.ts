@@ -30,6 +30,7 @@ export enum ElementKind {
   ClassType,
   NamespaceDeclaration,
   ModuleDeclaration,
+  EnumDeclaration,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});

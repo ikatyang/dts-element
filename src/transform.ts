@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import {ElementKind} from './constants';
 import {transform_class_declaration, IClassDeclaration} from './declarations/class-declaration';
+import {transform_enum_declaration, IEnumDeclaration} from './declarations/enum-declaration';
 import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
 import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
 import {transform_interface_declaration, IInterfaceDeclaration} from './declarations/interface-declaration';
@@ -89,6 +90,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_namespace_declaration(element as INamespaceDeclaration , path);
     case ElementKind.ModuleDeclaration:
       return transform_module_declaration(element as IModuleDeclaration , path);
+    case ElementKind.EnumDeclaration:
+      return transform_enum_declaration(element as IEnumDeclaration , path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

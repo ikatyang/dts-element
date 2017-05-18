@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `
+"enum E {
+}"
+`;
+
+exports[`should return correctly with name, export 1`] = `
+"export enum E {
+}"
+`;
+
+exports[`should return correctly with name, export, members 1`] = `
+"export enum E {
+    a = 5,
+    b = 6
+}"
+`;
+
+exports[`should return correctly with name, members 1`] = `
+"enum E {
+    a = 5,
+    b = 6,
+    c = \\"hello\\"
+}"
+`;
