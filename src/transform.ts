@@ -14,6 +14,7 @@ import {IElement} from './element';
 import {transform_class_member, IClassMember} from './members/class-member';
 import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
+import {transform_top_level_element, ITopLevelElement} from './others/top-level-element';
 import {transform_triple_slash_reference, ITripleSlashReference} from './others/triple-slash-reference';
 import {transform_type_predicate, ITypePredicate} from './others/type-predicate';
 import {transform_array_type, IArrayType} from './types/array-type';
@@ -101,6 +102,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_type_predicate(element as ITypePredicate, path);
     case ElementKind.TripleSlashReference:
       return transform_triple_slash_reference(element as ITripleSlashReference, path);
+    case ElementKind.TopLevelElement:
+      return transform_top_level_element(element as ITopLevelElement, path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }

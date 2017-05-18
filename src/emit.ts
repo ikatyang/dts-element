@@ -1,5 +1,4 @@
 import * as ts from 'typescript';
-import {ElementKind} from './constants';
 import {IElement} from './element';
 import {transform} from './transform';
 

@@ -1,12 +1,12 @@
 import * as ts from 'typescript';
-import {IRootMember} from '../collections';
+import {IModuleMember} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
 
 export interface IModuleDeclarationOptions {
   name: string;
-  members?: IRootMember[];
+  members?: IModuleMember[];
 }
 
 export interface IModuleDeclaration

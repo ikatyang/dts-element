@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import {IRootMember} from '../collections';
+import {IModuleMember} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
@@ -7,7 +7,7 @@ import {transform} from '../transform';
 export interface INamespaceDeclarationOptions {
   name: string;
   export?: boolean;
-  members?: IRootMember[];
+  members?: IModuleMember[];
 }
 
 export interface INamespaceDeclaration
