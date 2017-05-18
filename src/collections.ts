@@ -24,6 +24,7 @@ import {IKeyofType} from './types/keyof-type';
 import {ILiteralType} from './types/literal-type';
 import {INativeType} from './types/native-type';
 import {IObjectType} from './types/object-type';
+import {ISubType} from './types/sub-type';
 import {ITupleType} from './types/tuple-type';
 import {ITypedType} from './types/typed-type';
 import {ITypeofType} from './types/typeof-type';
@@ -74,6 +75,7 @@ export type IType =
   | ILiteralType
   | INativeType
   | IObjectType
+  | ISubType
   | ITupleType
   | ITypedType
   | ITypeofType
