@@ -5,6 +5,7 @@ export type IRootElement =
   | declarations.IClassDeclaration
   | declarations.IFunctionDeclaration
   | declarations.IInterfaceDeclaration
+  | declarations.IModuleDeclaration
   | declarations.INamespaceDeclaration
   | declarations.ITypeDeclaration
   | declarations.IVariableDeclaration
@@ -15,6 +16,7 @@ export type IDeclaration =
   | declarations.IFunctionDeclaration
   | declarations.IGenericDeclaration
   | declarations.IInterfaceDeclaration
+  | declarations.IModuleDeclaration
   | declarations.INamespaceDeclaration
   | declarations.IParameterDeclaration
   | declarations.ITypeDeclaration

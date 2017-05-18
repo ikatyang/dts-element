@@ -17,7 +17,7 @@ it('should return correctly with name, export', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with children', () => {
+it('should return correctly with name, children', () => {
   expect(dts.emit(
     dts.create_namespace_declaration({
       name: 'N',
