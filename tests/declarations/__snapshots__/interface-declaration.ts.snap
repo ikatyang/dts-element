@@ -10,7 +10,7 @@ exports[`should return correctly with name, export 1`] = `
 }"
 `;
 
-exports[`should return correctly with name, export, generics, type 1`] = `
+exports[`should return correctly with name, export, generics, type, extends 1`] = `
 "export interface I<T, U> extends X<boolean> {
     fn(): any;
     [key: string]: any;

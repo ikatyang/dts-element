@@ -70,7 +70,7 @@ it('should return correctly with name, extends', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name, export, generics, type', () => {
+it('should return correctly with name, export, generics, type, extends', () => {
   expect(dts.emit(
     dts.create_interface_declaration({
       name: 'I',
