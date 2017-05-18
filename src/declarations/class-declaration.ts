@@ -4,6 +4,7 @@ import {create_element, IElement} from '../element';
 import {IClassMember} from '../members';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
+import {IClassType} from '../types/class-type';
 import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
 
 export interface IClassDeclarationOptions {
@@ -12,6 +13,7 @@ export interface IClassDeclarationOptions {
   generics?: IGenericDeclaration[];
   members?: (IClassMember | IIndexSignature)[];
   abstract?: boolean;
+  extends?: IClassType;
 }
 
 export interface IClassDeclaration
@@ -39,6 +41,19 @@ export const transform_class_declaration = (element: IClassDeclaration, path: IE
     /* typeParameters  */ element.generics && element.generics.map(
                             generic => transform_generic_declaration(generic, [...path, element]),
                           ),
-    /* heritageClauses */ [],
+    /* heritageClauses */ (element.extends === undefined)
+                            ? []
+                            : [ts.createHeritageClause(
+                            /* token */ ts.SyntaxKind.ExtendsKeyword,
+                            /* types */ [ts.createExpressionWithTypeArguments(
+                                          /* typeArguments */ (element.extends.generics || []).map(
+                                                                generic => transform(generic, [...path, element]) as ts.TypeNode,
+                                                              ),
+                                          /* expression    */ ts.createIdentifier(
+                                                                (typeof element.extends.name === 'string')
+                                                                  ? element.extends.name
+                                                                  : element.extends.name.name),
+                                        )],
+                            )],
     /* members         */ (element.members || []).map(member => transform(member, [...path, element]) as ts.ClassElement),
   );

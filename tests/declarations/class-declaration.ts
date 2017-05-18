@@ -59,7 +59,20 @@ it('should return correctly with name, members', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name, export, abstract, generics, members', () => {
+it('should return correctly with name, extends', () => {
+  expect(dts.emit(
+    dts.create_class_declaration({
+      name: 'C',
+      extends: dts.create_class_type({
+        name: dts.create_class_declaration({
+          name: 'X',
+        }),
+      }),
+    }),
+  )).toMatchSnapshot();
+});
+
+it('should return correctly with name, export, abstract, generics, members, extends', () => {
   expect(dts.emit(
     dts.create_class_declaration({
       name: 'C',
@@ -69,6 +82,13 @@ it('should return correctly with name, export, abstract, generics, members', () 
         dts.create_generic_declaration({name: 'T'}),
         dts.create_generic_declaration({name: 'U'}),
       ],
+      extends: dts.create_class_type({
+        name: 'Z',
+        generics: [
+          dts.string_type,
+          dts.symbol_type,
+        ],
+      }),
       members: [
         dts.create_class_member({
           owned: dts.create_function_declaration({

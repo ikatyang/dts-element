@@ -15,10 +15,15 @@ exports[`should return correctly with name, export 1`] = `
 }"
 `;
 
-exports[`should return correctly with name, export, abstract, generics, members 1`] = `
-"export abstract class C<T, U> {
+exports[`should return correctly with name, export, abstract, generics, members, extends 1`] = `
+"export abstract class C<T, U> extends Z<string, symbol> {
     fn(): any;
     [key: string]: any;
+}"
+`;
+
+exports[`should return correctly with name, extends 1`] = `
+"class C extends X {
 }"
 `;
 
