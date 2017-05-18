@@ -3,6 +3,7 @@ import * as types from './types/index';
 
 export type IRootElement =
   | declarations.IClassDeclaration
+  | declarations.IEnumDeclaration
   | declarations.IFunctionDeclaration
   | declarations.IInterfaceDeclaration
   | declarations.IModuleDeclaration
@@ -13,6 +14,7 @@ export type IRootElement =
 
 export type IDeclaration =
   | declarations.IClassDeclaration
+  | declarations.IEnumDeclaration
   | declarations.IFunctionDeclaration
   | declarations.IGenericDeclaration
   | declarations.IInterfaceDeclaration
@@ -28,6 +30,7 @@ export type IType =
   | types.IBasicType
   | types.IClassType
   | types.IConstructorType
+  | types.IEnumType
   | types.IFunctionType
   | types.IGenericType
   | types.IInterfaceType

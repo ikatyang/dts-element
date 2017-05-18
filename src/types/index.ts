@@ -2,6 +2,7 @@ export * from './array-type';
 export * from './basic-type';
 export * from './class-type';
 export * from './constructor-type';
+export * from './enum-type';
 export * from './function-type';
 export * from './generic-type';
 export * from './interface-type';

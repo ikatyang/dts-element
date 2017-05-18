@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name (EnumDeclaration) 1`] = `"E"`;
+
+exports[`should return correctly with name (string) 1`] = `"E"`;

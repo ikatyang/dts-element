@@ -8,7 +8,7 @@ it('should return correctly with name (string)', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name (TypeDeclaration)', () => {
+it('should return correctly with name (ClassDeclaration)', () => {
   expect(dts.emit(
     dts.create_class_type({
       name: dts.create_class_declaration({

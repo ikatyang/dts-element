@@ -18,6 +18,7 @@ import {transform_array_type, IArrayType} from './types/array-type';
 import {transform_basic_type, IBasicType} from './types/basic-type';
 import {transform_class_type, IClassType} from './types/class-type';
 import {transform_constructor_type, IConstructorType} from './types/constructor-type';
+import {transform_enum_type, IEnumType} from './types/enum-type';
 import {transform_function_type, IFunctionType} from './types/function-type';
 import {transform_generic_type, IGenericType} from './types/generic-type';
 import {transform_interface_type, IInterfaceType} from './types/interface-type';
@@ -92,6 +93,8 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
       return transform_module_declaration(element as IModuleDeclaration , path);
     case ElementKind.EnumDeclaration:
       return transform_enum_declaration(element as IEnumDeclaration , path);
+    case ElementKind.EnumType:
+      return transform_enum_type(element as IEnumType, path);
     default:
       throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
   }
