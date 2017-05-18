@@ -1,23 +1,6 @@
 import * as dts from '../index';
 
-it('should return correctly with single-line-text', () => {
-  expect(dts.emit(
-    dts.create_single_line_comment({
-      text: 'test',
-    }),
-  )).toMatchSnapshot();
-});
-
-it('should return correctly with single-line-text, leading_space = false', () => {
-  expect(dts.emit(
-    dts.create_single_line_comment({
-      text: 'test',
-      leading_space: false,
-    }),
-  )).toMatchSnapshot();
-});
-
-it('should return correctly with multi-line-text', () => {
+it('should return correctly with text', () => {
   expect(dts.emit(
     dts.create_single_line_comment({
       text: 'test 1\ntest 2',
@@ -25,11 +8,11 @@ it('should return correctly with multi-line-text', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with multi-line-text, leading_space = false', () => {
+it('should return correctly with text, prefix', () => {
   expect(dts.emit(
     dts.create_single_line_comment({
       text: 'test 1\ntest 2',
-      leading_space: false,
+      prefix: '~',
     }),
   )).toMatchSnapshot();
 });

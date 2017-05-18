@@ -4,8 +4,8 @@ import {create_element, IElement} from '../element';
 
 export interface IMultiLineCommentOptions {
   text: string;
-  align?: boolean; // default = true
-  prefix?: string; // default = ' '
+  align?: boolean;
+  prefix?: string;
 }
 
 export interface IMultiLineComment
@@ -26,17 +26,17 @@ export const transform_multi_line_comment = (element: IMultiLineComment, path: I
                                 .replace(
                                   /^/mg,
                                   (element.prefix === undefined)
-                                    ? ' '
+                                    ? ''
                                     : element.prefix,
                                 )
                                 .replace(
                                   /\n|$/g,
                                   match =>
-                                    (element.align === false)
-                                      ? match
-                                      : (match === '\n')
+                                    (element.align === true)
+                                      ? (match === '\n')
                                         ? '\n *'
-                                        : '\n ',
+                                        : '\n '
+                                      : match,
                                 ),
     /* hasTrailingNewLine  */ false,
   );

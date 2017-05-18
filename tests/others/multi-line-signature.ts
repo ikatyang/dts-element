@@ -8,30 +8,30 @@ it('should return correctly with text', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with text, align = false', () => {
+it('should return correctly with text, align', () => {
   expect(dts.emit(
     dts.create_multi_line_comment({
       text: 'test 1\ntest 2',
-      align: false,
+      align: true,
     }),
   )).toMatchSnapshot();
 });
 
-it('should return correctly with text, prefix = ""', () => {
+it('should return correctly with text, prefix', () => {
   expect(dts.emit(
     dts.create_multi_line_comment({
       text: 'test 1\ntest 2',
-      prefix: '',
+      prefix: '~',
     }),
   )).toMatchSnapshot();
 });
 
-it('should return correctly with text, align = false, prefix = ""', () => {
+it('should return correctly with text, align, prefix', () => {
   expect(dts.emit(
     dts.create_multi_line_comment({
       text: 'test 1\ntest 2',
-      align: false,
-      prefix: '',
+      align: true,
+      prefix: '~',
     }),
   )).toMatchSnapshot();
 });

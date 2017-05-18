@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return correctly with text 1`] = `
-"/* test 1
- * test 2
- */"
-`;
-
-exports[`should return correctly with text, align = false 1`] = `
-"/* test 1
- test 2*/"
-`;
-
-exports[`should return correctly with text, align = false, prefix = "" 1`] = `
 "/*test 1
 test 2*/"
 `;
 
-exports[`should return correctly with text, prefix = "" 1`] = `
+exports[`should return correctly with text, align 1`] = `
 "/*test 1
  *test 2
  */"
+`;
+
+exports[`should return correctly with text, align, prefix 1`] = `
+"/*~test 1
+ *~test 2
+ */"
+`;
+
+exports[`should return correctly with text, prefix 1`] = `
+"/*~test 1
+~test 2*/"
 `;
