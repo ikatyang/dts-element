@@ -1,3 +1,6 @@
+import {IJSDocComment} from './comments/jsdoc-comment';
+import {IMultiLineComment} from './comments/multi-line-comment';
+import {ISingleLineComment} from './comments/single-line-comment';
 import {IClassDeclaration} from './declarations/class-declaration';
 import {IEnumDeclaration} from './declarations/enum-declaration';
 import {IFunctionDeclaration} from './declarations/function-declaration';
@@ -8,8 +11,6 @@ import {INamespaceDeclaration} from './declarations/namespace-declaration';
 import {IParameterDeclaration} from './declarations/parameter-declaration';
 import {ITypeDeclaration} from './declarations/type-declaration';
 import {IVariableDeclaration} from './declarations/variable-declaration';
-import {IMultiLineComment} from './others/multi-line-comment';
-import {ISingleLineComment} from './others/single-line-comment';
 import {ITripleSlashReference} from './others/triple-slash-reference';
 import {IArrayType} from './types/array-type';
 import {IClassType} from './types/class-type';
@@ -31,23 +32,26 @@ import {ITypeofType} from './types/typeof-type';
 import {IUnionType} from './types/union-type';
 
 export type ITopLevelMember =
-  | IModuleMember
   | IModuleDeclaration
+  | IModuleMember
   | ITripleSlashReference
-  | ISingleLineComment
-  | IMultiLineComment
 ;
 
 export type IModuleMember =
   | IClassDeclaration
+  | IComment
   | IEnumDeclaration
   | IFunctionDeclaration
   | IInterfaceDeclaration
   | INamespaceDeclaration
   | ITypeDeclaration
   | IVariableDeclaration
-  | ISingleLineComment
+;
+
+export type IComment =
+  | IJSDocComment
   | IMultiLineComment
+  | ISingleLineComment
 ;
 
 export type IDeclaration =

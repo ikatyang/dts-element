@@ -1,4 +1,5 @@
 export * from './collections';
+export * from './comments/index';
 export * from './constants';
 export * from './declarations/index';
 export * from './element';

@@ -1,4 +1,7 @@
 import * as ts from 'typescript';
+import {transform_jsdoc_comment, IJSDocComment} from './comments/jsdoc-comment';
+import {transform_multi_line_comment, IMultiLineComment} from './comments/multi-line-comment';
+import {transform_single_line_comment, ISingleLineComment} from './comments/single-line-comment';
 import {ElementKind} from './constants';
 import {transform_class_declaration, IClassDeclaration} from './declarations/class-declaration';
 import {transform_enum_declaration, IEnumDeclaration} from './declarations/enum-declaration';
@@ -14,9 +17,6 @@ import {IElement} from './element';
 import {transform_class_member, IClassMember} from './members/class-member';
 import {transform_object_member, IObjectMember} from './members/object-member';
 import {transform_index_signature, IIndexSignature} from './others/index-signature';
-import {transform_jsdoc_comment, IJSDocComment} from './others/jsdoc-comment';
-import {transform_multi_line_comment, IMultiLineComment} from './others/multi-line-comment';
-import {transform_single_line_comment, ISingleLineComment} from './others/single-line-comment';
 import {transform_top_level_element, ITopLevelElement} from './others/top-level-element';
 import {transform_triple_slash_reference, ITripleSlashReference} from './others/triple-slash-reference';
 import {transform_type_predicate, ITypePredicate} from './others/type-predicate';

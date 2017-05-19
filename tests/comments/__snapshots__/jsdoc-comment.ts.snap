@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add_jsdoc_comment should attach jsdoc comment to node correctly 1`] = `
+"/**
+ * Line 1
+ *
+ * Line 3
+ */
+class SomeClass {
+}"
+`;
+
+exports[`should return correctly with text 1`] = `
+"/**
+ * test 1
+ *
+ * test 2
+ */"
+`;
