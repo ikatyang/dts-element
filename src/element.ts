@@ -1,6 +1,6 @@
 import {ElementKind} from './constants';
 
-export interface IElement<Kind extends ElementKind> {
+export interface IElement<Kind extends ElementKind = ElementKind> {
   kind: Kind;
 }
 

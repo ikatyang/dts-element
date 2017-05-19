@@ -1,122 +1,91 @@
 import * as ts from 'typescript';
-import {transform_jsdoc_comment, IJSDocComment} from './comments/jsdoc-comment';
-import {transform_multi_line_comment, IMultiLineComment} from './comments/multi-line-comment';
-import {transform_single_line_comment, ISingleLineComment} from './comments/single-line-comment';
+import {transform_jsdoc_comment} from './comments/jsdoc-comment';
+import {transform_multi_line_comment} from './comments/multi-line-comment';
+import {transform_single_line_comment} from './comments/single-line-comment';
 import {ElementKind} from './constants';
-import {transform_class_declaration, IClassDeclaration} from './declarations/class-declaration';
-import {transform_enum_declaration, IEnumDeclaration} from './declarations/enum-declaration';
-import {transform_function_declaration, IFunctionDeclaration} from './declarations/function-declaration';
-import {transform_generic_declaration, IGenericDeclaration} from './declarations/generic-declaration';
-import {transform_interface_declaration, IInterfaceDeclaration} from './declarations/interface-declaration';
-import {transform_module_declaration, IModuleDeclaration} from './declarations/module-declaration';
-import {transform_namespace_declaration, INamespaceDeclaration} from './declarations/namespace-declaration';
-import {transform_parameter_declaration, IParameterDeclaration} from './declarations/parameter-declaration';
-import {transform_type_declaration, ITypeDeclaration} from './declarations/type-declaration';
-import {transform_variable_declaration, IVariableDeclaration} from './declarations/variable-declaration';
+import {transform_class_declaration} from './declarations/class-declaration';
+import {transform_enum_declaration} from './declarations/enum-declaration';
+import {transform_function_declaration} from './declarations/function-declaration';
+import {transform_generic_declaration} from './declarations/generic-declaration';
+import {transform_interface_declaration} from './declarations/interface-declaration';
+import {transform_module_declaration} from './declarations/module-declaration';
+import {transform_namespace_declaration} from './declarations/namespace-declaration';
+import {transform_parameter_declaration} from './declarations/parameter-declaration';
+import {transform_type_declaration} from './declarations/type-declaration';
+import {transform_variable_declaration} from './declarations/variable-declaration';
 import {IElement} from './element';
-import {transform_class_member, IClassMember} from './members/class-member';
-import {transform_object_member, IObjectMember} from './members/object-member';
-import {transform_index_signature, IIndexSignature} from './others/index-signature';
-import {transform_top_level_element, ITopLevelElement} from './others/top-level-element';
-import {transform_triple_slash_reference, ITripleSlashReference} from './others/triple-slash-reference';
-import {transform_type_predicate, ITypePredicate} from './others/type-predicate';
-import {transform_array_type, IArrayType} from './types/array-type';
-import {transform_class_type, IClassType} from './types/class-type';
-import {transform_constructor_type, IConstructorType} from './types/constructor-type';
-import {transform_enum_type, IEnumType} from './types/enum-type';
-import {transform_function_type, IFunctionType} from './types/function-type';
-import {transform_general_type, IGeneralType} from './types/general-type';
-import {transform_generic_type, IGenericType} from './types/generic-type';
-import {transform_interface_type, IInterfaceType} from './types/interface-type';
-import {transform_intersection_type, IIntersectionType} from './types/intersection-type';
-import {transform_keyof_type, IKeyofType} from './types/keyof-type';
-import {transform_literal_type, ILiteralType} from './types/literal-type';
-import {transform_native_type, INativeType} from './types/native-type';
-import {transform_object_type, IObjectType} from './types/object-type';
-import {transform_sub_type, ISubType} from './types/sub-type';
-import {transform_tuple_type, ITupleType} from './types/tuple-type';
-import {transform_typed_type, ITypedType} from './types/typed-type';
-import {transform_typeof_type, ITypeofType} from './types/typeof-type';
-import {transform_union_type, IUnionType} from './types/union-type';
+import {transform_class_member} from './members/class-member';
+import {transform_object_member} from './members/object-member';
+import {transform_index_signature} from './others/index-signature';
+import {transform_top_level_element} from './others/top-level-element';
+import {transform_triple_slash_reference} from './others/triple-slash-reference';
+import {transform_type_predicate} from './others/type-predicate';
+import {transform_array_type} from './types/array-type';
+import {transform_class_type} from './types/class-type';
+import {transform_constructor_type} from './types/constructor-type';
+import {transform_enum_type} from './types/enum-type';
+import {transform_function_type} from './types/function-type';
+import {transform_general_type} from './types/general-type';
+import {transform_generic_type} from './types/generic-type';
+import {transform_interface_type} from './types/interface-type';
+import {transform_intersection_type} from './types/intersection-type';
+import {transform_keyof_type} from './types/keyof-type';
+import {transform_literal_type} from './types/literal-type';
+import {transform_native_type} from './types/native-type';
+import {transform_object_type} from './types/object-type';
+import {transform_sub_type} from './types/sub-type';
+import {transform_tuple_type} from './types/tuple-type';
+import {transform_typed_type} from './types/typed-type';
+import {transform_typeof_type} from './types/typeof-type';
+import {transform_union_type} from './types/union-type';
+
+export type Transformer = (element: IElement, path: IElement[]) => ts.Node;
 
 // tslint:disable-next-line:cyclomatic-complexity
-export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
+const select_transformer = (element: IElement): Transformer => {
   switch (element.kind) {
-    case ElementKind.GenericDeclaration:
-      return transform_generic_declaration(element as IGenericDeclaration, path);
-    case ElementKind.GenericType:
-      return transform_generic_type(element as IGenericType, path);
-    case ElementKind.NativeType:
-      return transform_native_type(element as INativeType, path);
-    case ElementKind.ArrayType:
-      return transform_array_type(element as IArrayType, path);
-    case ElementKind.ParameterDeclaration:
-      return transform_parameter_declaration(element as IParameterDeclaration, path);
-    case ElementKind.FunctionType:
-      return transform_function_type(element as IFunctionType, path);
-    case ElementKind.FunctionDeclaration:
-      return transform_function_declaration(element as IFunctionDeclaration, path);
-    case ElementKind.IntersectionType:
-      return transform_intersection_type(element as IIntersectionType, path);
-    case ElementKind.UnionType:
-      return transform_union_type(element as IUnionType, path);
-    case ElementKind.LiteralType:
-      return transform_literal_type(element as ILiteralType, path);
-    case ElementKind.KeyofType:
-      return transform_keyof_type(element as IKeyofType, path);
-    case ElementKind.TypeofType:
-      return transform_typeof_type(element as ITypeofType, path);
-    case ElementKind.TupleType:
-      return transform_tuple_type(element as ITupleType, path);
-    case ElementKind.VariableDeclaration:
-      return transform_variable_declaration(element as IVariableDeclaration, path);
-    case ElementKind.ObjectMember:
-      return transform_object_member(element as IObjectMember, path);
-    case ElementKind.ConstructorType:
-      return transform_constructor_type(element as IConstructorType, path);
-    case ElementKind.IndexSignature:
-      return transform_index_signature(element as IIndexSignature, path);
-    case ElementKind.ObjectType:
-      return transform_object_type(element as IObjectType, path);
-    case ElementKind.GeneralType:
-      return transform_general_type(element as IGeneralType, path);
-    case ElementKind.TypeDeclaration:
-      return transform_type_declaration(element as ITypeDeclaration, path);
-    case ElementKind.TypedType:
-      return transform_typed_type(element as ITypedType, path);
-    case ElementKind.InterfaceDeclaration:
-      return transform_interface_declaration(element as IInterfaceDeclaration, path);
-    case ElementKind.InterfaceType:
-      return transform_interface_type(element as IInterfaceType, path);
-    case ElementKind.ClassMember:
-      return transform_class_member(element as IClassMember, path);
-    case ElementKind.ClassDeclaration:
-      return transform_class_declaration(element as IClassDeclaration, path);
-    case ElementKind.ClassType:
-      return transform_class_type(element as IClassType, path);
-    case ElementKind.NamespaceDeclaration:
-      return transform_namespace_declaration(element as INamespaceDeclaration, path);
-    case ElementKind.ModuleDeclaration:
-      return transform_module_declaration(element as IModuleDeclaration, path);
-    case ElementKind.EnumDeclaration:
-      return transform_enum_declaration(element as IEnumDeclaration, path);
-    case ElementKind.EnumType:
-      return transform_enum_type(element as IEnumType, path);
-    case ElementKind.TypePredicate:
-      return transform_type_predicate(element as ITypePredicate, path);
-    case ElementKind.TripleSlashReference:
-      return transform_triple_slash_reference(element as ITripleSlashReference, path);
-    case ElementKind.TopLevelElement:
-      return transform_top_level_element(element as ITopLevelElement, path);
-    case ElementKind.SingleLineComment:
-      return transform_single_line_comment(element as ISingleLineComment, path);
-    case ElementKind.MultiLineComment:
-      return transform_multi_line_comment(element as IMultiLineComment, path);
-    case ElementKind.SubType:
-      return transform_sub_type(element as ISubType, path);
-    case ElementKind.JSDocComment:
-      return transform_jsdoc_comment(element as IJSDocComment, path);
-    default:
-      throw new Error(`Unexpected kind ${ElementKind[element.kind]} ( ${element.kind} )`);
+    case ElementKind.ArrayType: return transform_array_type;
+    case ElementKind.ClassDeclaration: return transform_class_declaration;
+    case ElementKind.ClassMember: return transform_class_member;
+    case ElementKind.ClassType: return transform_class_type;
+    case ElementKind.ConstructorType: return transform_constructor_type;
+    case ElementKind.EnumDeclaration: return transform_enum_declaration;
+    case ElementKind.EnumType: return transform_enum_type;
+    case ElementKind.FunctionDeclaration: return transform_function_declaration;
+    case ElementKind.FunctionType: return transform_function_type;
+    case ElementKind.GeneralType: return transform_general_type;
+    case ElementKind.GenericDeclaration: return transform_generic_declaration;
+    case ElementKind.GenericType: return transform_generic_type;
+    case ElementKind.IndexSignature: return transform_index_signature;
+    case ElementKind.InterfaceDeclaration: return transform_interface_declaration;
+    case ElementKind.InterfaceType: return transform_interface_type;
+    case ElementKind.IntersectionType: return transform_intersection_type;
+    case ElementKind.JSDocComment: return transform_jsdoc_comment;
+    case ElementKind.KeyofType: return transform_keyof_type;
+    case ElementKind.LiteralType: return transform_literal_type;
+    case ElementKind.ModuleDeclaration: return transform_module_declaration;
+    case ElementKind.MultiLineComment: return transform_multi_line_comment;
+    case ElementKind.NamespaceDeclaration: return transform_namespace_declaration;
+    case ElementKind.NativeType: return transform_native_type;
+    case ElementKind.ObjectMember: return transform_object_member;
+    case ElementKind.ObjectType: return transform_object_type;
+    case ElementKind.ParameterDeclaration: return transform_parameter_declaration;
+    case ElementKind.SingleLineComment: return transform_single_line_comment;
+    case ElementKind.SubType: return transform_sub_type;
+    case ElementKind.TopLevelElement: return transform_top_level_element;
+    case ElementKind.TripleSlashReference: return transform_triple_slash_reference;
+    case ElementKind.TupleType: return transform_tuple_type;
+    case ElementKind.TypeDeclaration: return transform_type_declaration;
+    case ElementKind.TypePredicate: return transform_type_predicate;
+    case ElementKind.TypedType: return transform_typed_type;
+    case ElementKind.TypeofType: return transform_typeof_type;
+    case ElementKind.UnionType: return transform_union_type;
+    case ElementKind.VariableDeclaration: return transform_variable_declaration;
+    default: throw new Error(`Unexpected kind ${element.kind} ( ${ElementKind[element.kind as ElementKind]} )`);
   }
+};
+
+export const transform = (element: IElement, path: IElement[] = []): ts.Node => {
+  const transformer = select_transformer(element);
+  return transformer(element, path);
 };
