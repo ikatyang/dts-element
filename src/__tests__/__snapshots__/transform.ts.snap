@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return node with jsdoc-attached node while element.jsdoc is not undefined 1`] = `
+"/**
+ * Line 1
+ *
+ * Line 2
+ */
+class SomeClass {
+}"
+`;

@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {IVariableDeclaration} from './variable-declaration';
 
-export interface IEnumDeclarationOptions {
+export interface IEnumDeclarationOptions extends IElementOptions {
   name: string;
   export?: boolean;
   members?: IVariableDeclaration[];

@@ -1,10 +1,10 @@
 import * as ts from 'typescript';
 import {IType} from '../collections';
 import {any_type, ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 
-export interface IVariableDeclarationOptions {
+export interface IVariableDeclarationOptions extends IElementOptions {
   name: string;
   type?: IType;
   export?: boolean;

@@ -1,11 +1,11 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {IObjectMember} from '../members/object-member';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 
-export interface IObjectTypeOptions {
+export interface IObjectTypeOptions extends IElementOptions {
   members?: (IObjectMember | IIndexSignature)[];
 }
 

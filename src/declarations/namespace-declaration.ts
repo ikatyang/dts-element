@@ -1,10 +1,10 @@
 import * as ts from 'typescript';
 import {IModuleMember} from '../collections';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 
-export interface INamespaceDeclarationOptions {
+export interface INamespaceDeclarationOptions extends IElementOptions {
   name: string;
   export?: boolean;
   members?: IModuleMember[];

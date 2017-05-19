@@ -1,10 +1,10 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {create_function_type, IFunctionType} from '../types/function-type';
 
-export interface IFunctionDeclarationOptions {
+export interface IFunctionDeclarationOptions extends IElementOptions {
   name: string | undefined;
   type?: IFunctionType;
   export?: boolean;

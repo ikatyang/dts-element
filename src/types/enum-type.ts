@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {IEnumDeclaration} from '../declarations/enum-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 
-export interface IEnumTypeOptions {
+export interface IEnumTypeOptions extends IElementOptions {
   name: string | IEnumDeclaration;
 }
 

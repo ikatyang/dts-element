@@ -2,11 +2,11 @@ import * as ts from 'typescript';
 import {IType} from '../collections';
 import {ElementKind} from '../constants';
 import {IParameterDeclaration} from '../declarations/parameter-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {INativeType} from '../types/native-type';
 
-export interface ITypePredicateOptions {
+export interface ITypePredicateOptions extends IElementOptions {
   parameter: IParameterDeclaration | INativeType;
   type: IType;
 }

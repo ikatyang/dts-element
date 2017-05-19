@@ -2,10 +2,10 @@ import * as ts from 'typescript';
 import {IType} from '../collections';
 import {ElementKind} from '../constants';
 import {ITypeDeclaration} from '../declarations/type-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
-export interface ITypedTypeOptions {
+export interface ITypedTypeOptions extends IElementOptions {
   name: string | ITypeDeclaration;
   generics?: IType[];
 }

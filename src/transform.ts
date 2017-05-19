@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import {transform_jsdoc_comment} from './comments/jsdoc-comment';
+import {add_jsdoc_comment, transform_jsdoc_comment} from './comments/jsdoc-comment';
 import {transform_multi_line_comment} from './comments/multi-line-comment';
 import {transform_single_line_comment} from './comments/single-line-comment';
 import {ElementKind} from './constants';
@@ -87,5 +87,11 @@ const select_transformer = (element: IElement): Transformer => {
 
 export const transform = (element: IElement, path: IElement[] = []): ts.Node => {
   const transformer = select_transformer(element);
-  return transformer(element, [...path, element]);
+  const node = transformer(element, [...path, element]);
+
+  if (element.jsdoc !== undefined) {
+    add_jsdoc_comment(node, element.jsdoc);
+  }
+
+  return node;
 };

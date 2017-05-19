@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {IClassMember} from '../members';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
@@ -8,7 +8,7 @@ import {IClassType} from '../types/class-type';
 import {IGeneralType} from '../types/general-type';
 import {IGenericDeclaration} from './generic-declaration';
 
-export interface IClassDeclarationOptions {
+export interface IClassDeclarationOptions extends IElementOptions {
   name: string;
   export?: boolean;
   generics?: IGenericDeclaration[];

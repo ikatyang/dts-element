@@ -1,13 +1,13 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
 import {IInterfaceType} from '../types/interface-type';
 import {create_object_type, IObjectType} from '../types/object-type';
 import {IGenericDeclaration} from './generic-declaration';
 
-export interface IInterfaceDeclarationOptions {
+export interface IInterfaceDeclarationOptions extends IElementOptions {
   name: string;
   export?: boolean;
   generics?: IGenericDeclaration[];

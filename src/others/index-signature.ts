@@ -2,10 +2,10 @@ import * as ts from 'typescript';
 import {IType} from '../collections';
 import {any_type, ElementKind} from '../constants';
 import {IParameterDeclaration} from '../declarations/parameter-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 
-export interface IIndexSignatureOptions {
+export interface IIndexSignatureOptions extends IElementOptions {
   parameter: IParameterDeclaration;
   type?: IType;
   readonly?: boolean;

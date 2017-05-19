@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 
-export interface ISingleLineCommentOptions {
+export interface ISingleLineCommentOptions extends IElementOptions {
   text: string;
   prefix?: string;
 }

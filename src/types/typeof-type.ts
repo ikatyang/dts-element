@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
 import {IDeclaration} from '../collections';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 
-export interface ITypeofTypeOptions {
+export interface ITypeofTypeOptions extends IElementOptions {
   value: string | IDeclaration;
 }
 

@@ -2,12 +2,12 @@ import * as ts from 'typescript';
 import {any_type, ElementKind} from '../constants';
 import {IFunctionDeclaration} from '../declarations/function-declaration';
 import {IVariableDeclaration} from '../declarations/variable-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {IConstructorType} from '../types/constructor-type';
 import {create_function_type} from '../types/function-type';
 
-export interface IClassMemberOptions {
+export interface IClassMemberOptions extends IElementOptions {
   owned: IVariableDeclaration | IFunctionDeclaration | IConstructorType;
   optional?: boolean;
   readonly?: boolean;

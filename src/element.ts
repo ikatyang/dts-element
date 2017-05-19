@@ -1,6 +1,10 @@
 import {ElementKind} from './constants';
 
-export interface IElement<Kind extends ElementKind = ElementKind> {
+export interface IElementOptions {
+  jsdoc?: string;
+}
+
+export interface IElement<Kind extends ElementKind = ElementKind> extends IElementOptions {
   kind: Kind;
 }
 

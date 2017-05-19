@@ -1,10 +1,10 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {IGenericDeclaration} from '../declarations/generic-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
-export interface IGenericTypeOptions {
+export interface IGenericTypeOptions extends IElementOptions {
   name: string | IGenericDeclaration;
 }
 

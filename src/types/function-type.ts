@@ -3,11 +3,11 @@ import {IType} from '../collections';
 import {any_type, ElementKind} from '../constants';
 import {IGenericDeclaration} from '../declarations/generic-declaration';
 import {IParameterDeclaration} from '../declarations/parameter-declaration';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 import {ITypePredicate} from '../others/type-predicate';
 import {transform} from '../transform';
 
-export interface IFunctionTypeOptions {
+export interface IFunctionTypeOptions extends IElementOptions {
   return?: IType | ITypePredicate;
   generics?: IGenericDeclaration[];
   parameters?: IParameterDeclaration[];

@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
-import {create_element, IElement} from '../element';
+import {create_element, IElement, IElementOptions} from '../element';
 
-export interface ITripleSlashReferenceOptions {
+export interface ITripleSlashReferenceOptions extends IElementOptions {
   path?: string;
   types?: string;
 }
