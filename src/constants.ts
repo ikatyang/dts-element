@@ -38,6 +38,7 @@ export enum ElementKind {
   SingleLineComment,
   MultiLineComment,
   SubType,
+  JSDocComment,
 }
 
 export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});

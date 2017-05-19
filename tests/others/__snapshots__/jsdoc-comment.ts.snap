@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with text 1`] = `
+"/**
+ * test 1
+ *
+ * test 2
+ */"
+`;
