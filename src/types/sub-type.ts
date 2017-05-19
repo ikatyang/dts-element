@@ -22,7 +22,7 @@ export const transform_sub_type = (element: ISubType, path: IElement<any>[]) => 
   if (element.types.length < minimum_length_of_types) {
     throw new Error(`sub_type.types.length should >= ${minimum_length_of_types}`);
   }
-  const types = element.types.map(type => transform(type, [...path, element]) as ts.TypeNode);
+  const types = element.types.map(type => transform(type, path) as ts.TypeNode);
   return types.slice(minimum_length_of_types).reduce(
     (parent_type, sub_type) => ts.createIndexedAccessTypeNode(parent_type, sub_type),
     ts.createIndexedAccessTypeNode(types[0], types[1]),

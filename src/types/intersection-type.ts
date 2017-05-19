@@ -18,5 +18,5 @@ export const create_intersection_type = (options: IIntersectionTypeOptions): IIn
 
 export const transform_intersection_type = (element: IIntersectionType, path: IElement<any>[]) =>
   ts.createIntersectionTypeNode(
-    /* types */ element.types.map(type => transform(type, [...path, element]) as ts.TypeNode),
+    /* types */ element.types.map(type => transform(type, path) as ts.TypeNode),
   );

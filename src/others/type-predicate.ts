@@ -29,5 +29,5 @@ export const transform_type_predicate = (element: ITypePredicate, path: IElement
                             return ts.createThisTypeNode();
                           })()
                           : element.parameter.name,
-    /* type          */ transform(element.type, [...path, element]) as ts.TypeNode,
+    /* type          */ transform(element.type, path) as ts.TypeNode,
   );

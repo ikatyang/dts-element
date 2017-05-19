@@ -1,7 +1,8 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
-import {create_function_type, transform_function_type, IFunctionType} from '../types/function-type';
+import {transform} from '../transform';
+import {create_function_type, IFunctionType} from '../types/function-type';
 
 export interface IFunctionDeclarationOptions {
   name: string | undefined;
@@ -18,7 +19,7 @@ export const create_function_declaration = (options: IFunctionDeclarationOptions
 });
 
 export const transform_function_declaration = (element: IFunctionDeclaration, path: IElement<any>[]) => {
-  const function_type = transform_function_type(element.type || create_function_type(), [...path, element]);
+  const function_type = transform(element.type || create_function_type(), path) as ts.FunctionDeclaration;
   return ts.createFunctionDeclaration(
     /* decorators     */ undefined,
     /* modifiers      */ (element.export === true)

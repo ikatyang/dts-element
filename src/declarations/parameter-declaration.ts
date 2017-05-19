@@ -38,7 +38,7 @@ export const transform_parameter_declaration = (element: IParameterDeclaration, 
                             (element.rest === true)
                               ? create_array_type({type: element.type || any_type})
                               : element.type || any_type,
-                            [...path, element],
+                            path,
                           ) as ts.TypeNode,
     /* initializer     */ undefined,
   );

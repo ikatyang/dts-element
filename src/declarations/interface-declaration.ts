@@ -4,8 +4,8 @@ import {create_element, IElement} from '../element';
 import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
 import {IInterfaceType} from '../types/interface-type';
-import {create_object_type, transform_object_type, IObjectType} from '../types/object-type';
-import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
+import {create_object_type, IObjectType} from '../types/object-type';
+import {IGenericDeclaration} from './generic-declaration';
 
 export interface IInterfaceDeclarationOptions {
   name: string;
@@ -33,13 +33,13 @@ export const transform_interface_declaration = (element: IInterfaceDeclaration, 
                             : undefined,
     /* name            */ element.name,
     /* typeParameters  */ element.generics && element.generics.map(
-                            generic => transform_generic_declaration(generic, [...path, element]),
+                            generic => transform(generic, path) as ts.TypeParameterDeclaration,
                           ),
     /* heritageClauses */ element.extends && [ts.createHeritageClause(
                             /* token */ ts.SyntaxKind.ExtendsKeyword,
                             /* types */ element.extends.map(interface_type => ts.createExpressionWithTypeArguments(
                                           /* typeArguments */ (interface_type.generics || []).map(
-                                                                generic => transform(generic, [...path, element]) as ts.TypeNode,
+                                                                generic => transform(generic, path) as ts.TypeNode,
                                                               ),
                                           /* expression    */ ts.createIdentifier(
                                                                 (typeof interface_type.name === 'string')
@@ -47,5 +47,5 @@ export const transform_interface_declaration = (element: IInterfaceDeclaration, 
                                                                   : interface_type.name.name),
                                         )),
                           )],
-    /* members         */ transform_object_type(element.type || create_object_type(), [...path, element]).members,
+    /* members         */ (transform(element.type || create_object_type(), path) as ts.TypeLiteralNode).members,
   );

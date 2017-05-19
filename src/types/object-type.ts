@@ -19,5 +19,5 @@ export const create_object_type = (options: IObjectTypeOptions = {}): IObjectTyp
 
 export const transform_object_type = (element: IObjectType, path: IElement<any>[]) =>
   ts.createTypeLiteralNode(
-    /* members  */ (element.members || []).map(member => transform(member, [...path, element]) as ts.TypeElement),
+    /* members  */ (element.members || []).map(member => transform(member, path) as ts.TypeElement),
   );

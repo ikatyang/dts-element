@@ -87,5 +87,5 @@ const select_transformer = (element: IElement): Transformer => {
 
 export const transform = (element: IElement, path: IElement[] = []): ts.Node => {
   const transformer = select_transformer(element);
-  return transformer(element, path);
+  return transformer(element, [...path, element]);
 };

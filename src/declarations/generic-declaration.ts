@@ -21,6 +21,6 @@ export const create_generic_declaration = (options: IGenericDeclarationOptions):
 export const transform_generic_declaration = (element: IGenericDeclaration, path: IElement<any>[]) =>
   ts.createTypeParameterDeclaration(
     /* name        */ element.name,
-    /* constraint  */ element.extends && (transform(element.extends, [...path, element]) as ts.TypeNode),
-    /* defaultType */ element.defalut && (transform(element.defalut, [...path, element]) as ts.TypeNode),
+    /* constraint  */ element.extends && (transform(element.extends, path) as ts.TypeNode),
+    /* defaultType */ element.defalut && (transform(element.defalut, path) as ts.TypeNode),
   );

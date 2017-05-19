@@ -26,7 +26,7 @@ export const transform_top_level_element = (element: ITopLevelElement, path: IEl
   );
   source_file.statements.push(
     ...element.members.map(member =>
-      transform(member, [...path, element]) as ts.Statement),
+      transform(member, path) as ts.Statement),
   );
   return source_file;
 };

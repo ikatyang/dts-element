@@ -4,7 +4,7 @@ import {any_type} from '../constants';
 import {ElementKind} from '../constants';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
-import {transform_generic_declaration, IGenericDeclaration} from './generic-declaration';
+import {IGenericDeclaration} from './generic-declaration';
 
 export interface ITypeDeclarationOptions {
   name: string;
@@ -27,9 +27,9 @@ export const transform_type_declaration = (element: ITypeDeclaration, path: IEle
   const type_declaration = ts.createTypeAliasDeclaration(
     /* name            */ element.name,
     /* typeParameters  */ element.generics && element.generics.map(
-                            generic => transform_generic_declaration(generic, [...path, element]),
+                            generic => transform(generic, path) as ts.TypeParameterDeclaration,
                           ),
-    /* type            */ transform(element.type || any_type, [...path, element]) as ts.TypeNode,
+    /* type            */ transform(element.type || any_type, path) as ts.TypeNode,
   );
   if (element.export === true) {
     type_declaration.modifiers = [ts.createToken(ts.SyntaxKind.ExportKeyword)] as ts.NodeArray<ts.Modifier>;

@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import {IType} from '../collections';
 import {any_type, ElementKind} from '../constants';
-import {transform_parameter_declaration, IParameterDeclaration} from '../declarations/parameter-declaration';
+import {IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement} from '../element';
 import {transform} from '../transform';
 
@@ -25,6 +25,6 @@ export const transform_index_signature = (element: IIndexSignature, path: IEleme
     /* modifiers   */ (element.readonly === true)
                         ? [ts.createToken(ts.SyntaxKind.ReadonlyKeyword)]
                         : undefined,
-    /* parameters  */ [transform_parameter_declaration(element.parameter, [...path, element])],
-    /* type        */ transform(element.type || any_type, [...path, element]) as ts.TypeNode,
+    /* parameters  */ [transform(element.parameter, path) as ts.ParameterDeclaration],
+    /* type        */ transform(element.type || any_type, path) as ts.TypeNode,
   );

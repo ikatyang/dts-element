@@ -26,7 +26,7 @@ export const transform_namespace_declaration = (element: INamespaceDeclaration, 
                         : undefined,
     /* name        */ ts.createIdentifier(element.name),
     /* body        */ ts.createModuleBlock((element.members || []).map(root_element =>
-                        transform(root_element, [...path, element]) as ts.Statement,
+                        transform(root_element, path) as ts.Statement,
                       )),
     /* flags       */ ts.NodeFlags.Namespace,
   );

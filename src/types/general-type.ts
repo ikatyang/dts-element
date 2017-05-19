@@ -25,6 +25,6 @@ export const transform_general_type = (element: IGeneralType, path: IElement<any
                           ? element.name
                           : element.name.name,
     /* typeArguments */ element.generics && element.generics.map(
-                          generic => transform(generic, [...path, element]) as ts.TypeNode,
+                          generic => transform(generic, path) as ts.TypeNode,
                         ),
   );
