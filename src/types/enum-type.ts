@@ -15,7 +15,7 @@ export const create_enum_type = (options: IEnumTypeOptions): IEnumType => ({
   ...options,
 });
 
-export const transform_enum_type = (element: IEnumType, _path: IElement<any>[]) =>
+export const transform_enum_type = (element: IEnumType, path: IElement<any>[]) =>
   ts.createTypeReferenceNode(
     /* typeName      */ (typeof element.name === 'string')
                           ? element.name

@@ -14,5 +14,5 @@ export const create_native_type = (options: INativeTypeOptions): INativeType => 
   ...options,
 });
 
-export const transform_native_type = (element: INativeType, _path: IElement<any>[]) =>
+export const transform_native_type = (element: INativeType, path: IElement<any>[]) =>
   element.type;
