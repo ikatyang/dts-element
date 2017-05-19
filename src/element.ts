@@ -4,7 +4,7 @@ export interface IElementOptions {
   jsdoc?: string;
 }
 
-export interface IElement<Kind extends ElementKind = ElementKind> extends IElementOptions {
+export interface IElement<Kind extends ElementKind> extends IElementOptions {
   kind: Kind;
 }
 

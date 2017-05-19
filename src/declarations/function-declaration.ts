@@ -3,6 +3,7 @@ import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {create_function_type, IFunctionType} from '../types/function-type';
+import {add_declare_modifier_if_need} from '../utils';
 
 export interface IFunctionDeclarationOptions extends IElementOptions {
   name: string | undefined;
@@ -18,18 +19,23 @@ export const create_function_declaration = (options: IFunctionDeclarationOptions
   ...options,
 });
 
+// tslint:disable:ter-indent
+
 export const transform_function_declaration = (element: IFunctionDeclaration, path: IElement<any>[]) => {
   const function_type = transform(element.type || create_function_type(), path) as ts.FunctionDeclaration;
   return ts.createFunctionDeclaration(
-    /* decorators     */ undefined,
-    /* modifiers      */ (element.export === true)
-                           ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                           : undefined,
-    /* asteriskToken  */ undefined,
-    /* name           */ element.name,
-    /* typeParameters */ function_type.typeParameters,
-    /* parameters     */ function_type.parameters,
-    /* type           */ function_type.type,
-    /* body           */ undefined,
+    /* decorators      */ undefined,
+    /* modifiers       */ add_declare_modifier_if_need(
+                            (element.export === true)
+                              ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                              : undefined,
+                            path,
+                          ),
+    /* asteriskToken   */ undefined,
+    /* name            */ element.name,
+    /* typeParameters  */ function_type.typeParameters,
+    /* parameters      */ function_type.parameters,
+    /* type            */ function_type.type,
+    /* body            */ undefined,
   );
 };

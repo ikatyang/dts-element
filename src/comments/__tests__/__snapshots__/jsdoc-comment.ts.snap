@@ -6,7 +6,7 @@ exports[`add_jsdoc_comment should attach jsdoc comment to node correctly 1`] = `
  *
  * Line 3
  */
-class SomeClass {
+declare class SomeClass {
 }"
 `;
 

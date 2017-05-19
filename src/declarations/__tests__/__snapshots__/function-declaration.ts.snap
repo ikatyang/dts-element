@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return correctly with name 1`] = `"function fn(): any;"`;
+exports[`should return correctly with name 1`] = `"declare function fn(): any;"`;
 
-exports[`should return correctly with name, export 1`] = `"export function fn(): any;"`;
+exports[`should return correctly with name, export 1`] = `"export declare function fn(): any;"`;
 
-exports[`should return correctly with name, type 1`] = `"function fn<T, U>(a: any, b: any): string;"`;
+exports[`should return correctly with name, type 1`] = `"declare function fn<T, U>(a: any, b: any): string;"`;
 
-exports[`should return correctly with undefined name 1`] = `"function (): any;"`;
+exports[`should return correctly with undefined name 1`] = `"declare function (): any;"`;

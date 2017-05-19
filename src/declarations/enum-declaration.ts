@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
+import {add_declare_modifier_if_need} from '../utils';
 import {IVariableDeclaration} from './variable-declaration';
 
 export interface IEnumDeclarationOptions extends IElementOptions {
@@ -23,9 +24,12 @@ export const transform_enum_declaration = (element: IEnumDeclaration, path: IEle
   let counter = 0;
   return ts.createEnumDeclaration(
     /* decorators  */ undefined,
-    /* modifiers   */ (element.export === true)
-                        ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                        : undefined,
+    /* modifiers   */ add_declare_modifier_if_need(
+                        (element.export === true)
+                          ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                          : undefined,
+                        path,
+                      ),
     /* name        */ element.name,
     /* members     */ (element.members || []).map(variable_declaration => {
                         if (variable_declaration.type && variable_declaration.type.kind !== ElementKind.LiteralType) {

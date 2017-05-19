@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return correctly with name (hierarchy) 1`] = `"namespace A.B.C { }"`;
+exports[`should return correctly with name (hierarchy) 1`] = `"declare namespace A.B.C { }"`;
 
-exports[`should return correctly with name 1`] = `"namespace N { }"`;
+exports[`should return correctly with name 1`] = `"declare namespace N { }"`;
 
 exports[`should return correctly with name, children 1`] = `
-"namespace N {
+"declare namespace N {
     var a: any;
     function b(): any;
 }"
 `;
 
-exports[`should return correctly with name, export 1`] = `"export namespace N { }"`;
+exports[`should return correctly with name, export 1`] = `"export declare namespace N { }"`;
 
 exports[`should return correctly with name, export, children 1`] = `
-"export namespace N {
+"export declare namespace N {
     var a: any;
     function b(): any;
 }"

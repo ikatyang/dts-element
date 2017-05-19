@@ -10,3 +10,4 @@ export * from './constants';
 export {IElement, IElementOptions} from './element';
 export {emit} from './emit';
 export {transform} from './transform';
+export {} from './utils';

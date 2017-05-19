@@ -40,10 +40,10 @@ import {transform_typed_type} from './types/typed-type';
 import {transform_typeof_type} from './types/typeof-type';
 import {transform_union_type} from './types/union-type';
 
-export type Transformer = (element: IElement, path: IElement[]) => ts.Node;
+export type Transformer = (element: IElement<any>, path: IElement<any>[]) => ts.Node;
 
 // tslint:disable-next-line:cyclomatic-complexity
-const select_transformer = (element: IElement): Transformer => {
+const select_transformer = (element: IElement<any>): Transformer => {
   switch (element.kind) {
     case ElementKind.ArrayType: return transform_array_type;
     case ElementKind.ClassDeclaration: return transform_class_declaration;
@@ -87,7 +87,7 @@ const select_transformer = (element: IElement): Transformer => {
   }
 };
 
-export const transform = (element: IElement, path: IElement[] = []): ts.Node => {
+export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
   const transformer = select_transformer(element);
   const node = transformer(element, [...path, element]);
 

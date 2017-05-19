@@ -6,6 +6,7 @@ import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 import {IClassType} from '../types/class-type';
 import {IGeneralType} from '../types/general-type';
+import {add_declare_modifier_if_need} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface IClassDeclarationOptions extends IElementOptions {
@@ -30,14 +31,17 @@ export const create_class_declaration = (options: IClassDeclarationOptions): ICl
 export const transform_class_declaration = (element: IClassDeclaration, path: IElement<any>[]) =>
   ts.createClassDeclaration(
     /* decorators      */ undefined,
-    /* modifiers       */ [
-                            ...(element.export === true)
-                              ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                              : [],
-                            ...(element.abstract === true)
-                              ? [ts.createToken(ts.SyntaxKind.AbstractKeyword)]
-                              : [],
-                          ],
+    /* modifiers       */ add_declare_modifier_if_need(
+                            [
+                              ...(element.export === true)
+                                ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                                : [],
+                              ...(element.abstract === true)
+                                ? [ts.createToken(ts.SyntaxKind.AbstractKeyword)]
+                                : [],
+                            ],
+                            path,
+                          ),
     /* name            */ element.name,
     /* typeParameters  */ element.generics && element.generics.map(
                             generic => transform(generic, path) as ts.TypeParameterDeclaration,

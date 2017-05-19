@@ -3,6 +3,7 @@ import {IModuleMember} from '../collections';
 import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
+import {add_declare_modifier_if_need} from '../utils';
 
 export interface INamespaceDeclarationOptions extends IElementOptions {
   name: string;
@@ -18,12 +19,17 @@ export const create_namespace_declaration = (options: INamespaceDeclarationOptio
   ...options,
 });
 
+// tslint:disable:ter-indent
+
 export const transform_namespace_declaration = (element: INamespaceDeclaration, path: IElement<any>[]) =>
   ts.createModuleDeclaration(
     /* decorators  */ undefined,
-    /* modifiers   */ (element.export === true)
-                        ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                        : undefined,
+    /* modifiers   */ add_declare_modifier_if_need(
+                        (element.export === true)
+                          ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                          : undefined,
+                        path,
+                      ),
     /* name        */ ts.createIdentifier(element.name),
     /* body        */ ts.createModuleBlock((element.members || []).map(root_element =>
                         transform(root_element, path) as ts.Statement,

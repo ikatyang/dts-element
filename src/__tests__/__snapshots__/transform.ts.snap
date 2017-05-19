@@ -6,6 +6,6 @@ exports[`should return node with jsdoc-attached node while element.jsdoc is not 
  *
  * Line 2
  */
-class SomeClass {
+declare class SomeClass {
 }"
 `;

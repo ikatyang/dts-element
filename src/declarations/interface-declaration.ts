@@ -5,6 +5,7 @@ import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
 import {IInterfaceType} from '../types/interface-type';
 import {create_object_type, IObjectType} from '../types/object-type';
+import {add_declare_modifier_if_need} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface IInterfaceDeclarationOptions extends IElementOptions {
@@ -28,9 +29,12 @@ export const create_interface_declaration = (options: IInterfaceDeclarationOptio
 export const transform_interface_declaration = (element: IInterfaceDeclaration, path: IElement<any>[]) =>
   ts.createInterfaceDeclaration(
     /* decorators      */ undefined,
-    /* modifiers       */ (element.export === true)
-                            ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                            : undefined,
+    /* modifiers       */ add_declare_modifier_if_need(
+                            (element.export === true)
+                              ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                              : undefined,
+                            path,
+                          ),
     /* name            */ element.name,
     /* typeParameters  */ element.generics && element.generics.map(
                             generic => transform(generic, path) as ts.TypeParameterDeclaration,
