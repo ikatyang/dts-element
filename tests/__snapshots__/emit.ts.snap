@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `"\\"/*~ hello\\\\n *~\\\\n *~ world\\\\n */\\\\nclass AAA extends SomethingElse {\\\\n}\\\\n\\""`;
+
+exports[`should return correctly with newLine 1`] = `"\\"/*~ hello\\\\r\\\\n *~\\\\r\\\\n *~ world\\\\r\\\\n */\\\\r\\\\nclass AAA extends SomethingElse {\\\\r\\\\n}\\\\r\\\\n\\""`;
+
+exports[`should return correctly with removeComments 1`] = `"\\"class AAA extends SomethingElse {\\\\n}\\\\n\\""`;
+
+exports[`should return correctly with removeComments and newLine 1`] = `"\\"class AAA extends SomethingElse {\\\\r\\\\n}\\\\r\\\\n\\""`;
