@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with parameter 1`] = `
+"{
+    [T in keyof X]: any;
+}"
+`;
+
+exports[`should return correctly with parameter, optional 1`] = `
+"{
+    [T in keyof X]?: any;
+}"
+`;
+
+exports[`should return correctly with parameter, optional, readonly, type 1`] = `
+"{
+    readonly [T in keyof X]?: X[T];
+}"
+`;
+
+exports[`should return correctly with parameter, readonly 1`] = `
+"{
+    readonly [T in keyof X]: any;
+}"
+`;
+
+exports[`should return correctly with parameter, type 1`] = `
+"{
+    [T in keyof X]: string;
+}"
+`;

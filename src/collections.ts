@@ -23,6 +23,7 @@ import {IInterfaceType} from './types/interface-type';
 import {IIntersectionType} from './types/intersection-type';
 import {IKeyofType} from './types/keyof-type';
 import {ILiteralType} from './types/literal-type';
+import {IMappedType} from './types/mapped-type';
 import {INativeType} from './types/native-type';
 import {IObjectType} from './types/object-type';
 import {ISubType} from './types/sub-type';
@@ -77,6 +78,7 @@ export type IType =
   | IIntersectionType
   | IKeyofType
   | ILiteralType
+  | IMappedType
   | INativeType
   | IObjectType
   | ISubType

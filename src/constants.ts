@@ -21,6 +21,7 @@ export enum ElementKind {
   JSDocComment,
   KeyofType,
   LiteralType,
+  MappedType,
   ModuleDeclaration,
   MultiLineComment,
   NamespaceDeclaration,

@@ -9,6 +9,7 @@ export {IInterfaceType, IInterfaceTypeOptions, create_interface_type} from './in
 export {IIntersectionType, IIntersectionTypeOptions, create_intersection_type} from './intersection-type';
 export {IKeyofType, IKeyofTypeOptions, create_keyof_type} from './keyof-type';
 export {ILiteralType, ILiteralTypeOptions, create_literal_type} from './literal-type';
+export {IMappedType, IMappedTypeOptions, create_mapped_type} from './mapped-type';
 export {} from './native-type';
 export {IObjectType, IObjectTypeOptions, create_object_type} from './object-type';
 export {ISubType, ISubTypeOptions, create_sub_type} from './sub-type';

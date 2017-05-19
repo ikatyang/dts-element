@@ -31,6 +31,7 @@ import {transform_interface_type} from './types/interface-type';
 import {transform_intersection_type} from './types/intersection-type';
 import {transform_keyof_type} from './types/keyof-type';
 import {transform_literal_type} from './types/literal-type';
+import {transform_mapped_type} from './types/mapped-type';
 import {transform_native_type} from './types/native-type';
 import {transform_object_type} from './types/object-type';
 import {transform_sub_type} from './types/sub-type';
@@ -63,6 +64,7 @@ const select_transformer = (element: IElement): Transformer => {
     case ElementKind.JSDocComment: return transform_jsdoc_comment;
     case ElementKind.KeyofType: return transform_keyof_type;
     case ElementKind.LiteralType: return transform_literal_type;
+    case ElementKind.MappedType: return transform_mapped_type;
     case ElementKind.ModuleDeclaration: return transform_module_declaration;
     case ElementKind.MultiLineComment: return transform_multi_line_comment;
     case ElementKind.NamespaceDeclaration: return transform_namespace_declaration;
