@@ -1,11 +1,13 @@
 import * as ts from 'typescript';
 import {IType} from '../collections';
 import {ElementKind} from '../constants';
+import {INamespaceDeclaration} from '../declarations/namespace-declaration';
 import {ITypeDeclaration} from '../declarations/type-declaration';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
 export interface ITypedTypeOptions extends IElementOptions {
+  parents?: (string | INamespaceDeclaration)[];
   name: string | ITypeDeclaration;
   generics?: IType[];
 }

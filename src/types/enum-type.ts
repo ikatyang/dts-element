@@ -1,10 +1,14 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {IEnumDeclaration} from '../declarations/enum-declaration';
+import {INamespaceDeclaration} from '../declarations/namespace-declaration';
+import {IVariableDeclaration} from '../declarations/variable-declaration';
 import {create_element, IElement, IElementOptions} from '../element';
+import {transform_general_type} from './general-type';
 
 export interface IEnumTypeOptions extends IElementOptions {
-  name: string | IEnumDeclaration;
+  parents?: (string | IEnumDeclaration | INamespaceDeclaration)[];
+  name: string | IEnumDeclaration | IVariableDeclaration;
 }
 
 export interface IEnumType
@@ -15,10 +19,5 @@ export const create_enum_type = (options: IEnumTypeOptions): IEnumType => ({
   ...options,
 });
 
-export const transform_enum_type = (element: IEnumType, path: IElement<any>[]) =>
-  ts.createTypeReferenceNode(
-    /* typeName      */ (typeof element.name === 'string')
-                          ? element.name
-                          : element.name.name,
-    /* typeArguments */ undefined,
-  );
+export const transform_enum_type: (element: IEnumType, path: IElement<any>[]) => ts.TypeReferenceNode
+  = transform_general_type as any;

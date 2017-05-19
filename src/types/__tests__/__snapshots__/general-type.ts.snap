@@ -3,3 +3,9 @@
 exports[`should return correctly with name 1`] = `"Something"`;
 
 exports[`should return correctly with name, generics 1`] = `"Something<any, string>"`;
+
+exports[`should return correctly with name, parents (length = 0) 1`] = `"Something"`;
+
+exports[`should return correctly with name, parents (length > 0) 1`] = `"A.B.Something"`;
+
+exports[`should return correctly with name, parents, generics 1`] = `"A.B.Something<any, string>"`;
