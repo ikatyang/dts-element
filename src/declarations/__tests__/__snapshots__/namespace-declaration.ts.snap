@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should return correctly with name (hierarchy) 1`] = `"namespace A.B.C { }"`;
+
 exports[`should return correctly with name 1`] = `"namespace N { }"`;
 
 exports[`should return correctly with name, children 1`] = `

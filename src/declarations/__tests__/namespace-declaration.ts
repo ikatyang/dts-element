@@ -11,6 +11,14 @@ it('should return correctly with name', () => {
   )).toMatchSnapshot();
 });
 
+it('should return correctly with name (hierarchy)', () => {
+  expect(emit(
+    create_namespace_declaration({
+      name: 'A.B.C',
+    }),
+  )).toMatchSnapshot();
+});
+
 it('should return correctly with name, export', () => {
   expect(emit(
     create_namespace_declaration({
