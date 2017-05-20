@@ -5,7 +5,7 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
 export interface IGenericTypeOptions extends IElementOptions {
-  name: string | IGenericDeclaration;
+  name: string;
 }
 
 export interface IGenericType

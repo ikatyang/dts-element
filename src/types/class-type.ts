@@ -7,8 +7,8 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
 export interface IClassTypeOptions extends IElementOptions {
-  parents?: (string | INamespaceDeclaration)[];
-  name: string | IClassDeclaration;
+  parents?: string[];
+  name: string;
   generics?: IType[];
 }
 

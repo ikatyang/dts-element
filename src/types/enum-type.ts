@@ -7,8 +7,8 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform_general_type} from './general-type';
 
 export interface IEnumTypeOptions extends IElementOptions {
-  parents?: (string | IEnumDeclaration | INamespaceDeclaration)[];
-  name: string | IEnumDeclaration | IVariableDeclaration;
+  parents?: string[];
+  name: string;
 }
 
 export interface IEnumType

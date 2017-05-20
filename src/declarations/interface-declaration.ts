@@ -45,10 +45,7 @@ export const transform_interface_declaration = (element: IInterfaceDeclaration, 
                                           /* typeArguments */ (interface_type.generics || []).map(
                                                                 generic => transform(generic, path) as ts.TypeNode,
                                                               ),
-                                          /* expression    */ ts.createIdentifier(
-                                                                (typeof interface_type.name === 'string')
-                                                                  ? interface_type.name
-                                                                  : interface_type.name.name),
+                                          /* expression    */ ts.createIdentifier(interface_type.name),
                                         )),
                           )],
     /* members         */ (transform(element.type || create_object_type(), path) as ts.TypeLiteralNode).members,

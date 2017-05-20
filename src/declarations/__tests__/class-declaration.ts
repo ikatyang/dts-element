@@ -72,9 +72,7 @@ it('should return correctly with name, extends', () => {
     create_class_declaration({
       name: 'C',
       extends: create_class_type({
-        name: create_class_declaration({
-          name: 'X',
-        }),
+        name: 'X',
       }),
     }),
   )).toMatchSnapshot();

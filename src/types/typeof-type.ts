@@ -4,7 +4,7 @@ import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
 
 export interface ITypeofTypeOptions extends IElementOptions {
-  value: string | IDeclaration;
+  value: string;
 }
 
 export interface ITypeofType
@@ -19,11 +19,5 @@ export const create_typeof_type = (options: ITypeofTypeOptions): ITypeofType => 
 
 export const transform_typeof_type = (element: ITypeofType, path: IElement<any>[]) =>
   ts.createTypeQueryNode(
-    /* exprName  */ ts.createIdentifier(
-                      (typeof element.value === 'string')
-                        ? element.value
-                        : element.value.name || (() => {
-                          throw new Error(`typeof_type.value.name should be a string`);
-                        })(),
-                    ),
+    /* exprName  */ ts.createIdentifier(element.value),
   );

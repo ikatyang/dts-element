@@ -14,9 +14,7 @@ it('should return correctly with name (string)', () => {
 it('should return correctly with name (TypeDeclaration)', () => {
   expect(emit(
     create_typed_type({
-      name: create_type_declaration({
-        name: 'Something',
-      }),
+      name: 'Something',
     }),
   )).toMatchSnapshot();
 });

@@ -5,8 +5,8 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 
 export interface IGeneralTypeOptions extends IElementOptions {
-  parents?: (string | {name: string})[];
-  name: string | {name: string};
+  parents?: string[];
+  name: string;
   generics?: IType[];
 }
 
@@ -26,24 +26,17 @@ export const transform_general_type = (element: IGeneralType, path: IElement<any
     : (element.parents
         .map(
           parent =>
-            ts.createIdentifier(
-              (typeof parent === 'string')
-                ? parent
-                : parent.name,
-            ),
+            ts.createIdentifier(parent),
         ) as (ts.Identifier | ts.QualifiedName)[]
       )
       .reduce(
         (parent: ts.Identifier | ts.QualifiedName, current: ts.Identifier) =>
           ts.createQualifiedName(parent, current),
       );
-  const name = (typeof element.name === 'string')
-    ? element.name
-    : element.name.name;
   return ts.createTypeReferenceNode(
     /* typeName      */ (reduced_parent === undefined)
-                          ? name
-                          : ts.createQualifiedName(reduced_parent, name),
+                          ? element.name
+                          : ts.createQualifiedName(reduced_parent, element.name),
     /* typeArguments */ element.generics && element.generics.map(
                           generic => transform(generic, path) as ts.TypeNode,
                         ),

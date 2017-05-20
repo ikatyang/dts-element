@@ -70,9 +70,7 @@ it('should return correctly with name, extends', () => {
           name: 'Y',
         }),
         create_interface_type({
-          name: create_interface_declaration({
-            name: 'Z',
-          }),
+          name: 'Z',
         }),
       ],
     }),

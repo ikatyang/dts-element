@@ -35,7 +35,7 @@ it('should return correctly with name, parents (length > 0)', () => {
   expect(emit(
     create_general_type({
       name: 'Something',
-      parents: ['A', {name: 'B'}],
+      parents: ['A', 'B'],
     }),
   )).toMatchSnapshot();
 });
@@ -44,7 +44,7 @@ it('should return correctly with name, parents, generics', () => {
   expect(emit(
     create_general_type({
       name: 'Something',
-      parents: ['A', {name: 'B'}],
+      parents: ['A', 'B'],
       generics: [
         any_type,
         string_type,

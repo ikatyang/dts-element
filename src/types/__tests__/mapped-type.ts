@@ -89,7 +89,7 @@ it('should return correctly with parameter, optional, readonly, type', () => {
         types: [
           in_type,
           create_generic_type({
-            name: parameter,
+            name: parameter.name,
           }),
         ],
       }),

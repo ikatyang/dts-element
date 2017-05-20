@@ -54,10 +54,7 @@ export const transform_class_declaration = (element: IClassDeclaration, path: IE
                                           /* typeArguments */ (element.extends.generics || []).map(
                                                                 generic => transform(generic, path) as ts.TypeNode,
                                                               ),
-                                          /* expression    */ ts.createIdentifier(
-                                                                (typeof element.extends.name === 'string')
-                                                                  ? element.extends.name
-                                                                  : element.extends.name.name),
+                                          /* expression    */ ts.createIdentifier(element.extends.name),
                                         )],
                             )],
     /* members         */ (element.members || []).map(member => transform(member, path) as ts.ClassElement),
