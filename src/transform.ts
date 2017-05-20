@@ -18,6 +18,7 @@ import {IElement} from './element';
 import {transform_import_named} from './import-exports/import-named';
 import {transform_import_namespace} from './import-exports/import-namespace';
 import {transform_class_member} from './members/class-member';
+import {transform_export_member} from './members/export-member';
 import {transform_import_member} from './members/import-member';
 import {transform_object_member} from './members/object-member';
 import {transform_index_signature} from './others/index-signature';
@@ -49,6 +50,7 @@ const select_transformer = (element: IElement<any>): Transformer => {
     case ElementKind.ClassMember: return transform_class_member;
     case ElementKind.ConstructorType: return transform_constructor_type;
     case ElementKind.EnumDeclaration: return transform_enum_declaration;
+    case ElementKind.ExportMember: return transform_export_member;
     case ElementKind.FunctionDeclaration: return transform_function_declaration;
     case ElementKind.FunctionType: return transform_function_type;
     case ElementKind.GeneralType: return transform_general_type;
