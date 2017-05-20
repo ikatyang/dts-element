@@ -6,6 +6,7 @@ import {IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement, IElementOptions} from '../element';
 import {ITypePredicate} from '../others/type-predicate';
 import {transform} from '../transform';
+import {create_type_parameters} from '../utils';
 
 export interface IFunctionTypeOptions extends IElementOptions {
   return?: IType | ITypePredicate;
@@ -25,9 +26,7 @@ export const create_function_type = (options: IFunctionTypeOptions = {}): IFunct
 
 export const transform_function_type = (element: IFunctionType, path: IElement<any>[]) =>
   ts.createFunctionTypeNode(
-    /* typeParameters  */ element.generics && element.generics.map(
-                            generic => transform(generic, path) as ts.TypeParameterDeclaration,
-                          ),
+    /* typeParameters  */ create_type_parameters(element.generics, path),
     /* parameters      */ (element.parameters || []).map(
                             parameter => transform(parameter, path) as ts.ParameterDeclaration,
                           ),

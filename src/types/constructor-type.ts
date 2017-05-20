@@ -5,6 +5,7 @@ import {IGenericDeclaration} from '../declarations/generic-declaration';
 import {IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
+import {create_type_parameters} from '../utils';
 
 export interface IConstructorTypeOptions extends IElementOptions {
   return?: IType;
@@ -23,9 +24,7 @@ export const create_constructor_type = (options: IConstructorTypeOptions = {}): 
 // tslint:disable:ter-indent
 export const transform_constructor_type = (element: IConstructorType, path: IElement<any>[]) =>
   ts.createConstructorTypeNode(
-    /* typeParameters  */ element.generics && element.generics.map(
-                            generic => transform(generic, path) as ts.TypeParameterDeclaration,
-                          ),
+    /* typeParameters  */ create_type_parameters(element.generics, path),
     /* parameters      */ (element.parameters || []).map(
                             parameter => transform(parameter, path) as ts.ParameterDeclaration,
                           ),
