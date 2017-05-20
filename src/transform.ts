@@ -15,6 +15,7 @@ import {transform_parameter_declaration} from './declarations/parameter-declarat
 import {transform_type_declaration} from './declarations/type-declaration';
 import {transform_variable_declaration} from './declarations/variable-declaration';
 import {IElement} from './element';
+import {transform_export_named} from './import-exports/export-named';
 import {transform_import_named} from './import-exports/import-named';
 import {transform_import_namespace} from './import-exports/import-namespace';
 import {transform_class_member} from './members/class-member';
@@ -51,6 +52,7 @@ const select_transformer = (element: IElement<any>): Transformer => {
     case ElementKind.ConstructorType: return transform_constructor_type;
     case ElementKind.EnumDeclaration: return transform_enum_declaration;
     case ElementKind.ExportMember: return transform_export_member;
+    case ElementKind.ExportNamed: return transform_export_named;
     case ElementKind.FunctionDeclaration: return transform_function_declaration;
     case ElementKind.FunctionType: return transform_function_type;
     case ElementKind.GeneralType: return transform_general_type;

@@ -8,6 +8,7 @@ export enum ElementKind {
   ConstructorType,
   EnumDeclaration,
   ExportMember,
+  ExportNamed,
   FunctionDeclaration,
   FunctionType,
   GeneralType,
