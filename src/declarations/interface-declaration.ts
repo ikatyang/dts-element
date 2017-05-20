@@ -4,7 +4,11 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
 import {create_object_type, IObjectType} from '../types/object-type';
-import {add_declare_modifier_if_need, create_type_nodes, create_type_parameters} from '../utils';
+import {
+  add_declare_modifier_if_need,
+  create_expression_for_general_type,
+  create_type_parameters,
+} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface IInterfaceDeclarationOptions extends IElementOptions {
@@ -38,10 +42,7 @@ export const transform_interface_declaration = (element: IInterfaceDeclaration, 
     /* typeParameters  */ create_type_parameters(element.generics, path),
     /* heritageClauses */ element.extends && [ts.createHeritageClause(
                             /* token */ ts.SyntaxKind.ExtendsKeyword,
-                            /* types */ element.extends.map(interface_type => ts.createExpressionWithTypeArguments(
-                                          /* typeArguments */ create_type_nodes(interface_type.generics, path),
-                                          /* expression    */ ts.createIdentifier(interface_type.name),
-                                        )),
+                            /* types */ element.extends.map(extend => create_expression_for_general_type(extend, path)),
                           )],
     /* members         */ (transform(element.type || create_object_type(), path) as ts.TypeLiteralNode).members,
   );

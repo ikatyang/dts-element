@@ -3,6 +3,7 @@ import {IType} from './collections';
 import {IGenericDeclaration} from './declarations/generic-declaration';
 import {IElement} from './element';
 import {transform} from './transform';
+import {IGeneralType} from './types/general-type';
 
 const declare_token = ts.createToken(ts.SyntaxKind.DeclareKeyword);
 
@@ -44,4 +45,24 @@ export const create_type_parameters = (generics: undefined | IGenericDeclaration
 export const create_type_nodes = (types: undefined | IType[], path: IElement<any>[]) =>
   (types || []).map(
     type => transform(type, path) as ts.TypeNode,
+  );
+
+export const create_property_access = (names: string[]): ts.Expression => {
+  const minimum_names = 2;
+  if (names.length < minimum_names) {
+    throw new Error(`names in property_access should be an array of string (length >= ${minimum_names})`);
+  }
+  const identifiers = names.map(name => ts.createIdentifier(name));
+  return identifiers.slice(minimum_names).reduce(
+    (previous, current) => ts.createPropertyAccess(previous, current),
+    ts.createPropertyAccess(identifiers[0], identifiers[1]),
+  );
+};
+
+export const create_expression_for_general_type = (element: IGeneralType, path: IElement<any>[]) =>
+  ts.createExpressionWithTypeArguments(
+    /* typeArguments */ create_type_nodes(element.generics, path),
+    /* expression    */ (element.parents === undefined || element.parents.length === 0)
+                          ? ts.createIdentifier(element.name)
+                          : create_property_access([...element.parents, element.name]),
   );
