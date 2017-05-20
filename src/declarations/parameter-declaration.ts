@@ -28,12 +28,12 @@ export const transform_parameter_declaration = (element: IParameterDeclaration, 
     /* decorators      */ undefined,
     /* modifiers       */ undefined,
     /* dotDotDotToken  */ (element.rest === true)
-                          ? ts.createToken(ts.SyntaxKind.DotDotDotToken)
-                          : undefined,
+                            ? ts.createToken(ts.SyntaxKind.DotDotDotToken)
+                            : undefined,
     /* name            */ element.name,
     /* questionToken   */ (element.optional === true)
-                          ? ts.createToken(ts.SyntaxKind.QuestionToken)
-                          : undefined,
+                            ? ts.createToken(ts.SyntaxKind.QuestionToken)
+                            : undefined,
     /* type            */ transform(
                             (element.rest === true)
                               ? create_array_type({type: element.type || any_type})
