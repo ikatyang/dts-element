@@ -2,7 +2,7 @@
 
 exports[`should return correctly with name 1`] = `"declare module \\"M\\" { }"`;
 
-exports[`should return correctly with name, children 1`] = `
+exports[`should return correctly with name, members 1`] = `
 "declare module \\"M\\" {
     var a: any;
     function b(): any;

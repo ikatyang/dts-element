@@ -23,8 +23,8 @@ export const transform_module_declaration = (element: IModuleDeclaration, path: 
     /* decorators  */ undefined,
     /* modifiers   */ add_declare_modifier_if_need(undefined, path),
     /* name        */ ts.createLiteral(element.name),
-    /* body        */ ts.createModuleBlock((element.members || []).map(root_element =>
-                        transform(root_element, path) as ts.Statement,
+    /* body        */ ts.createModuleBlock((element.members || []).map(member =>
+                        transform(member, path) as ts.Statement,
                       )),
     /* flags       */ undefined,
   );

@@ -4,17 +4,17 @@ exports[`should return correctly with name (hierarchy) 1`] = `"declare namespace
 
 exports[`should return correctly with name 1`] = `"declare namespace N { }"`;
 
-exports[`should return correctly with name, children 1`] = `
-"declare namespace N {
+exports[`should return correctly with name, export 1`] = `"export declare namespace N { }"`;
+
+exports[`should return correctly with name, export, members 1`] = `
+"export declare namespace N {
     var a: any;
     function b(): any;
 }"
 `;
 
-exports[`should return correctly with name, export 1`] = `"export declare namespace N { }"`;
-
-exports[`should return correctly with name, export, children 1`] = `
-"export declare namespace N {
+exports[`should return correctly with name, members 1`] = `
+"declare namespace N {
     var a: any;
     function b(): any;
 }"

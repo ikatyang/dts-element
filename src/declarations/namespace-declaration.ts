@@ -31,8 +31,8 @@ export const transform_namespace_declaration = (element: INamespaceDeclaration, 
                         path,
                       ),
     /* name        */ ts.createIdentifier(element.name),
-    /* body        */ ts.createModuleBlock((element.members || []).map(root_element =>
-                        transform(root_element, path) as ts.Statement,
+    /* body        */ ts.createModuleBlock((element.members || []).map(member =>
+                        transform(member, path) as ts.Statement,
                       )),
     /* flags       */ ts.NodeFlags.Namespace,
   );

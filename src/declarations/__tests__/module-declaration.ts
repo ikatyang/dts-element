@@ -11,7 +11,7 @@ it('should return correctly with name', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name, children', () => {
+it('should return correctly with name, members', () => {
   expect(emit(
     create_module_declaration({
       name: 'M',

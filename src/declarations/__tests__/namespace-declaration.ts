@@ -28,7 +28,7 @@ it('should return correctly with name, export', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name, children', () => {
+it('should return correctly with name, members', () => {
   expect(emit(
     create_namespace_declaration({
       name: 'N',
@@ -44,7 +44,7 @@ it('should return correctly with name, children', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with name, export, children', () => {
+it('should return correctly with name, export, members', () => {
   expect(emit(
     create_namespace_declaration({
       name: 'N',
