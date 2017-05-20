@@ -14,6 +14,7 @@ export enum ElementKind {
   GeneralType,
   GenericDeclaration,
   GenericType,
+  GlobalDeclaration,
   IndexSignature,
   InterfaceDeclaration,
   InterfaceType,

@@ -7,6 +7,7 @@ import {transform_class_declaration} from './declarations/class-declaration';
 import {transform_enum_declaration} from './declarations/enum-declaration';
 import {transform_function_declaration} from './declarations/function-declaration';
 import {transform_generic_declaration} from './declarations/generic-declaration';
+import {transform_global_declaration} from './declarations/global-declaration';
 import {transform_interface_declaration} from './declarations/interface-declaration';
 import {transform_module_declaration} from './declarations/module-declaration';
 import {transform_namespace_declaration} from './declarations/namespace-declaration';
@@ -57,6 +58,7 @@ const select_transformer = (element: IElement<any>): Transformer => {
     case ElementKind.GeneralType: return transform_general_type;
     case ElementKind.GenericDeclaration: return transform_generic_declaration;
     case ElementKind.GenericType: return transform_generic_type;
+    case ElementKind.GlobalDeclaration: return transform_global_declaration;
     case ElementKind.IndexSignature: return transform_index_signature;
     case ElementKind.InterfaceDeclaration: return transform_interface_declaration;
     case ElementKind.InterfaceType: return transform_interface_type;

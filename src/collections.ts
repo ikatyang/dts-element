@@ -5,6 +5,7 @@ import {IClassDeclaration} from './declarations/class-declaration';
 import {IEnumDeclaration} from './declarations/enum-declaration';
 import {IFunctionDeclaration} from './declarations/function-declaration';
 import {IGenericDeclaration} from './declarations/generic-declaration';
+import {IGlobalDeclaration} from './declarations/global-declaration';
 import {IInterfaceDeclaration} from './declarations/interface-declaration';
 import {IModuleDeclaration} from './declarations/module-declaration';
 import {INamespaceDeclaration} from './declarations/namespace-declaration';
@@ -36,6 +37,7 @@ export type ITopLevelMember =
   | IModuleDeclaration
   | IModuleMember
   | ITripleSlashReference
+  | IGlobalDeclaration
 ;
 
 export type IModuleMember =
