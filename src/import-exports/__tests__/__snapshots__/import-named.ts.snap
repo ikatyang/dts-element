@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with from 1`] = `"import \\"path/to/somewhere\\";"`;
+
+exports[`should return correctly with from, members 1`] = `"import { a, b } from \\"path/to/somewhere\\";"`;
+
+exports[`should return correctly with from, name 1`] = `"import abc from \\"path/to/somewhere\\";"`;
+
+exports[`should return correctly with from, name, members 1`] = `"import abc, { a, b } from \\"path/to/somewhere\\";"`;

@@ -12,6 +12,7 @@ import {INamespaceDeclaration} from './declarations/namespace-declaration';
 import {IParameterDeclaration} from './declarations/parameter-declaration';
 import {ITypeDeclaration} from './declarations/type-declaration';
 import {IVariableDeclaration} from './declarations/variable-declaration';
+import {IImportNamed} from './import-exports/import-named';
 import {ITripleSlashReference} from './others/triple-slash-reference';
 import {IArrayType} from './types/array-type';
 import {IConstructorType} from './types/constructor-type';
@@ -29,10 +30,15 @@ import {ITypeofType} from './types/typeof-type';
 import {IUnionType} from './types/union-type';
 
 export type ITopLevelMember =
+  | IImportExport
   | IModuleDeclaration
   | IModuleMember
   | ITripleSlashReference
   | IGlobalDeclaration
+;
+
+export type IImportExport =
+  | IImportNamed
 ;
 
 export type IModuleMember =

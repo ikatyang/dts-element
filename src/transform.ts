@@ -15,7 +15,9 @@ import {transform_parameter_declaration} from './declarations/parameter-declarat
 import {transform_type_declaration} from './declarations/type-declaration';
 import {transform_variable_declaration} from './declarations/variable-declaration';
 import {IElement} from './element';
+import {transform_import_named} from './import-exports/import-named';
 import {transform_class_member} from './members/class-member';
+import {transform_import_member} from './members/import-member';
 import {transform_object_member} from './members/object-member';
 import {transform_index_signature} from './others/index-signature';
 import {transform_top_level_element} from './others/top-level-element';
@@ -51,6 +53,8 @@ const select_transformer = (element: IElement<any>): Transformer => {
     case ElementKind.GeneralType: return transform_general_type;
     case ElementKind.GenericDeclaration: return transform_generic_declaration;
     case ElementKind.GlobalDeclaration: return transform_global_declaration;
+    case ElementKind.ImportMember: return transform_import_member;
+    case ElementKind.ImportNamed: return transform_import_named;
     case ElementKind.IndexSignature: return transform_index_signature;
     case ElementKind.InterfaceDeclaration: return transform_interface_declaration;
     case ElementKind.IntersectionType: return transform_intersection_type;

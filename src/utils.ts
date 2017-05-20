@@ -66,3 +66,8 @@ export const create_expression_for_general_type = (element: IGeneralType, path: 
                           ? ts.createIdentifier(element.name)
                           : create_property_access([...element.parents, element.name]),
   );
+
+export const create_identifier_if_defined = (name: string | undefined) =>
+  (name === undefined)
+    ? undefined
+    : ts.createIdentifier(name);

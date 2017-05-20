@@ -1,5 +1,6 @@
 export * from './comments/index';
 export * from './declarations/index';
+export * from './import-exports/index';
 export * from './members/index';
 export * from './others/index';
 export * from './types/index';
