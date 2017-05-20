@@ -2,7 +2,6 @@ import {string_type} from '../../constants';
 import {create_generic_declaration} from '../../declarations/generic-declaration';
 import {emit} from '../../emit';
 import {create_general_type} from '../general-type';
-import {create_generic_type} from '../generic-type';
 import {create_keyof_type} from '../keyof-type';
 import {create_mapped_type} from '../mapped-type';
 import {create_sub_type} from '../sub-type';
@@ -88,7 +87,7 @@ it('should return correctly with parameter, optional, readonly, type', () => {
       type: create_sub_type({
         types: [
           in_type,
-          create_generic_type({
+          create_general_type({
             name: parameter.name,
           }),
         ],

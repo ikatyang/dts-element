@@ -2,7 +2,7 @@ import {boolean_type, string_type} from '../../constants';
 import {emit} from '../../emit';
 import {create_object_member} from '../../members/object-member';
 import {create_index_signature} from '../../others/index-signature';
-import {create_interface_type} from '../../types/interface-type';
+import {create_general_type} from '../../types/general-type';
 import {create_object_type} from '../../types/object-type';
 import {create_function_declaration} from '../function-declaration';
 import {create_generic_declaration} from '../generic-declaration';
@@ -66,10 +66,10 @@ it('should return correctly with name, extends', () => {
     create_interface_declaration({
       name: 'I',
       extends: [
-        create_interface_type({
+        create_general_type({
           name: 'Y',
         }),
-        create_interface_type({
+        create_general_type({
           name: 'Z',
         }),
       ],
@@ -87,7 +87,7 @@ it('should return correctly with name, export, generics, type, extends', () => {
         create_generic_declaration({name: 'U'}),
       ],
       extends: [
-        create_interface_type({
+        create_general_type({
           name: 'X',
           generics: [
             boolean_type,

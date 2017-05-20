@@ -4,7 +4,6 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {IClassMember} from '../members';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
-import {IClassType} from '../types/class-type';
 import {IGeneralType} from '../types/general-type';
 import {add_declare_modifier_if_need} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
@@ -15,7 +14,7 @@ export interface IClassDeclarationOptions extends IElementOptions {
   generics?: IGenericDeclaration[];
   members?: (IClassMember | IIndexSignature)[];
   abstract?: boolean;
-  extends?: IClassType | IGeneralType;
+  extends?: IGeneralType;
 }
 
 export interface IClassDeclaration
