@@ -10,6 +10,7 @@ export enum ElementKind {
   ExportEqual,
   ExportMember,
   ExportNamed,
+  ExportNamespace,
   FunctionDeclaration,
   FunctionType,
   GeneralType,

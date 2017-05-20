@@ -17,6 +17,7 @@ import {transform_variable_declaration} from './declarations/variable-declaratio
 import {IElement} from './element';
 import {transform_export_equal} from './import-exports/export-equal';
 import {transform_export_named} from './import-exports/export-named';
+import {transform_export_namespace} from './import-exports/export-namespace';
 import {transform_import_named} from './import-exports/import-named';
 import {transform_import_namespace} from './import-exports/import-namespace';
 import {transform_class_member} from './members/class-member';
@@ -55,6 +56,7 @@ const select_transformer = (element: IElement<any>): Transformer => {
     case ElementKind.ExportEqual: return transform_export_equal;
     case ElementKind.ExportMember: return transform_export_member;
     case ElementKind.ExportNamed: return transform_export_named;
+    case ElementKind.ExportNamespace: return transform_export_namespace;
     case ElementKind.FunctionDeclaration: return transform_function_declaration;
     case ElementKind.FunctionType: return transform_function_type;
     case ElementKind.GeneralType: return transform_general_type;
