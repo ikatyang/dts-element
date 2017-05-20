@@ -40,3 +40,8 @@ export const create_type_parameters = (generics: undefined | IGenericDeclaration
   (generics || []).map(
     generic => transform(generic, path) as ts.TypeParameterDeclaration,
   );
+
+export const create_type_arguments = (args: undefined | IType[], path: IElement<any>[]) =>
+  (args || []).map(
+    argument => transform(argument, path) as ts.TypeNode,
+  );

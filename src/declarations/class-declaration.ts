@@ -5,7 +5,7 @@ import {IClassMember} from '../members';
 import {IIndexSignature} from '../others/index-signature';
 import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
-import {add_declare_modifier_if_need, create_type_parameters} from '../utils';
+import {add_declare_modifier_if_need, create_type_arguments, create_type_parameters} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface IClassDeclarationOptions extends IElementOptions {
@@ -48,9 +48,7 @@ export const transform_class_declaration = (element: IClassDeclaration, path: IE
                             : [ts.createHeritageClause(
                             /* token */ ts.SyntaxKind.ExtendsKeyword,
                             /* types */ [ts.createExpressionWithTypeArguments(
-                                          /* typeArguments */ (element.extends.generics || []).map(
-                                                                generic => transform(generic, path) as ts.TypeNode,
-                                                              ),
+                                          /* typeArguments */ create_type_arguments(element.extends.generics, path),
                                           /* expression    */ ts.createIdentifier(element.extends.name),
                                         )],
                             )],
