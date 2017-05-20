@@ -10,11 +10,11 @@ it('should return correctly with from', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with from, name', () => {
+it('should return correctly with from, default', () => {
   expect(emit(
     create_import_named({
       from: 'path/to/somewhere',
-      name: 'abc',
+      default: 'abc',
     }),
   )).toMatchSnapshot();
 });
@@ -31,11 +31,11 @@ it('should return correctly with from, members', () => {
   )).toMatchSnapshot();
 });
 
-it('should return correctly with from, name, members', () => {
+it('should return correctly with from, default, members', () => {
   expect(emit(
     create_import_named({
       from: 'path/to/somewhere',
-      name: 'abc',
+      default: 'abc',
       members: [
         create_import_member({name: 'a'}),
         create_import_member({name: 'b'}),

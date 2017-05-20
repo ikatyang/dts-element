@@ -6,7 +6,7 @@ import {transform} from '../transform';
 
 export interface IImportNamedOptions extends IElementOptions {
   from: string;
-  name?: string;
+  default?: string;
   members?: IImportMember[];
 }
 
@@ -24,12 +24,12 @@ export const transform_import_named = (element: IImportNamed, path: IElement<any
   ts.createImportDeclaration(
     /* decorators      */ undefined,
     /* modifiers       */ undefined,
-    /* importClause    */ (element.members === undefined && element.name === undefined)
+    /* importClause    */ (element.members === undefined && element.default === undefined)
                             ? undefined
                             : ts.createImportClause(
-                              /* name          */ (element.name === undefined)
+                              /* name          */ (element.default === undefined)
                                                     ? undefined as any
-                                                    : ts.createIdentifier(element.name),
+                                                    : ts.createIdentifier(element.default),
                               /* namedBindings */ (element.members === undefined)
                                                     ? undefined as any
                                                     : ts.createNamedImports(

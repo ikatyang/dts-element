@@ -13,6 +13,7 @@ import {IParameterDeclaration} from './declarations/parameter-declaration';
 import {ITypeDeclaration} from './declarations/type-declaration';
 import {IVariableDeclaration} from './declarations/variable-declaration';
 import {IImportNamed} from './import-exports/import-named';
+import {IImportNamespace} from './import-exports/import-namespace';
 import {ITripleSlashReference} from './others/triple-slash-reference';
 import {IArrayType} from './types/array-type';
 import {IConstructorType} from './types/constructor-type';
@@ -39,6 +40,7 @@ export type ITopLevelMember =
 
 export type IImportExport =
   | IImportNamed
+  | IImportNamespace
 ;
 
 export type IModuleMember =

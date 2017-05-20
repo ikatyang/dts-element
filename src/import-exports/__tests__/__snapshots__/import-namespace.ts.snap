@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with from, name 1`] = `"import * as ns from \\"path/to/somewhere\\";"`;
+
+exports[`should return correctly with from, name, default 1`] = `"import abc, * as ns from \\"path/to/somewhere\\";"`;

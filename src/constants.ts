@@ -14,6 +14,7 @@ export enum ElementKind {
   GlobalDeclaration,
   ImportMember,
   ImportNamed,
+  ImportNamespace,
   IndexSignature,
   InterfaceDeclaration,
   IntersectionType,
