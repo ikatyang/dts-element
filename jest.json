@@ -4,7 +4,7 @@
   "mapCoverage": true,
   "coverageReporters": ["lcov", "text-summary"],
   "transform": { "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
-  "testMatch": ["**/__tests__/**/*.ts"],
+  "testMatch": ["**/{tests,__tests__}/**/*.ts"],
   "collectCoverageFrom": ["src/**/*.ts"],
   "coveragePathIgnorePatterns": [
     "/index\\.ts",
