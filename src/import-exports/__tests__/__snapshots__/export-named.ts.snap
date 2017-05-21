@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should return correctly with from 1`] = `"export * from \\"path/to/somewhere\\";"`;
+
 exports[`should return correctly with members 1`] = `"export { abc };"`;
 
 exports[`should return correctly with members, from 1`] = `"export { abc } from \\"path/to/somewhere\\";"`;

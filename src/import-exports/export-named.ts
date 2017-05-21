@@ -6,7 +6,7 @@ import {transform} from '../transform';
 
 export interface IExportNamedOptions extends IElementOptions {
   from?: string;
-  members: IExportMember[];
+  members?: IExportMember[];
 }
 
 export interface IExportNamed
@@ -19,14 +19,20 @@ export const create_export_named = (options: IExportNamedOptions): IExportNamed 
 
 // tslint:disable:ter-indent
 
-export const transform_export_named = (element: IExportNamed, path: IElement<any>[]) =>
-  ts.createExportDeclaration(
+export const transform_export_named = (element: IExportNamed, path: IElement<any>[]) => {
+  if (element.from === undefined && element.members === undefined) {
+    throw new Error(`export_named.from or export_named.members should either exist`);
+  }
+  return ts.createExportDeclaration(
     /* decorators      */ undefined,
     /* modifiers       */ undefined,
-    /* exportClause    */ ts.createNamedExports(
-                            element.members.map(member => transform(member, path) as ts.ExportSpecifier),
-                          ),
+    /* exportClause    */ (element.members === undefined)
+                            ? undefined
+                            : ts.createNamedExports(
+                              element.members.map(member => transform(member, path) as ts.ExportSpecifier),
+                            ),
     /* moduleSpecifier */ (element.from === undefined)
                             ? undefined
                             : ts.createLiteral(element.from),
   );
+};
