@@ -16,11 +16,16 @@ export const create_multi_line_comment = (options: IMultiLineCommentOptions): IM
   ...options,
 });
 
-// tslint:disable:ter-indent
+export interface IAddMultiLineCommentOptions {
+  method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
+  trailing_new_line?: boolean;
+}
 
-export const transform_multi_line_comment = (element: IMultiLineComment, path: IElement<any>[]) =>
-  ts.addSyntheticTrailingComment(
-    /* node                */ ts.createOmittedExpression(),
+// tslint:disable:ter-indent
+export const add_multi_line_comment = <T extends ts.Node>(
+    node: T, element: IMultiLineComment, options: IAddMultiLineCommentOptions = {}): T =>
+  (options.method || ts.addSyntheticLeadingComment)(
+    /* node                */ node,
     /* kind                */ ts.SyntaxKind.MultiLineCommentTrivia,
     /* text                */ element.text
                                 .replace(
@@ -38,5 +43,14 @@ export const transform_multi_line_comment = (element: IMultiLineComment, path: I
                                         : '\n '
                                       : match,
                                 ),
-    /* hasTrailingNewLine  */ false,
+    /* hasTrailingNewLine  */ (options.trailing_new_line === undefined)
+                                ? true
+                                : options.trailing_new_line,
   );
+// tslint:enable:ter-indent
+
+export const transform_multi_line_comment = (element: IMultiLineComment, path: IElement<any>[]) =>
+  add_multi_line_comment(ts.createOmittedExpression(), element, {
+    trailing_new_line: false,
+    method: ts.addSyntheticTrailingComment,
+  });

@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import {add_jsdoc_comment, transform_jsdoc_comment} from './comments/jsdoc-comment';
-import {transform_multi_line_comment} from './comments/multi-line-comment';
-import {transform_single_line_comment} from './comments/single-line-comment';
+import {add_multi_line_comment, transform_multi_line_comment} from './comments/multi-line-comment';
+import {add_single_line_comment, transform_single_line_comment} from './comments/single-line-comment';
 import {ElementKind} from './constants';
 import {transform_class_declaration} from './declarations/class-declaration';
 import {transform_enum_declaration} from './declarations/enum-declaration';
@@ -101,6 +101,15 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
 
   if (element.jsdoc !== undefined) {
     add_jsdoc_comment(node, element.jsdoc);
+  }
+
+  if (element.comments !== undefined) {
+    element.comments.forEach(
+      comment =>
+        (comment.kind === ElementKind.SingleLineComment)
+          ? add_single_line_comment(node, comment)
+          : add_multi_line_comment(node, comment),
+    );
   }
 
   return node;

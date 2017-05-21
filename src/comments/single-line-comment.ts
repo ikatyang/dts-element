@@ -15,20 +15,35 @@ export const create_single_line_comment = (options: ISingleLineCommentOptions): 
   ...options,
 });
 
-export const transform_single_line_comment = (element: ISingleLineComment, path: IElement<any>[]) => {
-  const node = ts.createOmittedExpression();
-  element.text.split('\n').forEach((line_text, index, lines) => {
-    ts.addSyntheticTrailingComment(
-      /* node                */ node,
-      /* kind                */ ts.SyntaxKind.SingleLineCommentTrivia,
-      /* text                */ (
-                                  (element.prefix === undefined)
-                                    ? ''
-                                    : element.prefix
-                                )
-                                + line_text,
-      /* hasTrailingNewLine  */ (index !== lines.length - 1),
-    );
+export interface IAddSingleLineCommentOptions {
+  method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
+  trailing_new_line?: boolean;
+}
+
+export const add_single_line_comment = <T extends ts.Node>(
+    node: T, element: ISingleLineComment, options: IAddSingleLineCommentOptions = {}): T =>
+  element.text.split('\n').reduce(
+    (current_node, line_text, index, lines) =>
+      (options.method || ts.addSyntheticLeadingComment)(
+        /* node                */ node,
+        /* kind                */ ts.SyntaxKind.SingleLineCommentTrivia,
+        /* text                */ (
+                                    (element.prefix === undefined)
+                                      ? ''
+                                      : element.prefix
+                                  )
+                                  + line_text,
+        /* hasTrailingNewLine  */ (index !== lines.length - 1)
+                                    ? true
+                                    : (options.trailing_new_line === undefined)
+                                      ? true
+                                      : options.trailing_new_line,
+      ),
+    node,
+  );
+
+export const transform_single_line_comment = (element: ISingleLineComment, path: IElement<any>[]) =>
+  add_single_line_comment(ts.createOmittedExpression(), element, {
+    trailing_new_line: false,
+    method: ts.addSyntheticTrailingComment,
   });
-  return node;
-};
