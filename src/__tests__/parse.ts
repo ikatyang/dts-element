@@ -5,6 +5,9 @@ import {parse, parse_native} from '../parse';
 const code = `
 /// <reference path="some-path" />
 /// <reference types="some-types" />
+declare var variable_declaration_var;
+declare let variable_declaration_let;
+declare const variable_declaration_const;
 `;
 
 it('should return correctly', () => {

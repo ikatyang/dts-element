@@ -72,3 +72,8 @@ export const create_identifier_if_defined = (name: string | undefined) =>
   (name === undefined)
     ? undefined
     : ts.createIdentifier(name);
+
+export const has_kind = (nodes: ts.Node[] | undefined, kind: ts.SyntaxKind) =>
+  (nodes === undefined || nodes.length === 0)
+    ? false
+    : nodes.some(node => node.kind === kind);

@@ -3,5 +3,8 @@
 exports[`should return correctly 1`] = `
 "/// <reference path=\\"some-path\\" />
 /// <reference types=\\"some-types\\" />
+declare var variable_declaration_var: any;
+declare let variable_declaration_let: any;
+declare const variable_declaration_const: any;
 "
 `;
