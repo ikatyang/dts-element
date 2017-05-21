@@ -3,8 +3,19 @@
 exports[`should return correctly 1`] = `
 "/// <reference path=\\"some-path\\" />
 /// <reference types=\\"some-types\\" />
-declare var variable_declaration_var: any;
-declare let variable_declaration_let: any;
-declare const variable_declaration_const: any;
+declare var v_var: any;
+declare let v_let: any;
+declare const v_const: any;
+declare const v_any: any;
+declare const v_boolean: boolean;
+declare const v_never: never;
+declare const v_null: null;
+declare const v_number: number;
+declare const v_object: object;
+declare const v_string: string;
+declare const v_symbol: symbol;
+declare const v_this: this;
+declare const v_undefined: undefined;
+declare const v_void: void;
 "
 `;
