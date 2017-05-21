@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
-import {create_identifier_if_defined} from '../utils';
+import {if_defined} from '../utils';
 
 export interface IExportMemberOptions extends IElementOptions {
   name: string;
@@ -18,6 +18,6 @@ export const create_export_member = (options: IExportMemberOptions): IExportMemb
 
 export const transform_export_member = (element: IExportMember, path: IElement<any>[]) =>
   ts.createExportSpecifier(
-    /* propertyName  */ create_identifier_if_defined(element.property),
+    /* propertyName  */ if_defined(element.property, ts.createIdentifier),
     /* name          */ ts.createIdentifier(element.name),
   );

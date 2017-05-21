@@ -21,6 +21,36 @@ declare const v_symbol: symbol;
 declare const v_this: this;
 declare const v_undefined: undefined;
 declare const v_void: void;
+
+declare const v_array: any[];
+declare const v_constructor: new () => any;
+declare const v_function: () => any;
+declare const v_general: X.Y.Z<string>;
+declare const v_intersection: string & number;
+declare const v_keyof: keyof X;
+declare const v_literal_true: true;
+declare const v_literal_false: false;
+declare const v_literal_number: 123;
+declare const v_literal_string: 'str';
+declare const v_mapped: {
+  [T in keyof X]: any;
+};
+declare const v_mapped_readonly: {
+  readonly [T in keyof X]: any;
+};
+declare const v_mapped_optional: {
+  [T in keyof X]?: any;
+};
+declare const v_object: {
+  readonly a?: any;
+  b?(): any;
+  new (): any;
+  (): any;
+};
+declare const v_sub: X[any]['abc'][123];
+declare const v_tuple: [string, number];
+declare const v_typeof: typeof X.Y.Z;
+declare const v_union: string | number;
 `;
 
 it('should return correctly', () => {

@@ -68,10 +68,10 @@ export const create_expression_for_general_type = (element: IGeneralType, path: 
                           : create_property_access([...element.parents, element.name]),
   );
 
-export const create_identifier_if_defined = (name: string | undefined) =>
-  (name === undefined)
+export const if_defined = <T, U>(value: T | undefined, fn: (v: T) => U): U | undefined =>
+  (value === undefined)
     ? undefined
-    : ts.createIdentifier(name);
+    : fn(value);
 
 export const has_kind = (nodes: ts.Node[] | undefined, kind: ts.SyntaxKind) =>
   (nodes === undefined || nodes.length === 0)
