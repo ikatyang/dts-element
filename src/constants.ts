@@ -7,6 +7,7 @@ export enum ElementKind {
   ClassMember,
   ConstructorType,
   EnumDeclaration,
+  ExportDefault,
   ExportEqual,
   ExportMember,
   ExportNamed,

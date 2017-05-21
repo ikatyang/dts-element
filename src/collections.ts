@@ -12,6 +12,7 @@ import {INamespaceDeclaration} from './declarations/namespace-declaration';
 import {IParameterDeclaration} from './declarations/parameter-declaration';
 import {ITypeDeclaration} from './declarations/type-declaration';
 import {IVariableDeclaration} from './declarations/variable-declaration';
+import {IExportDefault} from './import-exports/export-default';
 import {IExportEqual} from './import-exports/export-equal';
 import {IExportNamed} from './import-exports/export-named';
 import {IExportNamespace} from './import-exports/export-namespace';
@@ -42,6 +43,7 @@ export type ITopLevelMember =
 ;
 
 export type IImportExport =
+  | IExportDefault
   | IExportEqual
   | IExportNamed
   | IExportNamespace
