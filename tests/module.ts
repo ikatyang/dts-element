@@ -85,8 +85,7 @@ it('should return correctly', () => {
           comments: [
             dts.create_multi_line_comment({
               ...multi_line_options,
-              align: false,
-              text: 'You can declare types that are available via importing the module ',
+              text: 'You can declare types that are available via importing the module',
             }),
           ],
           type: dts.create_object_type({
@@ -123,8 +122,7 @@ it('should return correctly', () => {
           comments: [
             dts.create_multi_line_comment({
               ...multi_line_options,
-              align: false,
-              text: 'You can declare properties of the module using const, let, or var ',
+              text: 'You can declare properties of the module using const, let, or var',
             }),
           ],
         }),

@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import {IType} from './collections';
+import {ElementKind} from './constants';
 import {IGenericDeclaration} from './declarations/generic-declaration';
 import {IElement} from './element';
 import {transform} from './transform';
@@ -9,7 +10,7 @@ const declare_token = ts.createToken(ts.SyntaxKind.DeclareKeyword);
 
 export const add_declare_modifier_if_need = (
     modifiers: ts.Modifier[] | undefined, path: IElement<any>[]): ts.Modifier[] | undefined =>
-  (path.length <= 1)
+  (path.length <= 1 || path[(path.length - 1) - 1].kind === ElementKind.TopLevelElement)
     ? (modifiers === undefined)
         ? [declare_token]
         : (modifiers.length !== 0 && modifiers[0].kind === ts.SyntaxKind.ExportKeyword)

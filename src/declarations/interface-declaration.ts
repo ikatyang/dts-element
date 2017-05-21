@@ -4,11 +4,7 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {IGeneralType} from '../types/general-type';
 import {create_object_type, IObjectType} from '../types/object-type';
-import {
-  add_declare_modifier_if_need,
-  create_expression_for_general_type,
-  create_type_parameters,
-} from '../utils';
+import {create_expression_for_general_type, create_type_parameters} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface IInterfaceDeclarationOptions extends IElementOptions {
@@ -32,12 +28,9 @@ export const create_interface_declaration = (options: IInterfaceDeclarationOptio
 export const transform_interface_declaration = (element: IInterfaceDeclaration, path: IElement<any>[]) =>
   ts.createInterfaceDeclaration(
     /* decorators      */ undefined,
-    /* modifiers       */ add_declare_modifier_if_need(
-                            (element.export === true)
-                              ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-                              : undefined,
-                            path,
-                          ),
+    /* modifiers       */ (element.export === true)
+                            ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                            : undefined,
     /* name            */ element.name,
     /* typeParameters  */ create_type_parameters(element.generics, path),
     /* heritageClauses */ element.extends && [ts.createHeritageClause(

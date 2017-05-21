@@ -1,34 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return correctly with name 1`] = `
-"declare interface I {
+"interface I {
 }"
 `;
 
 exports[`should return correctly with name, export 1`] = `
-"export declare interface I {
+"export interface I {
 }"
 `;
 
 exports[`should return correctly with name, export, generics, type, extends 1`] = `
-"export declare interface I<T, U> extends X<boolean> {
+"export interface I<T, U> extends X<boolean> {
     fn(): any;
     [key: string]: any;
 }"
 `;
 
 exports[`should return correctly with name, extends 1`] = `
-"declare interface I extends Y, Z {
+"interface I extends Y, Z {
 }"
 `;
 
 exports[`should return correctly with name, generics 1`] = `
-"declare interface I<T, U> {
+"interface I<T, U> {
 }"
 `;
 
 exports[`should return correctly with name, type 1`] = `
-"declare interface I {
+"interface I {
     fn(): any;
     [key: string]: any;
 }"

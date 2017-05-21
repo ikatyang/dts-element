@@ -2,8 +2,8 @@
 
 exports[`should return correctly 1`] = `
 "/// <reference path=\\"path/to/somewhere\\" />
-module \\"something\\" { }
-class C {
+declare module \\"something\\" { }
+declare class C {
 }
 "
 `;
