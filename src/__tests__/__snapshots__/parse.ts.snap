@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `
+"/// <reference path=\\"some-path\\" />
+/// <reference types=\\"some-types\\" />
+"
+`;

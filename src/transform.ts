@@ -44,10 +44,8 @@ import {transform_tuple_type} from './types/tuple-type';
 import {transform_typeof_type} from './types/typeof-type';
 import {transform_union_type} from './types/union-type';
 
-export type Transformer = (element: IElement<any>, path: IElement<any>[]) => ts.Node;
-
 // tslint:disable-next-line:cyclomatic-complexity
-const select_transformer = (element: IElement<any>): Transformer => {
+const select_transformer = (element: IElement<any>): (element: IElement<any>, path: IElement<any>[]) => ts.Node => {
   switch (element.kind) {
     case ElementKind.ArrayType: return transform_array_type;
     case ElementKind.ClassDeclaration: return transform_class_declaration;
