@@ -20,6 +20,7 @@ declare const v_void: void;
 declare const v_array: any[];
 declare const v_constructor: new () => any;
 declare const v_function: () => any;
+declare const v_function_predicate: () => this is string;
 declare const v_general: X.Y.Z<string>;
 declare const v_intersection: string & number;
 declare const v_keyof: keyof X;
@@ -41,6 +42,7 @@ declare const v_object: {
     b?(): any;
     new (): any;
     (): any;
+    readonly [index: number]: any;
 };
 declare const v_sub: X[any][\\"abc\\"][123];
 declare const v_tuple: [string, number];

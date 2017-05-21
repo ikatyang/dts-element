@@ -51,7 +51,7 @@ it('should return correctly with parameters, return (TypePredicate)', () => {
         parameter,
       ],
       return: create_type_predicate({
-        parameter,
+        parameter: parameter.name,
         type: string_type,
       }),
     }),

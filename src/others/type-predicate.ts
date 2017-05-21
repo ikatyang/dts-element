@@ -1,13 +1,12 @@
 import * as ts from 'typescript';
 import {IType} from '../collections';
 import {ElementKind} from '../constants';
-import {IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {INativeType} from '../types/native-type';
 
 export interface ITypePredicateOptions extends IElementOptions {
-  parameter: IParameterDeclaration | INativeType;
+  parameter: string | INativeType;
   type: IType;
 }
 
@@ -21,13 +20,13 @@ export const create_type_predicate = (options: ITypePredicateOptions): ITypePred
 
 export const transform_type_predicate = (element: ITypePredicate, path: IElement<any>[]) =>
   ts.createTypePredicateNode(
-    /* parameterName */ (element.parameter.kind === ElementKind.NativeType)
-                          ? (() => {
+    /* parameterName */ (typeof element.parameter === 'string')
+                          ? element.parameter
+                          : (() => {
                             if (element.parameter.type.kind !== ts.SyntaxKind.ThisKeyword) {
-                              throw new Error(`type_predicate.parameter should be a ParameterDeclaration or this_type`);
+                              throw new Error(`type_predicate.parameter should be a string or this_type`);
                             }
                             return ts.createThisTypeNode();
-                          })()
-                          : element.parameter.name,
+                          })(),
     /* type          */ transform(element.type, path) as ts.TypeNode,
   );

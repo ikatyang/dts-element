@@ -19,16 +19,19 @@ import {parse_call_signature} from './parsers/call-signature';
 import {parse_construct_signature} from './parsers/construct-signature';
 import {parse_constructor_type} from './parsers/constructor-type';
 import {parse_function_type} from './parsers/function-type';
+import {parse_index_signature} from './parsers/index-signature';
 import {parse_indexed_access_type} from './parsers/indexed-access-type';
 import {parse_intersection_type} from './parsers/intersection-type';
 import {parse_mapped_type} from './parsers/mapped-type';
 import {parse_method_signature} from './parsers/method-signature';
+import {parse_parameter_declaration} from './parsers/parameter-declaration';
 import {parse_property_signature} from './parsers/property-signature';
 import {parse_source_file} from './parsers/source-file';
 import {parse_tuple_type} from './parsers/tuple-type';
 import {parse_type_literal} from './parsers/type-literal';
 import {parse_type_operator} from './parsers/type-operator';
 import {parse_type_parameter} from './parsers/type-parameter';
+import {parse_type_predicater} from './parsers/type-predicate';
 import {parse_type_query} from './parsers/type-query';
 import {parse_type_reference} from './parsers/type-reference';
 import {parse_union_type} from './parsers/union-type';
@@ -73,6 +76,9 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.UnionType: return parse_union_type(node as ts.UnionTypeNode);
     case ts.SyntaxKind.VariableStatement: return parse_variable_statement(node as ts.VariableStatement);
     case ts.SyntaxKind.VoidKeyword: return void_type;
+    case ts.SyntaxKind.TypePredicate: return parse_type_predicater(node as ts.TypePredicateNode);
+    case ts.SyntaxKind.IndexSignature: return parse_index_signature(node as ts.IndexSignatureDeclaration);
+    case ts.SyntaxKind.Parameter: return parse_parameter_declaration(node as ts.ParameterDeclaration);
     default:
       throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} )`);
   }

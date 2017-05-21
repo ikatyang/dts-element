@@ -1,15 +1,11 @@
 import {number_type, string_type, this_type} from '../../constants';
-import {create_parameter_declaration} from '../../declarations/parameter-declaration';
 import {emit} from '../../emit';
 import {create_type_predicate} from '../type-predicate';
 
 it('should return correctly with parameter (ParameterDeclaration), type', () => {
   expect(emit(
     create_type_predicate({
-      parameter: create_parameter_declaration({
-        name: 'key',
-        type: number_type,
-      }),
+      parameter: 'key',
       type: string_type,
     }),
   )).toMatchSnapshot();
