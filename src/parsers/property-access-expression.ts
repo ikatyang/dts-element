@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import {parse_identifier} from './identifier';
 
 export const parse_property_access_expression = (node: ts.PropertyAccessExpression): string[] => {
   const expressions: ts.Expression[] = [node.name];
@@ -9,11 +10,5 @@ export const parse_property_access_expression = (node: ts.PropertyAccessExpressi
     current = access_expression.expression;
   }
   expressions.unshift(current);
-  return expressions.map(expression =>
-    (expression.kind === ts.SyntaxKind.Identifier)
-      ? (expression as ts.Identifier).text
-      : (() => {
-        throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} )`);
-      })(),
-  );
+  return expressions.map(parse_identifier);
 };

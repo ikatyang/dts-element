@@ -4,7 +4,7 @@ import {IParameterDeclaration} from '../declarations/parameter-declaration';
 import {create_object_member, IObjectMember} from '../members/object-member';
 import {parse_native} from '../parse';
 import {create_constructor_type} from '../types/constructor-type';
-import {has_kind, if_defined} from '../utils';
+import {if_defined} from '../utils';
 
 export const parse_construct_signature = (node: ts.ConstructSignatureDeclaration): IObjectMember =>
   create_object_member({
@@ -13,6 +13,4 @@ export const parse_construct_signature = (node: ts.ConstructSignatureDeclaration
       parameters: if_defined(node.parameters, parameters => parameters.map(parse_native) as IParameterDeclaration[]),
       return: if_defined(node.type, parse_native),
     }),
-    readonly: has_kind(node.modifiers, ts.SyntaxKind.ReadonlyKeyword),
-    optional: if_defined(node.questionToken, () => true),
   });
