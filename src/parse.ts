@@ -65,6 +65,8 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ConstructSignature: return parse_construct_signature(node as ts.ConstructSignatureDeclaration);
     case ts.SyntaxKind.Constructor: return parse_constructor(node as ts.ConstructorDeclaration);
     case ts.SyntaxKind.ConstructorType: return parse_constructor_type(node as ts.ConstructorTypeNode);
+    case ts.SyntaxKind.EnumDeclaration: return parse_enum_declaration(node as ts.EnumDeclaration);
+    case ts.SyntaxKind.EnumMember: return parse_enum_member(node as ts.EnumMember);
     case ts.SyntaxKind.ExportAssignment: return parse_export_assignment(node as ts.ExportAssignment);
     case ts.SyntaxKind.ExportDeclaration: return parse_export_declaration(node as ts.ExportDeclaration);
     case ts.SyntaxKind.ExportSpecifier: return parse_export_specifier(node as ts.ExportSpecifier);
@@ -75,11 +77,13 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ImportSpecifier: return parse_import_specifier(node as ts.ImportSpecifier);
     case ts.SyntaxKind.IndexSignature: return parse_index_signature(node as ts.IndexSignatureDeclaration);
     case ts.SyntaxKind.IndexedAccessType: return parse_indexed_access_type(node as ts.IndexedAccessTypeNode);
+    case ts.SyntaxKind.InterfaceDeclaration: return parse_interface_declaration(node as ts.InterfaceDeclaration);
     case ts.SyntaxKind.IntersectionType: return parse_intersection_type(node as ts.IntersectionTypeNode);
     case ts.SyntaxKind.LiteralType: return parse_native((node as ts.LiteralTypeNode).literal);
     case ts.SyntaxKind.MappedType: return parse_mapped_type(node as ts.MappedTypeNode);
     case ts.SyntaxKind.MethodDeclaration: return parse_method_declaration(node as ts.MethodDeclaration);
     case ts.SyntaxKind.MethodSignature: return parse_method_signature(node as ts.MethodSignature);
+    case ts.SyntaxKind.ModuleDeclaration: return parse_module_declaration(node as ts.ModuleDeclaration);
     case ts.SyntaxKind.NamespaceExportDeclaration: return parse_namespace_export_declaration(node as ts.NamespaceExportDeclaration);
     case ts.SyntaxKind.NeverKeyword: return never_type;
     case ts.SyntaxKind.NullKeyword: return null_type;
@@ -96,6 +100,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ThisType: return this_type;
     case ts.SyntaxKind.TrueKeyword: return create_literal_type({value: true});
     case ts.SyntaxKind.TupleType: return parse_tuple_type(node as ts.TupleTypeNode);
+    case ts.SyntaxKind.TypeAliasDeclaration: return parse_type_alias_declaration(node as ts.TypeAliasDeclaration);
     case ts.SyntaxKind.TypeLiteral: return parse_type_literal(node as ts.TypeLiteralNode);
     case ts.SyntaxKind.TypeOperator: return parse_type_operator(node as ts.TypeOperatorNode);
     case ts.SyntaxKind.TypeParameter: return parse_type_parameter(node as ts.TypeParameterDeclaration);
@@ -106,11 +111,6 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.UnionType: return parse_union_type(node as ts.UnionTypeNode);
     case ts.SyntaxKind.VariableStatement: return parse_variable_statement(node as ts.VariableStatement);
     case ts.SyntaxKind.VoidKeyword: return void_type;
-    case ts.SyntaxKind.EnumDeclaration: return parse_enum_declaration(node as ts.EnumDeclaration);
-    case ts.SyntaxKind.EnumMember: return parse_enum_member(node as ts.EnumMember);
-    case ts.SyntaxKind.InterfaceDeclaration: return parse_interface_declaration(node as ts.InterfaceDeclaration);
-    case ts.SyntaxKind.ModuleDeclaration: return parse_module_declaration(node as ts.ModuleDeclaration);
-    case ts.SyntaxKind.TypeAliasDeclaration: return parse_type_alias_declaration(node as ts.TypeAliasDeclaration);
     default:
       throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} )`);
   }
