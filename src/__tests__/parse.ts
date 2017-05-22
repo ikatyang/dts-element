@@ -67,6 +67,38 @@ export {ex_0 as ex_1, ex_2};
 export as namespace NS;
 export * from "path/to/somewhere";
 export {ex_3 as ex_4, ex_5} from "path/to/somewhere";
+
+export declare abstract class ABC<T, U> extends XYZ<S, V> {
+  constructor();
+  method?(): void;
+  public method1(): void;
+  protected method2(): void;
+  private method3(): void;
+  public abstract method4(): void;
+  property?: string;
+  public property1: string;
+  protected property2: string;
+  private property3: string;
+  public abstract property4: string;
+}
+
+// export enum Kind {
+//   A,
+//   B = 123,
+//   C,
+// }
+
+// declare global {
+//   interface String {
+//     toXYZ(): any;
+//   }
+// }
+
+// declare namespace NS {
+//   const ns: any;
+// }
+
+// type TP = string;
 `;
 
 it('should return correctly', () => {
