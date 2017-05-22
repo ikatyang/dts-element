@@ -61,12 +61,12 @@ import * as import_namespace2 from "path/to/somewhere";
 import import_default2, {im_0 as im_1, im_2} from "path/to/somewhere";
 import {im_3 as im_4, im_5} from "path/to/somewhere";
 
-// export default X.Y.Z;
-// export = A.B.C;
-// export {ex_0 as ex_1, ex_2};
-// export as namespace NS;
-// export * from "path/to/somewhere";
-// export {ex_3 as ex_4, ex_5} from "path/to/somewhere";
+export default X.Y.Z;
+export = A.B.C;
+export {ex_0 as ex_1, ex_2};
+export as namespace NS;
+export * from "path/to/somewhere";
+export {ex_3 as ex_4, ex_5} from "path/to/somewhere";
 `;
 
 it('should return correctly', () => {

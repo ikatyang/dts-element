@@ -18,6 +18,9 @@ import {parse_array_type} from './parsers/array-type';
 import {parse_call_signature} from './parsers/call-signature';
 import {parse_construct_signature} from './parsers/construct-signature';
 import {parse_constructor_type} from './parsers/constructor-type';
+import {parse_export_assignment} from './parsers/export-assignment';
+import {parse_export_declaration} from './parsers/export-declaration';
+import {parse_export_specifier} from './parsers/export-specifier';
 import {parse_function_type} from './parsers/function-type';
 import {parse_import_declaration} from './parsers/import-declaration';
 import {parse_import_specifier} from './parsers/import-specifier';
@@ -26,6 +29,7 @@ import {parse_indexed_access_type} from './parsers/indexed-access-type';
 import {parse_intersection_type} from './parsers/intersection-type';
 import {parse_mapped_type} from './parsers/mapped-type';
 import {parse_method_signature} from './parsers/method-signature';
+import {parse_namespace_export_declaration} from './parsers/namespace-export-declaration';
 import {parse_parameter_declaration} from './parsers/parameter-declaration';
 import {parse_property_signature} from './parsers/property-signature';
 import {parse_source_file} from './parsers/source-file';
@@ -40,7 +44,7 @@ import {parse_union_type} from './parsers/union-type';
 import {parse_variable_statement} from './parsers/variable-statement';
 import {create_literal_type} from './types/literal-type';
 
-// tslint:disable-next-line:cyclomatic-complexity
+// tslint:disable:cyclomatic-complexity max-line-length
 export const parse_native = (node: ts.Node): IElement<any> => {
   switch (node.kind) {
     case ts.SyntaxKind.AnyKeyword: return any_type;
@@ -83,6 +87,10 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.UnionType: return parse_union_type(node as ts.UnionTypeNode);
     case ts.SyntaxKind.VariableStatement: return parse_variable_statement(node as ts.VariableStatement);
     case ts.SyntaxKind.VoidKeyword: return void_type;
+    case ts.SyntaxKind.ExportAssignment: return parse_export_assignment(node as ts.ExportAssignment);
+    case ts.SyntaxKind.ExportSpecifier: return parse_export_specifier(node as ts.ExportSpecifier);
+    case ts.SyntaxKind.ExportDeclaration: return parse_export_declaration(node as ts.ExportDeclaration);
+    case ts.SyntaxKind.NamespaceExportDeclaration: return parse_namespace_export_declaration(node as ts.NamespaceExportDeclaration);
     default:
       throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} )`);
   }
