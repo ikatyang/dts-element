@@ -94,23 +94,31 @@ export declare abstract class ABC<T, U> extends XYZ<S, V> {
   public abstract property4: string;
 }
 
-// export enum Kind {
-//   A,
-//   B = 123,
-//   C,
-// }
+export enum Kind {
+  A,
+  B = 123,
+  C,
+}
 
-// declare global {
-//   interface String {
-//     toXYZ(): any;
-//   }
-// }
+export interface X<T> extends C, D {
+  a: T;
+}
 
-// declare namespace NS {
-//   const ns: any;
-// }
+export declare namespace NS {
+  const ns: any;
+}
 
-// type TP = string;
+declare global {
+  interface String {
+    toXYZ(): any;
+  }
+}
+
+declare module "xyz" {
+  const aa: string;
+}
+
+type TP<T> = T | string;
 `;
 
 it('should return correctly', () => {

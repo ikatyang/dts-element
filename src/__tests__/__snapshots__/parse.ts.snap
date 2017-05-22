@@ -85,5 +85,25 @@ export declare abstract class ABC<T, U> extends XYZ<S, V> {
     private property3: string;
     public abstract property4: string;
 }
+declare enum Kind {
+    A = 0,
+    B = 123,
+    C = 124
+}
+export interface X<T> extends C, D {
+    a: T;
+}
+export declare namespace NS {
+    const ns: any;
+}
+declare module global {
+    interface String {
+        toXYZ(): any;
+    }
+}
+declare module \\"xyz\\" {
+    const aa: string;
+}
+type TP<T> = T | string;
 "
 `;

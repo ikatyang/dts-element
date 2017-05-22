@@ -4,7 +4,7 @@ import {any_type} from '../constants';
 import {ElementKind} from '../constants';
 import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
-import {add_declare_modifier_if_need, create_type_parameters} from '../utils';
+import {create_type_parameters} from '../utils';
 import {IGenericDeclaration} from './generic-declaration';
 
 export interface ITypeDeclarationOptions extends IElementOptions {
@@ -33,7 +33,5 @@ export const transform_type_declaration = (element: ITypeDeclaration, path: IEle
   if (element.export === true) {
     type_declaration.modifiers = [ts.createToken(ts.SyntaxKind.ExportKeyword)] as ts.NodeArray<ts.Modifier>;
   }
-  type_declaration.modifiers =
-    add_declare_modifier_if_need(type_declaration.modifiers, path) as ts.NodeArray<ts.Modifier>;
   return type_declaration;
 };
