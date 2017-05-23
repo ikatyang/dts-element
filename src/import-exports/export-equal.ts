@@ -18,6 +18,9 @@ export const create_export_equal = (options: IExportEqualOptions): IExportEqual 
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_export_equal = (element: IExportEqual, path: IElement<any>[]) =>
   ts.createExportAssignment(
     /* decorators      */ undefined,

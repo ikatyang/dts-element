@@ -19,6 +19,9 @@ export const create_index_signature = (options: IIndexSignatureOptions): IIndexS
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_index_signature = (element: IIndexSignature, path: IElement<any>[]) =>
   ts.createIndexSignature(
     /* decorators  */ undefined,

@@ -18,6 +18,9 @@ export const create_import_namespace = (options: IImportNamespaceOptions): IImpo
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_import_namespace = (element: IImportNamespace, path: IElement<any>[]) =>
   ts.createImportDeclaration(
     /* decorators      */ undefined,

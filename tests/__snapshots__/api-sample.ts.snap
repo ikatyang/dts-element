@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `
+"declare namespace SomeNamespace {
+    /**
+     * This is my nice interface
+     */
+    interface MyInterface {
+        getThing?(x: number): void;
+    }
+}
+"
+`;

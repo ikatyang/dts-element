@@ -18,6 +18,9 @@ export const create_generic_declaration = (options: IGenericDeclarationOptions):
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_generic_declaration = (element: IGenericDeclaration, path: IElement<any>[]) =>
   ts.createTypeParameterDeclaration(
     /* name        */ element.name,

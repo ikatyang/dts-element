@@ -26,6 +26,9 @@ export const create_class_member = (options: IClassMemberOptions): IClassMember 
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_class_member = (element: IClassMember, path: IElement<any>[]) => {
   const accessors =
     (element.public === true)

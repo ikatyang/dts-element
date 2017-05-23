@@ -16,6 +16,9 @@ export const create_export_namespace = (options: IExportNamespaceOptions): IExpo
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_export_namespace = (element: IExportNamespace, path: IElement<any>[]) =>
   ts.createNamespaceExportDeclaration(
     /* name */ ts.createIdentifier(element.name),

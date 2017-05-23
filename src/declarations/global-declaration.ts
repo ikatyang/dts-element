@@ -17,6 +17,9 @@ export const create_global_declaration = (options: IGlobalDeclarationOptions = {
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_global_declaration = (element: IGlobalDeclaration, path: IElement<any>[]) =>
   ts.createModuleDeclaration(
     /* decorators  */ undefined,

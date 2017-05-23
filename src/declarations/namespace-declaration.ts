@@ -21,6 +21,9 @@ export const create_namespace_declaration = (options: INamespaceDeclarationOptio
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_namespace_declaration = (element: INamespaceDeclaration, path: IElement<any>[]) =>
   ts.createModuleDeclaration(
     /* decorators  */ undefined,

@@ -31,6 +31,9 @@ export const create_class_declaration = (options: IClassDeclarationOptions): ICl
 
 // tslint:disable:ter-indent max-line-length
 
+/**
+ * @hidden
+ */
 export const transform_class_declaration = (element: IClassDeclaration, path: IElement<any>[]) =>
   ts.createClassDeclaration(
     /* decorators      */ undefined,

@@ -20,6 +20,9 @@ export const create_import_named = (options: IImportNamedOptions): IImportNamed 
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_import_named = (element: IImportNamed, path: IElement<any>[]) =>
   ts.createImportDeclaration(
     /* decorators      */ undefined,

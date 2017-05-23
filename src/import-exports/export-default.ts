@@ -18,6 +18,9 @@ export const create_export_default = (options: IExportDefaultOptions): IExportDe
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_export_default = (element: IExportDefault, path: IElement<any>[]) =>
   ts.createExportAssignment(
     /* decorators      */ undefined,

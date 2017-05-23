@@ -14,11 +14,17 @@ export const create_jsdoc_comment = (options: IJSDocCommentOptions): IJSDocComme
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export interface IAddJSDocCommentOptions {
   method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
   trailing_new_line?: boolean;
 }
 
+/**
+ * @hidden
+ */
 // tslint:disable:ter-indent
 export const add_jsdoc_comment = <T extends ts.Node>(node: T, text: string, options: IAddJSDocCommentOptions = {}): T =>
   (options.method || ts.addSyntheticLeadingComment)(
@@ -35,6 +41,9 @@ export const add_jsdoc_comment = <T extends ts.Node>(node: T, text: string, opti
   );
 // tslint:enable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_jsdoc_comment = (element: IJSDocComment, path: IElement<any>[]) =>
   add_jsdoc_comment(ts.createOmittedExpression(), element.text, {
     trailing_new_line: false,

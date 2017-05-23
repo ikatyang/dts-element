@@ -19,6 +19,9 @@ export const create_export_named = (options: IExportNamedOptions): IExportNamed 
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_export_named = (element: IExportNamed, path: IElement<any>[]) => {
   if (element.from === undefined && element.members === undefined) {
     throw new Error(`export_named.from or export_named.members should either exist`);

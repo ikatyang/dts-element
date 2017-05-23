@@ -23,6 +23,9 @@ export const create_variable_declaration = (options: IVariableDeclarationOptions
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_variable_declaration = (element: IVariableDeclaration, path: IElement<any>[]) => {
   const type = transform(element.type || any_type, path) as ts.TypeNode;
   return ts.createVariableStatement(

@@ -23,6 +23,9 @@ export const create_parameter_declaration = (options: IParameterDeclarationOptio
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_parameter_declaration = (element: IParameterDeclaration, path: IElement<any>[]) =>
   ts.createParameter(
     /* decorators      */ undefined,

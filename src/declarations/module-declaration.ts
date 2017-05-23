@@ -18,6 +18,9 @@ export const create_module_declaration = (options: IModuleDeclarationOptions): I
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_module_declaration = (element: IModuleDeclaration, path: IElement<any>[]) =>
   ts.createModuleDeclaration(
     /* decorators  */ undefined,

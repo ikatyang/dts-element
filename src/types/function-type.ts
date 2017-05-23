@@ -24,6 +24,9 @@ export const create_function_type = (options: IFunctionTypeOptions = {}): IFunct
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_function_type = (element: IFunctionType, path: IElement<any>[]) =>
   ts.createFunctionTypeNode(
     /* typeParameters  */ create_type_parameters(element.generics, path),

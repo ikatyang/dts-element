@@ -20,6 +20,9 @@ export const create_general_type = (options: IGeneralTypeOptions): IGeneralType 
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_general_type = (element: IGeneralType, path: IElement<any>[]) =>
   ts.createTypeReferenceNode(
     /* typeName      */ (element.parents === undefined || element.parents.length === 0)

@@ -16,6 +16,9 @@ export const create_tuple_type = (options: ITupleTypeOptions): ITupleType => ({
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_tuple_type = (element: ITupleType, path: IElement<any>[]) =>
   ts.createTupleTypeNode(
     /* elementTypes */ element.types.map(type => transform(type, path) as ts.TypeNode),

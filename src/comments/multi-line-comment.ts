@@ -16,11 +16,17 @@ export const create_multi_line_comment = (options: IMultiLineCommentOptions): IM
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export interface IAddMultiLineCommentOptions {
   method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
   trailing_new_line?: boolean;
 }
 
+/**
+ * @hidden
+ */
 // tslint:disable:ter-indent
 export const add_multi_line_comment = <T extends ts.Node>(
     node: T, element: IMultiLineComment, options: IAddMultiLineCommentOptions = {}): T =>
@@ -49,6 +55,9 @@ export const add_multi_line_comment = <T extends ts.Node>(
   );
 // tslint:enable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_multi_line_comment = (element: IMultiLineComment, path: IElement<any>[]) =>
   add_multi_line_comment(ts.createOmittedExpression(), element, {
     trailing_new_line: false,

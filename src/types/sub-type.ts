@@ -16,9 +16,11 @@ export const create_sub_type = (options: ISubTypeOptions): ISubType => ({
   ...options,
 });
 
-const minimum_length_of_types = 2;
-
+/**
+ * @hidden
+ */
 export const transform_sub_type = (element: ISubType, path: IElement<any>[]) => {
+  const minimum_length_of_types = 2;
   if (element.types.length < minimum_length_of_types) {
     throw new Error(`sub_type.types.length should >= ${minimum_length_of_types}`);
   }

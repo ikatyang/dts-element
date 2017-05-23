@@ -25,6 +25,9 @@ export const create_interface_declaration = (options: IInterfaceDeclarationOptio
 
 // tslint:disable:ter-indent max-line-length
 
+/**
+ * @hidden
+ */
 export const transform_interface_declaration = (element: IInterfaceDeclaration, path: IElement<any>[]) =>
   ts.createInterfaceDeclaration(
     /* decorators      */ undefined,

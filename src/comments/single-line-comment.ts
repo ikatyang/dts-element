@@ -15,11 +15,17 @@ export const create_single_line_comment = (options: ISingleLineCommentOptions): 
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export interface IAddSingleLineCommentOptions {
   method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
   trailing_new_line?: boolean;
 }
 
+/**
+ * @hidden
+ */
 export const add_single_line_comment = <T extends ts.Node>(
     node: T, element: ISingleLineComment, options: IAddSingleLineCommentOptions = {}): T =>
   element.text.split('\n').reduce(
@@ -42,6 +48,9 @@ export const add_single_line_comment = <T extends ts.Node>(
     node,
   );
 
+/**
+ * @hidden
+ */
 export const transform_single_line_comment = (element: ISingleLineComment, path: IElement<any>[]) =>
   add_single_line_comment(ts.createOmittedExpression(), element, {
     trailing_new_line: false,

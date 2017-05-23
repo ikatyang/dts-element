@@ -21,6 +21,9 @@ export const create_function_declaration = (options: IFunctionDeclarationOptions
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_function_declaration = (element: IFunctionDeclaration, path: IElement<any>[]) => {
   const function_type = transform(element.type || create_function_type(), path) as ts.FunctionDeclaration;
   return ts.createFunctionDeclaration(

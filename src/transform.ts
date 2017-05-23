@@ -44,6 +44,9 @@ import {transform_tuple_type} from './types/tuple-type';
 import {transform_typeof_type} from './types/typeof-type';
 import {transform_union_type} from './types/union-type';
 
+/**
+ * @hidden
+ */
 // tslint:disable-next-line:cyclomatic-complexity
 const select_transformer = (element: IElement<any>): (element: IElement<any>, path: IElement<any>[]) => ts.Node => {
   switch (element.kind) {

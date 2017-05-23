@@ -20,6 +20,9 @@ export const create_enum_declaration = (options: IEnumDeclarationOptions): IEnum
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_enum_declaration = (element: IEnumDeclaration, path: IElement<any>[]) => {
   let counter = 0;
   return ts.createEnumDeclaration(

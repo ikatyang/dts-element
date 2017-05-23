@@ -15,6 +15,9 @@ export const create_triple_slash_reference = (options: ITripleSlashReferenceOpti
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_triple_slash_reference = (element: ITripleSlashReference, path: IElement<any>[]) =>
   ts.addSyntheticTrailingComment(
     /* node                */ ts.createOmittedExpression(),

@@ -18,6 +18,9 @@ export const create_type_predicate = (options: ITypePredicateOptions): ITypePred
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_type_predicate = (element: ITypePredicate, path: IElement<any>[]) =>
   ts.createTypePredicateNode(
     /* parameterName */ (typeof element.parameter === 'string')

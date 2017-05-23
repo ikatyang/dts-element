@@ -16,6 +16,9 @@ export const create_export_member = (options: IExportMemberOptions): IExportMemb
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_export_member = (element: IExportMember, path: IElement<any>[]) =>
   ts.createExportSpecifier(
     /* propertyName  */ if_defined(element.property, ts.createIdentifier),

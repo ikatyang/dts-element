@@ -16,6 +16,9 @@ export const create_import_member = (options: IImportMemberOptions): IImportMemb
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_import_member = (element: IImportMember, path: IElement<any>[]) =>
   ts.createImportSpecifier(
     /* propertyName  */ if_defined(element.property, ts.createIdentifier),

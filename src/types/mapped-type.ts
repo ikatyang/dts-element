@@ -20,6 +20,9 @@ export const create_mapped_type = (options: IMappedTypeOptions): IMappedType => 
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_mapped_type = (element: IMappedType, path: IElement<any>[]) => {
   if (element.parameter.extends === undefined) {
     throw new Error(`mapped_type.parameter.extends should be a Type`);

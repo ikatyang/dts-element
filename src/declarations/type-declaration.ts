@@ -24,6 +24,9 @@ export const create_type_declaration = (options: ITypeDeclarationOptions): IType
 
 // tslint:disable:ter-indent
 
+/**
+ * @hidden
+ */
 export const transform_type_declaration = (element: ITypeDeclaration, path: IElement<any>[]) => {
   const type_declaration = ts.createTypeAliasDeclaration(
     /* name            */ element.name,

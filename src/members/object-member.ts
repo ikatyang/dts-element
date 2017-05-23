@@ -21,6 +21,9 @@ export const create_object_member = (options: IObjectMemberOptions): IObjectMemb
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_object_member = (element: IObjectMember, path: IElement<any>[]) => {
   const modifiers = (element.readonly === true)
     ? [ts.createToken(ts.SyntaxKind.ReadonlyKeyword)]

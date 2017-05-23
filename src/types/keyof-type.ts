@@ -16,6 +16,9 @@ export const create_keyof_type = (options: IKeyofTypeOptions): IKeyofType => ({
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_keyof_type = (element: IKeyofType, path: IElement<any>[]) =>
   ts.createTypeOperatorNode(
     /* type */ transform(element.type, path) as ts.TypeNode,

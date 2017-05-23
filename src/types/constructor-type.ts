@@ -21,6 +21,9 @@ export const create_constructor_type = (options: IConstructorTypeOptions = {}): 
   ...options,
 });
 
+/**
+ * @hidden
+ */
 // tslint:disable:ter-indent
 export const transform_constructor_type = (element: IConstructorType, path: IElement<any>[]) =>
   ts.createConstructorTypeNode(

@@ -16,6 +16,9 @@ export const create_union_type = (options: IUnionTypeOptions): IUnionType => ({
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_union_type = (element: IUnionType, path: IElement<any>[]) =>
   ts.createUnionTypeNode(
     /* types */ element.types.map(type => transform(type, path) as ts.TypeNode),

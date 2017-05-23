@@ -16,6 +16,9 @@ export const create_top_level_element = (options: ITopLevelElementOptions): ITop
   ...options,
 });
 
+/**
+ * @hidden
+ */
 export const transform_top_level_element = (element: ITopLevelElement, path: IElement<any>[]) => {
   const source_file = ts.createSourceFile(
     /* fileName        */ '',
