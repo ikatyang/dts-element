@@ -27,14 +27,13 @@ export const create_type_declaration = (options: ITypeDeclarationOptions): IType
 /**
  * @hidden
  */
-export const transform_type_declaration = (element: ITypeDeclaration, path: IElement<any>[]) => {
-  const type_declaration = ts.createTypeAliasDeclaration(
+export const transform_type_declaration = (element: ITypeDeclaration, path: IElement<any>[]) =>
+  ts.createTypeAliasDeclaration(
+    /* decorators      */ undefined,
+    /* modifiers       */ (element.export === true)
+                            ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
+                            : undefined,
     /* name            */ element.name,
     /* typeParameters  */ create_type_parameters(element.generics, path),
     /* type            */ transform(element.type || any_type, path) as ts.TypeNode,
   );
-  if (element.export === true) {
-    type_declaration.modifiers = [ts.createToken(ts.SyntaxKind.ExportKeyword)] as ts.NodeArray<ts.Modifier>;
-  }
-  return type_declaration;
-};

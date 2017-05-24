@@ -25,7 +25,7 @@
     "postpublish": "yarn run typedoc"
   },
   "dependencies": {
-    "typescript": "^2.4.0-dev.20170517"
+    "typescript": "^2.4.0-dev.20170524"
   },
   "devDependencies": {
     "@types/jest": "19.2.3",

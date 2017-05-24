@@ -2320,9 +2320,9 @@ typescript@2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.2.tgz#f0f045e196f69a72f06b25fd3bd39d01c3ce9984"
 
-typescript@^2.4.0-dev.20170517:
-  version "2.4.0-dev.20170517"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.0-dev.20170517.tgz#9ffbd0637e461a2039d44cb6bdb58128a9cabf3c"
+typescript@^2.4.0-dev.20170524:
+  version "2.4.0-dev.20170524"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.0-dev.20170524.tgz#f818a6ae2237ffa33aae7b8ed728c6b45c7566ce"
 
 uglify-js@^2.6:
   version "2.8.22"

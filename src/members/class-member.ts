@@ -59,7 +59,7 @@ export const transform_class_member = (element: IClassMember, path: IElement<any
         /* name          */ element.owned.name,
         /* questionToken */ question_token,
         /* type          */ transform(element.owned.type || any_type, path) as ts.TypeNode,
-        /* initializer   */ undefined as any,
+        /* initializer   */ undefined,
       );
     case ElementKind.FunctionDeclaration:
       if (element.owned.name === undefined) {

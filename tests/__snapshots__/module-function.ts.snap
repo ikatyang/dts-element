@@ -20,6 +20,7 @@ exports[`should return correctly 1`] = `
  *~ loaded outside a module loader environment, declare that global here.
  *~ Otherwise, delete this declaration.
  */
+export as namespace myFuncLib;
 export = myFunction;
 /*~ This example shows how to have multiple overloads for your function
  */

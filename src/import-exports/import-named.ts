@@ -31,10 +31,10 @@ export const transform_import_named = (element: IImportNamed, path: IElement<any
                             ? undefined
                             : ts.createImportClause(
                               /* name          */ (element.default === undefined)
-                                                    ? undefined as any
+                                                    ? undefined
                                                     : ts.createIdentifier(element.default),
                               /* namedBindings */ (element.members === undefined)
-                                                    ? undefined as any
+                                                    ? undefined
                                                     : ts.createNamedImports(
                                                       element.members.map(
                                                         member => transform(member, path) as ts.ImportSpecifier,

@@ -68,6 +68,7 @@ export default X.Y.Z;
 export = A;
 export = A.B.C;
 export { ex_0 as ex_1, ex_2 };
+export as namespace NS;
 export * from \\"path/to/somewhere\\";
 export { ex_3 as ex_4, ex_5 } from \\"path/to/somewhere\\";
 export declare class ZXC extends X.Y.Z {

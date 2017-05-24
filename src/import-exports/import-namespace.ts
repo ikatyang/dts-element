@@ -27,7 +27,7 @@ export const transform_import_namespace = (element: IImportNamespace, path: IEle
     /* modifiers       */ undefined,
     /* importClause    */ ts.createImportClause(
                             /* name          */ (element.default === undefined)
-                                                  ? undefined as any
+                                                  ? undefined
                                                   : ts.createIdentifier(element.default),
                             /* namedBindings */ ts.createNamespaceImport(
                                                   ts.createIdentifier(element.name),
