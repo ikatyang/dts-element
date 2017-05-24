@@ -30,7 +30,6 @@ All changes to this project will be documented in this file.
 - package
   - rewrite using TypeScript Printer API
 
-
 ## v1.3.0 (2017-05-10)
 
 #### 🚀 New Feature

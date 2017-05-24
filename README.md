@@ -10,8 +10,8 @@ A DOM library for generation TypeScript declaration (.d.ts) files
 
 ## Features
 - reusable
-  - FunctionDeclaration: it can be method or function based on where it is.
-  - VariableDeclaration: it can be property or variable based on where it is.
+  - `FunctionDeclaration`: it can be method or function based on where it is.
+  - `VariableDeclaration`: it can be property or variable based on where it is.
 - parsable
   - parsing TypeScript syntax into `dts-element` using `dts.parse()`, useful for restructuring types
 
