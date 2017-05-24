@@ -1,172 +1,272 @@
-jest.disableAutomock();
-
+import * as dedent from 'dedent';
 import * as dts from '../src/index';
 
-// template: https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-d-ts.html
+const single_line_options = {
+  prefix: '~ ',
+};
 
-const function_myLib_a = new dts.FunctionDeclaration({
-  name: 'myLib',
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'If this library is callable (e.g. can be invoked as myLib(3)),\ninclude those call signatures here.\nOtherwise, delete this section.',
-  type: new dts.FunctionType({
-    parameters: [
-      new dts.Parameter({name: 'a', type: dts.string_type}),
-    ],
-    return: dts.string_type,
-  }),
-});
+const multi_line_options = {
+  align: true,
+  prefix: '~ ',
+};
 
-const function_myLib_b = new dts.FunctionDeclaration({
-  name: 'myLib',
-  type: new dts.FunctionType({
-    parameters: [
-      new dts.Parameter({name: 'a', type: dts.number_type}),
-    ],
-    return: dts.number_type,
-  }),
-});
+// template from https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-d-ts.html
 
-const interface_myLib = new dts.InterfaceDeclaration({
-  name: 'myLib',
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'If you want the name of this library to be a valid type name,\nyou can do so here.\n\nFor example, this allows us to write \'var x: myLib\';\nBe sure this actually makes sense! If it doesn\'t, just\ndelete this declaration and add types inside the namespace below.',
-  members: [
-    new dts.ObjectMember({
-      owned: new dts.VariableDeclaration({
-        name: 'name',
-        type: dts.string_type,
-      }),
-    }),
-    new dts.ObjectMember({
-      owned: new dts.VariableDeclaration({
-        name: 'length',
-        type: dts.number_type,
-      }),
-    }),
-    new dts.ObjectMember({
-      owned: new dts.VariableDeclaration({
-        name: 'extras',
-        type: new dts.ArrayType({owned: dts.string_type}),
-        optional: true,
-      }),
-    }),
-  ],
-});
-
-const class_Cat = new dts.ClassDeclaration({
-  name: 'Cat',
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'There\'s some class we can create via \'let c = new myLib.Cat(42)\'\nOr reference e.g. \'function f(c: myLib.Cat) { ... }',
-  members: [
-    new dts.ClassMember({
-      owned: new dts.Constructor({
-        parameters: [
-          new dts.Parameter({name: 'n', type: dts.number_type}),
-        ],
-      }),
-    }),
-    new dts.ClassMember({
-      readonly: true,
-      owned: new dts.VariableDeclaration({
-        name: 'age',
-        type: dts.number_type,
-        jsdoc: 'We can read \'c.age\' from a \'Cat\' instance',
-      }),
-    }),
-    new dts.ClassMember({
-      owned: new dts.FunctionDeclaration({
-        name: 'purr',
-        type: new dts.FunctionType({
-          return: dts.void_type,
-        }),
-        jsdoc: 'We can invoke \'c.purr()\' from a \'Cat\' instance',
-      }),
-    }),
-  ],
-});
-
-const type_VetID = new dts.TypeDeclaration({
-  name: 'VetID',
-  jsdoc: 'We can write \'const v: myLib.VetID = 42;\'\nor \'const v: myLib.VetID = "bob";\'',
-  type: new dts.UnionType({
-    types: [dts.string_type, dts.number_type],
-  }),
-});
-
-const namespace_myLib = new dts.NamespaceDeclaration({
-  name: 'myLib',
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'If your library has properties exposed on a global variable,\nplace them here.\nYou should also place types (interfaces and type alias) here.',
-  children: [
-    new dts.VariableDeclaration({
-      name: 'timeout',
-      kind: dts.VariableKind.LET,
-      type: dts.number_type,
-      jsdoc: 'We can write \'myLib.timeout = 50;\'',
-    }),
-    new dts.VariableDeclaration({
-      name: 'version',
-      kind: dts.VariableKind.CONST,
-      type: dts.string_type,
-      jsdoc: 'We can access \'myLib.version\', but not change it',
-    }),
-    class_Cat,
-    new dts.InterfaceDeclaration({
-      name: 'CatSettings',
-      jsdoc: 'We can declare a variable as\n\'var s: myLib.CatSettings = { weight: 5, name: "Maru" };\'',
+it('should return correctly', () => {
+  expect(dts.emit(
+    dts.create_top_level_element({
       members: [
-        new dts.ObjectMember({
-          owned: new dts.VariableDeclaration({
-            name: 'weight',
-            type: dts.number_type,
+        dts.create_single_line_comment({
+          prefix: ' ',
+          text: dedent(`
+            Type definitions for [~THE LIBRARY NAME~] [~OPTIONAL VERSION NUMBER~]
+            Project: [~THE PROJECT NAME~]
+            Definitions by: [~YOUR NAME~] <[~A URL FOR YOU~]>
+          `),
+        }),
+        dts.create_function_declaration({
+          name: 'myLib',
+          type: dts.create_function_type({
+            parameters: [
+              dts.create_parameter_declaration({
+                name: 'a',
+                type: dts.string_type,
+              }),
+            ],
+            return: dts.string_type,
+          }),
+          comments: [
+            dts.create_multi_line_comment({
+              ...multi_line_options,
+              text: dedent(`
+                If this library is callable (e.g. can be invoked as myLib(3)),
+                include those call signatures here.
+                Otherwise, delete this section.
+              `),
+            }),
+          ],
+        }),
+        dts.create_function_declaration({
+          name: 'myLib',
+          type: dts.create_function_type({
+            parameters: [
+              dts.create_parameter_declaration({
+                name: 'a',
+                type: dts.number_type,
+              }),
+            ],
+            return: dts.number_type,
           }),
         }),
-        new dts.ObjectMember({
-          owned: new dts.VariableDeclaration({
-            name: 'name',
-            type: dts.string_type,
+        dts.create_interface_declaration({
+          name: 'myLib',
+          comments: [
+            dts.create_multi_line_comment({
+              ...multi_line_options,
+              text: dedent(`
+                If you want the name of this library to be a valid type name,
+                you can do so here.
+
+                For example, this allows us to write 'var x: myLib';
+                Be sure this actually makes sense! If it doesn't, just
+                delete this declaration and add types inside the namespace below.
+              `),
+            }),
+          ],
+          type: dts.create_object_type({
+            members: [
+              dts.create_object_member({
+                owned: dts.create_variable_declaration({
+                  name: 'name',
+                  type: dts.string_type,
+                }),
+              }),
+              dts.create_object_member({
+                owned: dts.create_variable_declaration({
+                  name: 'length',
+                  type: dts.number_type,
+                }),
+              }),
+              dts.create_object_member({
+                optional: true,
+                owned: dts.create_variable_declaration({
+                  name: 'extras',
+                  type: dts.create_array_type({
+                    type: dts.string_type,
+                  }),
+                }),
+              }),
+            ],
           }),
         }),
-        new dts.ObjectMember({
-          owned: new dts.VariableDeclaration({
-            name: 'tailLength',
-            type: dts.number_type,
-            optional: true,
-          }),
+        dts.create_namespace_declaration({
+          name: 'myLib',
+          comments: [
+            dts.create_multi_line_comment({
+              ...multi_line_options,
+              text: dedent(`
+                If your library has properties exposed on a global variable,
+                place them here.
+                You should also place types (interfaces and type alias) here.
+              `),
+            }),
+          ],
+          members: [
+            dts.create_variable_declaration({
+              name: 'timeout',
+              let: true,
+              type: dts.number_type,
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: `We can write 'myLib.timeout = 50;'`,
+                }),
+              ],
+            }),
+            dts.create_variable_declaration({
+              name: 'version',
+              const: true,
+              type: dts.string_type,
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: `We can access 'myLib.version', but not change it`,
+                }),
+              ],
+            }),
+            dts.create_class_declaration({
+              name: 'Cat',
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: dedent(`
+                    There's some class we can create via 'let c = new myLib.Cat(42)'
+                    Or reference e.g. 'function f(c: myLib.Cat) { ... }
+                  `),
+                }),
+              ],
+              members: [
+                dts.create_class_member({
+                  owned: dts.create_constructor_type({
+                    parameters: [
+                      dts.create_parameter_declaration({
+                        name: 'n',
+                        type: dts.number_type,
+                      }),
+                    ],
+                  }),
+                }),
+                dts.create_class_member({
+                  readonly: true,
+                  owned: dts.create_variable_declaration({
+                    name: 'age',
+                    type: dts.number_type,
+                  }),
+                  comments: [
+                    dts.create_single_line_comment({
+                      ...single_line_options,
+                      text: `We can read 'c.age' from a 'Cat' instance`,
+                    }),
+                  ],
+                }),
+                dts.create_class_member({
+                  owned: dts.create_function_declaration({
+                    name: 'purr',
+                    type: dts.create_function_type({
+                      return: dts.void_type,
+                    }),
+                  }),
+                  comments: [
+                    dts.create_single_line_comment({
+                      ...single_line_options,
+                      text: `We can invoke 'c.purr()' from a 'Cat' instance`,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            dts.create_interface_declaration({
+              name: 'CatSettings',
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: dedent(`
+                    We can declare a variable as
+                      'var s: myLib.CatSettings = { weight: 5, name: "Maru" };'
+                  `),
+                }),
+              ],
+              type: dts.create_object_type({
+                members: [
+                  dts.create_object_member({
+                    owned: dts.create_variable_declaration({
+                      name: 'weight',
+                      type: dts.number_type,
+                    }),
+                  }),
+                  dts.create_object_member({
+                    owned: dts.create_variable_declaration({
+                      name: 'name',
+                      type: dts.string_type,
+                    }),
+                  }),
+                  dts.create_object_member({
+                    optional: true,
+                    owned: dts.create_variable_declaration({
+                      name: 'tailLength',
+                      type: dts.number_type,
+                    }),
+                  }),
+                ],
+              }),
+            }),
+            dts.create_type_declaration({
+              name: 'VetID',
+              type: dts.create_union_type({
+                types: [
+                  dts.string_type,
+                  dts.number_type,
+                ],
+              }),
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: dedent(`
+                    We can write 'const v: myLib.VetID = 42;'
+                      or 'const v: myLib.VetID = "bob";'
+                  `),
+                }),
+              ],
+            }),
+            dts.create_function_declaration({
+              name: 'checkCat',
+              type: dts.create_function_type({
+                parameters: [
+                  dts.create_parameter_declaration({
+                    name: 'c',
+                    type: dts.create_general_type({
+                      name: 'Cat',
+                    }),
+                  }),
+                  dts.create_parameter_declaration({
+                    name: 's',
+                    optional: true,
+                    type: dts.create_general_type({
+                      name: 'VetID',
+                    }),
+                  }),
+                ],
+              }),
+              comments: [
+                dts.create_single_line_comment({
+                  ...single_line_options,
+                  text: `We can invoke 'myLib.checkCat(c)' or 'myLib.checkCat(c, v);'`,
+                }),
+              ],
+            }),
+          ],
         }),
       ],
     }),
-    type_VetID,
-    new dts.FunctionDeclaration({
-      name: 'checkCat',
-      jsdoc: 'We can invoke \'myLib.checkCat(c)\' or \'myLib.checkCat(c, v);\'',
-      type: new dts.FunctionType({
-        parameters: [
-          new dts.Parameter({
-            name: 'c',
-            type: new dts.ClassType({owned: class_Cat}),
-          }),
-          new dts.Parameter({
-            name: 's',
-            kind: dts.ParameterKind.OPTIONAL,
-            type: new dts.TypedType({owned: type_VetID}),
-          }),
-        ],
-        return: dts.any_type,
-      }),
-    }),
-  ],
-});
-
-const document = new dts.Document({
-  children: [
-    function_myLib_a,
-    function_myLib_b,
-    interface_myLib,
-    namespace_myLib,
-  ],
-});
-
-it('should return correctly', () => {
-  expect(document.emit()).toMatchSnapshot();
+  )).toMatchSnapshot();
 });

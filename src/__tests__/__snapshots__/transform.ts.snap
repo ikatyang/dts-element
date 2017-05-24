@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return node with comments-attached node while element.comments is not undefined 1`] = `
+"//single 1
+//
+//single 2
+/*multi 1
+
+multi 2*/
+declare class SomeClass {
+}"
+`;
+
+exports[`should return node with jsdoc-attached node while element.jsdoc is not undefined 1`] = `
+"/**
+ * Line 1
+ *
+ * Line 2
+ */
+declare class SomeClass {
+}"
+`;

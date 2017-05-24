@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with owned (ConstructorType) 1`] = `"new (): any;"`;
+
+exports[`should return correctly with owned (FunctionDeclaration with name) 1`] = `"fn(): any;"`;
+
+exports[`should return correctly with owned (FunctionDeclaration with undefined name) 1`] = `"(): any;"`;
+
+exports[`should return correctly with owned (FunctionDeclaration), optional 1`] = `"fn?(): any;"`;
+
+exports[`should return correctly with owned (VariableDeclaration) 1`] = `"a: any;"`;
+
+exports[`should return correctly with owned (VariableDeclaration), optional, readonly 1`] = `"readonly a?: any;"`;

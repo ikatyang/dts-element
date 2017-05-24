@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return return-signature while stack is not Element-ClassMember 1`] = `": [BasicType any]"`;

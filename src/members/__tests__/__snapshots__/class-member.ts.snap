@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with owned (ConstructorType) 1`] = `"constructor();"`;
+
+exports[`should return correctly with owned (FunctionDeclaration) 1`] = `"fn(): any;"`;
+
+exports[`should return correctly with owned (FunctionDeclaration), optional 1`] = `"fn?(): any;"`;
+
+exports[`should return correctly with owned (FunctionDeclaration), optional, public, abstract 1`] = `"public abstract fn?(): any;"`;
+
+exports[`should return correctly with owned (VariableDeclaration) 1`] = `"a: any;"`;
+
+exports[`should return correctly with owned (VariableDeclaration), optional, private, readonly 1`] = `"private readonly a?: any;"`;
+
+exports[`should return correctly with owned (VariableDeclaration), optional, protected, static 1`] = `"protected static a?: any;"`;

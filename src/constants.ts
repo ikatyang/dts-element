@@ -1,72 +1,59 @@
-import {BasicType} from './elements/types/basic-type';
+import * as ts from 'typescript';
+import {create_native_type, INativeType} from './types/native-type';
 
-export const any_type = new BasicType({name: 'any'});
-export const never_type = new BasicType({name: 'never'});
-
-export const null_type = new BasicType({name: 'null'});
-export const undefined_type = new BasicType({name: 'undefined'});
-export const void_type = new BasicType({name: 'void'});
-
-export const boolean_type = new BasicType({name: 'boolean'});
-export const number_type = new BasicType({name: 'number'});
-export const string_type = new BasicType({name: 'string'});
-export const symbol_type = new BasicType({name: 'symbol'});
-export const object_type = new BasicType({name: 'object'});
-
-export const this_type = new BasicType({name: 'this'});
-
-export enum ParameterKind {
-  NONE,
-  REST,
-  OPTIONAL,
+export enum ElementKind {
+  ArrayType,
+  ClassDeclaration,
+  ClassMember,
+  ConstructorType,
+  EnumDeclaration,
+  ExportDefault,
+  ExportEqual,
+  ExportMember,
+  ExportNamed,
+  ExportNamespace,
+  FunctionDeclaration,
+  FunctionType,
+  GeneralType,
+  GenericDeclaration,
+  GlobalDeclaration,
+  ImportMember,
+  ImportNamed,
+  ImportNamespace,
+  IndexSignature,
+  InterfaceDeclaration,
+  IntersectionType,
+  JSDocComment,
+  KeyofType,
+  LiteralType,
+  MappedType,
+  ModuleDeclaration,
+  MultiLineComment,
+  NamespaceDeclaration,
+  NativeType,
+  ObjectMember,
+  ObjectType,
+  ParameterDeclaration,
+  SingleLineComment,
+  SubType,
+  TopLevelElement,
+  TripleSlashReference,
+  TupleType,
+  TypeDeclaration,
+  TypePredicate,
+  TypeofType,
+  UnionType,
+  VariableDeclaration,
 }
 
-export enum ReferenceKind {
-  PATH,
-  TYPES,
-}
-
-/**
- * Map ReferenceKind to string
- * @private
- */
-// TODO: removed in TS 2.4 (string-enum)
-export const REFERENCE_KIND_MAP = {
-  [ReferenceKind.PATH]: 'path',
-  [ReferenceKind.TYPES]: 'types',
-};
-
-export enum VariableKind {
-  VAR,
-  LET,
-  CONST,
-}
-
-/**
- * Map VariableKind to string
- * @private
- */
-// TODO: removed in TS 2.4 (string-enum)
-export const VARIABLE_KIND_MAP = {
-  [VariableKind.VAR]: 'var',
-  [VariableKind.LET]: 'let',
-  [VariableKind.CONST]: 'const',
-};
-
-export enum ClassAccessor {
-  NONE,
-  PUBLIC,
-  PROTECTED,
-  PRIVATE,
-}
-
-/**
- * Map ClassAccessor to string
- * @private
- */
-// TODO: removed in TS 2.4 (string-enum)
-export const CLASS_ACCESSOR_MAP = {
-  [ClassAccessor.PUBLIC]: 'public',
-  [ClassAccessor.PROTECTED]: 'protected',
-  [ClassAccessor.PRIVATE]: 'private',
-};
+export const any_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword)});
+export const boolean_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword)});
+export const never_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.NeverKeyword)});
+export const null_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.NullKeyword)});
+export const number_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword)});
+export const object_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.ObjectKeyword)});
+export const string_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.StringKeyword)});
+export const symbol_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.SymbolKeyword)});
+export const this_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.ThisKeyword)});
+export const undefined_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword)});
+export const void_type = create_native_type({type: ts.createKeywordTypeNode(ts.SyntaxKind.VoidKeyword)});

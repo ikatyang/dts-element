@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with value 1`] = `"export default xyz;"`;
+
+exports[`should return correctly with value, parents 1`] = `"export default a.b.c.xyz;"`;

@@ -9,7 +9,6 @@ env:
 script:
   - if [ "$JOB" = "lint" ]; then yarn run lint; fi
   - if [ "$JOB" = "test" ]; then yarn run test-ci; fi
-  - if [ "$JOB" = "build" ]; then yarn run build; fi
   - if [ "$JOB" = "test-coverage" ]; then yarn run test-coverage-ci && yarn run coverage-ci; fi
 
 cache:
@@ -22,8 +21,6 @@ matrix:
   include:
     - node_js: "stable"
       env: JOB=lint
-    - node_js: "stable"
-      env: JOB=build
     - node_js: "stable"
       env: JOB=test-coverage
 

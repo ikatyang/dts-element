@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `
+"declare class C {
+}"
+`;
+
+exports[`should return correctly with name, abstract 1`] = `
+"declare abstract class C {
+}"
+`;
+
+exports[`should return correctly with name, export 1`] = `
+"export declare class C {
+}"
+`;
+
+exports[`should return correctly with name, export, abstract, generics, members, extends 1`] = `
+"export declare abstract class C<T, U> extends Z<string, symbol> {
+    fn(): any;
+    [key: string]: any;
+}"
+`;
+
+exports[`should return correctly with name, extends 1`] = `
+"declare class C extends X {
+}"
+`;
+
+exports[`should return correctly with name, generics 1`] = `
+"declare class C<T, U> {
+}"
+`;
+
+exports[`should return correctly with name, members 1`] = `
+"declare class C {
+    fn(): any;
+    [key: string]: any;
+}"
+`;

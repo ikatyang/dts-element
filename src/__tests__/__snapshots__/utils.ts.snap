@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create_entity_name() should return correctly with name (array.length !== 1) 1`] = `"A.B.C"`;
+
+exports[`create_entity_name() should return correctly with name (array.length === 1) 1`] = `"A"`;
+
+exports[`create_entity_name() should return correctly with name (string) 1`] = `"A"`;
+
+exports[`create_expression_for_general_type() should return correctly with element (parents.length === 0) 1`] = `"X"`;
+
+exports[`create_expression_for_general_type() should return correctly with element (parents.length > 0) 1`] = `"A.B.X"`;
+
+exports[`create_expression_for_general_type() should return correctly with element 1`] = `"X"`;
+
+exports[`create_property_access() should return correctly with name (array.length >= 2) 1`] = `"A.B.C"`;
+
+exports[`create_qualified_name() should return correcly with names.length >= 2 1`] = `"A.B.C"`;

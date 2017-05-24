@@ -1,92 +1,140 @@
-jest.disableAutomock();
-
+import * as dedent from 'dedent';
 import * as dts from '../src/index';
 
-// template: https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-plugin-d-ts.html
+const single_line_options = {
+  prefix: ' ',
+};
 
-const type_BinaryFormatCallback = new dts.TypeDeclaration({
-  name: 'BinaryFormatCallback',
-  type: new dts.FunctionType({
-    parameters: [new dts.Parameter({name: 'n', type: dts.number_type})],
-    return: dts.string_type,
-  }),
-});
+const multi_line_options = {
+  align: true,
+  prefix: '~ ',
+};
 
-const interface_BinaryFormatOptions = new dts.InterfaceDeclaration({
-  name: 'BinaryFormatOptions',
-  members: [
-    new dts.ObjectMember({
-      owned: new dts.VariableDeclaration({
-        name: 'prefix',
-        optional: true,
-        type: dts.string_type,
-      }),
-    }),
-    new dts.ObjectMember({
-      owned: new dts.VariableDeclaration({
-        name: 'padding',
-        type: dts.number_type,
-      }),
-    }),
-  ],
-});
-
-const namespace_MyLibrary = new dts.NamespaceDeclaration({
-  name: 'MyLibrary',
-  children: [type_BinaryFormatCallback, interface_BinaryFormatOptions],
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'If you need to declare several types, place them inside a namespace\nto avoid adding too many things to the global namespace.',
-});
-
-const parameter_opts = new dts.Parameter({
-  name: 'opts',
-  kind: dts.ParameterKind.OPTIONAL,
-  type: new dts.SubType({
-    path: [
-      namespace_MyLibrary,
-      new dts.InterfaceType({owned: interface_BinaryFormatOptions}),
-    ],
-  }),
-});
-
-const function_toBinaryString_1 = new dts.FunctionDeclaration({
-  name: 'toBinaryString',
-  type: new dts.FunctionType({
-    parameters: [parameter_opts],
-    return: dts.string_type,
-  }),
-});
-
-const function_toBinaryString_2 = new dts.FunctionDeclaration({
-  name: 'toBinaryString',
-  type: new dts.FunctionType({
-    parameters: [
-      new dts.Parameter({name: 'callback', type: new dts.SubType({
-        path: [
-          namespace_MyLibrary,
-          new dts.TypedType({owned: type_BinaryFormatCallback}),
-        ],
-      })}),
-      parameter_opts,
-    ],
-    return: dts.string_type,
-  }),
-});
-
-const interface_Number = new dts.InterfaceDeclaration({
-  name: 'Number',
-  members: [
-    new dts.ObjectMember({owned: function_toBinaryString_1}),
-    new dts.ObjectMember({owned: function_toBinaryString_2}),
-  ],
-  // tslint:disable-next-line max-line-length
-  jsdoc: 'Write a declaration for the original type and add new members.\nFor example, this adds a \'toBinaryString\' method with to overloads to\nthe built-in number type.',
-});
-
-const document = new dts.Document({
-  children: [interface_Number, namespace_MyLibrary],
-});
+// template from https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-plugin-d-ts.html
 
 it('should return correctly', () => {
-  expect(document.emit()).toMatchSnapshot();
+  expect(dts.emit(
+    dts.create_top_level_element({
+      members: [
+        dts.create_single_line_comment({
+          ...single_line_options,
+          text: dedent(`
+            Type definitions for [~THE LIBRARY NAME~] [~OPTIONAL VERSION NUMBER~]
+            Project: [~THE PROJECT NAME~]
+            Definitions by: [~YOUR NAME~] <[~A URL FOR YOU~]>
+          `),
+        }),
+        dts.create_multi_line_comment({
+          ...multi_line_options,
+          text: `This template shows how to write a global plugin.`,
+        }),
+        dts.create_interface_declaration({
+          name: 'Number',
+          comments: [
+            dts.create_multi_line_comment({
+              ...multi_line_options,
+              text: dedent(`
+                Write a declaration for the original type and add new members.
+                For example, this adds a 'toBinaryString' method with to overloads to
+                the built-in number type.
+              `),
+            }),
+          ],
+          type: dts.create_object_type({
+            members: [
+              dts.create_object_member({
+                owned: dts.create_function_declaration({
+                  name: 'toBinaryString',
+                  type: dts.create_function_type({
+                    parameters: [
+                      dts.create_parameter_declaration({
+                        name: 'opts',
+                        optional: true,
+                        type: dts.create_general_type({
+                          parents: ['MyLibrary'],
+                          name: 'BinaryFormatOptions',
+                        }),
+                      }),
+                    ],
+                    return: dts.string_type,
+                  }),
+                }),
+              }),
+              dts.create_object_member({
+                owned: dts.create_function_declaration({
+                  name: 'toBinaryString',
+                  type: dts.create_function_type({
+                    parameters: [
+                      dts.create_parameter_declaration({
+                        name: 'callback',
+                        type: dts.create_general_type({
+                          parents: ['MyLibrary'],
+                          name: 'BinaryFormatCallback',
+                        }),
+                      }),
+                      dts.create_parameter_declaration({
+                        name: 'opts',
+                        optional: true,
+                        type: dts.create_general_type({
+                          parents: ['MyLibrary'],
+                          name: 'BinaryFormatOptions',
+                        }),
+                      }),
+                    ],
+                    return: dts.string_type,
+                  }),
+                }),
+              }),
+            ],
+          }),
+        }),
+        dts.create_namespace_declaration({
+          name: 'MyLibrary',
+          comments: [
+            dts.create_multi_line_comment({
+              ...multi_line_options,
+              text: dedent(`
+                If you need to declare several types, place them inside a namespace
+                to avoid adding too many things to the global namespace.
+              `),
+            }),
+          ],
+          members: [
+            dts.create_type_declaration({
+              name: 'BinaryFormatCallback',
+              type: dts.create_function_type({
+                parameters: [
+                  dts.create_parameter_declaration({
+                    name: 'n',
+                    type: dts.number_type,
+                  }),
+                ],
+                return: dts.string_type,
+              }),
+            }),
+            dts.create_interface_declaration({
+              name: 'BinaryFormatOptions',
+              type: dts.create_object_type({
+                members: [
+                  dts.create_object_member({
+                    optional: true,
+                    owned: dts.create_variable_declaration({
+                      name: 'prefix',
+                      type: dts.string_type,
+                    }),
+                  }),
+                  dts.create_object_member({
+                    owned: dts.create_variable_declaration({
+                      name: 'padding',
+                      type: dts.number_type,
+                    }),
+                  }),
+                ],
+              }),
+            }),
+          ],
+        }),
+      ],
+    }),
+  )).toMatchSnapshot();
 });

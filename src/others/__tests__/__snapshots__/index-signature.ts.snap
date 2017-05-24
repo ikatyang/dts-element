@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with parameter 1`] = `"[index: number]: any;"`;
+
+exports[`should return correctly with parameter, readonly 1`] = `"readonly [index: number]: any;"`;
+
+exports[`should return correctly with parameter, type 1`] = `"[index: number]: number;"`;
+
+exports[`should return correctly with parameter, type, readonly 1`] = `"readonly [index: number]: number;"`;

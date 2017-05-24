@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `"new () => any"`;
+
+exports[`should return correctly with generics 1`] = `"new <T, U>() => any"`;
+
+exports[`should return correctly with generics, parameters, return 1`] = `"new <T, U>(a: any, b: any) => string"`;
+
+exports[`should return correctly with parameters 1`] = `"new (a: any, b: any) => any"`;
+
+exports[`should return correctly with return 1`] = `"new () => string"`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with name 1`] = `"type X = any;"`;
+
+exports[`should return correctly with name, export 1`] = `"export type X = any;"`;
+
+exports[`should return correctly with name, export, generics, type 1`] = `"export type X<T, U> = string;"`;
+
+exports[`should return correctly with name, generics 1`] = `"type X<T, U> = any;"`;
+
+exports[`should return correctly with name, type 1`] = `"type X = string;"`;

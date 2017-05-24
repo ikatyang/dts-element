@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with boolean 1`] = `"true"`;
+
+exports[`should return correctly with number 1`] = `"1"`;
+
+exports[`should return correctly with string 1`] = `"\\"a\\""`;

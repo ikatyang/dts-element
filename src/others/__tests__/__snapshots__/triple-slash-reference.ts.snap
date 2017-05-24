@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly with path 1`] = `"/// <reference path=\\"path/to/somewhere\\" />"`;
+
+exports[`should return correctly with types 1`] = `"/// <reference types=\\"some-module\\" />"`;

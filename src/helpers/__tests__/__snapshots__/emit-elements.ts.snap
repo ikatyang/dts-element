@@ -1,6 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return joined emitted declaration 1`] = `
-"[emit-jsdoc][VariableDeclaration a]
-[emit-jsdoc][VariableDeclaration b]"
-`;

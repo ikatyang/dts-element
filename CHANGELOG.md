@@ -10,6 +10,26 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 💥 Breaking Change
+- package
+  - all elements are pure object now
+  - use `dts.emit(dts_element)` instead of `dts_element.emit()`
+  - use `dts.create_element(options)` instead of `new dts.Element(options)`
+- advanced
+  - remove curry-relative functions since it should not be a part of DOM library
+
+#### 🚀 New Feature
+- comments
+  - support `single-line-comment` and `multi-line-comment` element, or using `comments` field in every element
+- parsers
+  - support parsing TypeScript syntax into `dts-element` ( `dts.parse()` ), useful for restructuring types
+
+#### 🏠 Internal
+- package
+  - rewrite using TypeScript Printer API
+
 ## v1.3.0 (2017-05-10)
 
 #### 🚀 New Feature

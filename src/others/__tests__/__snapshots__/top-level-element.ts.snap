@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `
+"/// <reference path=\\"path/to/somewhere\\" />
+declare module \\"something\\" { }
+declare class C {
+}
+"
+`;
