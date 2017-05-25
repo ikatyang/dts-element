@@ -77,3 +77,5 @@ export const has_kind = (nodes: ts.Node[] | undefined, kind: ts.SyntaxKind) =>
   (nodes === undefined || nodes.length === 0)
     ? false
     : nodes.some(node => node.kind === kind);
+
+export const is_valid_identifier = (name: string) => /^[a-zA-Z_\$][a-zA-Z0-9_\$]*$/.test(name);

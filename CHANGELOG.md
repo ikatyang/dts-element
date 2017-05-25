@@ -10,6 +10,12 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 🐛 Bug Fix
+- `ClassMember`, `ObjectMember`
+  - support string-literal name
+
 ## v2.0.0 (2017-05-24)
 
 #### 💥 Breaking Change

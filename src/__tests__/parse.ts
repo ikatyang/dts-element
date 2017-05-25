@@ -92,6 +92,8 @@ export declare abstract class ABC<T, U> extends XYZ<S, V> {
   protected property2: string;
   private property3: string;
   public abstract property4: string;
+  "": string;
+  ""(): void;
 }
 
 export enum Kind {
@@ -102,6 +104,8 @@ export enum Kind {
 
 export interface X<T> extends C, D {
   a: T;
+  "": T;
+  ""(): void;
 }
 
 export declare namespace NS {

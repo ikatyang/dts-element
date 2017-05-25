@@ -6,6 +6,7 @@ import {create_element, IElement, IElementOptions} from '../element';
 import {transform} from '../transform';
 import {IConstructorType} from '../types/constructor-type';
 import {create_function_type} from '../types/function-type';
+import {is_valid_identifier} from '../utils';
 
 export interface IClassMemberOptions extends IElementOptions {
   owned: IVariableDeclaration | IFunctionDeclaration | IConstructorType;
@@ -56,7 +57,9 @@ export const transform_class_member = (element: IClassMember, path: IElement<any
     case ElementKind.VariableDeclaration:
       return ts.createPropertySignature(
         /* modifiers     */ modifiers,
-        /* name          */ element.owned.name,
+        /* name          */ is_valid_identifier(element.owned.name)
+                              ? element.owned.name
+                              : ts.createLiteral(element.owned.name),
         /* questionToken */ question_token,
         /* type          */ transform(element.owned.type || any_type, path) as ts.TypeNode,
         /* initializer   */ undefined,
@@ -70,7 +73,9 @@ export const transform_class_member = (element: IClassMember, path: IElement<any
         /* typeParameters  */ function_type.typeParameters,
         /* parameters      */ function_type.parameters,
         /* type            */ function_type.type,
-        /* name            */ element.owned.name,
+        /* name            */ is_valid_identifier(element.owned.name)
+                              ? element.owned.name
+                              : ts.createLiteral(element.owned.name),
         /* questionToken   */ question_token,
       );
       method_signature.modifiers = modifiers as ts.NodeArray<ts.Modifier>;
