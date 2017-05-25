@@ -123,6 +123,8 @@ declare module "xyz" {
 }
 
 type TP<T> = T | string;
+
+type adjust = <T, U>(fn: (v: T) => U, index: number, array: T[]) => (T | U)[];
 `;
 
 it('should return correctly', () => {

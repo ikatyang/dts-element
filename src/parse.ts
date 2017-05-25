@@ -39,6 +39,7 @@ import {parse_method_signature} from './parsers/method-signature';
 import {parse_module_declaration} from './parsers/module-declaration';
 import {parse_namespace_export_declaration} from './parsers/namespace-export-declaration';
 import {parse_parameter_declaration} from './parsers/parameter-declaration';
+import {parse_parenthesized_type} from './parsers/parenthesized-type';
 import {parse_property_declaration} from './parsers/property-declaration';
 import {parse_property_signature} from './parsers/property-signature';
 import {parse_source_file} from './parsers/source-file';
@@ -91,6 +92,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.NumericLiteral: return create_literal_type({value: Number((node as ts.NumericLiteral).text)});
     case ts.SyntaxKind.ObjectKeyword: return object_type;
     case ts.SyntaxKind.Parameter: return parse_parameter_declaration(node as ts.ParameterDeclaration);
+    case ts.SyntaxKind.ParenthesizedType: return parse_parenthesized_type(node as ts.ParenthesizedTypeNode);
     case ts.SyntaxKind.PropertyDeclaration: return parse_property_declaration(node as ts.PropertyDeclaration);
     case ts.SyntaxKind.PropertySignature: return parse_property_signature(node as ts.PropertySignature);
     case ts.SyntaxKind.SourceFile: return parse_source_file(node as ts.SourceFile);
