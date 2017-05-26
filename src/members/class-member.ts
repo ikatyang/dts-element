@@ -55,31 +55,34 @@ export const transform_class_member = (element: IClassMember, path: IElement<any
     : undefined;
   switch (element.owned.kind) {
     case ElementKind.VariableDeclaration:
-      return ts.createPropertySignature(
+      return ts.createProperty(
+        /* decorators    */ undefined,
         /* modifiers     */ modifiers,
         /* name          */ is_valid_identifier(element.owned.name)
                               ? element.owned.name
                               : ts.createLiteral(element.owned.name),
         /* questionToken */ question_token,
         /* type          */ transform(element.owned.type || any_type, path) as ts.TypeNode,
-        /* initializer   */ undefined,
+        /* initializer   */ undefined as any,
       );
     case ElementKind.FunctionDeclaration:
       if (element.owned.name === undefined) {
         throw new Error(`class_member.owned.name should be a string`);
       }
       const function_type = transform(element.owned.type || create_function_type(), path) as ts.FunctionDeclaration;
-      const method_signature = ts.createMethodSignature(
-        /* typeParameters  */ function_type.typeParameters,
-        /* parameters      */ function_type.parameters,
-        /* type            */ function_type.type,
+      return ts.createMethod(
+        /* decorators      */ undefined,
+        /* modifiers       */ modifiers,
+        /* asteriskToken   */ undefined,
         /* name            */ is_valid_identifier(element.owned.name)
                               ? element.owned.name
                               : ts.createLiteral(element.owned.name),
         /* questionToken   */ question_token,
+        /* typeParameters  */ function_type.typeParameters,
+        /* parameters      */ function_type.parameters,
+        /* type            */ function_type.type,
+        /* body            */ undefined,
       );
-      method_signature.modifiers = modifiers as ts.NodeArray<ts.Modifier>;
-      return method_signature;
     case ElementKind.ConstructorType:
       const constructor_type = transform(element.owned, path) as ts.ConstructorTypeNode;
       return ts.createConstructor(
