@@ -1,6 +1,6 @@
 {
   "name": "dts-element",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A DOM library for generation TypeScript declaration (.d.ts) files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

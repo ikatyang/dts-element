@@ -10,7 +10,7 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
-## Unreleased
+## v2.0.3 (2017-06-07)
 
 #### 🐛 Bug Fix
 - `parse()`
