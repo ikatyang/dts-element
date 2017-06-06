@@ -10,6 +10,12 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 🐛 Bug Fix
+- `parse()`
+  - support `ts.FunctionDeclaration`
+
 ## v2.0.2 (2017-05-26)
 
 #### 🐛 Bug Fix

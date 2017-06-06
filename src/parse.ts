@@ -26,6 +26,7 @@ import {parse_export_assignment} from './parsers/export-assignment';
 import {parse_export_declaration} from './parsers/export-declaration';
 import {parse_export_specifier} from './parsers/export-specifier';
 import {parse_expression_with_type_arguments} from './parsers/expression-with-type-arguments';
+import {parse_function_declaration} from './parsers/function-declaration';
 import {parse_function_type} from './parsers/function-type';
 import {parse_import_declaration} from './parsers/import-declaration';
 import {parse_import_specifier} from './parsers/import-specifier';
@@ -73,6 +74,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ExportSpecifier: return parse_export_specifier(node as ts.ExportSpecifier);
     case ts.SyntaxKind.ExpressionWithTypeArguments: return parse_expression_with_type_arguments(node as ts.ExpressionWithTypeArguments);
     case ts.SyntaxKind.FalseKeyword: return create_literal_type({value: false});
+    case ts.SyntaxKind.FunctionDeclaration: return parse_function_declaration(node as ts.FunctionDeclaration);
     case ts.SyntaxKind.FunctionType: return parse_function_type(node as ts.FunctionTypeNode);
     case ts.SyntaxKind.ImportDeclaration: return parse_import_declaration(node as ts.ImportDeclaration);
     case ts.SyntaxKind.ImportSpecifier: return parse_import_specifier(node as ts.ImportSpecifier);
