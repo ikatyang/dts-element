@@ -10,6 +10,11 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 🏠 Internal
+- Upgrade typescript@^2.4.0
+
 ## v2.0.3 (2017-06-07)
 
 #### 🐛 Bug Fix
