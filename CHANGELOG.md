@@ -10,7 +10,7 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
-## Unreleased
+## v2.0.5 (2017-06-26)
 
 #### 🐛 Bug Fix
 - add missing `ImportEqual` ( `import a = require('b')` )
