@@ -47,7 +47,7 @@ const getThing = dts.create_function_declaration({
     ],
     return: dts.void_type,
   }),
-});
+}); // equivalent to dts.parse('function getThing(x: number): void;').members[0];
 
 const MyInterface = dts.create_interface_declaration({
   name: 'MyInterface',
