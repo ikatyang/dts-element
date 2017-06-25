@@ -13,6 +13,7 @@ import {
   void_type,
 } from './constants';
 import {IElement} from './element';
+import {emit_native} from './emit';
 import {ITopLevelElement} from './others/top-level-element';
 import {parse_array_type} from './parsers/array-type';
 import {parse_call_signature} from './parsers/call-signature';
@@ -29,6 +30,7 @@ import {parse_expression_with_type_arguments} from './parsers/expression-with-ty
 import {parse_function_declaration} from './parsers/function-declaration';
 import {parse_function_type} from './parsers/function-type';
 import {parse_import_declaration} from './parsers/import-declaration';
+import {parse_import_equals_declaration} from './parsers/import-equals-declaration';
 import {parse_import_specifier} from './parsers/import-specifier';
 import {parse_index_signature} from './parsers/index-signature';
 import {parse_indexed_access_type} from './parsers/indexed-access-type';
@@ -77,6 +79,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.FunctionDeclaration: return parse_function_declaration(node as ts.FunctionDeclaration);
     case ts.SyntaxKind.FunctionType: return parse_function_type(node as ts.FunctionTypeNode);
     case ts.SyntaxKind.ImportDeclaration: return parse_import_declaration(node as ts.ImportDeclaration);
+    case ts.SyntaxKind.ImportEqualsDeclaration: return parse_import_equals_declaration(node as ts.ImportEqualsDeclaration);
     case ts.SyntaxKind.ImportSpecifier: return parse_import_specifier(node as ts.ImportSpecifier);
     case ts.SyntaxKind.IndexSignature: return parse_index_signature(node as ts.IndexSignatureDeclaration);
     case ts.SyntaxKind.IndexedAccessType: return parse_indexed_access_type(node as ts.IndexedAccessTypeNode);
@@ -116,7 +119,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.VariableStatement: return parse_variable_statement(node as ts.VariableStatement);
     case ts.SyntaxKind.VoidKeyword: return void_type;
     default:
-      throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} )`);
+      throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} ): ${emit_native(node)}`);
   }
 };
 

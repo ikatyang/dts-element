@@ -10,6 +10,13 @@ All changes to this project will be documented in this file.
 > - 🏠 [Internal]
 > - 💅 [Polish]
 
+## Unreleased
+
+#### 🐛 Bug Fix
+- add missing `ImportEqual` ( `import a = require('b')` )
+- `parse()`
+  - support `ts.ImportEqualsDeclaration`
+
 ## v2.0.4 (2017-06-13)
 
 #### 🏠 Internal

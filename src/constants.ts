@@ -17,6 +17,7 @@ export enum ElementKind {
   GeneralType,
   GenericDeclaration,
   GlobalDeclaration,
+  ImportEqual,
   ImportMember,
   ImportNamed,
   ImportNamespace,

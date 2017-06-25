@@ -19,6 +19,7 @@ import {transform_export_default} from './import-exports/export-default';
 import {transform_export_equal} from './import-exports/export-equal';
 import {transform_export_named} from './import-exports/export-named';
 import {transform_export_namespace} from './import-exports/export-namespace';
+import {transform_import_equal} from './import-exports/import-equal';
 import {transform_import_named} from './import-exports/import-named';
 import {transform_import_namespace} from './import-exports/import-namespace';
 import {transform_class_member} from './members/class-member';
@@ -65,6 +66,7 @@ const select_transformer = (element: IElement<any>): (element: IElement<any>, pa
     case ElementKind.GeneralType: return transform_general_type;
     case ElementKind.GenericDeclaration: return transform_generic_declaration;
     case ElementKind.GlobalDeclaration: return transform_global_declaration;
+    case ElementKind.ImportEqual: return transform_import_equal;
     case ElementKind.ImportMember: return transform_import_member;
     case ElementKind.ImportNamed: return transform_import_named;
     case ElementKind.ImportNamespace: return transform_import_namespace;
@@ -92,7 +94,7 @@ const select_transformer = (element: IElement<any>): (element: IElement<any>, pa
     case ElementKind.TypeofType: return transform_typeof_type;
     case ElementKind.UnionType: return transform_union_type;
     case ElementKind.VariableDeclaration: return transform_variable_declaration;
-    default: throw new Error(`Unexpected kind ${element.kind} ( ${ElementKind[element.kind as ElementKind]} )`);
+    default: throw new Error(`Unexpected dts-kind ${element.kind} ( ${ElementKind[element.kind as ElementKind]} )`);
   }
 };
 

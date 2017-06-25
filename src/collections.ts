@@ -16,6 +16,7 @@ import {IExportDefault} from './import-exports/export-default';
 import {IExportEqual} from './import-exports/export-equal';
 import {IExportNamed} from './import-exports/export-named';
 import {IExportNamespace} from './import-exports/export-namespace';
+import {IImportEqual} from './import-exports/import-equal';
 import {IImportNamed} from './import-exports/import-named';
 import {IImportNamespace} from './import-exports/import-namespace';
 import {ITripleSlashReference} from './others/triple-slash-reference';
@@ -47,6 +48,7 @@ export type IImportExport =
   | IExportEqual
   | IExportNamed
   | IExportNamespace
+  | IImportEqual
   | IImportNamed
   | IImportNamespace
 ;

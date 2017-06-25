@@ -127,6 +127,8 @@ type TP<T> = T | string;
 type adjust = <T, U>(fn: (v: T) => U, index: number, array: T[]) => (T | U)[];
 
 declare function x<T>(v: T): T;
+
+import xyz = require('xyz');
 `;
 
 it('should return correctly', () => {
