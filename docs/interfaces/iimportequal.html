@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IExportDefault | dts-element v2.0.5</title>
+	<title>IImportEqual | dts-element v2.0.5</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="iexportdefault.html">IExportDefault</a>
+					<a href="iimportequal.html">IImportEqual</a>
 				</li>
 			</ul>
-			<h1>Interface IExportDefault</h1>
+			<h1>Interface IImportEqual</h1>
 		</div>
 	</div>
 </header>
@@ -68,13 +68,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ielement.html" class="tsd-signature-type">IElement</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ElementKind.ExportDefault</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="ielement.html" class="tsd-signature-type">IElement</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ElementKind.ImportEqual</span><span class="tsd-signature-symbol">&gt;</span>
 					</li>
 					<li>
-						<a href="iexportdefaultoptions.html" class="tsd-signature-type">IExportDefaultOptions</a>
+						<a href="iimportequaloptions.html" class="tsd-signature-type">IImportEqualOptions</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IExportDefault</span>
+								<span class="target">IImportEqual</span>
 							</li>
 						</ul>
 					</li>
@@ -87,11 +87,11 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iexportdefault.html#comments" class="tsd-kind-icon">comments</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iexportdefault.html#jsdoc" class="tsd-kind-icon">jsdoc</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportdefault.html#kind" class="tsd-kind-icon">kind</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportdefault.html#parents" class="tsd-kind-icon">parents</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportdefault.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iimportequal.html#comments" class="tsd-kind-icon">comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iimportequal.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iimportequal.html#jsdoc" class="tsd-kind-icon">jsdoc</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iimportequal.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iimportequal.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,6 +111,17 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="from" class="tsd-anchor"></a>
+					<h3>from</h3>
+					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="iimportequaloptions.html">IImportEqualOptions</a>.<a href="iimportequaloptions.html#from">from</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/v2.0.5/src/import-exports/import-equal.ts#L6">import-exports/import-equal.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 					<a name="jsdoc" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> jsdoc</h3>
@@ -126,7 +137,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="kind" class="tsd-anchor"></a>
 					<h3>kind</h3>
-					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementKind.ExportDefault</span></div>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementKind.ImportEqual</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ielement.html">IElement</a>.<a href="ielement.html#kind">kind</a></p>
 						<ul>
@@ -135,24 +146,13 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="parents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parents</h3>
-					<div class="tsd-signature tsd-kind-icon">parents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iexportdefaultoptions.html">IExportDefaultOptions</a>.<a href="iexportdefaultoptions.html#parents">parents</a></p>
+						<p>Inherited from <a href="iimportequaloptions.html">IImportEqualOptions</a>.<a href="iimportequaloptions.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/v2.0.5/src/import-exports/export-default.ts#L7">import-exports/export-default.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="iexportdefaultoptions.html">IExportDefaultOptions</a>.<a href="iexportdefaultoptions.html#value">value</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/v2.0.5/src/import-exports/export-default.ts#L8">import-exports/export-default.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/v2.0.5/src/import-exports/import-equal.ts#L7">import-exports/import-equal.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,22 +171,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="iexportdefault.html" class="tsd-kind-icon">IExport<wbr>Default</a>
+						<a href="iimportequal.html" class="tsd-kind-icon">IImport<wbr>Equal</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-								<a href="iexportdefault.html#comments" class="tsd-kind-icon">comments</a>
+								<a href="iimportequal.html#comments" class="tsd-kind-icon">comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iimportequal.html#from" class="tsd-kind-icon">from</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-								<a href="iexportdefault.html#jsdoc" class="tsd-kind-icon">jsdoc</a>
+								<a href="iimportequal.html#jsdoc" class="tsd-kind-icon">jsdoc</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportdefault.html#kind" class="tsd-kind-icon">kind</a>
+								<a href="iimportequal.html#kind" class="tsd-kind-icon">kind</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportdefault.html#parents" class="tsd-kind-icon">parents</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportdefault.html#value" class="tsd-kind-icon">value</a>
+								<a href="iimportequal.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>

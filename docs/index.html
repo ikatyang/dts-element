@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>dts-element v2.0.4</title>
+	<title>dts-element v2.0.5</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">dts-element v2.0.4</a>
+					<a href="index.html" class="title">dts-element v2.0.5</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> dts-element v2.0.4</h1>
+			<h1> dts-element v2.0.5</h1>
 		</div>
 	</div>
 </header>
@@ -102,7 +102,7 @@
     ],
     <span class="hljs-keyword">return</span>: dts.void_type,
   }),
-});
+}); <span class="hljs-comment">// equivalent to dts.parse('function getThing(x: number): void;').members[0];</span>
 
 <span class="hljs-keyword">const</span> MyInterface = dts.create_interface_declaration({
   name: <span class="hljs-string">'MyInterface'</span>,
@@ -268,6 +268,12 @@ yarn run typedoc
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iglobaldeclarationoptions.html" class="tsd-kind-icon">IGlobal<wbr>Declaration<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iimportequal.html" class="tsd-kind-icon">IImport<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iimportequaloptions.html" class="tsd-kind-icon">IImport<wbr>Equal<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iimportmember.html" class="tsd-kind-icon">IImport<wbr>Member</a>
@@ -529,6 +535,9 @@ yarn run typedoc
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#create_global_declaration" class="tsd-kind-icon">create_<wbr>global_<wbr>declaration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#create_import_equal" class="tsd-kind-icon">create_<wbr>import_<wbr>equal</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#create_import_member" class="tsd-kind-icon">create_<wbr>import_<wbr>member</a>
