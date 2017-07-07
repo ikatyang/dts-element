@@ -1,10 +1,7 @@
 {
   "extends": ["tslint-config-ikatyang"],
   "rules": {
-    "strict-boolean-expressions": [true,
-      "allow-null-union",
-      "allow-undefined-union"
-    ],
+    "strict-boolean-expressions": [false],
     "no-unnecessary-type-assertion": false
   }
 }
