@@ -9,11 +9,10 @@
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn run link && yarn run build",
+    "prepublish": "yarn run build",
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check --project ./tsconfig.json",
-    "link": "ln -sf $PWD/types/* $PWD/node_modules/@types",
     "test": "jest --config ./jest.json",
     "test-ci": "yarn run test -- --verbose",
     "pretest-coverage": "rm -rf ./coverage",
@@ -28,6 +27,7 @@
     "typescript": "^2.4.0"
   },
   "devDependencies": {
+    "@types/dedent": "0.7.0",
     "@types/jest": "20.0.2",
     "codecov": "2.2.0",
     "dedent": "0.7.0",
