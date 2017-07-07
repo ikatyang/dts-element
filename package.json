@@ -14,12 +14,7 @@
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check --project ./tsconfig.json",
     "test": "jest --config ./jest.json",
-    "test-ci": "yarn run test -- --verbose",
-    "pretest-coverage": "rm -rf ./coverage",
-    "test-coverage": "yarn run test -- --coverage",
-    "test-coverage-ci": "yarn run test-coverage -- --verbose",
-    "coverage-ci": "codecov",
-    "pretypedoc": "rm -rf ./node_modules/typedoc/node_modules/typescript && rm -rf ./docs",
+    "pretypedoc": "rm -rf ./docs",
     "typedoc": "typedoc --name \"dts-element v$npm_package_version\" --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate --gitRevision \"v$npm_package_version\"",
     "postpublish": "yarn run typedoc"
   },
@@ -29,7 +24,6 @@
   "devDependencies": {
     "@types/dedent": "0.7.0",
     "@types/jest": "20.0.2",
-    "codecov": "2.2.0",
     "dedent": "0.7.0",
     "jest": "20.0.4",
     "ts-jest": "20.0.6",
