@@ -1,10 +1,9 @@
 # dts-element
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ikatyang/dts-element.svg)](https://greenkeeper.io/)
-
 [![npm](https://img.shields.io/npm/v/dts-element.svg)](https://www.npmjs.com/package/dts-element)
 [![build](https://img.shields.io/travis/ikatyang/dts-element/master.svg)](https://travis-ci.org/ikatyang/dts-element/builds)
 [![coverage](https://img.shields.io/codecov/c/github/ikatyang/dts-element.svg)](https://codecov.io/gh/ikatyang/dts-element)
+[![greenkeeper](https://badges.greenkeeper.io/ikatyang/dts-element.svg)](https://greenkeeper.io/)
 
 A DOM library for generation TypeScript declaration (.d.ts) files
 
