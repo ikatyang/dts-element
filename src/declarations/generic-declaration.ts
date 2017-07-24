@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
-import {IType} from '../collections';
-import {ElementKind} from '../constants';
-import {create_element, IElement, IElementOptions} from '../element';
-import {transform} from '../transform';
+import { IType } from '../collections';
+import { ElementKind } from '../constants';
+import { create_element, IElement, IElementOptions } from '../element';
+import { transform } from '../transform';
 
 export interface IGenericDeclarationOptions extends IElementOptions {
   name: string;
@@ -11,9 +11,12 @@ export interface IGenericDeclarationOptions extends IElementOptions {
 }
 
 export interface IGenericDeclaration
-  extends IElement<ElementKind.GenericDeclaration>, IGenericDeclarationOptions {}
+  extends IElement<ElementKind.GenericDeclaration>,
+    IGenericDeclarationOptions {}
 
-export const create_generic_declaration = (options: IGenericDeclarationOptions): IGenericDeclaration => ({
+export const create_generic_declaration = (
+  options: IGenericDeclarationOptions,
+): IGenericDeclaration => ({
   ...create_element(ElementKind.GenericDeclaration),
   ...options,
 });
@@ -21,9 +24,14 @@ export const create_generic_declaration = (options: IGenericDeclarationOptions):
 /**
  * @hidden
  */
-export const transform_generic_declaration = (element: IGenericDeclaration, path: IElement<any>[]) =>
+export const transform_generic_declaration = (
+  element: IGenericDeclaration,
+  path: IElement<any>[],
+) =>
   ts.createTypeParameterDeclaration(
     /* name        */ element.name,
-    /* constraint  */ element.extends && (transform(element.extends, path) as ts.TypeNode),
-    /* defaultType */ element.defalut && (transform(element.defalut, path) as ts.TypeNode),
+    /* constraint  */ element.extends &&
+      (transform(element.extends, path) as ts.TypeNode),
+    /* defaultType */ element.defalut &&
+      (transform(element.defalut, path) as ts.TypeNode),
   );

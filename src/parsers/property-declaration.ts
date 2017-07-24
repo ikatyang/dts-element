@@ -1,10 +1,12 @@
 import * as ts from 'typescript';
-import {create_variable_declaration} from '../declarations/variable-declaration';
-import {create_class_member, IClassMember} from '../members/class-member';
-import {parse_native} from '../parse';
-import {has_kind, if_defined} from '../utils';
+import { create_variable_declaration } from '../declarations/variable-declaration';
+import { create_class_member, IClassMember } from '../members/class-member';
+import { parse_native } from '../parse';
+import { has_kind, if_defined } from '../utils';
 
-export const parse_property_declaration = (node: ts.PropertyDeclaration): IClassMember =>
+export const parse_property_declaration = (
+  node: ts.PropertyDeclaration,
+): IClassMember =>
   create_class_member({
     owned: create_variable_declaration({
       name: (node.name as ts.Identifier).text,

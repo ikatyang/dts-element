@@ -2,6 +2,35 @@
   "extends": ["tslint-config-ikatyang"],
   "rules": {
     "strict-boolean-expressions": [false],
-    "no-unnecessary-type-assertion": false
+    "no-unnecessary-type-assertion": false,
+    "naming-convention": [
+      true,
+      {
+        "type": "default",
+        "format": "snake_case",
+        "leadingUnderscore": "forbid",
+        "trailingUnderscore": "forbid"
+      },
+      { "type": "parameter", "leadingUnderscore": "allow", "final": true },
+      {
+        "type": "variable",
+        "modifiers": "rename",
+        "leadingUnderscore": "allow"
+      },
+      {
+        "type": "member",
+        "modifiers": "private",
+        "leadingUnderscore": "require"
+      },
+      {
+        "type": "member",
+        "modifiers": "protected",
+        "leadingUnderscore": "require"
+      },
+      { "type": "type", "format": "PascalCase" },
+      { "type": "enumMember", "format": "PascalCase" },
+      { "type": "interface", "prefix": "I" },
+      { "type": "typeAlias", "prefix": "I" }
+    ]
   }
 }

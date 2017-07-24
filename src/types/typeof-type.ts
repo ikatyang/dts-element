@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
-import {ElementKind} from '../constants';
-import {create_element, IElement, IElementOptions} from '../element';
-import {create_qualified_name} from '../utils';
+import { ElementKind } from '../constants';
+import { create_element, IElement, IElementOptions } from '../element';
+import { create_qualified_name } from '../utils';
 
 export interface ITypeofTypeOptions extends IElementOptions {
   parents?: string[];
@@ -9,9 +9,12 @@ export interface ITypeofTypeOptions extends IElementOptions {
 }
 
 export interface ITypeofType
-  extends IElement<ElementKind.TypeofType>, ITypeofTypeOptions {}
+  extends IElement<ElementKind.TypeofType>,
+    ITypeofTypeOptions {}
 
-export const create_typeof_type = (options: ITypeofTypeOptions): ITypeofType => ({
+export const create_typeof_type = (
+  options: ITypeofTypeOptions,
+): ITypeofType => ({
   ...create_element(ElementKind.TypeofType),
   ...options,
 });
@@ -19,9 +22,13 @@ export const create_typeof_type = (options: ITypeofTypeOptions): ITypeofType => 
 /**
  * @hidden
  */
-export const transform_typeof_type = (element: ITypeofType, path: IElement<any>[]) =>
+export const transform_typeof_type = (
+  element: ITypeofType,
+  _path: IElement<any>[],
+) =>
   ts.createTypeQueryNode(
-    /* exprName  */ (element.parents === undefined || element.parents.length === 0)
-                      ? ts.createIdentifier(element.name)
-                      : create_qualified_name([...element.parents, element.name]),
+    /* exprName  */ element.parents === undefined ||
+    element.parents.length === 0
+      ? ts.createIdentifier(element.name)
+      : create_qualified_name([...element.parents, element.name]),
   );

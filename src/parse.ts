@@ -12,54 +12,55 @@ import {
   undefined_type,
   void_type,
 } from './constants';
-import {IElement} from './element';
-import {emit_native} from './emit';
-import {ITopLevelElement} from './others/top-level-element';
-import {parse_array_type} from './parsers/array-type';
-import {parse_call_signature} from './parsers/call-signature';
-import {parse_class_declaration} from './parsers/class-declaration';
-import {parse_construct_signature} from './parsers/construct-signature';
-import {parse_constructor} from './parsers/constructor';
-import {parse_constructor_type} from './parsers/constructor-type';
-import {parse_enum_declaration} from './parsers/enum-declaration';
-import {parse_enum_member} from './parsers/enum-member';
-import {parse_export_assignment} from './parsers/export-assignment';
-import {parse_export_declaration} from './parsers/export-declaration';
-import {parse_export_specifier} from './parsers/export-specifier';
-import {parse_expression_with_type_arguments} from './parsers/expression-with-type-arguments';
-import {parse_function_declaration} from './parsers/function-declaration';
-import {parse_function_type} from './parsers/function-type';
-import {parse_import_declaration} from './parsers/import-declaration';
-import {parse_import_equals_declaration} from './parsers/import-equals-declaration';
-import {parse_import_specifier} from './parsers/import-specifier';
-import {parse_index_signature} from './parsers/index-signature';
-import {parse_indexed_access_type} from './parsers/indexed-access-type';
-import {parse_interface_declaration} from './parsers/interface-declaration';
-import {parse_intersection_type} from './parsers/intersection-type';
-import {parse_mapped_type} from './parsers/mapped-type';
-import {parse_method_declaration} from './parsers/method-declaration';
-import {parse_method_signature} from './parsers/method-signature';
-import {parse_module_declaration} from './parsers/module-declaration';
-import {parse_namespace_export_declaration} from './parsers/namespace-export-declaration';
-import {parse_parameter_declaration} from './parsers/parameter-declaration';
-import {parse_parenthesized_type} from './parsers/parenthesized-type';
-import {parse_property_declaration} from './parsers/property-declaration';
-import {parse_property_signature} from './parsers/property-signature';
-import {parse_source_file} from './parsers/source-file';
-import {parse_tuple_type} from './parsers/tuple-type';
-import {parse_type_alias_declaration} from './parsers/type-alias-declaration';
-import {parse_type_literal} from './parsers/type-literal';
-import {parse_type_operator} from './parsers/type-operator';
-import {parse_type_parameter} from './parsers/type-parameter';
-import {parse_type_predicater} from './parsers/type-predicate';
-import {parse_type_query} from './parsers/type-query';
-import {parse_type_reference} from './parsers/type-reference';
-import {parse_union_type} from './parsers/union-type';
-import {parse_variable_statement} from './parsers/variable-statement';
-import {create_literal_type} from './types/literal-type';
+import { IElement } from './element';
+import { emit_native } from './emit';
+import { ITopLevelElement } from './others/top-level-element';
+import { parse_array_type } from './parsers/array-type';
+import { parse_call_signature } from './parsers/call-signature';
+import { parse_class_declaration } from './parsers/class-declaration';
+import { parse_construct_signature } from './parsers/construct-signature';
+import { parse_constructor } from './parsers/constructor';
+import { parse_constructor_type } from './parsers/constructor-type';
+import { parse_enum_declaration } from './parsers/enum-declaration';
+import { parse_enum_member } from './parsers/enum-member';
+import { parse_export_assignment } from './parsers/export-assignment';
+import { parse_export_declaration } from './parsers/export-declaration';
+import { parse_export_specifier } from './parsers/export-specifier';
+import { parse_expression_with_type_arguments } from './parsers/expression-with-type-arguments';
+import { parse_function_declaration } from './parsers/function-declaration';
+import { parse_function_type } from './parsers/function-type';
+import { parse_import_declaration } from './parsers/import-declaration';
+import { parse_import_equals_declaration } from './parsers/import-equals-declaration';
+import { parse_import_specifier } from './parsers/import-specifier';
+import { parse_index_signature } from './parsers/index-signature';
+import { parse_indexed_access_type } from './parsers/indexed-access-type';
+import { parse_interface_declaration } from './parsers/interface-declaration';
+import { parse_intersection_type } from './parsers/intersection-type';
+import { parse_mapped_type } from './parsers/mapped-type';
+import { parse_method_declaration } from './parsers/method-declaration';
+import { parse_method_signature } from './parsers/method-signature';
+import { parse_module_declaration } from './parsers/module-declaration';
+import { parse_namespace_export_declaration } from './parsers/namespace-export-declaration';
+import { parse_parameter_declaration } from './parsers/parameter-declaration';
+import { parse_parenthesized_type } from './parsers/parenthesized-type';
+import { parse_property_declaration } from './parsers/property-declaration';
+import { parse_property_signature } from './parsers/property-signature';
+import { parse_source_file } from './parsers/source-file';
+import { parse_tuple_type } from './parsers/tuple-type';
+import { parse_type_alias_declaration } from './parsers/type-alias-declaration';
+import { parse_type_literal } from './parsers/type-literal';
+import { parse_type_operator } from './parsers/type-operator';
+import { parse_type_parameter } from './parsers/type-parameter';
+import { parse_type_predicater } from './parsers/type-predicate';
+import { parse_type_query } from './parsers/type-query';
+import { parse_type_reference } from './parsers/type-reference';
+import { parse_union_type } from './parsers/union-type';
+import { parse_variable_statement } from './parsers/variable-statement';
+import { create_literal_type } from './types/literal-type';
 
 // tslint:disable:cyclomatic-complexity max-line-length
 export const parse_native = (node: ts.Node): IElement<any> => {
+  // prettier-ignore
   switch (node.kind) {
     case ts.SyntaxKind.AnyKeyword: return any_type;
     case ts.SyntaxKind.ArrayType: return parse_array_type(node as ts.ArrayTypeNode);
@@ -118,10 +119,16 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.UnionType: return parse_union_type(node as ts.UnionTypeNode);
     case ts.SyntaxKind.VariableStatement: return parse_variable_statement(node as ts.VariableStatement);
     case ts.SyntaxKind.VoidKeyword: return void_type;
-    default:
-      throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} ): ${emit_native(node)}`);
+    default: throw new Error(`Unexpected ts-kind ${node.kind} ( ${ts.SyntaxKind[node.kind]} ): ${emit_native(node)}`);
   }
 };
 
 export const parse = (code: string) =>
-  parse_native(ts.createSourceFile('', code, ts.ScriptTarget.Latest, /*setParentNodes */ false)) as ITopLevelElement;
+  parse_native(
+    ts.createSourceFile(
+      '',
+      code,
+      ts.ScriptTarget.Latest,
+      /*setParentNodes */ false,
+    ),
+  ) as ITopLevelElement;

@@ -1,55 +1,67 @@
 import * as ts from 'typescript';
-import {add_jsdoc_comment, transform_jsdoc_comment} from './comments/jsdoc-comment';
-import {add_multi_line_comment, transform_multi_line_comment} from './comments/multi-line-comment';
-import {add_single_line_comment, transform_single_line_comment} from './comments/single-line-comment';
-import {ElementKind} from './constants';
-import {transform_class_declaration} from './declarations/class-declaration';
-import {transform_enum_declaration} from './declarations/enum-declaration';
-import {transform_function_declaration} from './declarations/function-declaration';
-import {transform_generic_declaration} from './declarations/generic-declaration';
-import {transform_global_declaration} from './declarations/global-declaration';
-import {transform_interface_declaration} from './declarations/interface-declaration';
-import {transform_module_declaration} from './declarations/module-declaration';
-import {transform_namespace_declaration} from './declarations/namespace-declaration';
-import {transform_parameter_declaration} from './declarations/parameter-declaration';
-import {transform_type_declaration} from './declarations/type-declaration';
-import {transform_variable_declaration} from './declarations/variable-declaration';
-import {IElement} from './element';
-import {transform_export_default} from './import-exports/export-default';
-import {transform_export_equal} from './import-exports/export-equal';
-import {transform_export_named} from './import-exports/export-named';
-import {transform_export_namespace} from './import-exports/export-namespace';
-import {transform_import_equal} from './import-exports/import-equal';
-import {transform_import_named} from './import-exports/import-named';
-import {transform_import_namespace} from './import-exports/import-namespace';
-import {transform_class_member} from './members/class-member';
-import {transform_export_member} from './members/export-member';
-import {transform_import_member} from './members/import-member';
-import {transform_object_member} from './members/object-member';
-import {transform_index_signature} from './others/index-signature';
-import {transform_top_level_element} from './others/top-level-element';
-import {transform_triple_slash_reference} from './others/triple-slash-reference';
-import {transform_type_predicate} from './others/type-predicate';
-import {transform_array_type} from './types/array-type';
-import {transform_constructor_type} from './types/constructor-type';
-import {transform_function_type} from './types/function-type';
-import {transform_general_type} from './types/general-type';
-import {transform_intersection_type} from './types/intersection-type';
-import {transform_keyof_type} from './types/keyof-type';
-import {transform_literal_type} from './types/literal-type';
-import {transform_mapped_type} from './types/mapped-type';
-import {transform_native_type} from './types/native-type';
-import {transform_object_type} from './types/object-type';
-import {transform_sub_type} from './types/sub-type';
-import {transform_tuple_type} from './types/tuple-type';
-import {transform_typeof_type} from './types/typeof-type';
-import {transform_union_type} from './types/union-type';
+import {
+  add_jsdoc_comment,
+  transform_jsdoc_comment,
+} from './comments/jsdoc-comment';
+import {
+  add_multi_line_comment,
+  transform_multi_line_comment,
+} from './comments/multi-line-comment';
+import {
+  add_single_line_comment,
+  transform_single_line_comment,
+} from './comments/single-line-comment';
+import { ElementKind } from './constants';
+import { transform_class_declaration } from './declarations/class-declaration';
+import { transform_enum_declaration } from './declarations/enum-declaration';
+import { transform_function_declaration } from './declarations/function-declaration';
+import { transform_generic_declaration } from './declarations/generic-declaration';
+import { transform_global_declaration } from './declarations/global-declaration';
+import { transform_interface_declaration } from './declarations/interface-declaration';
+import { transform_module_declaration } from './declarations/module-declaration';
+import { transform_namespace_declaration } from './declarations/namespace-declaration';
+import { transform_parameter_declaration } from './declarations/parameter-declaration';
+import { transform_type_declaration } from './declarations/type-declaration';
+import { transform_variable_declaration } from './declarations/variable-declaration';
+import { IElement } from './element';
+import { transform_export_default } from './import-exports/export-default';
+import { transform_export_equal } from './import-exports/export-equal';
+import { transform_export_named } from './import-exports/export-named';
+import { transform_export_namespace } from './import-exports/export-namespace';
+import { transform_import_equal } from './import-exports/import-equal';
+import { transform_import_named } from './import-exports/import-named';
+import { transform_import_namespace } from './import-exports/import-namespace';
+import { transform_class_member } from './members/class-member';
+import { transform_export_member } from './members/export-member';
+import { transform_import_member } from './members/import-member';
+import { transform_object_member } from './members/object-member';
+import { transform_index_signature } from './others/index-signature';
+import { transform_top_level_element } from './others/top-level-element';
+import { transform_triple_slash_reference } from './others/triple-slash-reference';
+import { transform_type_predicate } from './others/type-predicate';
+import { transform_array_type } from './types/array-type';
+import { transform_constructor_type } from './types/constructor-type';
+import { transform_function_type } from './types/function-type';
+import { transform_general_type } from './types/general-type';
+import { transform_intersection_type } from './types/intersection-type';
+import { transform_keyof_type } from './types/keyof-type';
+import { transform_literal_type } from './types/literal-type';
+import { transform_mapped_type } from './types/mapped-type';
+import { transform_native_type } from './types/native-type';
+import { transform_object_type } from './types/object-type';
+import { transform_sub_type } from './types/sub-type';
+import { transform_tuple_type } from './types/tuple-type';
+import { transform_typeof_type } from './types/typeof-type';
+import { transform_union_type } from './types/union-type';
 
 /**
  * @hidden
  */
 // tslint:disable-next-line:cyclomatic-complexity
-const select_transformer = (element: IElement<any>): (element: IElement<any>, path: IElement<any>[]) => ts.Node => {
+const select_transformer = (
+  element: IElement<any>,
+): ((element: IElement<any>, path: IElement<any>[]) => ts.Node) => {
+  // prettier-ignore
   switch (element.kind) {
     case ElementKind.ArrayType: return transform_array_type;
     case ElementKind.ClassDeclaration: return transform_class_declaration;
@@ -98,7 +110,10 @@ const select_transformer = (element: IElement<any>): (element: IElement<any>, pa
   }
 };
 
-export const transform = (element: IElement<any>, path: IElement<any>[] = []): ts.Node => {
+export const transform = (
+  element: IElement<any>,
+  path: IElement<any>[] = [],
+): ts.Node => {
   const transformer = select_transformer(element);
   const node = transformer(element, [...path, element]);
 
@@ -109,7 +124,7 @@ export const transform = (element: IElement<any>, path: IElement<any>[] = []): t
   if (element.comments !== undefined) {
     element.comments.forEach(
       comment =>
-        (comment.kind === ElementKind.SingleLineComment)
+        comment.kind === ElementKind.SingleLineComment
           ? add_single_line_comment(node, comment)
           : add_multi_line_comment(node, comment),
     );

@@ -1,52 +1,60 @@
-import {number_type} from '../../constants';
-import {create_parameter_declaration} from '../../declarations/parameter-declaration';
-import {emit} from '../../emit';
-import {create_index_signature} from '../index-signature';
+import { number_type } from '../../constants';
+import { create_parameter_declaration } from '../../declarations/parameter-declaration';
+import { emit } from '../../emit';
+import { create_index_signature } from '../index-signature';
 
 it('should return correctly with parameter', () => {
-  expect(emit(
-    create_index_signature({
-      parameter: create_parameter_declaration({
-        name: 'index',
-        type: number_type,
+  expect(
+    emit(
+      create_index_signature({
+        parameter: create_parameter_declaration({
+          name: 'index',
+          type: number_type,
+        }),
       }),
-    }),
-  )).toMatchSnapshot();
+    ),
+  ).toMatchSnapshot();
 });
 
 it('should return correctly with parameter, type', () => {
-  expect(emit(
-    create_index_signature({
-      parameter: create_parameter_declaration({
-        name: 'index',
+  expect(
+    emit(
+      create_index_signature({
+        parameter: create_parameter_declaration({
+          name: 'index',
+          type: number_type,
+        }),
         type: number_type,
       }),
-      type: number_type,
-    }),
-  )).toMatchSnapshot();
+    ),
+  ).toMatchSnapshot();
 });
 
 it('should return correctly with parameter, readonly', () => {
-  expect(emit(
-    create_index_signature({
-      parameter: create_parameter_declaration({
-        name: 'index',
-        type: number_type,
+  expect(
+    emit(
+      create_index_signature({
+        parameter: create_parameter_declaration({
+          name: 'index',
+          type: number_type,
+        }),
+        readonly: true,
       }),
-      readonly: true,
-    }),
-  )).toMatchSnapshot();
+    ),
+  ).toMatchSnapshot();
 });
 
 it('should return correctly with parameter, type, readonly', () => {
-  expect(emit(
-    create_index_signature({
-      parameter: create_parameter_declaration({
-        name: 'index',
+  expect(
+    emit(
+      create_index_signature({
+        parameter: create_parameter_declaration({
+          name: 'index',
+          type: number_type,
+        }),
         type: number_type,
+        readonly: true,
       }),
-      type: number_type,
-      readonly: true,
-    }),
-  )).toMatchSnapshot();
+    ),
+  ).toMatchSnapshot();
 });
