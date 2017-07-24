@@ -23,7 +23,7 @@ export const create_triple_slash_reference = (
  */
 export const transform_triple_slash_reference = (
   element: ITripleSlashReference,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.addSyntheticTrailingComment(
     /* node                */ ts.createOmittedExpression(),

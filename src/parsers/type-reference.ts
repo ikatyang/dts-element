@@ -18,12 +18,12 @@ export const parse_type_reference = (
       name,
       generics,
     });
-  } else {
-    const names = parse_qualified_name(node.typeName);
-    return create_general_type({
-      parents: names.slice(0, -1),
-      name: names[names.length - 1],
-      generics,
-    });
   }
+
+  const names = parse_qualified_name(node.typeName);
+  return create_general_type({
+    parents: names.slice(0, -1),
+    name: names[names.length - 1],
+    generics,
+  });
 };

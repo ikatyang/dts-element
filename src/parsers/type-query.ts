@@ -10,11 +10,11 @@ export const parse_type_query = (node: ts.TypeQueryNode): ITypeofType => {
       parents: undefined,
       name,
     });
-  } else {
-    const names = parse_qualified_name(node.exprName);
-    return create_typeof_type({
-      parents: names.slice(0, -1),
-      name: names[names.length - 1],
-    });
   }
+
+  const names = parse_qualified_name(node.exprName);
+  return create_typeof_type({
+    parents: names.slice(0, -1),
+    name: names[names.length - 1],
+  });
 };

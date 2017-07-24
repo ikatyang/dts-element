@@ -39,7 +39,7 @@ export const add_single_line_comment = <T extends ts.Node>(
   element.text
     .split('\n')
     .reduce(
-      (current_node, line_text, index, lines) =>
+      (_current_node, line_text, index, lines) =>
         (options.method || ts.addSyntheticLeadingComment)(
           /* node                */ node,
           /* kind                */ ts.SyntaxKind.SingleLineCommentTrivia,
@@ -60,7 +60,7 @@ export const add_single_line_comment = <T extends ts.Node>(
  */
 export const transform_single_line_comment = (
   element: ISingleLineComment,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   add_single_line_comment(ts.createOmittedExpression(), element, {
     trailing_new_line: false,

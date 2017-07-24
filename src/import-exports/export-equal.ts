@@ -26,7 +26,7 @@ export const create_export_equal = (
  */
 export const transform_export_equal = (
   element: IExportEqual,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createExportAssignment(
     /* decorators      */ undefined,

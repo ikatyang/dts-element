@@ -22,5 +22,5 @@ export const create_literal_type = (
  */
 export const transform_literal_type = (
   element: ILiteralType,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) => ts.createLiteralTypeNode(/* literal */ ts.createLiteral(element.value));

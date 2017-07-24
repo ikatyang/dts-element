@@ -22,5 +22,5 @@ export const create_native_type = (
  */
 export const transform_native_type = (
   element: INativeType,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) => element.type;

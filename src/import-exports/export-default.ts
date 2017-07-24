@@ -26,7 +26,7 @@ export const create_export_default = (
  */
 export const transform_export_default = (
   element: IExportDefault,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createExportAssignment(
     /* decorators      */ undefined,

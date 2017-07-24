@@ -24,7 +24,7 @@ export const create_import_member = (
  */
 export const transform_import_member = (
   element: IImportMember,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createImportSpecifier(
     /* propertyName  */ if_defined(element.property, ts.createIdentifier),

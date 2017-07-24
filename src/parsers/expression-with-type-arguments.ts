@@ -17,14 +17,14 @@ export const parse_expression_with_type_arguments = (
       name,
       generics,
     });
-  } else {
-    const names = parse_property_access_expression(
-      node.expression as ts.PropertyAccessExpression,
-    );
-    return create_general_type({
-      parents: names.slice(0, -1),
-      name: names[names.length - 1],
-      generics,
-    });
   }
+
+  const names = parse_property_access_expression(
+    node.expression as ts.PropertyAccessExpression,
+  );
+  return create_general_type({
+    parents: names.slice(0, -1),
+    name: names[names.length - 1],
+    generics,
+  });
 };

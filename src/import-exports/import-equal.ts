@@ -25,7 +25,7 @@ export const create_import_equal = (
  */
 export const transform_import_equal = (
   element: IImportEqual,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createImportEqualsDeclaration(
     /* decorators      */ undefined,

@@ -36,7 +36,7 @@ export const transform_object_member = (
     element.readonly === true
       ? [ts.createToken(ts.SyntaxKind.ReadonlyKeyword)]
       : undefined;
-  const questionToken =
+  const question_token =
     element.optional === true
       ? ts.createToken(ts.SyntaxKind.QuestionToken)
       : undefined;
@@ -47,7 +47,7 @@ export const transform_object_member = (
         /* name          */ is_valid_identifier(element.owned.name)
           ? element.owned.name
           : ts.createLiteral(element.owned.name),
-        /* questionToken */ questionToken,
+        /* questionToken */ question_token,
         /* type          */ transform(
           element.owned.type || any_type,
           path,
@@ -72,7 +72,7 @@ export const transform_object_member = (
             /* name            */ is_valid_identifier(element.owned.name)
               ? element.owned.name
               : ts.createLiteral(element.owned.name),
-            /* questionToken   */ questionToken,
+            /* questionToken   */ question_token,
           );
     case ElementKind.ConstructorType:
       const constructor_type = transform(

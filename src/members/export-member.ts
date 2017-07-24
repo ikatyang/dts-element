@@ -24,7 +24,7 @@ export const create_export_member = (
  */
 export const transform_export_member = (
   element: IExportMember,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createExportSpecifier(
     /* propertyName  */ if_defined(element.property, ts.createIdentifier),

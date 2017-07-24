@@ -26,7 +26,7 @@ export const create_import_namespace = (
  */
 export const transform_import_namespace = (
   element: IImportNamespace,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createImportDeclaration(
     /* decorators      */ undefined,

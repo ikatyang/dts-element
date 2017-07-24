@@ -35,11 +35,11 @@ export const parse_import_declaration = (
           named_imports.elements.map(parse_native) as IImportMember[],
       ),
     });
-  } else {
-    return create_import_namespace({
-      from,
-      default: default_name,
-      name: node.importClause.namedBindings.name.text,
-    });
   }
+
+  return create_import_namespace({
+    from,
+    default: default_name,
+    name: node.importClause.namedBindings.name.text,
+  });
 };

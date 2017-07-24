@@ -24,7 +24,7 @@ export const create_export_namespace = (
  */
 export const transform_export_namespace = (
   element: IExportNamespace,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createNamespaceExportDeclaration(
     /* name */ ts.createIdentifier(element.name),

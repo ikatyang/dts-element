@@ -59,7 +59,7 @@ export const add_multi_line_comment = <T extends ts.Node>(
  */
 export const transform_multi_line_comment = (
   element: IMultiLineComment,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   add_multi_line_comment(ts.createOmittedExpression(), element, {
     trailing_new_line: false,

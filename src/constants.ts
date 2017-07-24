@@ -24,7 +24,7 @@ export enum ElementKind {
   IndexSignature,
   InterfaceDeclaration,
   IntersectionType,
-  JSDocComment,
+  JSDocComment, // tslint:disable-line:naming-convention
   KeyofType,
   LiteralType,
   MappedType,

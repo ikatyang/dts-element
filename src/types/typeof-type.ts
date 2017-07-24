@@ -24,7 +24,7 @@ export const create_typeof_type = (
  */
 export const transform_typeof_type = (
   element: ITypeofType,
-  path: IElement<any>[],
+  _path: IElement<any>[],
 ) =>
   ts.createTypeQueryNode(
     /* exprName  */ element.parents === undefined ||
