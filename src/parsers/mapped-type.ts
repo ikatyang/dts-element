@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
-import {IGenericDeclaration} from '../declarations/generic-declaration';
-import {parse_native} from '../parse';
-import {create_mapped_type, IMappedType} from '../types/mapped-type';
-import {if_defined} from '../utils';
+import { IGenericDeclaration } from '../declarations/generic-declaration';
+import { parse_native } from '../parse';
+import { create_mapped_type, IMappedType } from '../types/mapped-type';
+import { if_defined } from '../utils';
 
 export const parse_mapped_type = (node: ts.MappedTypeNode): IMappedType =>
   create_mapped_type({

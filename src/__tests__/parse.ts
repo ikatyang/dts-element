@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
-import {emit} from '../emit';
-import {parse, parse_native} from '../parse';
+import { emit } from '../emit';
+import { parse, parse_native } from '../parse';
 
 const code = `
 /// <reference path="some-path" />

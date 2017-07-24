@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
-import {create_typeof_type, ITypeofType} from '../types/typeof-type';
-import {parse_identifier} from './identifier';
-import {parse_qualified_name} from './qualified-name';
+import { create_typeof_type, ITypeofType } from '../types/typeof-type';
+import { parse_identifier } from './identifier';
+import { parse_qualified_name } from './qualified-name';
 
 export const parse_type_query = (node: ts.TypeQueryNode): ITypeofType => {
   if (node.exprName.kind === ts.SyntaxKind.Identifier) {

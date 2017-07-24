@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
-import {ElementKind} from '../constants';
-import {create_element, IElement, IElementOptions} from '../element';
+import { ElementKind } from '../constants';
+import { create_element, IElement, IElementOptions } from '../element';
 
 export interface IMultiLineCommentOptions extends IElementOptions {
   text: string;
@@ -9,9 +9,12 @@ export interface IMultiLineCommentOptions extends IElementOptions {
 }
 
 export interface IMultiLineComment
-  extends IElement<ElementKind.MultiLineComment>, IMultiLineCommentOptions {}
+  extends IElement<ElementKind.MultiLineComment>,
+    IMultiLineCommentOptions {}
 
-export const create_multi_line_comment = (options: IMultiLineCommentOptions): IMultiLineComment => ({
+export const create_multi_line_comment = (
+  options: IMultiLineCommentOptions,
+): IMultiLineComment => ({
   ...create_element(ElementKind.MultiLineComment),
   ...options,
 });
@@ -20,7 +23,9 @@ export const create_multi_line_comment = (options: IMultiLineCommentOptions): IM
  * @hidden
  */
 export interface IAddMultiLineCommentOptions {
-  method?: typeof ts.addSyntheticLeadingComment | typeof ts.addSyntheticTrailingComment;
+  method?:
+    | typeof ts.addSyntheticLeadingComment
+    | typeof ts.addSyntheticTrailingComment;
   trailing_new_line?: boolean;
 }
 
@@ -29,36 +34,33 @@ export interface IAddMultiLineCommentOptions {
  */
 // tslint:disable:ter-indent
 export const add_multi_line_comment = <T extends ts.Node>(
-    node: T, element: IMultiLineComment, options: IAddMultiLineCommentOptions = {}): T =>
+  node: T,
+  element: IMultiLineComment,
+  options: IAddMultiLineCommentOptions = {},
+): T =>
   (options.method || ts.addSyntheticLeadingComment)(
     /* node                */ node,
     /* kind                */ ts.SyntaxKind.MultiLineCommentTrivia,
     /* text                */ element.text
-                                .replace(
-                                  /^/mg,
-                                  (element.prefix === undefined)
-                                    ? ''
-                                    : element.prefix,
-                                )
-                                .replace(
-                                  /\n|$/g,
-                                  match =>
-                                    (element.align === true)
-                                      ? (match === '\n')
-                                        ? '\n *'
-                                        : '\n '
-                                      : match,
-                                ),
-    /* hasTrailingNewLine  */ (options.trailing_new_line === undefined)
-                                ? true
-                                : options.trailing_new_line,
+      .replace(/^/gm, element.prefix === undefined ? '' : element.prefix)
+      .replace(
+        /\n|$/g,
+        match =>
+          element.align === true ? (match === '\n' ? '\n *' : '\n ') : match,
+      ),
+    /* hasTrailingNewLine  */ options.trailing_new_line === undefined
+      ? true
+      : options.trailing_new_line,
   );
 // tslint:enable:ter-indent
 
 /**
  * @hidden
  */
-export const transform_multi_line_comment = (element: IMultiLineComment, path: IElement<any>[]) =>
+export const transform_multi_line_comment = (
+  element: IMultiLineComment,
+  path: IElement<any>[],
+) =>
   add_multi_line_comment(ts.createOmittedExpression(), element, {
     trailing_new_line: false,
     method: ts.addSyntheticTrailingComment,

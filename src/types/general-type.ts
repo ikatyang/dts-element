@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
-import {IType} from '../collections';
-import {ElementKind} from '../constants';
-import {create_element, IElement, IElementOptions} from '../element';
-import {create_qualified_name, create_type_nodes} from '../utils';
+import { IType } from '../collections';
+import { ElementKind } from '../constants';
+import { create_element, IElement, IElementOptions } from '../element';
+import { create_qualified_name, create_type_nodes } from '../utils';
 
 export interface IGeneralTypeOptions extends IElementOptions {
   parents?: string[];
@@ -11,9 +11,12 @@ export interface IGeneralTypeOptions extends IElementOptions {
 }
 
 export interface IGeneralType
-  extends IElement<ElementKind.GeneralType>, IGeneralTypeOptions {}
+  extends IElement<ElementKind.GeneralType>,
+    IGeneralTypeOptions {}
 
-export const create_general_type = (options: IGeneralTypeOptions): IGeneralType => ({
+export const create_general_type = (
+  options: IGeneralTypeOptions,
+): IGeneralType => ({
   ...create_element(ElementKind.GeneralType),
   ...options,
 });
@@ -23,10 +26,14 @@ export const create_general_type = (options: IGeneralTypeOptions): IGeneralType 
 /**
  * @hidden
  */
-export const transform_general_type = (element: IGeneralType, path: IElement<any>[]) =>
+export const transform_general_type = (
+  element: IGeneralType,
+  path: IElement<any>[],
+) =>
   ts.createTypeReferenceNode(
-    /* typeName      */ (element.parents === undefined || element.parents.length === 0)
-                          ? element.name
-                          : create_qualified_name([...element.parents, element.name]),
+    /* typeName      */ element.parents === undefined ||
+    element.parents.length === 0
+      ? element.name
+      : create_qualified_name([...element.parents, element.name]),
     /* typeArguments */ create_type_nodes(element.generics, path),
   );

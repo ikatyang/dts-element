@@ -1,15 +1,18 @@
 import * as ts from 'typescript';
-import {ElementKind} from '../constants';
-import {create_element, IElement, IElementOptions} from '../element';
+import { ElementKind } from '../constants';
+import { create_element, IElement, IElementOptions } from '../element';
 
 export interface IExportNamespaceOptions extends IElementOptions {
   name: string;
 }
 
 export interface IExportNamespace
-  extends IElement<ElementKind.ExportNamespace>, IExportNamespaceOptions {}
+  extends IElement<ElementKind.ExportNamespace>,
+    IExportNamespaceOptions {}
 
-export const create_export_namespace = (options: IExportNamespaceOptions): IExportNamespace => ({
+export const create_export_namespace = (
+  options: IExportNamespaceOptions,
+): IExportNamespace => ({
   ...create_element(ElementKind.ExportNamespace),
   ...options,
 });
@@ -19,7 +22,10 @@ export const create_export_namespace = (options: IExportNamespaceOptions): IExpo
 /**
  * @hidden
  */
-export const transform_export_namespace = (element: IExportNamespace, path: IElement<any>[]) =>
+export const transform_export_namespace = (
+  element: IExportNamespace,
+  path: IElement<any>[],
+) =>
   ts.createNamespaceExportDeclaration(
     /* name */ ts.createIdentifier(element.name),
   );

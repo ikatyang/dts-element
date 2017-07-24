@@ -1,7 +1,9 @@
 import * as ts from 'typescript';
-import {parse_identifier} from './identifier';
+import { parse_identifier } from './identifier';
 
-export const parse_property_access_expression = (node: ts.PropertyAccessExpression): string[] => {
+export const parse_property_access_expression = (
+  node: ts.PropertyAccessExpression,
+): string[] => {
   const expressions: ts.Expression[] = [node.name];
   let current = node.expression;
   while (current.kind === ts.SyntaxKind.PropertyAccessExpression) {

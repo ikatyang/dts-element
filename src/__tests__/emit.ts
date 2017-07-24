@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
-import {create_multi_line_comment} from '../comments/multi-line-comment';
-import {create_class_declaration} from '../declarations/class-declaration';
-import {emit} from '../emit';
-import {create_top_level_element} from '../others/top-level-element';
-import {create_general_type} from '../types/general-type';
+import { create_multi_line_comment } from '../comments/multi-line-comment';
+import { create_class_declaration } from '../declarations/class-declaration';
+import { emit } from '../emit';
+import { create_top_level_element } from '../others/top-level-element';
+import { create_general_type } from '../types/general-type';
 
 const top_level_element = create_top_level_element({
   members: [
@@ -26,20 +26,32 @@ it('should return correctly', () => {
 });
 
 it('should return correctly with removeComments', () => {
-  expect(JSON.stringify(emit(top_level_element, {
-    removeComments: true,
-  }))).toMatchSnapshot();
+  expect(
+    JSON.stringify(
+      emit(top_level_element, {
+        removeComments: true,
+      }),
+    ),
+  ).toMatchSnapshot();
 });
 
 it('should return correctly with newLine', () => {
-  expect(JSON.stringify(emit(top_level_element, {
-    newLine: ts.NewLineKind.CarriageReturnLineFeed,
-  }))).toMatchSnapshot();
+  expect(
+    JSON.stringify(
+      emit(top_level_element, {
+        newLine: ts.NewLineKind.CarriageReturnLineFeed,
+      }),
+    ),
+  ).toMatchSnapshot();
 });
 
 it('should return correctly with removeComments and newLine', () => {
-  expect(JSON.stringify(emit(top_level_element, {
-    removeComments: true,
-    newLine: ts.NewLineKind.CarriageReturnLineFeed,
-  }))).toMatchSnapshot();
+  expect(
+    JSON.stringify(
+      emit(top_level_element, {
+        removeComments: true,
+        newLine: ts.NewLineKind.CarriageReturnLineFeed,
+      }),
+    ),
+  ).toMatchSnapshot();
 });
