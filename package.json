@@ -39,5 +39,10 @@
     "tslint-config-ikatyang": "1.0.2",
     "typedoc": "0.7.1"
   },
-  "files": ["lib/**"]
+  "engines": {
+    "node": ">= 4"
+  },
+  "files": [
+    "/lib/**/*"
+  ]
 }
