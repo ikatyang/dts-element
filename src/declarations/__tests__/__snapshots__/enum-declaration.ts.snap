@@ -5,6 +5,11 @@ exports[`should return correctly with name 1`] = `
 }"
 `;
 
+exports[`should return correctly with name, const 1`] = `
+"declare const enum E {
+}"
+`;
+
 exports[`should return correctly with name, export 1`] = `
 "export declare enum E {
 }"

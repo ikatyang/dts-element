@@ -17,6 +17,17 @@ it('should return correctly with name', () => {
   ).toMatchSnapshot();
 });
 
+it('should return correctly with name, const', () => {
+  expect(
+    emit(
+      create_enum_declaration({
+        name: 'E',
+        const: true,
+      }),
+    ),
+  ).toMatchSnapshot();
+});
+
 it('should return correctly with name, export', () => {
   expect(
     emit(
