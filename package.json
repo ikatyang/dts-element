@@ -9,12 +9,13 @@
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn run build",
-    "build": "rm -rf ./lib && tsc -p ./tsconfig.build.json",
+    "prepublish": "yarn run build && yarn run docs",
+    "prebuild": "rm -rf ./lib",
+    "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check -p ./tsconfig.json",
-    "test": "jest --config ./jest.json",
-    "typedoc": "rm -rf ./docs && typedoc --name \"dts-element v$npm_package_version\" --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate --gitRevision \"v$npm_package_version\"",
-    "postpublish": "yarn run typedoc"
+    "test": "jest -c ./jest.json",
+    "predocs": "rm -rf ./docs",
+    "docs": "typedoc --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate"
   },
   "dependencies": {
     "typescript": "^2.4.1"
@@ -26,6 +27,7 @@
     "jest": "20.0.4",
     "prettier": "1.5.3",
     "prettier-config-ikatyang": "1.1.1",
+    "standard-version": "4.2.0",
     "ts-jest": "20.0.7",
     "tslint": "5.5.0",
     "tslint-config-ikatyang": "2.1.0",

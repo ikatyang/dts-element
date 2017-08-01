@@ -93,17 +93,14 @@ declare namespace SomeNamespace {
 # test
 yarn run test
 
-# test with coverage
-yarn run test-coverage
-
 # build
 yarn run build
 
 # lint
 yarn run lint
 
-# generate documentation
-yarn run typedoc
+# generate docs
+yarn run docs
 ```
 
 ## Related
