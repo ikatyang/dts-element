@@ -1,14 +1,17 @@
 # Change Log
 
-All changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-> **Tags:**
-> - 💥 [Breaking Change]
-> - 🚀 [New Feature]
-> - 🐛 [Bug Fix]
-> - 📝 [Documentation]
-> - 🏠 [Internal]
-> - 💅 [Polish]
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/ikatyang/dts-element/compare/v2.0.5...v2.1.0) (2017-08-01)
+
+
+### Features
+
+* **EnumDeclaration:** support `const` option ([#20](https://github.com/ikatyang/dts-element/issues/20)) ([024cbf9](https://github.com/ikatyang/dts-element/commit/024cbf9))
+* **utils:** add type guards ([#19](https://github.com/ikatyang/dts-element/issues/19)) ([79de10c](https://github.com/ikatyang/dts-element/commit/79de10c))
+
+
 
 ## v2.0.5 (2017-06-26)
 

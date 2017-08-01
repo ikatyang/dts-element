@@ -1,6 +1,6 @@
 {
   "name": "dts-element",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "description": "A DOM library for generation TypeScript declaration (.d.ts) files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,13 +9,15 @@
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn run build && yarn run docs",
+    "prepublish": "yarn run build",
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check -p ./tsconfig.json",
     "test": "jest -c ./jest.json",
     "predocs": "rm -rf ./docs",
-    "docs": "typedoc --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate"
+    "docs": "typedoc --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate",
+    "prerelease": "yarn run docs && git add ./docs --all && git commit -m 'docs: update documentation'",
+    "release": "standard-version"
   },
   "dependencies": {
     "typescript": "^2.4.1"
