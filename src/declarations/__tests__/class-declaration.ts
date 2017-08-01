@@ -3,7 +3,10 @@ import { emit } from '../../emit';
 import { create_class_member } from '../../members/class-member';
 import { create_index_signature } from '../../others/index-signature';
 import { create_general_type } from '../../types/general-type';
-import { create_class_declaration } from '../class-declaration';
+import {
+  create_class_declaration,
+  is_class_declaration,
+} from '../class-declaration';
 import { create_function_declaration } from '../function-declaration';
 import { create_generic_declaration } from '../generic-declaration';
 import { create_parameter_declaration } from '../parameter-declaration';
@@ -121,4 +124,13 @@ it('should return correctly with name, export, abstract, generics, members, exte
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_class_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_class_declaration({
+      name: 'C',
+    });
+    expect(is_class_declaration(element)).toBe(true);
+  });
 });

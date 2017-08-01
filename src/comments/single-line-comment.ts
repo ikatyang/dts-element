@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 export interface ISingleLineCommentOptions extends IElementOptions {
   text: string;
@@ -17,6 +22,11 @@ export const create_single_line_comment = (
   ...create_element(ElementKind.SingleLineComment),
   ...options,
 });
+
+export const is_single_line_comment = (
+  value: any,
+): value is ISingleLineComment =>
+  is_element(value) && value.kind === ElementKind.SingleLineComment;
 
 /**
  * @hidden

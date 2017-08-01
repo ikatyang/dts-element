@@ -1,6 +1,6 @@
 import { any_type, string_type } from '../../constants';
 import { emit } from '../../emit';
-import { create_general_type } from '../general-type';
+import { create_general_type, is_general_type } from '../general-type';
 
 it('should return correctly with name', () => {
   expect(
@@ -55,4 +55,13 @@ it('should return correctly with name, parents, generics', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_general_type', () => {
+  it('should return correctly', () => {
+    const element = create_general_type({
+      name: 'Something',
+    });
+    expect(is_general_type(element)).toBe(true);
+  });
 });

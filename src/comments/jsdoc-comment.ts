@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 // tslint:disable:naming-convention
 
@@ -18,6 +23,9 @@ export const create_jsdoc_comment = (
   ...create_element(ElementKind.JSDocComment),
   ...options,
 });
+
+export const is_jsdoc_comment = (value: any): value is IJSDocComment =>
+  is_element(value) && value.kind === ElementKind.JSDocComment;
 
 /**
  * @hidden

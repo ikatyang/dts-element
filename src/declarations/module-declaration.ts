@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IModuleMember } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { add_declare_modifier_if_need } from '../utils';
 
@@ -20,6 +25,11 @@ export const create_module_declaration = (
   ...create_element(ElementKind.ModuleDeclaration),
   ...options,
 });
+
+export const is_module_declaration = (
+  value: any,
+): value is IModuleDeclaration =>
+  is_element(value) && value.kind === ElementKind.ModuleDeclaration;
 
 /**
  * @hidden

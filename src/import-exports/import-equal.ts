@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 export interface IImportEqualOptions extends IElementOptions {
   from: string;
@@ -17,6 +22,9 @@ export const create_import_equal = (
   ...create_element(ElementKind.ImportEqual),
   ...options,
 });
+
+export const is_import_equal = (value: any): value is IImportEqual =>
+  is_element(value) && value.kind === ElementKind.ImportEqual;
 
 // tslint:disable:ter-indent
 

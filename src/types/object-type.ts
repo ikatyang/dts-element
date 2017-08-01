@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { IObjectMember } from '../members/object-member';
 import { IIndexSignature } from '../others/index-signature';
 import { transform } from '../transform';
@@ -19,6 +24,9 @@ export const create_object_type = (
   ...create_element(ElementKind.ObjectType),
   ...options,
 });
+
+export const is_object_type = (value: any): value is IObjectType =>
+  is_element(value) && value.kind === ElementKind.ObjectType;
 
 /**
  * @hidden

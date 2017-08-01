@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 export interface INativeTypeOptions extends IElementOptions {
   type: ts.TypeNode;
@@ -16,6 +21,9 @@ export const create_native_type = (
   ...create_element(ElementKind.NativeType),
   ...options,
 });
+
+export const is_native_type = (value: any): value is INativeType =>
+  is_element(value) && value.kind === ElementKind.NativeType;
 
 /**
  * @hidden

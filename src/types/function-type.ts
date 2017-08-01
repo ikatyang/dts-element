@@ -3,7 +3,12 @@ import { IType } from '../collections';
 import { any_type, ElementKind } from '../constants';
 import { IGenericDeclaration } from '../declarations/generic-declaration';
 import { IParameterDeclaration } from '../declarations/parameter-declaration';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { ITypePredicate } from '../others/type-predicate';
 import { transform } from '../transform';
 import { create_type_parameters } from '../utils';
@@ -24,6 +29,9 @@ export const create_function_type = (
   ...create_element(ElementKind.FunctionType),
   ...options,
 });
+
+export const is_function_type = (value: any): value is IFunctionType =>
+  is_element(value) && value.kind === ElementKind.FunctionType;
 
 // tslint:disable:ter-indent
 

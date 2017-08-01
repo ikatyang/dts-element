@@ -3,7 +3,7 @@ import { create_generic_declaration } from '../../declarations/generic-declarati
 import { create_parameter_declaration } from '../../declarations/parameter-declaration';
 import { emit } from '../../emit';
 import { create_type_predicate } from '../../others/type-predicate';
-import { create_function_type } from '../function-type';
+import { create_function_type, is_function_type } from '../function-type';
 
 it('should return correctly', () => {
   expect(emit(create_function_type())).toMatchSnapshot();
@@ -78,4 +78,11 @@ it('should return correctly with generics, parameters, return', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_function_type', () => {
+  it('should return correctly', () => {
+    const element = create_function_type();
+    expect(is_function_type(element)).toBe(true);
+  });
 });

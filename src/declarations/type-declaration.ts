@@ -2,7 +2,12 @@ import * as ts from 'typescript';
 import { IType } from '../collections';
 import { any_type } from '../constants';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { create_type_parameters } from '../utils';
 import { IGenericDeclaration } from './generic-declaration';
@@ -24,6 +29,9 @@ export const create_type_declaration = (
   ...create_element(ElementKind.TypeDeclaration),
   ...options,
 });
+
+export const is_type_declaration = (value: any): value is ITypeDeclaration =>
+  is_element(value) && value.kind === ElementKind.TypeDeclaration;
 
 // tslint:disable:ter-indent
 

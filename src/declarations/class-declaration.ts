@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { IClassMember } from '../members';
 import { IIndexSignature } from '../others/index-signature';
 import { transform } from '../transform';
@@ -31,6 +36,9 @@ export const create_class_declaration = (
   ...create_element(ElementKind.ClassDeclaration),
   ...options,
 });
+
+export const is_class_declaration = (value: any): value is IClassDeclaration =>
+  is_element(value) && value.kind === ElementKind.ClassDeclaration;
 
 // tslint:disable:ter-indent max-line-length
 

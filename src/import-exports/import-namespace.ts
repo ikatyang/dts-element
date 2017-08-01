@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 export interface IImportNamespaceOptions extends IElementOptions {
   from: string;
@@ -18,6 +23,9 @@ export const create_import_namespace = (
   ...create_element(ElementKind.ImportNamespace),
   ...options,
 });
+
+export const is_import_namespace = (value: any): value is IImportNamespace =>
+  is_element(value) && value.kind === ElementKind.ImportNamespace;
 
 // tslint:disable:ter-indent
 

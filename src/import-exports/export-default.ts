@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { create_property_access } from '../utils';
 
 export interface IExportDefaultOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_export_default = (
   ...create_element(ElementKind.ExportDefault),
   ...options,
 });
+
+export const is_export_default = (value: any): value is IExportDefault =>
+  is_element(value) && value.kind === ElementKind.ExportDefault;
 
 // tslint:disable:ter-indent
 

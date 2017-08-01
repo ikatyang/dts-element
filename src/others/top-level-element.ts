@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { ITopLevelMember } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface ITopLevelElementOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_top_level_element = (
   ...create_element(ElementKind.TopLevelElement),
   ...options,
 });
+
+export const is_top_level_element = (value: any): value is ITopLevelElement =>
+  is_element(value) && value.kind === ElementKind.TopLevelElement;
 
 /**
  * @hidden

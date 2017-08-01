@@ -2,7 +2,12 @@ import * as ts from 'typescript';
 import { IType } from '../collections';
 import { any_type, ElementKind } from '../constants';
 import { IParameterDeclaration } from '../declarations/parameter-declaration';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface IIndexSignatureOptions extends IElementOptions {
@@ -21,6 +26,9 @@ export const create_index_signature = (
   ...create_element(ElementKind.IndexSignature),
   ...options,
 });
+
+export const is_index_signature = (value: any): value is IIndexSignature =>
+  is_element(value) && value.kind === ElementKind.IndexSignature;
 
 /**
  * @hidden

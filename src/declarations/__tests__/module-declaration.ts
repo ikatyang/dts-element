@@ -1,6 +1,9 @@
 import { emit } from '../../emit';
 import { create_function_declaration } from '../function-declaration';
-import { create_module_declaration } from '../module-declaration';
+import {
+  create_module_declaration,
+  is_module_declaration,
+} from '../module-declaration';
 import { create_variable_declaration } from '../variable-declaration';
 
 it('should return correctly with name', () => {
@@ -29,4 +32,13 @@ it('should return correctly with name, members', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_module_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_module_declaration({
+      name: 'M',
+    });
+    expect(is_module_declaration(element)).toBe(true);
+  });
 });

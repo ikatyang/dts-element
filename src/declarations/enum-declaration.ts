@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { add_declare_modifier_if_need } from '../utils';
 import { IVariableDeclaration } from './variable-declaration';
 
@@ -20,6 +25,9 @@ export const create_enum_declaration = (
   ...create_element(ElementKind.EnumDeclaration),
   ...options,
 });
+
+export const is_enum_declaration = (value: any): value is IEnumDeclaration =>
+  is_element(value) && value.kind === ElementKind.EnumDeclaration;
 
 // tslint:disable:ter-indent
 

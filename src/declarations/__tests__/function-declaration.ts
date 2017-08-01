@@ -1,7 +1,10 @@
 import { string_type } from '../../constants';
 import { emit } from '../../emit';
 import { create_function_type } from '../../types/function-type';
-import { create_function_declaration } from '../function-declaration';
+import {
+  create_function_declaration,
+  is_function_declaration,
+} from '../function-declaration';
 import { create_generic_declaration } from '../generic-declaration';
 import { create_parameter_declaration } from '../parameter-declaration';
 
@@ -55,4 +58,13 @@ it('should return correctly with name, type', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_function_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_function_declaration({
+      name: undefined,
+    });
+    expect(is_function_declaration(element)).toBe(true);
+  });
 });
