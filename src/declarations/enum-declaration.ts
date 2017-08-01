@@ -11,6 +11,7 @@ import { IVariableDeclaration } from './variable-declaration';
 
 export interface IEnumDeclarationOptions extends IElementOptions {
   name: string;
+  const?: boolean;
   export?: boolean;
   members?: IVariableDeclaration[];
 }
@@ -39,14 +40,18 @@ export const transform_enum_declaration = (
   path: IElement<any>[],
 ) => {
   let counter = 0;
+
+  const modifiers: ts.Modifier[] = [];
+  if (element.export === true) {
+    modifiers.push(ts.createToken(ts.SyntaxKind.ExportKeyword));
+  }
+  if (element.const === true) {
+    modifiers.push(ts.createToken(ts.SyntaxKind.ConstKeyword));
+  }
+
   return ts.createEnumDeclaration(
     /* decorators  */ undefined,
-    /* modifiers   */ add_declare_modifier_if_need(
-      element.export === true
-        ? [ts.createToken(ts.SyntaxKind.ExportKeyword)]
-        : undefined,
-      path,
-    ),
+    /* modifiers   */ add_declare_modifier_if_need(modifiers, path),
     /* name        */ element.name,
     /* members     */ (element.members || []).map(variable_declaration => {
       if (
