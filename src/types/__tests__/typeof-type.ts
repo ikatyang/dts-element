@@ -1,5 +1,5 @@
 import { emit } from '../../emit';
-import { create_typeof_type } from '../typeof-type';
+import { create_typeof_type, is_typeof_type } from '../typeof-type';
 
 it('should return correctly with value', () => {
   expect(
@@ -9,4 +9,13 @@ it('should return correctly with value', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_typeof_type', () => {
+  it('should return correctly', () => {
+    const element = create_typeof_type({
+      name: 'a',
+    });
+    expect(is_typeof_type(element)).toBe(true);
+  });
 });

@@ -1,5 +1,5 @@
 import { emit } from '../../emit';
-import { create_export_member } from '../export-member';
+import { create_export_member, is_export_member } from '../export-member';
 
 it('should return correctly with name', () => {
   expect(
@@ -20,4 +20,13 @@ it('should return correctly with name, property', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_export_member', () => {
+  it('should return correctly', () => {
+    const element = create_export_member({
+      name: 'abc',
+    });
+    expect(is_export_member(element)).toBe(true);
+  });
 });

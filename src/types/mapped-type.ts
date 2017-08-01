@@ -2,7 +2,12 @@ import * as ts from 'typescript';
 import { IType } from '../collections';
 import { any_type, ElementKind } from '../constants';
 import { IGenericDeclaration } from '../declarations/generic-declaration';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface IMappedTypeOptions extends IElementOptions {
@@ -22,6 +27,9 @@ export const create_mapped_type = (
   ...create_element(ElementKind.MappedType),
   ...options,
 });
+
+export const is_mapped_type = (value: any): value is IMappedType =>
+  is_element(value) && value.kind === ElementKind.MappedType;
 
 /**
  * @hidden

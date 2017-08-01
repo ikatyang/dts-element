@@ -4,7 +4,7 @@ import { create_parameter_declaration } from '../../declarations/parameter-decla
 import { emit } from '../../emit';
 import { create_object_member } from '../../members/object-member';
 import { create_index_signature } from '../../others/index-signature';
-import { create_object_type } from '../object-type';
+import { create_object_type, is_object_type } from '../object-type';
 
 it('should return correctly', () => {
   expect(
@@ -26,4 +26,13 @@ it('should return correctly', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_object_type', () => {
+  it('should return correctly', () => {
+    const element = create_object_type({
+      members: [],
+    });
+    expect(is_object_type(element)).toBe(true);
+  });
 });

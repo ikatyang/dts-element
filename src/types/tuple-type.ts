@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface ITupleTypeOptions extends IElementOptions {
@@ -16,6 +21,9 @@ export const create_tuple_type = (options: ITupleTypeOptions): ITupleType => ({
   ...create_element(ElementKind.TupleType),
   ...options,
 });
+
+export const is_tuple_type = (value: any): value is ITupleType =>
+  is_element(value) && value.kind === ElementKind.TupleType;
 
 /**
  * @hidden

@@ -2,7 +2,10 @@ import { string_type } from '../../constants';
 import { create_generic_declaration } from '../../declarations/generic-declaration';
 import { create_parameter_declaration } from '../../declarations/parameter-declaration';
 import { emit } from '../../emit';
-import { create_constructor_type } from '../constructor-type';
+import {
+  create_constructor_type,
+  is_constructor_type,
+} from '../constructor-type';
 
 it('should return correctly', () => {
   expect(emit(create_constructor_type())).toMatchSnapshot();
@@ -60,4 +63,11 @@ it('should return correctly with generics, parameters, return', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_constructor_type', () => {
+  it('should return correctly', () => {
+    const element = create_constructor_type();
+    expect(is_constructor_type(element)).toBe(true);
+  });
 });

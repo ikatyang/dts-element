@@ -1,6 +1,6 @@
 import { number_type, string_type, this_type } from '../../constants';
 import { emit } from '../../emit';
-import { create_type_predicate } from '../type-predicate';
+import { create_type_predicate, is_type_predicate } from '../type-predicate';
 
 it('should return correctly with parameter (ParameterDeclaration), type', () => {
   expect(
@@ -33,4 +33,14 @@ it('should throw error with parameter (not ParameterDeclaration or this_type)', 
       }),
     ),
   ).toThrowError();
+});
+
+describe('is_type_predicate', () => {
+  it('should return correctly', () => {
+    const element = create_type_predicate({
+      parameter: 'key',
+      type: string_type,
+    });
+    expect(is_type_predicate(element)).toBe(true);
+  });
 });

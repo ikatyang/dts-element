@@ -14,3 +14,6 @@ export interface IElement<Kind extends ElementKind> extends IElementOptions {
 export const create_element = <Kind extends ElementKind>(
   kind: Kind,
 ): IElement<Kind> => ({ kind });
+
+export const is_element = (value: any): value is IElement<any> =>
+  value && typeof value.kind === 'number';

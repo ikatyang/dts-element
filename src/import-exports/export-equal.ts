@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { create_property_access } from '../utils';
 
 export interface IExportEqualOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_export_equal = (
   ...create_element(ElementKind.ExportEqual),
   ...options,
 });
+
+export const is_export_equal = (value: any): value is IExportEqual =>
+  is_element(value) && value.kind === ElementKind.ExportEqual;
 
 // tslint:disable:ter-indent
 

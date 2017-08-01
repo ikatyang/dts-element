@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface IKeyofTypeOptions extends IElementOptions {
@@ -16,6 +21,9 @@ export const create_keyof_type = (options: IKeyofTypeOptions): IKeyofType => ({
   ...create_element(ElementKind.KeyofType),
   ...options,
 });
+
+export const is_keyof_type = (value: any): value is IKeyofType =>
+  is_element(value) && value.kind === ElementKind.KeyofType;
 
 /**
  * @hidden

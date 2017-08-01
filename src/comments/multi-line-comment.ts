@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 
 export interface IMultiLineCommentOptions extends IElementOptions {
   text: string;
@@ -18,6 +23,9 @@ export const create_multi_line_comment = (
   ...create_element(ElementKind.MultiLineComment),
   ...options,
 });
+
+export const is_multi_line_comment = (value: any): value is IMultiLineComment =>
+  is_element(value) && value.kind === ElementKind.MultiLineComment;
 
 /**
  * @hidden

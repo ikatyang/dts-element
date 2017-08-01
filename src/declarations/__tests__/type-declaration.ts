@@ -1,7 +1,10 @@
 import { string_type } from '../../constants';
 import { emit } from '../../emit';
 import { create_generic_declaration } from '../generic-declaration';
-import { create_type_declaration } from '../type-declaration';
+import {
+  create_type_declaration,
+  is_type_declaration,
+} from '../type-declaration';
 
 it('should return correctly with name', () => {
   expect(
@@ -63,4 +66,13 @@ it('should return correctly with name, export, generics, type', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_type_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_type_declaration({
+      name: 'X',
+    });
+    expect(is_type_declaration(element)).toBe(true);
+  });
 });

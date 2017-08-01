@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface ISubTypeOptions extends IElementOptions {
@@ -16,6 +21,9 @@ export const create_sub_type = (options: ISubTypeOptions): ISubType => ({
   ...create_element(ElementKind.SubType),
   ...options,
 });
+
+export const is_sub_type = (value: any): value is ISubTypeOptions =>
+  is_element(value) && value.kind === ElementKind.SubType;
 
 /**
  * @hidden

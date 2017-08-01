@@ -1,35 +1,7 @@
-export {
-  IExportDefault,
-  IExportDefaultOptions,
-  create_export_default,
-} from './export-default';
-export {
-  IExportEqual,
-  IExportEqualOptions,
-  create_export_equal,
-} from './export-equal';
-export {
-  IExportNamed,
-  IExportNamedOptions,
-  create_export_named,
-} from './export-named';
-export {
-  IExportNamespace,
-  IExportNamespaceOptions,
-  create_export_namespace,
-} from './export-namespace';
-export {
-  IImportEqual,
-  IImportEqualOptions,
-  create_import_equal,
-} from './import-equal';
-export {
-  IImportNamed,
-  IImportNamedOptions,
-  create_import_named,
-} from './import-named';
-export {
-  IImportNamespace,
-  IImportNamespaceOptions,
-  create_import_namespace,
-} from './import-namespace';
+export * from './export-default';
+export * from './export-equal';
+export * from './export-named';
+export * from './export-namespace';
+export * from './import-equal';
+export * from './import-named';
+export * from './import-namespace';

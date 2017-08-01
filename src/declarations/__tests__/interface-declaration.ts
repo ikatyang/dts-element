@@ -6,7 +6,10 @@ import { create_general_type } from '../../types/general-type';
 import { create_object_type } from '../../types/object-type';
 import { create_function_declaration } from '../function-declaration';
 import { create_generic_declaration } from '../generic-declaration';
-import { create_interface_declaration } from '../interface-declaration';
+import {
+  create_interface_declaration,
+  is_interface_declaration,
+} from '../interface-declaration';
 import { create_parameter_declaration } from '../parameter-declaration';
 
 it('should return correctly with name', () => {
@@ -121,4 +124,13 @@ it('should return correctly with name, export, generics, type, extends', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_interface_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_interface_declaration({
+      name: 'I',
+    });
+    expect(is_interface_declaration(element)).toBe(true);
+  });
 });

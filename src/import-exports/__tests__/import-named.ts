@@ -1,6 +1,6 @@
 import { emit } from '../../emit';
 import { create_import_member } from '../../members/import-member';
-import { create_import_named } from '../import-named';
+import { create_import_named, is_import_named } from '../import-named';
 
 it('should return correctly with from', () => {
   expect(
@@ -50,4 +50,13 @@ it('should return correctly with from, default, members', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_import_named', () => {
+  it('should return correctly', () => {
+    const element = create_import_named({
+      from: 'path/to/somewhere',
+    });
+    expect(is_import_named(element)).toBe(true);
+  });
 });

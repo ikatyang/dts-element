@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IModuleMember } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { add_declare_modifier_if_need } from '../utils';
 
@@ -19,6 +24,11 @@ export const create_global_declaration = (
   ...create_element(ElementKind.GlobalDeclaration),
   ...options,
 });
+
+export const is_global_declaration = (
+  value: any,
+): value is IGlobalDeclaration =>
+  is_element(value) && value.kind === ElementKind.GlobalDeclaration;
 
 /**
  * @hidden

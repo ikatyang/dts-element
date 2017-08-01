@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { IExportMember } from '../members/export-member';
 import { transform } from '../transform';
 
@@ -19,6 +24,9 @@ export const create_export_named = (
   ...create_element(ElementKind.ExportNamed),
   ...options,
 });
+
+export const is_export_named = (value: any): value is IExportNamed =>
+  is_element(value) && value.kind === ElementKind.ExportNamed;
 
 // tslint:disable:ter-indent
 

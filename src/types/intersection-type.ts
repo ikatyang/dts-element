@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface IIntersectionTypeOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_intersection_type = (
   ...create_element(ElementKind.IntersectionType),
   ...options,
 });
+
+export const is_intersection_type = (value: any): value is IIntersectionType =>
+  is_element(value) && value.kind === ElementKind.IntersectionType;
 
 /**
  * @hidden

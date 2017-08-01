@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { any_type, ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { add_declare_modifier_if_need } from '../utils';
 
@@ -23,6 +28,11 @@ export const create_variable_declaration = (
   ...create_element(ElementKind.VariableDeclaration),
   ...options,
 });
+
+export const is_variable_declaration = (
+  value: any,
+): value is IVariableDeclaration =>
+  is_element(value) && value.kind === ElementKind.VariableDeclaration;
 
 // tslint:disable:ter-indent
 

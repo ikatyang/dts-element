@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { create_qualified_name, create_type_nodes } from '../utils';
 
 export interface IGeneralTypeOptions extends IElementOptions {
@@ -20,6 +25,9 @@ export const create_general_type = (
   ...create_element(ElementKind.GeneralType),
   ...options,
 });
+
+export const is_general_type = (value: any): value is IGeneralType =>
+  is_element(value) && value.kind === ElementKind.GeneralType;
 
 // tslint:disable:ter-indent
 

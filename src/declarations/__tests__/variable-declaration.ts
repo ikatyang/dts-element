@@ -1,6 +1,9 @@
 import { null_type, string_type } from '../../constants';
 import { emit } from '../../emit';
-import { create_variable_declaration } from '../variable-declaration';
+import {
+  create_variable_declaration,
+  is_variable_declaration,
+} from '../variable-declaration';
 
 it('should return correctly with name', () => {
   expect(
@@ -56,4 +59,13 @@ it('should return correctly with name, export, type, const', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_variable_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_variable_declaration({
+      name: 'a',
+    });
+    expect(is_variable_declaration(element)).toBe(true);
+  });
 });

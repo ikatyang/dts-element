@@ -3,7 +3,7 @@ import { create_generic_declaration } from '../../declarations/generic-declarati
 import { emit } from '../../emit';
 import { create_general_type } from '../general-type';
 import { create_keyof_type } from '../keyof-type';
-import { create_mapped_type } from '../mapped-type';
+import { create_mapped_type, is_mapped_type } from '../mapped-type';
 import { create_sub_type } from '../sub-type';
 
 it('should return correctly with parameter', () => {
@@ -116,4 +116,20 @@ it('should throw error with parameter.extends = undefined', () => {
       }),
     ),
   ).toThrowError();
+});
+
+describe('is_mapped_type', () => {
+  it('should return correctly', () => {
+    const element = create_mapped_type({
+      parameter: create_generic_declaration({
+        name: 'T',
+        extends: create_keyof_type({
+          type: create_general_type({
+            name: 'X',
+          }),
+        }),
+      }),
+    });
+    expect(is_mapped_type(element)).toBe(true);
+  });
 });

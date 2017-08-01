@@ -1,6 +1,9 @@
 import { emit } from '../../emit';
 import { create_function_declaration } from '../function-declaration';
-import { create_global_declaration } from '../global-declaration';
+import {
+  create_global_declaration,
+  is_global_declaration,
+} from '../global-declaration';
 import { create_variable_declaration } from '../variable-declaration';
 
 it('should return correctly', () => {
@@ -22,4 +25,11 @@ it('should return correctly with members', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_global_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_global_declaration();
+    expect(is_global_declaration(element)).toBe(true);
+  });
 });

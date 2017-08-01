@@ -1,7 +1,10 @@
 import { any_type } from '../../constants';
 import { emit } from '../../emit';
 import { create_literal_type } from '../../types/literal-type';
-import { create_enum_declaration } from '../enum-declaration';
+import {
+  create_enum_declaration,
+  is_enum_declaration,
+} from '../enum-declaration';
 import { create_variable_declaration } from '../variable-declaration';
 
 it('should return correctly with name', () => {
@@ -88,4 +91,13 @@ it('should throw error with members (VariableDeclaration with type (not undefine
       }),
     ),
   ).toThrowError();
+});
+
+describe('is_enum_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_enum_declaration({
+      name: 'E',
+    });
+    expect(is_enum_declaration(element)).toBe(true);
+  });
 });

@@ -2,7 +2,12 @@ import * as ts from 'typescript';
 import { any_type, ElementKind } from '../constants';
 import { IFunctionDeclaration } from '../declarations/function-declaration';
 import { IVariableDeclaration } from '../declarations/variable-declaration';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { IConstructorType } from '../types/constructor-type';
 import { create_function_type } from '../types/function-type';
@@ -29,6 +34,9 @@ export const create_class_member = (
   ...create_element(ElementKind.ClassMember),
   ...options,
 });
+
+export const is_class_member = (value: any): value is IClassMember =>
+  is_element(value) && value.kind === ElementKind.ClassMember;
 
 /**
  * @hidden

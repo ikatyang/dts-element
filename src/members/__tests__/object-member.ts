@@ -3,7 +3,7 @@ import { create_function_declaration } from '../../declarations/function-declara
 import { create_variable_declaration } from '../../declarations/variable-declaration';
 import { emit } from '../../emit';
 import { create_constructor_type } from '../../types/constructor-type';
-import { create_object_member } from '../object-member';
+import { create_object_member, is_object_member } from '../object-member';
 
 it('should return correctly with owned (VariableDeclaration)', () => {
   expect(
@@ -86,4 +86,15 @@ it('should throw error with unexpected kind', () => {
       }),
     ),
   ).toThrowError();
+});
+
+describe('is_object_member', () => {
+  it('should return correctly', () => {
+    const element = create_object_member({
+      owned: create_variable_declaration({
+        name: 'a',
+      }),
+    });
+    expect(is_object_member(element)).toBe(true);
+  });
 });

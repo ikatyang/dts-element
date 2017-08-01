@@ -1,7 +1,12 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 
 export interface IUnionTypeOptions extends IElementOptions {
@@ -16,6 +21,9 @@ export const create_union_type = (options: IUnionTypeOptions): IUnionType => ({
   ...create_element(ElementKind.UnionType),
   ...options,
 });
+
+export const is_union_type = (value: any): value is IUnionType =>
+  is_element(value) && value.kind === ElementKind.UnionType;
 
 /**
  * @hidden

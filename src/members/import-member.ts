@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { if_defined } from '../utils';
 
 export interface IImportMemberOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_import_member = (
   ...create_element(ElementKind.ImportMember),
   ...options,
 });
+
+export const is_import_member = (value: any): value is IImportMember =>
+  is_element(value) && value.kind === ElementKind.ImportMember;
 
 /**
  * @hidden

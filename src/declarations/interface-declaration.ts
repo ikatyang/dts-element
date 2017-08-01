@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { transform } from '../transform';
 import { IGeneralType } from '../types/general-type';
 import { create_object_type, IObjectType } from '../types/object-type';
@@ -28,6 +33,11 @@ export const create_interface_declaration = (
   ...create_element(ElementKind.InterfaceDeclaration),
   ...options,
 });
+
+export const is_interface_declaration = (
+  value: any,
+): value is IInterfaceDeclaration =>
+  is_element(value) && value.kind === ElementKind.InterfaceDeclaration;
 
 // tslint:disable:ter-indent max-line-length
 

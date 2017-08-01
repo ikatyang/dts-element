@@ -1,5 +1,5 @@
 import { emit } from '../../emit';
-import { create_literal_type } from '../literal-type';
+import { create_literal_type, is_literal_type } from '../literal-type';
 
 it('should return correctly with boolean', () => {
   expect(
@@ -29,4 +29,13 @@ it('should return correctly with string', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_literal_type', () => {
+  it('should return correctly', () => {
+    const element = create_literal_type({
+      value: true,
+    });
+    expect(is_literal_type(element)).toBe(true);
+  });
 });

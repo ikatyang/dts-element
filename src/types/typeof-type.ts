@@ -1,6 +1,11 @@
 import * as ts from 'typescript';
 import { ElementKind } from '../constants';
-import { create_element, IElement, IElementOptions } from '../element';
+import {
+  create_element,
+  is_element,
+  IElement,
+  IElementOptions,
+} from '../element';
 import { create_qualified_name } from '../utils';
 
 export interface ITypeofTypeOptions extends IElementOptions {
@@ -18,6 +23,9 @@ export const create_typeof_type = (
   ...create_element(ElementKind.TypeofType),
   ...options,
 });
+
+export const is_typeof_type = (value: any): value is ITypeofType =>
+  is_element(value) && value.kind === ElementKind.TypeofType;
 
 /**
  * @hidden

@@ -1,6 +1,9 @@
 import { string_type } from '../../constants';
 import { emit } from '../../emit';
-import { create_parameter_declaration } from '../parameter-declaration';
+import {
+  create_parameter_declaration,
+  is_parameter_declaration,
+} from '../parameter-declaration';
 
 it('should return correctly with name', () => {
   expect(
@@ -33,4 +36,13 @@ it('should return correctly with name, type, optional', () => {
       }),
     ),
   ).toMatchSnapshot();
+});
+
+describe('is_parameter_declaration', () => {
+  it('should return correctly', () => {
+    const element = create_parameter_declaration({
+      name: 'a',
+    });
+    expect(is_parameter_declaration(element)).toBe(true);
+  });
 });
