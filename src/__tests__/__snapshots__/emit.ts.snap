@@ -2,6 +2,8 @@
 
 exports[`should return correctly 1`] = `"\\"/*~ hello\\\\n *~\\\\n *~ world\\\\n */\\\\ndeclare class AAA extends SomethingElse {\\\\n}\\\\n\\""`;
 
+exports[`should return correctly with element = array 1`] = `"\\"/*~ hello\\\\n *~\\\\n *~ world\\\\n */\\\\ndeclare class AAA extends SomethingElse {\\\\n}\\\\n\\""`;
+
 exports[`should return correctly with newLine 1`] = `"\\"/*~ hello\\\\r\\\\n *~\\\\r\\\\n *~ world\\\\r\\\\n */\\\\r\\\\ndeclare class AAA extends SomethingElse {\\\\r\\\\n}\\\\r\\\\n\\""`;
 
 exports[`should return correctly with removeComments 1`] = `"\\"declare class AAA extends SomethingElse {\\\\n}\\\\n\\""`;
