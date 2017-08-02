@@ -25,6 +25,10 @@ it('should return correctly', () => {
   expect(JSON.stringify(emit(top_level_element))).toMatchSnapshot();
 });
 
+it('should return correctly with element = array', () => {
+  expect(JSON.stringify(emit(top_level_element.members))).toMatchSnapshot();
+});
+
 it('should return correctly with removeComments', () => {
   expect(
     JSON.stringify(
