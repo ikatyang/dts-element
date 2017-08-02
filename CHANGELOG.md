@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/ikatyang/dts-element/compare/v2.1.0...v2.2.0) (2017-08-02)
+
+
+### Features
+
+* **emit:** support `TopLevelMember[]` ([#22](https://github.com/ikatyang/dts-element/issues/22)) ([2dbad1d](https://github.com/ikatyang/dts-element/commit/2dbad1d))
+* **utils:** add `parse_type()` ([#21](https://github.com/ikatyang/dts-element/issues/21)) ([ae0192f](https://github.com/ikatyang/dts-element/commit/ae0192f))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/ikatyang/dts-element/compare/v2.0.5...v2.1.0) (2017-08-01)
 
