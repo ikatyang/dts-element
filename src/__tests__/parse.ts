@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { emit } from '../emit';
-import { parse, parse_native } from '../parse';
+import { parse, parse_native, parse_type } from '../parse';
 
 const code = `
 /// <reference path="some-path" />
@@ -137,4 +137,14 @@ it('should return correctly', () => {
 
 it('should throw error with unexpected kind', () => {
   expect(() => parse_native(ts.createToken(-1))).toThrowError();
+});
+
+describe('parse_type', () => {
+  it('should return correctly', () => {
+    expect(
+      parse_type(`
+        <T, U>(x: T, y: U) => T | U | void
+      `),
+    ).toMatchSnapshot();
+  });
 });

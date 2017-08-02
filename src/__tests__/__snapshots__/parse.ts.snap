@@ -1,5 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parse_type should return correctly 1`] = `
+Object {
+  "generics": Array [
+    Object {
+      "defalut": undefined,
+      "extends": undefined,
+      "kind": 13,
+      "name": "T",
+    },
+    Object {
+      "defalut": undefined,
+      "extends": undefined,
+      "kind": 13,
+      "name": "U",
+    },
+  ],
+  "kind": 11,
+  "parameters": Array [
+    Object {
+      "kind": 32,
+      "name": "x",
+      "optional": undefined,
+      "rest": undefined,
+      "type": Object {
+        "generics": undefined,
+        "kind": 12,
+        "name": "T",
+        "parents": undefined,
+      },
+    },
+    Object {
+      "kind": 32,
+      "name": "y",
+      "optional": undefined,
+      "rest": undefined,
+      "type": Object {
+        "generics": undefined,
+        "kind": 12,
+        "name": "U",
+        "parents": undefined,
+      },
+    },
+  ],
+  "return": Object {
+    "kind": 41,
+    "types": Array [
+      Object {
+        "generics": undefined,
+        "kind": 12,
+        "name": "T",
+        "parents": undefined,
+      },
+      Object {
+        "generics": undefined,
+        "kind": 12,
+        "name": "U",
+        "parents": undefined,
+      },
+      Object {
+        "kind": 29,
+        "type": TokenObject {
+          "end": -1,
+          "flags": 8,
+          "kind": 105,
+          "parent": undefined,
+          "pos": -1,
+        },
+      },
+    ],
+  },
+}
+`;
+
 exports[`should return correctly 1`] = `
 "/// <reference path=\\"some-path\\" />
 /// <reference types=\\"some-types\\" />
