@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { IType } from './collections';
 import {
   any_type,
   boolean_type,
@@ -12,6 +13,7 @@ import {
   undefined_type,
   void_type,
 } from './constants';
+import { ITypeDeclaration } from './declarations/type-declaration';
 import { IElement } from './element';
 import { emit_native } from './emit';
 import { ITopLevelElement } from './others/top-level-element';
@@ -132,3 +134,10 @@ export const parse = (code: string) =>
       /*setParentNodes */ false,
     ),
   ) as ITopLevelElement;
+
+export const parse_type = (type_string: string) => {
+  const code = `type X = ${type_string}`;
+  const top_level_element = parse(code);
+  const type_declaration = top_level_element.members[0] as ITypeDeclaration;
+  return type_declaration.type!;
+};
