@@ -1,7 +1,6 @@
 import * as ts from 'typescript';
 import { IType } from '../collections';
-import { any_type } from '../constants';
-import { ElementKind } from '../constants';
+import { any_type, ElementKind } from '../constants';
 import {
   create_element,
   is_element,
