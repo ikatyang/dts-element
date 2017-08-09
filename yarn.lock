@@ -32,8 +32,8 @@
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.6.tgz#7e0ba76ddfacb42ee9bb0d8833e5208cf0680431"
 
 "@types/lodash@^4.14.37":
-  version "4.14.71"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.71.tgz#0dc383f78981216ac76e2f2c3afd998e0450e4c1"
+  version "4.14.72"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.72.tgz#f090cf6eb1fee1647a0efa1ebe18b0b78ed551c6"
 
 "@types/marked@0.0.28":
   version "0.0.28"
@@ -44,8 +44,8 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-2.0.29.tgz#5002e14f75e2d71e564281df0431c8c1b4a2a36a"
 
 "@types/node@*":
-  version "8.0.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.19.tgz#e46e2b0243de7d03f15b26b45c59ebb84f657a4e"
+  version "8.0.20"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.20.tgz#65c7375255c24b184c215a5d0b63247c32f01c91"
 
 "@types/shelljs@^0.7.0":
   version "0.7.4"
@@ -2629,9 +2629,9 @@ tslint-config-ikatyang@2.1.0:
     tslint-eslint-rules "~4.1.0"
     tslint-plugin-ikatyang "~1.0.0"
 
-tslint-config-prettier-ext@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-prettier-ext/-/tslint-config-prettier-ext-1.4.0.tgz#b83d96cb856e385032f083b5fdb7ceb873d4922e"
+tslint-config-prettier-ext@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-prettier-ext/-/tslint-config-prettier-ext-1.5.0.tgz#1bf25bc5820dd18cc7d0ef23a0c4fd6c943840a9"
 
 tslint-consistent-codestyle@~1.6.0:
   version "1.6.0"
