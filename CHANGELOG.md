@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/ikatyang/dts-element/compare/v2.2.0...v2.2.1) (2017-08-12)
+
+
+### Bug Fixes
+
+* **deps:** lock typescript at v2.4.x to prevent breaking changes in the future ([8a8d257](https://github.com/ikatyang/dts-element/commit/8a8d257))
+* **sub-type:** should transform correctly ([#33](https://github.com/ikatyang/dts-element/issues/33)) ([a64b8f9](https://github.com/ikatyang/dts-element/commit/a64b8f9))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/ikatyang/dts-element/compare/v2.1.0...v2.2.0) (2017-08-02)
 
