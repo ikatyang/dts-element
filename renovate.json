@@ -5,5 +5,11 @@
   "prCreation": "not-pending",
   "rebaseStalePrs": true,
   "semanticCommits": true,
-  "unpublishSafe": false
+  "unpublishSafe": false,
+  "packages": [
+    {
+      "packageName": "typescript",
+      "automerge": "patch"
+    }
+  ]
 }
