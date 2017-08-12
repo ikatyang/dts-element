@@ -94,12 +94,10 @@ it('should return correctly with parameter, optional, readonly, type', () => {
         optional: true,
         readonly: true,
         type: create_sub_type({
-          types: [
-            in_type,
-            create_general_type({
-              name: parameter.name,
-            }),
-          ],
+          object: in_type,
+          index: create_general_type({
+            name: parameter.name,
+          }),
         }),
       }),
     ),
