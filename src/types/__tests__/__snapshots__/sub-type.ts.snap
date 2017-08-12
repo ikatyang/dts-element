@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return correctly 1`] = `"any[string][number]"`;
+exports[`should return correctly with object 1`] = `"string[any]"`;
+
+exports[`should return correctly with object and index 1`] = `"any[string][number]"`;

@@ -125,7 +125,7 @@ declare const v_object: {
     readonly [index: number]: any;
 };
 declare const v_sub_1: X[any][\\"abc\\"][123];
-declare const v_sub_2: A.B.C[X[any]][any][any];
+declare const v_sub_2: A.B.C[X[any]][any];
 declare const v_tuple: [string, number];
 declare const v_typeof_1: typeof X;
 declare const v_typeof_2: typeof X.Y.Z;
@@ -186,5 +186,6 @@ type TP<T> = T | string;
 type adjust = <T, U>(fn: (v: T) => U, index: number, array: T[]) => (T | U)[];
 declare function x<T>(v: T): T;
 import xyz = require(\\"xyz\\");
+type X = A[B[C]];
 "
 `;
