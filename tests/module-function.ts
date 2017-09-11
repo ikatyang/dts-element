@@ -1,4 +1,4 @@
-import * as dedent from 'dedent';
+import dedent = require('dedent');
 import * as dts from '../src/index';
 
 const single_line_options = {
