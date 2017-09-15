@@ -51,8 +51,9 @@ export const transform_namespace_declaration = (
     ),
     /* name        */ ts.createIdentifier(element.name),
     /* body        */ ts.createModuleBlock(
-      (element.members || [])
-        .map(member => transform(member, path) as ts.Statement),
+      (element.members || []).map(
+        member => transform(member, path) as ts.Statement,
+      ),
     ),
     /* flags       */ ts.NodeFlags.Namespace,
   );

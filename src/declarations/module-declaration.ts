@@ -43,8 +43,9 @@ export const transform_module_declaration = (
     /* modifiers   */ add_declare_modifier_if_need(undefined, path),
     /* name        */ ts.createLiteral(element.name),
     /* body        */ ts.createModuleBlock(
-      (element.members || [])
-        .map(member => transform(member, path) as ts.Statement),
+      (element.members || []).map(
+        member => transform(member, path) as ts.Statement,
+      ),
     ),
     /* flags       */ undefined,
   );

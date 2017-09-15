@@ -74,6 +74,7 @@ export const transform_class_declaration = (
             ],
           ),
         ],
-    /* members         */ (element.members || [])
-      .map(member => transform(member, path) as ts.ClassElement),
+    /* members         */ (element.members || []).map(
+      member => transform(member, path) as ts.ClassElement,
+    ),
   );

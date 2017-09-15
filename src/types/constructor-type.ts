@@ -42,8 +42,9 @@ export const transform_constructor_type = (
 ) =>
   ts.createConstructorTypeNode(
     /* typeParameters  */ create_type_parameters(element.generics, path),
-    /* parameters      */ (element.parameters || [])
-      .map(parameter => transform(parameter, path) as ts.ParameterDeclaration),
+    /* parameters      */ (element.parameters || []).map(
+      parameter => transform(parameter, path) as ts.ParameterDeclaration,
+    ),
     /* type            */ transform(
       element.return || any_type,
       path,
