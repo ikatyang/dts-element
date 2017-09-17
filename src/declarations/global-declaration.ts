@@ -42,8 +42,9 @@ export const transform_global_declaration = (
     /* modifiers   */ add_declare_modifier_if_need(undefined, path),
     /* name        */ ts.createIdentifier('global'),
     /* body        */ ts.createModuleBlock(
-      (element.members || [])
-        .map(member => transform(member, path) as ts.Statement),
+      (element.members || []).map(
+        member => transform(member, path) as ts.Statement,
+      ),
     ),
     /* flags       */ ts.NodeFlags.GlobalAugmentation,
   );

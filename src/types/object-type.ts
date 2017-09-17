@@ -36,6 +36,7 @@ export const transform_object_type = (
   path: IElement<any>[],
 ) =>
   ts.createTypeLiteralNode(
-    /* members  */ (element.members || [])
-      .map(member => transform(member, path) as ts.TypeElement),
+    /* members  */ (element.members || []).map(
+      member => transform(member, path) as ts.TypeElement,
+    ),
   );
