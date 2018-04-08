@@ -106,5 +106,5 @@ export const is_valid_identifier = (name: string) =>
 export function mutable_array<T>(array: ReadonlyArray<T>): T[];
 export function mutable_array<T>(array?: ReadonlyArray<T>): undefined | T[];
 export function mutable_array<T>(array?: ReadonlyArray<T>) {
-  return array ? array.slice() : undefined;
+  return array && array.slice();
 }
