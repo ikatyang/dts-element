@@ -9,14 +9,14 @@
   "author": "ikatyang",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn run build",
+    "prepublish": "npm run build",
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint --type-check -p ./tsconfig.json",
-    "test": "jest -c ./jest.json",
+    "test": "jest",
     "predocs": "rm -rf ./docs",
     "docs": "typedoc --out ./docs --mode file --exclude '{**/{__tests__,tests,parsers}/**/*,**/utils.ts}' --excludeExternals --excludePrivate",
-    "prerelease": "yarn run docs && git add ./docs --all && git commit -m 'docs: update documentation'",
+    "prerelease": "npm run docs && git add ./docs --all && git commit -m 'docs: update documentation'",
     "release": "standard-version"
   },
   "dependencies": {

@@ -3,14 +3,15 @@ language: node_js
 node_js:
 - 4
 - 6
+- 8
 - stable
 
 before_install:
 - yarn global add codecov
 
 script:
-- yarn run lint
-- yarn run test -- --verbose --coverage
+- yarn lint
+- yarn test --verbose
 
 after_script:
 - codecov
