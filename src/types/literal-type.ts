@@ -31,4 +31,11 @@ export const is_literal_type = (value: any): value is ILiteralType =>
 export const transform_literal_type = (
   element: ILiteralType,
   _path: IElement<any>[],
-) => ts.createLiteralTypeNode(/* literal */ ts.createLiteral(element.value));
+) =>
+  ts.createLiteralTypeNode(
+    /* literal */ {
+      ...ts.createLiteral(element.value),
+      _literalExpressionBrand: true,
+      text: element.value.toString(),
+    },
+  );

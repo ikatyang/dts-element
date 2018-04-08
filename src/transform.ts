@@ -58,9 +58,7 @@ import { transform_union_type } from './types/union-type';
  * @hidden
  */
 // tslint:disable-next-line:cyclomatic-complexity
-const select_transformer = (
-  element: IElement<any>,
-): ((element: IElement<any>, path: IElement<any>[]) => ts.Node) => {
+const select_transformer = (element: IElement<any>) => {
   // prettier-ignore
   switch (element.kind) {
     case ElementKind.ArrayType: return transform_array_type;
@@ -114,7 +112,10 @@ export const transform = (
   element: IElement<any>,
   path: IElement<any>[] = [],
 ): ts.Node => {
-  const transformer = select_transformer(element);
+  const transformer = select_transformer(element) as (
+    element: IElement<any>,
+    path: IElement<any>[],
+  ) => ts.Node;
   const node = transformer(element, [...path, element]);
 
   if (element.jsdoc !== undefined) {

@@ -11,7 +11,7 @@ import {
 import { transform } from '../transform';
 import { IConstructorType } from '../types/constructor-type';
 import { create_function_type } from '../types/function-type';
-import { is_valid_identifier } from '../utils';
+import { is_valid_identifier, mutable_array } from '../utils';
 
 export interface IObjectMemberOptions extends IElementOptions {
   owned: IVariableDeclaration | IFunctionDeclaration | IConstructorType;
@@ -69,8 +69,8 @@ export const transform_object_member = (
       ) as ts.FunctionDeclaration;
       return element.owned.name === undefined
         ? ts.createCallSignature(
-            /* typeParameters  */ function_type.typeParameters,
-            /* parameters      */ function_type.parameters,
+            /* typeParameters  */ mutable_array(function_type.typeParameters),
+            /* parameters      */ mutable_array(function_type.parameters),
             /* type            */ function_type.type,
           )
         : ts.createMethodSignature(
@@ -88,8 +88,8 @@ export const transform_object_member = (
         path,
       ) as ts.ConstructorTypeNode;
       return ts.createConstructSignature(
-        /* typeParameters  */ constructor_type.typeParameters,
-        /* parameters      */ constructor_type.parameters,
+        /* typeParameters  */ mutable_array(constructor_type.typeParameters),
+        /* parameters      */ mutable_array(constructor_type.parameters),
         /* type            */ constructor_type.type,
       );
     default:

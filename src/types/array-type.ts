@@ -22,7 +22,7 @@ export const create_array_type = (options: IArrayTypeOptions): IArrayType => ({
   ...options,
 });
 
-export const is_array_type = (value: any): value is IArrayTypeOptions =>
+export const is_array_type = (value: any): value is IArrayType =>
   is_element(value) && value.kind === ElementKind.ArrayType;
 
 /**
