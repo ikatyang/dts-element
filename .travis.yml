@@ -4,7 +4,7 @@ node_js:
 - 4
 - 6
 - 8
-- stable
+# - stable https://github.com/facebook/jest/issues/4731
 
 before_install:
 - yarn global add codecov
