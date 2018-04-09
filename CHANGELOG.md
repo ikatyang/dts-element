@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/ikatyang/dts-element/compare/v2.2.1...v2.3.0) (2018-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to ~2.8.1 ([#92](https://github.com/ikatyang/dts-element/issues/92)) ([da54ddc](https://github.com/ikatyang/dts-element/commit/da54ddc))
+
+
+### Features
+
+* support conditional type and infer type ([#94](https://github.com/ikatyang/dts-element/issues/94)) ([31c9e19](https://github.com/ikatyang/dts-element/commit/31c9e19))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/ikatyang/dts-element/compare/v2.2.0...v2.2.1) (2017-08-12)
 
