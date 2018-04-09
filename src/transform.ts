@@ -40,9 +40,11 @@ import { transform_top_level_element } from './others/top-level-element';
 import { transform_triple_slash_reference } from './others/triple-slash-reference';
 import { transform_type_predicate } from './others/type-predicate';
 import { transform_array_type } from './types/array-type';
+import { transform_conditional_type } from './types/conditional-type';
 import { transform_constructor_type } from './types/constructor-type';
 import { transform_function_type } from './types/function-type';
 import { transform_general_type } from './types/general-type';
+import { transform_infer_type } from './types/infer-type';
 import { transform_intersection_type } from './types/intersection-type';
 import { transform_keyof_type } from './types/keyof-type';
 import { transform_literal_type } from './types/literal-type';
@@ -53,8 +55,6 @@ import { transform_sub_type } from './types/sub-type';
 import { transform_tuple_type } from './types/tuple-type';
 import { transform_typeof_type } from './types/typeof-type';
 import { transform_union_type } from './types/union-type';
-import { transform_conditional_type } from './types/conditional-type';
-import { transform_infer_type } from './types/infer-type';
 
 /**
  * @hidden

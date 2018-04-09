@@ -1,6 +1,5 @@
-import { create_general_type } from '..';
-import { create_generic_declaration } from '../..';
 import { boolean_type, number_type, string_type } from '../../constants';
+import { create_generic_declaration } from '../../declarations/generic-declaration';
 import { emit } from '../../emit';
 import { create_infer_type, is_infer_type } from '../infer-type';
 

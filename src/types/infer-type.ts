@@ -1,5 +1,4 @@
 import * as ts from 'typescript';
-import { IType } from '../collections';
 import { ElementKind } from '../constants';
 import {
   transform_generic_declaration,
@@ -11,7 +10,6 @@ import {
   IElement,
   IElementOptions,
 } from '../element';
-import { transform } from '../transform';
 
 export interface IInferTypeOptions extends IElementOptions {
   generic: IGenericDeclaration;

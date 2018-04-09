@@ -37,6 +37,7 @@ import { parse_import_equals_declaration } from './parsers/import-equals-declara
 import { parse_import_specifier } from './parsers/import-specifier';
 import { parse_index_signature } from './parsers/index-signature';
 import { parse_indexed_access_type } from './parsers/indexed-access-type';
+import { parse_infer_type } from './parsers/infer-type';
 import { parse_interface_declaration } from './parsers/interface-declaration';
 import { parse_intersection_type } from './parsers/intersection-type';
 import { parse_mapped_type } from './parsers/mapped-type';
@@ -60,7 +61,6 @@ import { parse_type_reference } from './parsers/type-reference';
 import { parse_union_type } from './parsers/union-type';
 import { parse_variable_statement } from './parsers/variable-statement';
 import { create_literal_type } from './types/literal-type';
-import { parse_infer_type } from './parsers/infer-type';
 
 // tslint:disable:cyclomatic-complexity max-line-length
 export const parse_native = (node: ts.Node): IElement<any> => {

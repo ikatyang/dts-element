@@ -1,10 +1,10 @@
-import { create_general_type } from '..';
 import { boolean_type, number_type, string_type } from '../../constants';
 import { emit } from '../../emit';
 import {
   create_conditional_type,
   is_conditional_type,
 } from '../conditional-type';
+import { create_general_type } from '../general-type';
 
 it('should return correctly', () => {
   expect(
