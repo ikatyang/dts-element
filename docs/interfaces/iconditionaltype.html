@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IExportMember | dts-element</title>
+	<title>IConditionalType | dts-element</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="iexportmember.html">IExportMember</a>
+					<a href="iconditionaltype.html">IConditionalType</a>
 				</li>
 			</ul>
-			<h1>Interface IExportMember</h1>
+			<h1>Interface IConditionalType</h1>
 		</div>
 	</div>
 </header>
@@ -68,13 +68,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ielement.html" class="tsd-signature-type">IElement</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/elementkind.html#exportmember" class="tsd-signature-type">ExportMember</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="ielement.html" class="tsd-signature-type">IElement</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/elementkind.html#conditionaltype" class="tsd-signature-type">ConditionalType</a><span class="tsd-signature-symbol">&gt;</span>
 					</li>
 					<li>
-						<a href="iexportmemberoptions.html" class="tsd-signature-type">IExportMemberOptions</a>
+						<a href="iconditionaltypeoptions.html" class="tsd-signature-type">IConditionalTypeOptions</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IExportMember</span>
+								<span class="target">IConditionalType</span>
 							</li>
 						</ul>
 					</li>
@@ -87,11 +87,13 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iexportmember.html#comments" class="tsd-kind-icon">comments</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iexportmember.html#jsdoc" class="tsd-kind-icon">jsdoc</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportmember.html#kind" class="tsd-kind-icon">kind</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportmember.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iexportmember.html#property" class="tsd-kind-icon">property</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iconditionaltype.html#check" class="tsd-kind-icon">check</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iconditionaltype.html#comments" class="tsd-kind-icon">comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iconditionaltype.html#extends" class="tsd-kind-icon">extends</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iconditionaltype.html#false" class="tsd-kind-icon">false</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="iconditionaltype.html#jsdoc" class="tsd-kind-icon">jsdoc</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iconditionaltype.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iconditionaltype.html#true" class="tsd-kind-icon">true</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,6 +101,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="check" class="tsd-anchor"></a>
+					<h3>check</h3>
+					<div class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">:</span> <a href="../globals.html#itype" class="tsd-signature-type">IType</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="iconditionaltypeoptions.html">IConditionalTypeOptions</a>.<a href="iconditionaltypeoptions.html#check">check</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/types/conditional-type.ts#L13">src/types/conditional-type.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 					<a name="comments" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> comments</h3>
@@ -108,6 +121,28 @@
 						<p>Overrides <a href="ielementoptions.html">IElementOptions</a>.<a href="ielementoptions.html#comments">comments</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/element.ts#L7">src/element.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="extends" class="tsd-anchor"></a>
+					<h3>extends</h3>
+					<div class="tsd-signature tsd-kind-icon">extends<span class="tsd-signature-symbol">:</span> <a href="../globals.html#itype" class="tsd-signature-type">IType</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="iconditionaltypeoptions.html">IConditionalTypeOptions</a>.<a href="iconditionaltypeoptions.html#extends">extends</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/types/conditional-type.ts#L14">src/types/conditional-type.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="false" class="tsd-anchor"></a>
+					<h3>false</h3>
+					<div class="tsd-signature tsd-kind-icon">false<span class="tsd-signature-symbol">:</span> <a href="../globals.html#itype" class="tsd-signature-type">IType</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="iconditionaltypeoptions.html">IConditionalTypeOptions</a>.<a href="iconditionaltypeoptions.html#false">false</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/types/conditional-type.ts#L16">src/types/conditional-type.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -126,7 +161,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="kind" class="tsd-anchor"></a>
 					<h3>kind</h3>
-					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <a href="../enums/elementkind.html#exportmember" class="tsd-signature-type">ExportMember</a></div>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <a href="../enums/elementkind.html#conditionaltype" class="tsd-signature-type">ConditionalType</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ielement.html">IElement</a>.<a href="ielement.html#kind">kind</a></p>
 						<ul>
@@ -135,24 +170,13 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="true" class="tsd-anchor"></a>
+					<h3>true</h3>
+					<div class="tsd-signature tsd-kind-icon">true<span class="tsd-signature-symbol">:</span> <a href="../globals.html#itype" class="tsd-signature-type">IType</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iexportmemberoptions.html">IExportMemberOptions</a>.<a href="iexportmemberoptions.html#name">name</a></p>
+						<p>Inherited from <a href="iconditionaltypeoptions.html">IConditionalTypeOptions</a>.<a href="iconditionaltypeoptions.html#true">true</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/members/export-member.ts#L12">src/members/export-member.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="property" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> property</h3>
-					<div class="tsd-signature tsd-kind-icon">property<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="iexportmemberoptions.html">IExportMemberOptions</a>.<a href="iexportmemberoptions.html#property">property</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/members/export-member.ts#L13">src/members/export-member.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/ikatyang/dts-element/blob/31c9e19/src/types/conditional-type.ts#L15">src/types/conditional-type.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,22 +195,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="iexportmember.html" class="tsd-kind-icon">IExport<wbr>Member</a>
+						<a href="iconditionaltype.html" class="tsd-kind-icon">IConditional<wbr>Type</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iconditionaltype.html#check" class="tsd-kind-icon">check</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-								<a href="iexportmember.html#comments" class="tsd-kind-icon">comments</a>
+								<a href="iconditionaltype.html#comments" class="tsd-kind-icon">comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iconditionaltype.html#extends" class="tsd-kind-icon">extends</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iconditionaltype.html#false" class="tsd-kind-icon">false</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-								<a href="iexportmember.html#jsdoc" class="tsd-kind-icon">jsdoc</a>
+								<a href="iconditionaltype.html#jsdoc" class="tsd-kind-icon">jsdoc</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportmember.html#kind" class="tsd-kind-icon">kind</a>
+								<a href="iconditionaltype.html#kind" class="tsd-kind-icon">kind</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportmember.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iexportmember.html#property" class="tsd-kind-icon">property</a>
+								<a href="iconditionaltype.html#true" class="tsd-kind-icon">true</a>
 							</li>
 						</ul>
 					</li>
