@@ -60,6 +60,7 @@ import { parse_type_reference } from './parsers/type-reference';
 import { parse_union_type } from './parsers/union-type';
 import { parse_variable_statement } from './parsers/variable-statement';
 import { create_literal_type } from './types/literal-type';
+import { parse_infer_type } from './parsers/infer-type';
 
 // tslint:disable:cyclomatic-complexity max-line-length
 export const parse_native = (node: ts.Node): IElement<any> => {
@@ -88,6 +89,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ImportSpecifier: return parse_import_specifier(node as ts.ImportSpecifier);
     case ts.SyntaxKind.IndexSignature: return parse_index_signature(node as ts.IndexSignatureDeclaration);
     case ts.SyntaxKind.IndexedAccessType: return parse_indexed_access_type(node as ts.IndexedAccessTypeNode);
+    case ts.SyntaxKind.InferType: return parse_infer_type(node as ts.InferTypeNode);
     case ts.SyntaxKind.InterfaceDeclaration: return parse_interface_declaration(node as ts.InterfaceDeclaration);
     case ts.SyntaxKind.IntersectionType: return parse_intersection_type(node as ts.IntersectionTypeNode);
     case ts.SyntaxKind.LiteralType: return parse_native((node as ts.LiteralTypeNode).literal);

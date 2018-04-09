@@ -54,6 +54,7 @@ import { transform_tuple_type } from './types/tuple-type';
 import { transform_typeof_type } from './types/typeof-type';
 import { transform_union_type } from './types/union-type';
 import { transform_conditional_type } from './types/conditional-type';
+import { transform_infer_type } from './types/infer-type';
 
 /**
  * @hidden
@@ -83,6 +84,7 @@ const select_transformer = (element: IElement<any>) => {
     case ElementKind.ImportNamed: return transform_import_named;
     case ElementKind.ImportNamespace: return transform_import_namespace;
     case ElementKind.IndexSignature: return transform_index_signature;
+    case ElementKind.InferType: return transform_infer_type;
     case ElementKind.InterfaceDeclaration: return transform_interface_declaration;
     case ElementKind.IntersectionType: return transform_intersection_type;
     case ElementKind.JSDocComment: return transform_jsdoc_comment;

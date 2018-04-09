@@ -23,6 +23,7 @@ export enum ElementKind {
   ImportNamed,
   ImportNamespace,
   IndexSignature,
+  InferType,
   InterfaceDeclaration,
   IntersectionType,
   JSDocComment, // tslint:disable-line:naming-convention

@@ -19,7 +19,7 @@ Object {
   "kind": 12,
   "parameters": Array [
     Object {
-      "kind": 33,
+      "kind": 34,
       "name": "x",
       "optional": undefined,
       "rest": undefined,
@@ -31,7 +31,7 @@ Object {
       },
     },
     Object {
-      "kind": 33,
+      "kind": 34,
       "name": "y",
       "optional": undefined,
       "rest": undefined,
@@ -44,7 +44,7 @@ Object {
     },
   ],
   "return": Object {
-    "kind": 42,
+    "kind": 43,
     "types": Array [
       Object {
         "generics": undefined,
@@ -59,7 +59,7 @@ Object {
         "parents": undefined,
       },
       Object {
-        "kind": 30,
+        "kind": 31,
         "type": TokenObject {
           "end": -1,
           "flags": 8,
@@ -188,5 +188,6 @@ declare function x<T>(v: T): T;
 import xyz = require(\\"xyz\\");
 type X = A[B[C]];
 type TypeName<T> = T extends string ? \\"string\\" : T extends number ? \\"number\\" : T extends boolean ? \\"boolean\\" : T extends undefined ? \\"undefined\\" : T extends Function ? \\"function\\" : \\"object\\";
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
 "
 `;

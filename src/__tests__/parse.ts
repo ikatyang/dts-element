@@ -139,6 +139,8 @@ type TypeName<T> =
     T extends undefined ? "undefined" :
     T extends Function ? "function" :
     "object";
+
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
 `;
 
 it('should return correctly', () => {
