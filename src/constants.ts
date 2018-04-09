@@ -5,6 +5,7 @@ export enum ElementKind {
   ArrayType,
   ClassDeclaration,
   ClassMember,
+  ConditionalType,
   ConstructorType,
   EnumDeclaration,
   ExportDefault,

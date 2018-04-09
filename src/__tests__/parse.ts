@@ -131,6 +131,14 @@ declare function x<T>(v: T): T;
 import xyz = require('xyz');
 
 type X = A[B[C]];
+
+type TypeName<T> =
+    T extends string ? "string" :
+    T extends number ? "number" :
+    T extends boolean ? "boolean" :
+    T extends undefined ? "undefined" :
+    T extends Function ? "function" :
+    "object";
 `;
 
 it('should return correctly', () => {

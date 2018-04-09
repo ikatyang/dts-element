@@ -53,6 +53,7 @@ import { transform_sub_type } from './types/sub-type';
 import { transform_tuple_type } from './types/tuple-type';
 import { transform_typeof_type } from './types/typeof-type';
 import { transform_union_type } from './types/union-type';
+import { transform_conditional_type } from './types/conditional-type';
 
 /**
  * @hidden
@@ -64,6 +65,7 @@ const select_transformer = (element: IElement<any>) => {
     case ElementKind.ArrayType: return transform_array_type;
     case ElementKind.ClassDeclaration: return transform_class_declaration;
     case ElementKind.ClassMember: return transform_class_member;
+    case ElementKind.ConditionalType: return transform_conditional_type;
     case ElementKind.ConstructorType: return transform_constructor_type;
     case ElementKind.EnumDeclaration: return transform_enum_declaration;
     case ElementKind.ExportDefault: return transform_export_default;

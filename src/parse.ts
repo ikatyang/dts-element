@@ -20,6 +20,7 @@ import { ITopLevelElement } from './others/top-level-element';
 import { parse_array_type } from './parsers/array-type';
 import { parse_call_signature } from './parsers/call-signature';
 import { parse_class_declaration } from './parsers/class-declaration';
+import { parse_conditional_type } from './parsers/conditional-type';
 import { parse_construct_signature } from './parsers/construct-signature';
 import { parse_constructor } from './parsers/constructor';
 import { parse_constructor_type } from './parsers/constructor-type';
@@ -69,6 +70,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.BooleanKeyword: return boolean_type;
     case ts.SyntaxKind.CallSignature: return parse_call_signature(node as ts.CallSignatureDeclaration);
     case ts.SyntaxKind.ClassDeclaration: return parse_class_declaration(node as ts.ClassDeclaration);
+    case ts.SyntaxKind.ConditionalType: return parse_conditional_type(node as ts.ConditionalTypeNode);
     case ts.SyntaxKind.ConstructSignature: return parse_construct_signature(node as ts.ConstructSignatureDeclaration);
     case ts.SyntaxKind.Constructor: return parse_constructor(node as ts.ConstructorDeclaration);
     case ts.SyntaxKind.ConstructorType: return parse_constructor_type(node as ts.ConstructorTypeNode);
