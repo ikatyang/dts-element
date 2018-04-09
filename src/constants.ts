@@ -5,6 +5,7 @@ export enum ElementKind {
   ArrayType,
   ClassDeclaration,
   ClassMember,
+  ConditionalType,
   ConstructorType,
   EnumDeclaration,
   ExportDefault,
@@ -22,6 +23,7 @@ export enum ElementKind {
   ImportNamed,
   ImportNamespace,
   IndexSignature,
+  InferType,
   InterfaceDeclaration,
   IntersectionType,
   JSDocComment, // tslint:disable-line:naming-convention

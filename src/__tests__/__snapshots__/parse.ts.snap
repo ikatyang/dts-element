@@ -6,60 +6,60 @@ Object {
     Object {
       "defalut": undefined,
       "extends": undefined,
-      "kind": 13,
+      "kind": 14,
       "name": "T",
     },
     Object {
       "defalut": undefined,
       "extends": undefined,
-      "kind": 13,
+      "kind": 14,
       "name": "U",
     },
   ],
-  "kind": 11,
+  "kind": 12,
   "parameters": Array [
     Object {
-      "kind": 32,
+      "kind": 34,
       "name": "x",
       "optional": undefined,
       "rest": undefined,
       "type": Object {
         "generics": undefined,
-        "kind": 12,
+        "kind": 13,
         "name": "T",
         "parents": undefined,
       },
     },
     Object {
-      "kind": 32,
+      "kind": 34,
       "name": "y",
       "optional": undefined,
       "rest": undefined,
       "type": Object {
         "generics": undefined,
-        "kind": 12,
+        "kind": 13,
         "name": "U",
         "parents": undefined,
       },
     },
   ],
   "return": Object {
-    "kind": 41,
+    "kind": 43,
     "types": Array [
       Object {
         "generics": undefined,
-        "kind": 12,
+        "kind": 13,
         "name": "T",
         "parents": undefined,
       },
       Object {
         "generics": undefined,
-        "kind": 12,
+        "kind": 13,
         "name": "U",
         "parents": undefined,
       },
       Object {
-        "kind": 29,
+        "kind": 31,
         "type": TokenObject {
           "end": -1,
           "flags": 8,
@@ -187,5 +187,7 @@ type adjust = <T, U>(fn: (v: T) => U, index: number, array: T[]) => (T | U)[];
 declare function x<T>(v: T): T;
 import xyz = require(\\"xyz\\");
 type X = A[B[C]];
+type TypeName<T> = T extends string ? \\"string\\" : T extends number ? \\"number\\" : T extends boolean ? \\"boolean\\" : T extends undefined ? \\"undefined\\" : T extends Function ? \\"function\\" : \\"object\\";
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
 "
 `;

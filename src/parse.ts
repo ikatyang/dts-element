@@ -20,6 +20,7 @@ import { ITopLevelElement } from './others/top-level-element';
 import { parse_array_type } from './parsers/array-type';
 import { parse_call_signature } from './parsers/call-signature';
 import { parse_class_declaration } from './parsers/class-declaration';
+import { parse_conditional_type } from './parsers/conditional-type';
 import { parse_construct_signature } from './parsers/construct-signature';
 import { parse_constructor } from './parsers/constructor';
 import { parse_constructor_type } from './parsers/constructor-type';
@@ -36,6 +37,7 @@ import { parse_import_equals_declaration } from './parsers/import-equals-declara
 import { parse_import_specifier } from './parsers/import-specifier';
 import { parse_index_signature } from './parsers/index-signature';
 import { parse_indexed_access_type } from './parsers/indexed-access-type';
+import { parse_infer_type } from './parsers/infer-type';
 import { parse_interface_declaration } from './parsers/interface-declaration';
 import { parse_intersection_type } from './parsers/intersection-type';
 import { parse_mapped_type } from './parsers/mapped-type';
@@ -69,6 +71,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.BooleanKeyword: return boolean_type;
     case ts.SyntaxKind.CallSignature: return parse_call_signature(node as ts.CallSignatureDeclaration);
     case ts.SyntaxKind.ClassDeclaration: return parse_class_declaration(node as ts.ClassDeclaration);
+    case ts.SyntaxKind.ConditionalType: return parse_conditional_type(node as ts.ConditionalTypeNode);
     case ts.SyntaxKind.ConstructSignature: return parse_construct_signature(node as ts.ConstructSignatureDeclaration);
     case ts.SyntaxKind.Constructor: return parse_constructor(node as ts.ConstructorDeclaration);
     case ts.SyntaxKind.ConstructorType: return parse_constructor_type(node as ts.ConstructorTypeNode);
@@ -86,6 +89,7 @@ export const parse_native = (node: ts.Node): IElement<any> => {
     case ts.SyntaxKind.ImportSpecifier: return parse_import_specifier(node as ts.ImportSpecifier);
     case ts.SyntaxKind.IndexSignature: return parse_index_signature(node as ts.IndexSignatureDeclaration);
     case ts.SyntaxKind.IndexedAccessType: return parse_indexed_access_type(node as ts.IndexedAccessTypeNode);
+    case ts.SyntaxKind.InferType: return parse_infer_type(node as ts.InferTypeNode);
     case ts.SyntaxKind.InterfaceDeclaration: return parse_interface_declaration(node as ts.InterfaceDeclaration);
     case ts.SyntaxKind.IntersectionType: return parse_intersection_type(node as ts.IntersectionTypeNode);
     case ts.SyntaxKind.LiteralType: return parse_native((node as ts.LiteralTypeNode).literal);

@@ -40,9 +40,11 @@ import { transform_top_level_element } from './others/top-level-element';
 import { transform_triple_slash_reference } from './others/triple-slash-reference';
 import { transform_type_predicate } from './others/type-predicate';
 import { transform_array_type } from './types/array-type';
+import { transform_conditional_type } from './types/conditional-type';
 import { transform_constructor_type } from './types/constructor-type';
 import { transform_function_type } from './types/function-type';
 import { transform_general_type } from './types/general-type';
+import { transform_infer_type } from './types/infer-type';
 import { transform_intersection_type } from './types/intersection-type';
 import { transform_keyof_type } from './types/keyof-type';
 import { transform_literal_type } from './types/literal-type';
@@ -64,6 +66,7 @@ const select_transformer = (element: IElement<any>) => {
     case ElementKind.ArrayType: return transform_array_type;
     case ElementKind.ClassDeclaration: return transform_class_declaration;
     case ElementKind.ClassMember: return transform_class_member;
+    case ElementKind.ConditionalType: return transform_conditional_type;
     case ElementKind.ConstructorType: return transform_constructor_type;
     case ElementKind.EnumDeclaration: return transform_enum_declaration;
     case ElementKind.ExportDefault: return transform_export_default;
@@ -81,6 +84,7 @@ const select_transformer = (element: IElement<any>) => {
     case ElementKind.ImportNamed: return transform_import_named;
     case ElementKind.ImportNamespace: return transform_import_namespace;
     case ElementKind.IndexSignature: return transform_index_signature;
+    case ElementKind.InferType: return transform_infer_type;
     case ElementKind.InterfaceDeclaration: return transform_interface_declaration;
     case ElementKind.IntersectionType: return transform_intersection_type;
     case ElementKind.JSDocComment: return transform_jsdoc_comment;
