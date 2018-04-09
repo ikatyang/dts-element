@@ -92,10 +92,19 @@ export const if_defined = <T, U>(
   fn: (v: T) => U,
 ): U | undefined => (value === undefined ? undefined : fn(value));
 
-export const has_kind = (nodes: ts.Node[] | undefined, kind: ts.SyntaxKind) =>
+export const has_kind = (
+  nodes: ReadonlyArray<ts.Node> | undefined,
+  kind: ts.SyntaxKind,
+) =>
   nodes === undefined || nodes.length === 0
     ? false
     : nodes.some(node => node.kind === kind);
 
 export const is_valid_identifier = (name: string) =>
   /^[a-zA-Z_\$][a-zA-Z0-9_\$]*$/.test(name);
+
+export function mutable_array<T>(array: ReadonlyArray<T>): T[];
+export function mutable_array<T>(array?: ReadonlyArray<T>): undefined | T[];
+export function mutable_array<T>(array?: ReadonlyArray<T>) {
+  return array && array.slice();
+}

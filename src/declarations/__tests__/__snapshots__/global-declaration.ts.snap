@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return correctly 1`] = `"declare module global { }"`;
+exports[`should return correctly 1`] = `"declare global { }"`;
 
 exports[`should return correctly with members 1`] = `
-"declare module global {
+"declare global {
     var a: any;
     function b(): any;
 }"

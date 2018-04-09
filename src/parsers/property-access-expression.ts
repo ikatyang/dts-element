@@ -12,5 +12,7 @@ export const parse_property_access_expression = (
     current = access_expression.expression;
   }
   expressions.unshift(current);
-  return expressions.map(parse_identifier);
+  return expressions.map(expression =>
+    parse_identifier(expression as ts.Identifier),
+  );
 };

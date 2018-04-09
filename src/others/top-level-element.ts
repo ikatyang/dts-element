@@ -41,8 +41,9 @@ export const transform_top_level_element = (
     /* setParentNodes  */ false,
     /* scriptKind      */ ts.ScriptKind.TS,
   );
-  source_file.statements.push(
-    ...element.members.map(member => transform(member, path) as ts.Statement),
+
+  source_file.statements = ts.createNodeArray(
+    element.members.map(member => transform(member, path) as ts.Statement),
   );
   return source_file;
 };

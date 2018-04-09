@@ -13,7 +13,7 @@ exports[`should return correctly 1`] = `
  *~ need to combine the patterns here with those in the module-class or module-function
  *~ template files
  */
-declare module global {
+declare global {
     /*~ Here, declare things that go in the global namespace, or augment
      *~ existing declarations in the global namespace
      */

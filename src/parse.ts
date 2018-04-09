@@ -135,7 +135,7 @@ export const parse = (code: string) =>
     ),
   ) as ITopLevelElement;
 
-export const parse_type = (type_string: string) => {
+export const parse_type = (type_string: string): IType => {
   const code = `type X = ${type_string}`;
   const top_level_element = parse(code);
   const type_declaration = top_level_element.members[0] as ITypeDeclaration;

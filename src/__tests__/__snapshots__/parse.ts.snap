@@ -174,7 +174,7 @@ export interface X<T> extends C, D {
 export declare namespace NS {
     const ns: any;
 }
-declare module global {
+declare global {
     interface String {
         toXYZ(): any;
     }
