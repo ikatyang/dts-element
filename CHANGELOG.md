@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.2"></a>
+## [2.3.2](https://github.com/ikatyang/dts-element/compare/v2.3.1...v2.3.2) (2018-05-07)
+
+
+### Bug Fixes
+
+* **collections:** add conditional type and infer type to IType ([a8a4c65](https://github.com/ikatyang/dts-element/commit/a8a4c65))
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/ikatyang/dts-element/compare/v2.3.0...v2.3.1) (2018-05-07)
 
