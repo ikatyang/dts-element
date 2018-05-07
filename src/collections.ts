@@ -21,9 +21,11 @@ import { IImportNamed } from './import-exports/import-named';
 import { IImportNamespace } from './import-exports/import-namespace';
 import { ITripleSlashReference } from './others/triple-slash-reference';
 import { IArrayType } from './types/array-type';
+import { IConditionalType } from './types/conditional-type';
 import { IConstructorType } from './types/constructor-type';
 import { IFunctionType } from './types/function-type';
 import { IGeneralType } from './types/general-type';
+import { IInferType } from './types/infer-type';
 import { IIntersectionType } from './types/intersection-type';
 import { IKeyofType } from './types/keyof-type';
 import { ILiteralType } from './types/literal-type';
@@ -75,9 +77,11 @@ export type IDeclaration =
 
 export type IType =
   | IArrayType
+  | IConditionalType
   | IConstructorType
   | IFunctionType
   | IGeneralType
+  | IInferType
   | IIntersectionType
   | IKeyofType
   | ILiteralType
