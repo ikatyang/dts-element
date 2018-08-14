@@ -1,4 +1,5 @@
 import { string_type } from '../../constants';
+import { create_variable_declaration } from '../../declarations';
 import { create_function_declaration } from '../../declarations/function-declaration';
 import { create_parameter_declaration } from '../../declarations/parameter-declaration';
 import { emit } from '../../emit';
@@ -20,6 +21,22 @@ it('should return correctly', () => {
             parameter: create_parameter_declaration({
               name: 'key',
               type: string_type,
+            }),
+          }),
+        ],
+      }),
+    ),
+  ).toMatchSnapshot();
+});
+
+it('should return correctly with numerical name', () => {
+  expect(
+    emit(
+      create_object_type({
+        members: [
+          create_object_member({
+            owned: create_variable_declaration({
+              name: 0,
             }),
           }),
         ],

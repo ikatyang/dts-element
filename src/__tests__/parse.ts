@@ -141,6 +141,10 @@ type TypeName<T> =
     "object";
 
 type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
+
+type X = {
+  0: 123
+}
 `;
 
 it('should return correctly', () => {

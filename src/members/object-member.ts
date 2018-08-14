@@ -52,9 +52,12 @@ export const transform_object_member = (
     case ElementKind.VariableDeclaration:
       return ts.createPropertySignature(
         /* modifiers     */ modifiers,
-        /* name          */ is_valid_identifier(element.owned.name)
+        /* name          */ typeof element.owned.name === 'string' &&
+        is_valid_identifier(element.owned.name)
           ? element.owned.name
-          : ts.createLiteral(element.owned.name),
+          : (ts.createLiteral(element.owned.name) as
+              | ts.StringLiteral
+              | ts.NumericLiteral),
         /* questionToken */ question_token,
         /* type          */ transform(
           element.owned.type || any_type,

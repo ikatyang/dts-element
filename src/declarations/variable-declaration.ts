@@ -11,7 +11,10 @@ import { transform } from '../transform';
 import { add_declare_modifier_if_need } from '../utils';
 
 export interface IVariableDeclarationOptions extends IElementOptions {
-  name: string;
+  name:
+    | string
+    // for object member
+    | number;
   type?: IType;
   export?: boolean;
   const?: boolean;
@@ -52,7 +55,9 @@ export const transform_variable_declaration = (
       path,
     ),
     /* declarationList */ ts.createVariableDeclarationList(
-      /* declarations  */ [ts.createVariableDeclaration(element.name, type)],
+      /* declarations  */ [
+        ts.createVariableDeclaration(element.name.toString(), type),
+      ],
       /* flags         */ element.const === true
         ? ts.NodeFlags.Const
         : element.let === true ? ts.NodeFlags.Let : undefined,

@@ -88,6 +88,21 @@ it('should return correctly with name, export, members', () => {
   ).toMatchSnapshot();
 });
 
+it('should return correctly with numerical member name', () => {
+  expect(
+    emit(
+      create_enum_declaration({
+        name: 'E',
+        members: [
+          create_variable_declaration({
+            name: 0,
+          }),
+        ],
+      }),
+    ),
+  ).toMatchSnapshot();
+});
+
 it('should throw error with members (VariableDeclaration with type (not undefined or LiteralType))', () => {
   expect(() =>
     emit(
