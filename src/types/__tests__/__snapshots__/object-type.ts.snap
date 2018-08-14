@@ -6,3 +6,9 @@ exports[`should return correctly 1`] = `
     [key: string]: any;
 }"
 `;
+
+exports[`should return correctly with numerical name 1`] = `
+"{
+    0: any;
+}"
+`;

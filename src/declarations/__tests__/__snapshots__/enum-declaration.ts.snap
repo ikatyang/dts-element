@@ -29,3 +29,9 @@ exports[`should return correctly with name, members 1`] = `
     c = \\"hello\\"
 }"
 `;
+
+exports[`should return correctly with numerical member name 1`] = `
+"declare enum E {
+    0 = 0
+}"
+`;

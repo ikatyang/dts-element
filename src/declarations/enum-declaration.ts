@@ -6,7 +6,7 @@ import {
   IElement,
   IElementOptions,
 } from '../element';
-import { add_declare_modifier_if_need } from '../utils';
+import { add_declare_modifier_if_need, is_valid_identifier } from '../utils';
 import { IVariableDeclaration } from './variable-declaration';
 
 export interface IEnumDeclarationOptions extends IElementOptions {
@@ -69,7 +69,12 @@ export const transform_enum_declaration = (
         counter = value + 1;
       }
       return ts.createEnumMember(
-        /* name        */ variable_declaration.name,
+        /* name        */ typeof variable_declaration.name === 'string' &&
+        is_valid_identifier(variable_declaration.name)
+          ? variable_declaration.name
+          : (ts.createLiteral(variable_declaration.name) as
+              | ts.StringLiteral
+              | ts.NumericLiteral),
         /* initializer */ ts.createLiteral(value),
       );
     }),
