@@ -11,7 +11,7 @@ before_install:
 
 script:
 - yarn lint
-- yarn test --verbose
+- yarn test --verbose --runInBand
 
 after_script:
 - codecov
