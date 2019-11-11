@@ -20,7 +20,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "typescript": "~2.8.1"
+    "typescript": "~3.7.0"
   },
   "devDependencies": {
     "@types/dedent": "0.7.0",
